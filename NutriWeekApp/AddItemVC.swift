@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UITableViewDelegate{
+class AddItemVC: UIViewController{
 
     @IBOutlet weak var quarSwitch: UISwitch!
     @IBOutlet weak var terSwitch: UISwitch!
