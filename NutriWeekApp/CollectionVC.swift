@@ -66,9 +66,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     
                     cell!.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     
-                    
                 })
+                
         })
+        
+        cell = UIColor.greenColor().CGColor
         
     }
     
