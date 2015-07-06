@@ -17,8 +17,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        Array = ["Pao de Queijo", "Morango", "Leite", "Uva"]
-        ArrayImages = ["cheesebread", "strawberry.jpg", "milk.jpg", "grape.jpg"]
+        Array = ["Pao de Queijo", "Morango", "Leite", "Uva", "Feijão", "Ovo Cozido", "Batata Cozida", "Cenoura", "Barra de Cereal", "Queijo", "Frango Grelhado", "Alface", "Bife", "Suco de Laranja", "Chá de Pessego", "Tomate", "Arroz Branco", "Água"]
+        ArrayImages = ["cheesebread.jpg", "strawberry.jpg", "milk.jpg", "grape.jpg", "bean.jpg", "boiledegg.jpg", "boiledpotato.jpg", "carrot.jpg", "cerealbar.jpg", "cheese.jpg", "grilledckicken.jpg", "lettuce.jpg", "met.jpg", "orangejuice.jpg", "peachtea.jpg", "tomato.jpg", "whiterice.jpg", "water.jpg"]
         
     }
 
@@ -56,7 +56,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, 120, 175)
 
             
-        }), completion: nil)
+        }), completion: {(result) -> Void in
+        
+            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+                
+                
+                cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, cell!.frame.width, cell!.frame.height)
+                
+            }), completion: {(result) -> Void in
+                })
+            })
         
         println("Voce selecionou \(Array[indexPath.row])")
         

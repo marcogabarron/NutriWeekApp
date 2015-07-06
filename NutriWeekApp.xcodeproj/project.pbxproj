@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
 		DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
@@ -72,6 +74,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2B86B621B4AE70C00130D63 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5A18A1B3D76AA003829BF /* ItemCardapioDAO.swift */,
+				DAD5A18B1B3D76AA003829BF /* DatabaseManager.swift */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
+		C2B86B631B4AE71700130D63 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
+				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
+				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C2B86B641B4AE78100130D63 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
+				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		DAD5A1581B3D7549003829BF = {
 			isa = PBXGroup;
 			children = (
@@ -93,14 +123,12 @@
 		DAD5A1631B3D7549003829BF /* NutriWeekApp */ = {
 			isa = PBXGroup;
 			children = (
+				C2B86B641B4AE78100130D63 /* Model */,
+				C2B86B631B4AE71700130D63 /* Controllers */,
 				DAD5A1951B3D76D6003829BF /* Services */,
 				DAD5A1891B3D76AA003829BF /* Persistence */,
 				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
 				DAD5A1661B3D7549003829BF /* AppDelegate.swift */,
-				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
-				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
-				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
-				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				DAD5A1701B3D7549003829BF /* Images.xcassets */,
 				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
 				DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */,
@@ -137,8 +165,7 @@
 		DAD5A1891B3D76AA003829BF /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				DAD5A18A1B3D76AA003829BF /* ItemCardapioDAO.swift */,
-				DAD5A18B1B3D76AA003829BF /* DatabaseManager.swift */,
+				C2B86B621B4AE70C00130D63 /* DAO */,
 				DAD5A18C1B3D76AA003829BF /* VO */,
 			);
 			path = Persistence;
@@ -209,6 +236,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = UNMPYLD92U;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -261,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
+				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* ItemCardapioServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* ItemCardapioDAO.swift in Sources */,
@@ -391,6 +420,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -404,6 +434,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
