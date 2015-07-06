@@ -56,7 +56,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, 120, 175)
 
             
-        }), completion: nil)
+        }), completion: {(result) -> Void in
+        
+            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+                
+                
+                cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, cell!.frame.width, cell!.frame.height)
+                
+            }), completion: {(result) -> Void in
+                })
+            })
         
         println("Voce selecionou \(Array[indexPath.row])")
         
