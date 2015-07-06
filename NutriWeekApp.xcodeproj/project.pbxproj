@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
+		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
+		DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */; };
 		DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1661B3D7549003829BF /* AppDelegate.swift */; };
 		DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */; };
 		DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A1701B3D7549003829BF /* Images.xcassets */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
+		DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		DAD5A1611B3D7549003829BF /* NutriWeekApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriWeekApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5A1651B3D7549003829BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5A1661B3D7549003829BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				DAD5A1661B3D7549003829BF /* AppDelegate.swift */,
 				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
+				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
+				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				DAD5A1701B3D7549003829BF /* Images.xcassets */,
 				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
 				DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */,
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
+				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* ItemCardapioServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* ItemCardapioDAO.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
@@ -262,6 +269,7 @@
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
 				DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */,
+				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,9 +388,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -390,9 +401,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

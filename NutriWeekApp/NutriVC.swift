@@ -15,7 +15,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         // Do any additional setup after loading the view, typically from a nib.
         items = ItemCardapioServices.allItemCardapios()
-        tableView.reloadData()
+        //tableView.reloadData()
     }
 
 
@@ -71,7 +71,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         super.viewWillAppear(animated)
         
-        tableView.reloadData()
+        self.tableView.reloadData()
+        
         println("deveria dar um reload na tableview")
         
     }
@@ -120,8 +121,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return headerView
         
     }
-    
-    
 
 }
 
