@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-class Alimentos: CollectionVC {
+class Alimentos {
     
-    var alimentosJson = [String]()
-    var alimentosImages = [String]()
+    var alimentosJson: Array<Array<String>> = []
+//    var alimentosJson = [String]()
+//    var alimentosImages = [String]()
     
     func loadFeed () {
         
@@ -25,8 +26,9 @@ class Alimentos: CollectionVC {
             var name = buildArray.objectForKey("Nome") as! String
             var image = buildArray.objectForKey("Imagem") as! String
             
-            alimentosJson.append(name)
-            alimentosImages.append(image)
+            
+            alimentosJson.append([name, image])
+//            alimentosImages.append(image)
             
         }
 
