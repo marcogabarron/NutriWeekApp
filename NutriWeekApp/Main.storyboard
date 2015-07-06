@@ -134,6 +134,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.99450888156909456" green="1" blue="0.99538113704030828" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="VPc-Qh-81O" firstAttribute="top" secondItem="sDb-RT-0lS" secondAttribute="top" id="0L6-RA-AkK"/>
                                             <constraint firstItem="vzT-7F-XFf" firstAttribute="top" secondItem="VPc-Qh-81O" secondAttribute="bottom" constant="3" id="49b-iN-2Cp"/>
@@ -303,8 +304,8 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-gw-gOa">
-                                                            <rect key="frame" x="0.0" y="99" width="104" height="14"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                            <rect key="frame" x="0.0" y="99" width="104" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         </label>

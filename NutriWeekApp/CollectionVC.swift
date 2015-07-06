@@ -53,24 +53,30 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        var cell = collectionView.cellForItemAtIndexPath(indexPath)
-//        var celll = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
         
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
-            cell!.transform = CGAffineTransformMakeScale(1.05, 1.05)
+            cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
             
             }, completion: {(result) -> Void in
                 
                 UIView.animateWithDuration(0.3, animations: {() -> Void in
                     
-                    cell!.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                    cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     
                 })
                 
         })
+        if(cell.click == false){
+            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+            cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+        }else{
+            cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
+            cell.myButton.tintColor = UIColor.blackColor()
+        }
         
-        cell = UIColor.greenColor().CGColor
+        cell.click = !cell.click
         
     }
     
