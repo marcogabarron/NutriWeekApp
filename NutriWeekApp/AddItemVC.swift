@@ -27,9 +27,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
 
     @IBAction func InsertButton(sender: UIButton) {
         
-        ItemCardapioServices.createItemCardapio(textField.text)
+        ItemCardapioServices.createItemCardapio("café da manha")
         nutriVC.items = ItemCardapioServices.allItemCardapios()
-        textField.text = ""
+//        textField.text = ""
         //nutriVC.tableView.reloadData()
         println("funciona um reload data aqui?")
         

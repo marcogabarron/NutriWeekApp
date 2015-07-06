@@ -273,37 +273,14 @@
                                 <color key="barTintColor" red="0.40000000000000002" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-jj-jhc">
-                                <rect key="frame" x="0.0" y="0.0" width="26" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titulo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noE-fb-gjZ">
                                 <rect key="frame" x="0.0" y="0.0" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f4-8e-NZc">
-                                <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
-                                <state key="normal" title="Insert">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="InsertButton:" destination="mUV-d7-g5Y" eventType="touchUpInside" id="863-up-Nic"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-Fl-zNT">
-                                <rect key="frame" x="16" y="207" width="343" height="30"/>
-                                <state key="normal" title="Repeat">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wIO-eg-H86" kind="show" id="PfG-zK-AG3"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q2b-Nd-gbJ">
-                                <rect key="frame" x="0.0" y="289" width="375" height="378"/>
+                                <rect key="frame" x="0.0" y="286" width="375" height="381"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6cz-Jd-g45">
                                     <size key="itemSize" width="120" height="130"/>
@@ -376,6 +353,24 @@
                                     <outlet property="delegate" destination="mUV-d7-g5Y" id="0Cs-ZP-Zpn"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQs-Fl-zNT">
+                                <rect key="frame" x="16" y="207" width="343" height="30"/>
+                                <state key="normal" title="Repeat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wIO-eg-H86" kind="show" id="PfG-zK-AG3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f4-8e-NZc">
+                                <rect key="frame" x="320" y="248" width="39" height="30"/>
+                                <state key="normal" title="Insert">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="InsertButton:" destination="mUV-d7-g5Y" eventType="touchUpInside" id="863-up-Nic"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -387,16 +382,20 @@
                             <constraint firstItem="q2b-Nd-gbJ" firstAttribute="leading" secondItem="DZO-CR-lW4" secondAttribute="leading" id="PUn-la-KJy"/>
                             <constraint firstItem="AVq-Iu-tAo" firstAttribute="top" secondItem="iQs-Fl-zNT" secondAttribute="bottom" id="UBi-3r-Ca8"/>
                             <constraint firstItem="Sci-vb-A3J" firstAttribute="top" secondItem="ETv-jN-Tka" secondAttribute="bottom" constant="10" id="ZLe-jE-liT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2f4-8e-NZc" secondAttribute="trailing" id="aMs-RI-mxb"/>
                             <constraint firstItem="cR5-OD-3xK" firstAttribute="top" secondItem="q2b-Nd-gbJ" secondAttribute="bottom" id="as8-OI-yEP"/>
                             <constraint firstItem="iQs-Fl-zNT" firstAttribute="top" secondItem="Sci-vb-A3J" secondAttribute="bottom" id="bJx-WS-jh6"/>
                             <constraint firstAttribute="trailing" secondItem="Sci-vb-A3J" secondAttribute="trailing" id="byG-CT-Zad"/>
-                            <constraint firstItem="q2b-Nd-gbJ" firstAttribute="top" secondItem="AVq-Iu-tAo" secondAttribute="bottom" constant="8" id="g6o-WH-bXo"/>
+                            <constraint firstItem="q2b-Nd-gbJ" firstAttribute="top" secondItem="2f4-8e-NZc" secondAttribute="bottom" constant="8" symbolic="YES" id="fD5-WX-L57"/>
+                            <constraint firstItem="2f4-8e-NZc" firstAttribute="trailing" secondItem="DZO-CR-lW4" secondAttribute="trailingMargin" id="g6W-PS-JuO"/>
+                            <constraint firstItem="q2b-Nd-gbJ" firstAttribute="top" secondItem="AVq-Iu-tAo" secondAttribute="bottom" constant="5" id="g6o-WH-bXo"/>
                             <constraint firstItem="iQs-Fl-zNT" firstAttribute="trailing" secondItem="DZO-CR-lW4" secondAttribute="trailingMargin" id="oYT-Qo-jfJ"/>
                             <constraint firstItem="iQs-Fl-zNT" firstAttribute="leading" secondItem="DZO-CR-lW4" secondAttribute="leadingMargin" id="pJh-KA-zdl"/>
                             <constraint firstItem="iQs-Fl-zNT" firstAttribute="top" secondItem="Sci-vb-A3J" secondAttribute="bottom" id="qeP-4j-y9M"/>
                             <constraint firstItem="iQs-Fl-zNT" firstAttribute="top" secondItem="Sci-vb-A3J" secondAttribute="bottom" constant="8" id="rr3-AA-Pj9"/>
                             <constraint firstItem="q2b-Nd-gbJ" firstAttribute="top" secondItem="AVq-Iu-tAo" secondAttribute="bottom" constant="8" id="sb8-xX-dy8"/>
                             <constraint firstItem="q2b-Nd-gbJ" firstAttribute="trailing" secondItem="DZO-CR-lW4" secondAttribute="trailing" id="uM1-Eg-SyK"/>
+                            <constraint firstItem="cR5-OD-3xK" firstAttribute="top" secondItem="2f4-8e-NZc" secondAttribute="bottom" id="z9q-yT-qOw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -405,13 +404,14 @@
                                 <exclude reference="qeP-4j-y9M"/>
                                 <exclude reference="UBi-3r-Ca8"/>
                                 <exclude reference="sb8-xX-dy8"/>
+                                <exclude reference="aMs-RI-mxb"/>
+                                <exclude reference="z9q-yT-qOw"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="q2b-Nd-gbJ" id="Dvv-8K-7Cm"/>
-                        <outlet property="textField" destination="Lac-jj-jhc" id="mM2-Yw-iJX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeJ-Ah-S44" userLabel="First Responder" sceneMemberID="firstResponder"/>
