@@ -14,10 +14,9 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        items = ItemCardapioServices.allItemCardapios()
-        //tableView.reloadData()
-    }
 
+    }
+    
 
     @IBAction func AddItemButton(sender: UIButton) {
         
@@ -70,11 +69,9 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        
+        items = ItemCardapioServices.allItemCardapios()
         self.tableView.reloadData()
-        
-        println("deveria dar um reload na tableview")
-        
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

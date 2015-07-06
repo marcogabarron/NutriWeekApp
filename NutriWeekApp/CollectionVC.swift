@@ -8,25 +8,20 @@
 
 import UIKit
 
-
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var Array = [String]()
     var ArrayImages = [String]()
-   
+    var colorImage = UIColor.blackColor().CGColor
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        Array = ["Pao de Queijo", "Morango", "Leite", "Uva", "Feijão", "Ovo Cozido", "Batata Cozida", "Cenoura", "Barra de Cereal", "Queijo", "Frango Grelhado", "Alface", "Bife", "Suco de Laranja", "Chá de Pessego", "Tomate", "Arroz Branco", "Água"]
-//        ArrayImages = ["cheesebread.jpg", "strawberry.jpg", "milk.jpg", "grape.jpg", "bean.jpg", "boiledegg.jpg", "boiledpotato.jpg", "carrot.jpg", "cerealbar.jpg", "cheese.jpg", "grilledckicken.jpg", "lettuce.jpg", "met.jpg", "orangejuice.jpg", "peachtea.jpg", "tomato.jpg", "whiterice.jpg", "water.jpg"]
-        
-        //Chama o leitor de JSON e iguala os itens da Array a eles, em ordem alfabética
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
-        Array = alimentos.alimentosJson.sorted(<)
-        ArrayImages = alimentos.alimentosImages.sorted(<)
+        Array = ["Pao de Queijo", "Morango", "Leite", "Uva", "Feijão", "Ovo Cozido", "Batata Cozida", "Cenoura", "Barra de Cereal", "Queijo", "Frango Grelhado", "Alface", "Bife", "Suco de Laranja", "Chá de Pessego", "Tomate", "Arroz Branco", "Água"]
+        ArrayImages = ["cheesebread.jpg", "strawberry.jpg", "milk.jpg", "grape.jpg", "bean.jpg", "boiledegg.jpg", "boiledpotato.jpg", "carrot.jpg", "cerealbar.jpg", "cheese.jpg", "grilledckicken.jpg", "lettuce.jpg", "met.jpg", "orangejuice.jpg", "peachtea.jpg", "tomato.jpg", "whiterice.jpg", "water.jpg"]
         
     }
 
@@ -49,6 +44,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
+        cell.myImage.layer.borderWidth = 2
+        cell.myImage.layer.borderColor = colorImage
         
         return cell
         
@@ -57,25 +54,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath)
+        var celll = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
+            cell!.transform = CGAffineTransformMakeScale(1.05, 1.05)
             
-            cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, 120, 175)
-
-            
-        }), completion: {(result) -> Void in
-        
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+            }, completion: {(result) -> Void in
                 
-                
-                cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, cell!.frame.width, cell!.frame.height)
-                
-            }), completion: {(result) -> Void in
+                UIView.animateWithDuration(0.3, animations: {() -> Void in
+                    
+                    cell!.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                    
+                    
                 })
-            })
-        
-        println("Voce selecionou \(Array[indexPath.row])")
+        })
         
     }
     
