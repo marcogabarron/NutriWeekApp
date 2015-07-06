@@ -54,7 +54,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath)
-        var celll = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
+//        var celll = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
         
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             

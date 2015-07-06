@@ -34,21 +34,18 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             nutriVC.items = ItemCardapioServices.allItemCardapios()
             self.nameTextField.text = ""
         }else{
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
                 
+                self.nameTextField.transform = CGAffineTransformMakeScale(0.8, 0.8)
                 
-                self.nameTextField.frame = CGRectMake(self.nameTextField.frame.origin.x, self.nameTextField.frame.origin.y, self.nameTextField.frame.width+20, self.nameTextField.frame.height+20)
-                
-                
-            }), completion: {(result) -> Void in
-                
-                UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+                }, completion: {(result) -> Void in
                     
-                    
-                    self.nameTextField.frame = CGRectMake(self.nameTextField.frame.origin.x, self.nameTextField.frame.origin.y, self.nameTextField.frame.width-20, self.nameTextField.frame.height-20)
-                    
-                }), completion: {(result) -> Void in
-                })
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        
+                        self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        
+                        
+                    })
             })
         }
     }
