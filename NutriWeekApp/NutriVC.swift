@@ -14,8 +14,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //tableView.reloadData()
+
     }
     
 
@@ -72,9 +71,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         items = ItemCardapioServices.allItemCardapios()
         self.tableView.reloadData()
-        
-        println("deveria dar um reload na tableview")
-        
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

@@ -12,6 +12,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     var Array = [String]()
     var ArrayImages = [String]()
+    var colorImage = UIColor.blackColor().CGColor
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +44,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
+        cell.myImage.layer.borderWidth = 2
+        cell.myImage.layer.borderColor = colorImage
         
         return cell
         
@@ -49,25 +54,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath)
+        var celll = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
+            cell!.transform = CGAffineTransformMakeScale(1.05, 1.05)
             
-            cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, 120, 175)
-
-            
-        }), completion: {(result) -> Void in
-        
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: nil, animations:({
+            }, completion: {(result) -> Void in
                 
-                
-                cell!.frame = CGRectMake(cell!.frame.origin.x, cell!.frame.origin.y, cell!.frame.width, cell!.frame.height)
-                
-            }), completion: {(result) -> Void in
+                UIView.animateWithDuration(0.3, animations: {() -> Void in
+                    
+                    cell!.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                    
+                    
                 })
-            })
-        
-        println("Voce selecionou \(Array[indexPath.row])")
+        })
         
     }
     
