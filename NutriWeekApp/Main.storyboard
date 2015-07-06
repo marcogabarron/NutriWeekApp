@@ -310,7 +310,6 @@
                                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="EDG-gw-gOa" firstAttribute="top" secondItem="CLI-Ik-D1c" secondAttribute="bottom" id="0fV-ng-eEq"/>
                                                         <constraint firstItem="CLI-Ik-D1c" firstAttribute="top" secondItem="hFa-My-IRf" secondAttribute="top" constant="5" id="CZQ-7t-phY"/>
@@ -342,7 +341,6 @@
                                         <connections>
                                             <outlet property="image" destination="CLI-Ik-D1c" id="YPP-dI-yiu"/>
                                             <outlet property="textLabel" destination="EDG-gw-gOa" id="eqq-eK-AA3"/>
-                                            <outlet property="viewCell" destination="hFa-My-IRf" id="htL-vl-bDz"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

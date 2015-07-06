@@ -72,7 +72,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.image.layer.borderColor = UIColor.blackColor().CGColor
         
         cell.image.layer.cornerRadius = cell.image.frame.width/3
-        cell.viewCell.layer.cornerRadius = cell.viewCell.frame.width/3
         return cell
     }
     

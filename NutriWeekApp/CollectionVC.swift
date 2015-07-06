@@ -40,6 +40,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
         
         cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
+        
         cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
@@ -68,6 +69,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 })
                 
         })
+        
         if(cell.click == false){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
