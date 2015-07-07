@@ -105,7 +105,35 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         cell.click = !cell.click
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        return 1
+        
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell") as! UITableViewCell
+        
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell!.selected = false
+        
+    }
 
-
+    @IBAction func onTapped(sender: AnyObject) {
+        view.endEditing(true)
+    }
 
 }
