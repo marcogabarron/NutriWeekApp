@@ -388,18 +388,18 @@
             </objects>
             <point key="canvasLocation" x="1449.5" y="211.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Weeks Table View Controller-->
         <scene sceneID="prb-SG-gQN">
             <objects>
-                <tableViewController id="wIO-eg-H86" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ww3-ZZ-Ow5">
+                <tableViewController id="wIO-eg-H86" customClass="WeeksTableViewController" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsMultipleSelection="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ww3-ZZ-Ow5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="UsE-TS-DdK">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="FQr-47-YeE" style="IBUITableViewCellStyleDefault" id="L0N-CD-Ta1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" editingAccessoryType="checkmark" textLabel="FQr-47-YeE" style="IBUITableViewCellStyleDefault" id="L0N-CD-Ta1">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L0N-CD-Ta1" id="S6U-B6-kUt">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -412,6 +412,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="L0L-xh-Yu4" style="IBUITableViewCellStyleDefault" id="MfZ-lp-KOu">
                                         <autoresizingMask key="autoresizingMask"/>
