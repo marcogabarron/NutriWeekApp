@@ -67,11 +67,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         cell.image.image = UIImage(named: ArrayImages[indexPath.row])
         cell.image.layer.masksToBounds = true
+        cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
         cell.image.layer.borderWidth = 2
         cell.image.layer.borderColor = UIColor.blackColor().CGColor
         
-        cell.image.layer.cornerRadius = cell.image.frame.width/3
+        
         return cell
     }
     
