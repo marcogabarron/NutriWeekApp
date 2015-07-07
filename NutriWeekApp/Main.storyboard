@@ -254,7 +254,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="wIO-eg-H86" kind="show" id="l7m-ge-tm8"/>
+                                            <segue destination="wIO-eg-H86" kind="show" identifier="Week" id="lVe-Qv-OL8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -417,7 +417,7 @@
             </objects>
             <point key="canvasLocation" x="1449.5" y="211.5"/>
         </scene>
-        <!--Weeks Table View Controller-->
+        <!--Repetir-->
         <scene sceneID="prb-SG-gQN">
             <objects>
                 <tableViewController id="wIO-eg-H86" customClass="WeeksTableViewController" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -535,10 +535,11 @@
                             <outlet property="delegate" destination="wIO-eg-H86" id="Xbn-Bx-hH7"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Repetir" id="rnl-A0-T2e"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2117.5" y="-214.5"/>
+            <point key="canvasLocation" x="2184" y="-165"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3RW-bx-Twc">

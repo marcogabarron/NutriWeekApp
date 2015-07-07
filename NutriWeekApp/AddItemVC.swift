@@ -13,7 +13,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var nameTextField: UITextField!
     
     var nutriVC = NutriVC()
+    
+    var daysOfWeekString = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
 
+    var daysOfWeek : [NSDate] = []
     
     var Array = [String]()
     var ArrayImages = [String]()
@@ -26,32 +29,26 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         alimentos.loadFeed()
         Array = alimentos.alimentosJson.sorted(<)
         ArrayImages = alimentos.alimentosImages.sorted(<)
+        
     }
     
-
-    @IBAction func saveItemButton(sender: AnyObject) {
-        if(self.nameTextField.text != ""){
-            ItemCardapioServices.createItemCardapio(self.nameTextField.text)
-            nutriVC.items = ItemCardapioServices.allItemCardapios()
-            self.nameTextField.text = ""
-        }else{
-            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-                
-                self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
-                
-                }, completion: {(result) -> Void in
-                    
-                    UIView.animateWithDuration(0.3, animations: {() -> Void in
-                        
-                        self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                        self.nameTextField.backgroundColor = UIColor.whiteColor()
-                        
-                        
-                    })
-            })
-        }
+    override func viewWillAppear(animated: Bool) {
+        println(self.daysOfWeekString)
     }
     
+//    func addDaysOfWeek(){
+//        let formatter = NSDateFormatter()
+//        formatter.timeZone = NSTimeZone.localTimeZone()
+//        formatter.dateFormat = "E"
+//        
+//        for week in self.daysOfWeekString {
+//            
+//            self.daysOfWeek.append(formatter.dateFromString(week)!)
+//        }
+//    }
+    
+    
+    //MARK: CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -106,6 +103,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.click = !cell.click
     }
     
+    //MARK: TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         return 1
@@ -132,8 +130,40 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
     }
 
+    //MARK: actions
+    
+    @IBAction func saveItemButton(sender: AnyObject) {
+        if(self.nameTextField.text != ""){
+        ItemCardapioServices.createItemCardapio(self.nameTextField.text)
+        nutriVC.items = ItemCardapioServices.allItemCardapios()
+        self.nameTextField.text = ""
+    }else{
+        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+        
+        self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
+        
+        }, completion: {(result) -> Void in
+            
+            UIView.animateWithDuration(0.3, animations: {() -> Void in
+                
+                self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                self.nameTextField.backgroundColor = UIColor.whiteColor()
+                
+                
+                })
+        })
+        }
+    }
+    
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Week") {
+        let destinationViewController = segue.destinationViewController as! WeeksTableViewController
+        destinationViewController.week = self.daysOfWeekString
+        }
     }
 
 }
