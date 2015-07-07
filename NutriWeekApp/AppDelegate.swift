@@ -9,6 +9,7 @@
 
 import UIKit
 import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -39,16 +40,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         if application.respondsToSelector("registerUserNotificationSettings:") {
+            
             let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
             let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
-        } else {
-            let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
-            application.registerForRemoteNotificationTypes(types)
-        }
+        }  /* else {
+            let types = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
+            application.registerForRemoteNotificationTypes(.Badge | .Sound | .Alert)
+        } */
         
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            println("Push notifications are not supported in the iOS Simulator.")
+        } else {
+            println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+        }
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        PFPush.handlePush(userInfo)
+        
+        
+        if application.applicationState == UIApplicationState.Inactive {
+            PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
+        }
     }
     
 
