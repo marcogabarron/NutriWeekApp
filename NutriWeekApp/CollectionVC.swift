@@ -10,8 +10,13 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var alimentosList : Array<Array<String>> = []
-//    var ArrayImages = [String]()
+//    var alimentosList : Array<Array<String>> = []
+    
+    var Array = [String]()
+    var ArrayImages = [String]()
+    
+//    var alimentosList: NSDictionary?
+    
     var colorImage = UIColor.blackColor().CGColor
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -26,10 +31,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var alimentos = Alimentos()
         alimentos.loadFeed()
         
-        for buildArray in alimentos.alimentosJson {
-            sort(&alimentos.alimentosJson[1], <)
-            
-        }
+        
+        
+        Array = alimentos.alimentosJson.sorted(<)
+        ArrayImages = alimentos.alimentosImages.sorted(<)
+        
+//        alimentosList = sorted(alimentos.alimentosImages) { $0.0 < $1.0 }
+        
+//        for buildArray in alimentos.alimentosJson {
+//            sort(&alimentos.alimentosJson[1], <)
+//            
+//        }
     
         
     }
@@ -40,16 +52,19 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return alimentosList.count
+        return Array.count
+//        return alimentosList.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
+        cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
+        cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
         
-        cell.myButton.setTitle("\(alimentosList[indexPath.row])", forState: .Normal)
-        cell.myImage.image = UIImage(named: alimentosList[indexPath.row][2])
+//        cell.myButton.setTitle("\(alimentosList[indexPath.row])", forState: .Normal)
+//        cell.myImage.image = UIImage(named: alimentosList[indexPath.row][2])
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
