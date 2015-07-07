@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
+		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
@@ -22,22 +24,6 @@
 		DAD5A1941B3D76B7003829BF /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1931B3D76B7003829BF /* ItemCardapioServices.swift */; };
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
-		FF7B115B1B4B01D100432432 /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = FF7B115A1B4B01D100432432 /* Alimentos.txt */; };
-		FF7B115D1B4B075E00432432 /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B115C1B4B075E00432432 /* Alimentos.swift */; };
-		FFA2A9271B4C3851009E0FC1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9261B4C3851009E0FC1 /* Parse.framework */; };
-		FFA2A9291B4C3E52009E0FC1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9281B4C3E52009E0FC1 /* AudioToolbox.framework */; };
-		FFA2A92B1B4C3E72009E0FC1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A92A1B4C3E72009E0FC1 /* CFNetwork.framework */; };
-		FFA2A92D1B4C3E85009E0FC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A92C1B4C3E85009E0FC1 /* CoreGraphics.framework */; };
-		FFA2A92F1B4C3E8F009E0FC1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A92E1B4C3E8F009E0FC1 /* CoreLocation.framework */; };
-		FFA2A9311B4C3E97009E0FC1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9301B4C3E97009E0FC1 /* MobileCoreServices.framework */; };
-		FFA2A9331B4C3E9E009E0FC1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9321B4C3E9E009E0FC1 /* QuartzCore.framework */; };
-		FFA2A9351B4C3EA6009E0FC1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9341B4C3EA6009E0FC1 /* Security.framework */; };
-		FFA2A9371B4C3EAD009E0FC1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9361B4C3EAD009E0FC1 /* StoreKit.framework */; };
-		FFA2A9391B4C3EC5009E0FC1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9381B4C3EC5009E0FC1 /* SystemConfiguration.framework */; };
-		FFA2A93B1B4C3ECE009E0FC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A93A1B4C3ECE009E0FC1 /* libz.dylib */; };
-		FFA2A93D1B4C3ED7009E0FC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A93C1B4C3ED7009E0FC1 /* libsqlite3.dylib */; };
-		FFA2A93F1B4C3EE7009E0FC1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A93E1B4C3EE7009E0FC1 /* Accounts.framework */; };
-		FFA2A9411B4C3EED009E0FC1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A9401B4C3EED009E0FC1 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
+		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
@@ -70,22 +58,6 @@
 		DAD5A1931B3D76B7003829BF /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCardapioServices.swift; sourceTree = "<group>"; };
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		FF7B115A1B4B01D100432432 /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
-		FF7B115C1B4B075E00432432 /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
-		FFA2A9261B4C3851009E0FC1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		FFA2A9281B4C3E52009E0FC1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		FFA2A92A1B4C3E72009E0FC1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		FFA2A92C1B4C3E85009E0FC1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FFA2A92E1B4C3E8F009E0FC1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		FFA2A9301B4C3E97009E0FC1 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		FFA2A9321B4C3E9E009E0FC1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		FFA2A9341B4C3EA6009E0FC1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		FFA2A9361B4C3EAD009E0FC1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		FFA2A9381B4C3EC5009E0FC1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		FFA2A93A1B4C3ECE009E0FC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		FFA2A93C1B4C3ED7009E0FC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		FFA2A93E1B4C3EE7009E0FC1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		FFA2A9401B4C3EED009E0FC1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,20 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFA2A9411B4C3EED009E0FC1 /* Social.framework in Frameworks */,
-				FFA2A93F1B4C3EE7009E0FC1 /* Accounts.framework in Frameworks */,
-				FFA2A93D1B4C3ED7009E0FC1 /* libsqlite3.dylib in Frameworks */,
-				FFA2A93B1B4C3ECE009E0FC1 /* libz.dylib in Frameworks */,
-				FFA2A9391B4C3EC5009E0FC1 /* SystemConfiguration.framework in Frameworks */,
-				FFA2A9371B4C3EAD009E0FC1 /* StoreKit.framework in Frameworks */,
-				FFA2A9351B4C3EA6009E0FC1 /* Security.framework in Frameworks */,
-				FFA2A9331B4C3E9E009E0FC1 /* QuartzCore.framework in Frameworks */,
-				FFA2A9311B4C3E97009E0FC1 /* MobileCoreServices.framework in Frameworks */,
-				FFA2A92F1B4C3E8F009E0FC1 /* CoreLocation.framework in Frameworks */,
-				FFA2A92D1B4C3E85009E0FC1 /* CoreGraphics.framework in Frameworks */,
-				FFA2A92B1B4C3E72009E0FC1 /* CFNetwork.framework in Frameworks */,
-				FFA2A9291B4C3E52009E0FC1 /* AudioToolbox.framework in Frameworks */,
-				FFA2A9271B4C3851009E0FC1 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +100,8 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FF7B115A1B4B01D100432432 /* Alimentos.txt */,
-				FF7B115C1B4B075E00432432 /* Alimentos.swift */,
+				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
+				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 			);
@@ -180,8 +138,6 @@
 				DAD5A1701B3D7549003829BF /* Images.xcassets */,
 				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
 				DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */,
-				FFA2A9421B4C3F28009E0FC1 /* Parse */,
-				FFA2A9261B4C3851009E0FC1 /* Parse.framework */,
 				DAD5A1641B3D7549003829BF /* Supporting Files */,
 			);
 			path = NutriWeekApp;
@@ -235,26 +191,6 @@
 				DAD5A1931B3D76B7003829BF /* ItemCardapioServices.swift */,
 			);
 			name = Services;
-			sourceTree = "<group>";
-		};
-		FFA2A9421B4C3F28009E0FC1 /* Parse */ = {
-			isa = PBXGroup;
-			children = (
-				FFA2A93E1B4C3EE7009E0FC1 /* Accounts.framework */,
-				FFA2A93C1B4C3ED7009E0FC1 /* libsqlite3.dylib */,
-				FFA2A93A1B4C3ECE009E0FC1 /* libz.dylib */,
-				FFA2A9361B4C3EAD009E0FC1 /* StoreKit.framework */,
-				FFA2A9341B4C3EA6009E0FC1 /* Security.framework */,
-				FFA2A9401B4C3EED009E0FC1 /* Social.framework */,
-				FFA2A9321B4C3E9E009E0FC1 /* QuartzCore.framework */,
-				FFA2A9301B4C3E97009E0FC1 /* MobileCoreServices.framework */,
-				FFA2A92C1B4C3E85009E0FC1 /* CoreGraphics.framework */,
-				FFA2A92A1B4C3E72009E0FC1 /* CFNetwork.framework */,
-				FFA2A9281B4C3E52009E0FC1 /* AudioToolbox.framework */,
-				FFA2A9381B4C3EC5009E0FC1 /* SystemConfiguration.framework */,
-				FFA2A92E1B4C3E8F009E0FC1 /* CoreLocation.framework */,
-			);
-			name = Parse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +277,7 @@
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
 				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
-				FF7B115B1B4B01D100432432 /* Alimentos.txt in Resources */,
+				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +297,7 @@
 			files = (
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
-				FF7B115D1B4B075E00432432 /* Alimentos.swift in Sources */,
+				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* ItemCardapioServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* ItemCardapioDAO.swift in Sources */,
@@ -491,10 +427,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NutriWeekApp",
-				);
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -509,10 +441,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NutriWeekApp",
-				);
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
