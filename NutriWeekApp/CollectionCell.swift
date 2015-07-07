@@ -9,6 +9,7 @@
 import UIKit
 
 class CollectionCell: UICollectionViewCell {
+    var click: Bool = false
     
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myButton: UIButton!

@@ -9,12 +9,12 @@
 import UIKit
 
 class SelectedCollectionViewCell: UICollectionViewCell {
-    var nada: Bool = false
-    
-    @IBOutlet weak var viewCell: UIView!
-    
+    var click: Bool = false
+        
     @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet weak var image: UIImageView!
+    
+    
     
 }

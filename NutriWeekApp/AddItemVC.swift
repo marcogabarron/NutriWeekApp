@@ -43,13 +43,14 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         }else{
             UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
                 
-                self.nameTextField.transform = CGAffineTransformMakeScale(0.8, 0.8)
+                self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
                 
                 }, completion: {(result) -> Void in
                     
                     UIView.animateWithDuration(0.3, animations: {() -> Void in
                         
                         self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        self.nameTextField.backgroundColor = UIColor.whiteColor()
                         
                         
                     })
@@ -73,10 +74,42 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         cell.image.image = UIImage(named: ArrayImages[indexPath.row])
         cell.image.layer.masksToBounds = true
-        
         cell.image.layer.cornerRadius = cell.image.frame.width/3
-        cell.viewCell.layer.cornerRadius = cell.viewCell.frame.width/3
+        cell.layer.cornerRadius = cell.frame.width/4
+        cell.image.layer.borderWidth = 2
+        cell.image.layer.borderColor = UIColor.blackColor().CGColor
+        
+        
         return cell
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+        
+        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+            
+            cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+            
+            }, completion: {(result) -> Void in
+                
+                UIView.animateWithDuration(0.3, animations: {() -> Void in
+                    
+                    cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                    
+                })
+                
+        })
+        if(cell.click == false){
+            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+            cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+        }else{
+            cell.image.layer.borderColor = UIColor.blackColor().CGColor
+            cell.textLabel.textColor = UIColor.blackColor()
+        }
+        
+        cell.click = !cell.click
     }
 
 
