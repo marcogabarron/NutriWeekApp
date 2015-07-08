@@ -20,6 +20,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+//        var localNotification = UILocalNotification()
+//        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
+//        localNotification.soundName = UILocalNotificationDefaultSoundName
+//        localNotification.alertBody = "Heyie"
+//        localNotification.alertAction = "Let`s see it"
+//        
+//        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert, categories: nil))
+        
+        
+        
         Parse.setApplicationId("lB9S11H5jKUxW8RpBsjCNpwKsTjRyEW9hZBYMz8F",
             clientKey: "YAcnZrlbwKhyE99BPv5VDtKPYtOzPE33qyX1db6W")
         

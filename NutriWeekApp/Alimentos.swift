@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Alimentos {
+class Alimentos: NSObject {
     
     var name: String!
     var image: String!

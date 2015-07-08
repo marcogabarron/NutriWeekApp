@@ -11,13 +11,12 @@ import UIKit
 
 class ReadJson {
     
-    var nome: String!
-    var image: String!
     
     
+    var alimentosNomes = [String]()
+    var alimentosImages = [String]()
     
-    
-//    var alimentosImages = [String]()
+    var listaAlimentosJson = Array<AnyObject>()
     
     
     
@@ -29,12 +28,21 @@ class ReadJson {
         
         var feed : NSArray = jsonResult["Alimentos"] as! NSArray
         
+        
         for buildArray in feed {
-            var name = buildArray.objectForKey("Nome") as! String
-            var image = buildArray.objectForKey("Imagem") as! String
+            
+            var alimento = Alimentos()
+            alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "name")
+            alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "image")
+            
+            listaAlimentosJson.append(alimento)
             
             
-//            
+            
+            
+//            alimentosNomes.append(name)
+//            alimentosImages.append(image)
+//
 //            alimentos
 //            
 //            var alimentosJson = Alimentos()

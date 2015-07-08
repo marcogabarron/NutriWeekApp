@@ -9,11 +9,21 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let ReuseIdentifier: String = "ReuseIdentifier"
     var items: [ItemCardapio]!
 
+    var localNotification = UILocalNotification()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        localNotification.alertAction = "Testing notifications on iOS8"
+        localNotification.alertBody = "Some text here"
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.timeZone = NSTimeZone.localTimeZone()
+        
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+
 
     }
     
