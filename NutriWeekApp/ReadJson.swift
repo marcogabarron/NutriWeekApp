@@ -14,8 +14,8 @@ class ReadJson {
 //    var alimentosNomes = [String]()
 //    var alimentosImages = [String]()
     
-    var listaAlimentos = Array<AnyObject>()
-    var listaOrdenada = Array<AnyObject>()
+    var listaAlimentos = Array<Alimentos>()
+    var listaOrdenada = Array<Alimentos>()
     
     
     func loadFeed () {
@@ -40,7 +40,7 @@ class ReadJson {
         
         //listaOrdenada = listaAlimentos.nomeAlimento.sorted() { ($0 as! String) < ($1 as! String) }
 
-//        println(listaOrdenada[0].name)
+//        println(listaAlimentos[0].nomeAlimento)
     }
     
 }

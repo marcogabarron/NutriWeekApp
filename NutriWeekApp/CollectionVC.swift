@@ -12,8 +12,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     var json = ReadJson()
     
-    var Array = [String]()
-    var ArrayImages = [String]()
     var colorImage = UIColor.blackColor().CGColor
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -33,7 +31,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK: CollectionView
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Array.count
+        return json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -41,11 +39,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         
-        //cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
-//        cell.myButton.setTitle("Teste", forState: .Normal)
+        cell.myButton.setTitle("\(json.listaAlimentos[indexPath.row].nomeAlimento)", forState: .Normal)
         
-        //cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
-        cell.myImage.image = UIImage(named: "bagua")
+        cell.myImage.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento)
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
