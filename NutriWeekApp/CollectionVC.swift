@@ -10,10 +10,10 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var listaAlimentos = Array<AnyObject>()
+//    var listaAlimentos = Array<AnyObject>()
     
-    var Arrays = [String]()
-    var ArrayImages = [String]()
+    var json = ReadJson()
+    
     var colorImage = UIColor.blackColor().CGColor
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,13 +21,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var json = ReadJson()
         json.loadFeed()
         
-
-        
-        Arrays = json.alimentosNomes.sorted(<)
-        ArrayImages = json.alimentosImages.sorted(<)
+//        Arrays = json.alimentosNomes.sorted(<)
+//        ArrayImages = json.alimentosImages.sorted(<)
         
     }
 
@@ -39,17 +36,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK: CollectionView
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Arrays.count
+        return json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
+        cell.myButton.setTitle("\(json.listaAlimentos[indexPath.row].nomeAlimento)", forState: .Normal)
         
-        cell.myButton.setTitle("\(Arrays[indexPath.row])", forState: .Normal)
-        
-        cell.myImage.image = UIImage(named: ArrayImages[indexPath.row] as! String)
+        cell.myImage.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento as! String)
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4

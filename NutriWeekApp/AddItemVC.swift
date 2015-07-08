@@ -13,7 +13,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     
-    
+    var json = ReadJson()
 
     var nutriVC = NutriVC()
     
@@ -21,27 +21,15 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
 
     var daysOfWeek : [NSDate] = []
     
-    var Array = [String]()
-    var ArrayImages = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        var json = ReadJson()
         json.loadFeed()
         
-//        listaAlimentos = json.alimentos.sorted() { ($0 as! String) < ($1 as! String) }
-        
-//        var alimentos = Alimentos()
-//        alimentos.loadFeed()
-//        Array = alimentos.alimentosJson.sorted(<)
-//        ArrayImages = alimentos.alimentosImages.sorted(<)
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
-        Array = alimentos.alimentosJson.sorted(<)
-        ArrayImages = alimentos.alimentosImages.sorted(<)
+
         println(self.horario.date)
     }
     
@@ -67,16 +55,16 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return Array.count
+         return json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-        cell.textLabel.text = "\(Array[indexPath.row])"
+        cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento)"
         cell.textLabel.preservesSuperviewLayoutMargins = true
         
-        cell.image.image = UIImage(named: ArrayImages[indexPath.row] as! String)
+        cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento as! String)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4

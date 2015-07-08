@@ -11,13 +11,11 @@ import UIKit
 
 class ReadJson {
     
+//    var alimentosNomes = [String]()
+//    var alimentosImages = [String]()
     
-    
-    var alimentosNomes = [String]()
-    var alimentosImages = [String]()
-    
-    var listaAlimentosJson = Array<AnyObject>()
-    
+    var listaAlimentos = Array<AnyObject>()
+    var listaOrdenada = Array<AnyObject>()
     
     
     func loadFeed () {
@@ -32,34 +30,17 @@ class ReadJson {
         for buildArray in feed {
             
             var alimento = Alimentos()
-            alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "name")
-            alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "image")
+            alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
+            alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
             
-            listaAlimentosJson.append(alimento)
-            
-            
-            
-            
-//            alimentosNomes.append(name)
-//            alimentosImages.append(image)
-//
-//            alimentos
-//            
-//            var alimentosJson = Alimentos()
-//            alimentosJson.name = name
-//            alimentosJson.image = image
-//            
-//            println(alimentosJson)
-//            println(alimentos)
-            
-            
-//            alimentosJson.append([name, image])
-//            alimentosJson.append(name)
-//            alimentosImages.append(image)
+            listaAlimentos.append(alimento)
+        
         
         }
-
         
+        listaOrdenada = listaAlimentos.nomeAlimento.sorted() { ($0 as! String) < ($1 as! String) }
+
+        println(listaOrdenada[0].name)
     }
     
 }

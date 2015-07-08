@@ -10,7 +10,7 @@ import Foundation
 
 class Alimentos: NSObject {
     
-    var name: String!
-    var image: String!
+    var nomeAlimento: String!
+    var imagemAlimento: String!
     
 }
