@@ -10,14 +10,29 @@ import UIKit
 
 class WeeksTableViewController: UITableViewController {
     
-    var week:[String]!
+    var week:Weeks!
+    
+    var arrayFix: [String] = (["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = self.arrayFix[indexPath.row]
+        
+        if(self.week.findString(self.arrayFix[indexPath.row])){
+            cell.accessoryType = .Checkmark
+        }else{
+            cell.accessoryType = .None
+        }
+        
+        return cell
         
     }
-
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -37,8 +52,8 @@ class WeeksTableViewController: UITableViewController {
     }
     
     func removeDay(day: String){
-        for i in 0...self.week.count{
-            if( self.week[i] == day){
+        for i in 0...self.week.getArrayString().count{
+            if( self.week.getArrayString()[i] == day){
                 self.week.removeAtIndex(i)
                 break
             }

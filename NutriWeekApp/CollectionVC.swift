@@ -77,9 +77,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(cell.click == false){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            
+            //Here is selected
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
+            //Here is desselected
         }
         
         cell.click = !cell.click

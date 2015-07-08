@@ -17,9 +17,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
 
     var nutriVC = NutriVC()
     
-    var daysOfWeekString = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
-
-    var daysOfWeek : [NSDate] = []
+    var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
     
     override func viewDidLoad() {
@@ -34,19 +32,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     override func viewWillAppear(animated: Bool) {
-        println(self.daysOfWeekString)
     }
-    
-//    func addDaysOfWeek(){
-//        let formatter = NSDateFormatter()
-//        formatter.timeZone = NSTimeZone.localTimeZone()
-//        formatter.dateFormat = "E"
-//        
-//        for week in self.daysOfWeekString {
-//            
-//            self.daysOfWeek.append(formatter.dateFromString(week)!)
-//        }
-//    }
     
     
     //MARK: CollectionView
@@ -97,12 +83,19 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         if(cell.click == false){
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            //Here is selected
+            
         }else{
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
+             println(cell.textLabel)
+            //Here is desselected
         }
         
         cell.click = !cell.click
+    }
+    @IBAction func test(sender: AnyObject) {
+        println(sender.date)
     }
     
     //MARK: TableView

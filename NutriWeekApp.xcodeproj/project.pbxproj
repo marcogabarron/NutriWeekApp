@@ -10,6 +10,7 @@
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
 		C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */; };
+		C20B113D1B4D8E1B00A232AC /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Week.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DA60CF961B4D601200C78BA0 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF951B4D601200C78BA0 /* ItemCardapio.swift */; };
@@ -28,10 +29,6 @@
 		DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */; };
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
-		FFD84A761B4D9F01000055DC /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD84A751B4D9F01000055DC /* ReadJson.swift */; };
-		FFD84A781B4D9F1E000055DC /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD84A771B4D9F1E000055DC /* Week.swift */; };
-		FFD84A7C1B4DA6E9000055DC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD84A7B1B4DA6E9000055DC /* Parse.framework */; };
-		FFD84A7E1B4DA6F2000055DC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD84A7D1B4DA6F2000055DC /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +45,7 @@
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
 		C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTableViewController.swift; sourceTree = "<group>"; };
+		C20B113C1B4D8E1B00A232AC /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DA60CF951B4D601200C78BA0 /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../ItemCardapio.swift; sourceTree = "<group>"; };
@@ -70,10 +68,6 @@
 		DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoServices.swift; sourceTree = "<group>"; };
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		FFD84A751B4D9F01000055DC /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
-		FFD84A771B4D9F1E000055DC /* Week.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
-		FFD84A7B1B4DA6E9000055DC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		FFD84A7D1B4DA6F2000055DC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFD84A7C1B4DA6E9000055DC /* Parse.framework in Frameworks */,
-				FFD84A7E1B4DA6F2000055DC /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,12 +112,11 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FFD84A751B4D9F01000055DC /* ReadJson.swift */,
+				C20B113C1B4D8E1B00A232AC /* Week.swift */,
 				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
-				FFD84A771B4D9F1E000055DC /* Week.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -160,8 +151,6 @@
 				DAD5A1701B3D7549003829BF /* Images.xcassets */,
 				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
 				DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */,
-				FFD84A7D1B4DA6F2000055DC /* Bolts.framework */,
-				FFD84A7B1B4DA6E9000055DC /* Parse.framework */,
 				DAD5A1641B3D7549003829BF /* Supporting Files */,
 			);
 			path = NutriWeekApp;
@@ -268,7 +257,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = MERJVB67M9;
+						DevelopmentTeam = 97EUAUR8F9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -325,14 +314,13 @@
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
 				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
-				FFD84A761B4D9F01000055DC /* ReadJson.swift in Sources */,
-				FFD84A781B4D9F1E000055DC /* Week.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
 				DA60CF961B4D601200C78BA0 /* ItemCardapio.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				DAD5A1911B3D76AA003829BF /* Refeicao.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
+				C20B113D1B4D8E1B00A232AC /* Week.swift in Sources */,
 				C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
@@ -459,17 +447,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NutriWeekApp",
-				);
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NutriWeekApp",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -481,17 +461,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NutriWeekApp",
-				);
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/NutriWeekApp",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
