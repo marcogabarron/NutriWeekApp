@@ -7,7 +7,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
     var diasSemana = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
     let ReuseIdentifier: String = "ReuseIdentifier"
-    var items: [ItemCardapio]!
+    var items: [Refeicao]!
 
     
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        items = ItemCardapioServices.allItemCardapios()
+        items = RefeicaoServices.allItemRefeicao()
         self.tableView.reloadData()
 
     }

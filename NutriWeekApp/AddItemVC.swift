@@ -11,6 +11,7 @@ import UIKit
 class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var horario: UIDatePicker!
     
     var nutriVC = NutriVC()
     
@@ -29,7 +30,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         alimentos.loadFeed()
         Array = alimentos.alimentosJson.sorted(<)
         ArrayImages = alimentos.alimentosImages.sorted(<)
-        
+        println(self.horario.date)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,6 +93,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 })
                 
         })
+        
         if(cell.click == false){
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
@@ -134,8 +136,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
-        ItemCardapioServices.createItemCardapio(self.nameTextField.text)
-        nutriVC.items = ItemCardapioServices.allItemCardapios()
+            RefeicaoServices.createRefeicao(self.nameTextField.text, horario: "teste", diaSemana: "Semana Teste")
+        nutriVC.items = RefeicaoServices.allItemRefeicao()
         self.nameTextField.text = ""
     }else{
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
