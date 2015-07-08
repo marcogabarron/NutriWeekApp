@@ -18,9 +18,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     var nutriVC = NutriVC()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
-    
-    var Array = [String]()
-    var ArrayImages = [String]()
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         // Do any additional setup after loading the view.
         json.loadFeed()
         
-        println(self.horario.date)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,12 +45,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
-        //cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento), forState: .Normal)"
-        cell.textLabel.text = "Teste"
+        cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento)"
         cell.textLabel.textColor = UIColor.blackColor()
         
-        //cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento as!String)
-        cell.image.image = UIImage(named: "bagua")
+        cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
@@ -91,15 +86,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         }else{
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
-             println(cell.textLabel)
             //Here is desselected
         }
         
         cell.click = !cell.click
     }
-    @IBAction func test(sender: AnyObject) {
-        println(sender.date)
-    }
+
     
     //MARK: TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
