@@ -14,40 +14,23 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     
+    var json = ReadJson()
+    
     var nutriVC = NutriVC()
     
-    var daysOfWeekString = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+    var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
 
-    var daysOfWeek : [NSDate] = []
-    
-    var Array = [String]()
-    var ArrayImages = [String]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
-        Array = alimentos.alimentosJson.sorted(<)
-        ArrayImages = alimentos.alimentosImages.sorted(<)
-        println(self.horario.date)
+        json.loadFeed()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
-        println(self.daysOfWeekString)
     }
-    
-//    func addDaysOfWeek(){
-//        let formatter = NSDateFormatter()
-//        formatter.timeZone = NSTimeZone.localTimeZone()
-//        formatter.dateFormat = "E"
-//        
-//        for week in self.daysOfWeekString {
-//            
-//            self.daysOfWeek.append(formatter.dateFromString(week)!)
-//        }
-//    }
     
     
     //MARK: CollectionView
@@ -56,16 +39,17 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return Array.count
+         return json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-        cell.textLabel.text = "\(Array[indexPath.row])"
-        cell.textLabel.preservesSuperviewLayoutMargins = true
         
-        cell.image.image = UIImage(named: ArrayImages[indexPath.row])
+        cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento)"
+        cell.textLabel.textColor = UIColor.blackColor()
+        
+        cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
@@ -98,13 +82,17 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         if(cell.click == false){
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            //Here is selected
+            
         }else{
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
+            //Here is desselected
         }
         
         cell.click = !cell.click
     }
+
     
     //MARK: TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

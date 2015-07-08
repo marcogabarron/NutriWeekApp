@@ -10,6 +10,8 @@
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
 		C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */; };
+		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
+		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DA60CF961B4D601200C78BA0 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF951B4D601200C78BA0 /* ItemCardapio.swift */; };
@@ -44,6 +46,8 @@
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
 		C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTableViewController.swift; sourceTree = "<group>"; };
+		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
+		C2895AF51B4DACA1004700EF /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DA60CF951B4D601200C78BA0 /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../ItemCardapio.swift; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2895AF51B4DACA1004700EF /* ReadJson.swift */,
+				C20B113C1B4D8E1B00A232AC /* Weeks.swift */,
 				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
@@ -316,7 +322,9 @@
 				DA60CF961B4D601200C78BA0 /* ItemCardapio.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				DAD5A1911B3D76AA003829BF /* Refeicao.swift in Sources */,
+				C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
+				C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */,
 				C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,

@@ -10,8 +10,8 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var Array = [String]()
-    var ArrayImages = [String]()
+    var json = ReadJson()
+    
     var colorImage = UIColor.blackColor().CGColor
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,10 +19,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
-        Array = alimentos.alimentosJson.sorted(<)
-        ArrayImages = alimentos.alimentosImages.sorted(<)
+        json.loadFeed()
         
     }
 
@@ -34,7 +31,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK: CollectionView
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Array.count
+        return json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -42,9 +39,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         
-        cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
+        cell.myButton.setTitle("\(json.listaAlimentos[indexPath.row].nomeAlimento)", forState: .Normal)
         
-        cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
+        cell.myImage.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento)
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
@@ -76,9 +73,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(cell.click == false){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            
+            //Here is selected
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
+            //Here is desselected
         }
         
         cell.click = !cell.click
