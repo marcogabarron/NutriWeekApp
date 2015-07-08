@@ -272,6 +272,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="457894050.72941703">
                                     <!--2015-07-06 16:47:30 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="UpdateTimerPicker:" destination="mUV-d7-g5Y" eventType="valueChanged" id="bYF-jf-cyC"/>
+                                </connections>
                             </datePicker>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-Iu-tAo">
                                 <rect key="frame" x="0.0" y="237" width="375" height="44"/>

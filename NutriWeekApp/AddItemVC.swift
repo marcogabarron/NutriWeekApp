@@ -9,6 +9,7 @@
 import UIKit
 
 class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
@@ -167,5 +168,29 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         destinationViewController.week = self.daysOfWeekString
         }
     }
+    
+    func TimePicker(sender: UIDatePicker) -> String{
+        
+        var timer = NSDateFormatter()
+        
+        timer.dateFormat = "HH:mm:ss"
+        
+        timer.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        var strdate = timer.stringFromDate(sender.date)
+        
+        println(strdate)
+        
+        return strdate
+        
+    }
+    
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        
+        TimePicker(horario)
+        
+    }
+    
+    
 
 }
