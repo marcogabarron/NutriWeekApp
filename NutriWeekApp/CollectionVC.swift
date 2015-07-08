@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    var json = ReadJson()
+    
     var Array = [String]()
     var ArrayImages = [String]()
     var colorImage = UIColor.blackColor().CGColor
@@ -19,10 +21,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
-        Array = alimentos.alimentosJson.sorted(<)
-        ArrayImages = alimentos.alimentosImages.sorted(<)
+        json.loadFeed()
         
     }
 
@@ -42,9 +41,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         
-        cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
+        //cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
+//        cell.myButton.setTitle("Teste", forState: .Normal)
         
-        cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
+        //cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
+        cell.myImage.image = UIImage(named: "bagua")
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4

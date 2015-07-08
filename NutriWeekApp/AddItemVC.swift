@@ -13,6 +13,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     
+    var json = ReadJson()
+    
     var nutriVC = NutriVC()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
@@ -24,10 +26,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
-        Array = alimentos.alimentosJson.sorted(<)
-        ArrayImages = alimentos.alimentosImages.sorted(<)
+        json.loadFeed()
+        
         println(self.horario.date)
     }
     
@@ -41,16 +41,19 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return Array.count
+         return json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-        cell.textLabel.text = "\(Array[indexPath.row])"
+        
+        //cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento), forState: .Normal)"
+        cell.textLabel.text = "Teste"
         cell.textLabel.textColor = UIColor.blackColor()
         
-        cell.image.image = UIImage(named: ArrayImages[indexPath.row])
+        //cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento as!String)
+        cell.image.image = UIImage(named: "bagua")
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
