@@ -10,7 +10,7 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var Array = [String]()
+    var listaAlimentos = String]()
     var ArrayImages = [String]()
     var colorImage = UIColor.blackColor().CGColor
     
@@ -19,8 +19,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var alimentos = Alimentos()
-        alimentos.loadFeed()
+        var json = ReadJson()
+        json.loadFeed()
+        
+
+        
         Array = alimentos.alimentosJson.sorted(<)
         ArrayImages = alimentos.alimentosImages.sorted(<)
         
@@ -32,7 +35,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Array.count
+        return listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -40,9 +43,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         
-        cell.myButton.setTitle("\(Array[indexPath.row])", forState: .Normal)
+        cell.myButton.setTitle("\(listaAlimentos[indexPath.row][0])", forState: .Normal)
         
-        cell.myImage.image = UIImage(named: ArrayImages[indexPath.row])
+        cell.myImage.image = UIImage(named: listaAlimentos[indexPath.row][1] as! String)
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4

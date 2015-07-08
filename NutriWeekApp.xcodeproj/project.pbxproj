@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
-		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
+		C20B11371B4C3B6D00A232AC /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* ReadJson.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
@@ -42,6 +42,7 @@
 		FFA2A98C1B4C4287009E0FC1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A98B1B4C4287009E0FC1 /* Accounts.framework */; };
 		FFA2A98F1B4C4298009E0FC1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A98D1B4C4298009E0FC1 /* libsqlite3.dylib */; };
 		FFA2A9901B4C4298009E0FC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA2A98E1B4C4298009E0FC1 /* libz.dylib */; };
+		FFD84A741B4CB95E000055DC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD84A731B4CB95E000055DC /* Alimentos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
-		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
+		C20B11361B4C3B6D00A232AC /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		FFA2A98B1B4C4287009E0FC1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		FFA2A98D1B4C4298009E0FC1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		FFA2A98E1B4C4298009E0FC1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FFD84A731B4CB95E000055DC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
-				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
+				FFD84A731B4CB95E000055DC /* Alimentos.swift */,
+				C20B11361B4C3B6D00A232AC /* ReadJson.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 			);
@@ -378,10 +381,11 @@
 			files = (
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
-				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
+				C20B11371B4C3B6D00A232AC /* ReadJson.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* ItemCardapioServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* ItemCardapioDAO.swift in Sources */,
+				FFD84A741B4CB95E000055DC /* Alimentos.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				DAD5A1911B3D76AA003829BF /* ItemCardapio.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,

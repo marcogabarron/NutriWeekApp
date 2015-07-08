@@ -14,6 +14,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     var nutriVC = NutriVC()
 
+//    var listaAlimentos = Array<AnyObject>()
     
     var Array = [String]()
     var ArrayImages = [String]()
@@ -22,6 +23,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        var json = ReadJson()
+        json.loadFeed()
+        
+//        listaAlimentos = json.alimentos.sorted() { ($0 as! String) < ($1 as! String) }
+        
         var alimentos = Alimentos()
         alimentos.loadFeed()
         Array = alimentos.alimentosJson.sorted(<)
@@ -57,16 +64,16 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return Array.count
+         return listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-        cell.textLabel.text = "\(Array[indexPath.row])"
+        cell.textLabel.text = "\(listaAlimentos[indexPath.row][0])"
         cell.textLabel.preservesSuperviewLayoutMargins = true
         
-        cell.image.image = UIImage(named: ArrayImages[indexPath.row])
+        cell.image.image = UIImage(named: listaAlimentos[indexPath.row][1] as! String)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
