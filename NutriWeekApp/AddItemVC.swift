@@ -15,12 +15,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     var nutriVC = NutriVC()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
-
-    var daysOfWeek : [NSDate] = []
     
     var Array = [String]()
     var ArrayImages = [String]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,8 +31,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        println(self.daysOfWeekString.getArrayString())
     }
     
     
