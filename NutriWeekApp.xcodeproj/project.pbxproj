@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
+		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
+		C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
+		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
+		C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTableViewController.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
 				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
+				C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -96,6 +103,8 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
+				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 			);
@@ -236,6 +245,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 97EUAUR8F9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -270,6 +280,7 @@
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
 				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
+				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +300,14 @@
 			files = (
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
+				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* ItemCardapioServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* ItemCardapioDAO.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				DAD5A1911B3D76AA003829BF /* ItemCardapio.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
+				C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
 				DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */,
 				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
@@ -419,7 +432,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -433,7 +446,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

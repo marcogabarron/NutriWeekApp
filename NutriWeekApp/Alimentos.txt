@@ -1,0 +1,77 @@
+{
+
+"Alimentos": [
+{
+"Nome" : "Pao de Queijo",
+"Imagem": "paodequeijo.jpg"
+},
+{
+"Nome" : "Morango",
+"Imagem": "morango.jpg"
+},
+{
+"Nome" : "Leite",
+"Imagem": "leite.jpg"
+},
+{
+"Nome" : "Uva",
+"Imagem": "uva.jpg"
+},
+{
+"Nome" : "Feijão",
+"Imagem": "feijao.jpg"
+},
+{
+"Nome" : "Ovo Cozido",
+"Imagem": "ovocozido.jpg"
+},
+{
+"Nome" : "Batata Cozida",
+"Imagem": "batatacozida.jpg"
+},
+{
+"Nome" : "Cenoura",
+"Imagem": "cenoura.jpg"
+},
+{
+"Nome" : "Barra de Cereal",
+"Imagem": "barradecereal.jpg"
+},
+{
+"Nome" : "Queijo",
+"Imagem": "queijo.jpg"
+},
+{
+"Nome" : "Frango Grelhado",
+"Imagem": "frangogrelhado.jpg"
+},
+{
+"Nome" : "Alface",
+"Imagem": "alface.jpg"
+},
+{
+"Nome" : "Bife",
+"Imagem": "bife.jpg"
+},
+{
+"Nome" : "Suco de Laranka",
+"Imagem": "sucodelaranja.jpg"
+},
+{
+"Nome" : "Chá de Pêssego",
+"Imagem": "chadepessego.jpg"
+},
+{
+"Nome" : "Tomate",
+"Imagem": "tomate.jpg"
+},
+{
+"Nome" : "Arroz Branco",
+"Imagem": "arrozbranco.jpg"
+},
+{
+"Nome" : "Água",
+"Imagem": "bagua.jpg"
+}
+]
+}

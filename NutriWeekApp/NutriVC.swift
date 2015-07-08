@@ -74,6 +74,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     }
     
+    //MARK: TableView
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         return items.count

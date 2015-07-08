@@ -9,23 +9,12 @@
 import UIKit
 
 class SelectedCollectionViewCell: UICollectionViewCell {
-    var nada: Bool = false
-    
-    @IBOutlet weak var viewCell: UIView!
-    
+    var click: Bool = false
+        
     @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet weak var image: UIImageView!
     
     
     
-//    @IBAction func changeLabelText(sender: AnyObject) {
-//        if(self.nada == false){
-//            self.viewCell.backgroundColor = UIColor.greenColor()
-//        }else{
-//            self.viewCell.backgroundColor = UIColor.redColor()
-//        }
-//        self.nada = !self.nada
-//        
-//    }
 }
