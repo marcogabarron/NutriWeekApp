@@ -14,20 +14,20 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var horario: UIDatePicker!
     
     var json = ReadJson()
-
+    
     var nutriVC = NutriVC()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
-    
+    var Array = [String]()
+    var ArrayImages = [String]()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
         json.loadFeed()
         
-
         println(self.horario.date)
     }
     
@@ -47,10 +47,13 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-        cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento)"
-        cell.textLabel.preservesSuperviewLayoutMargins = true
         
-        cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento as! String)
+        //cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento), forState: .Normal)"
+        cell.textLabel.text = "Teste"
+        cell.textLabel.textColor = UIColor.blackColor()
+        
+        //cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento as!String)
+        cell.image.image = UIImage(named: "bagua")
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
