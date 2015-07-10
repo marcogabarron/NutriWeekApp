@@ -11,7 +11,7 @@ import UIKit
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var json = ReadJson()
-    
+    var itens = [ItemCardapio]()
     var colorImage = UIColor.blackColor().CGColor
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,7 +19,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        json.loadFeed()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+     itens = ItemCardapioServices.allItemCardapios()
         
     }
 
@@ -31,7 +35,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK: CollectionView
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return json.listaAlimentos.count
+        return itens.count //json.listaAlimentos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -39,9 +43,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         
-        cell.myButton.setTitle("\(json.listaAlimentos[indexPath.row].nomeAlimento)", forState: .Normal)
+        cell.myButton.setTitle(itens[indexPath.row].name, forState: .Normal)
+        /*"(json.listaAlimentos[indexPath.row].nomeAlimento)"*/
+        cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
-        cell.myImage.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento)
+        
+        //json.listaAlimentos[indexPath.row].imagemAlimento)
+            //"\(itens[indexPath.row].nameImage)")
+        
+        /*json.listaAlimentos[indexPath.row].imagemAlimento*/
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4

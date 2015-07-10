@@ -9,13 +9,14 @@
 import UIKit
 
 class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     
     var json = ReadJson()
-    
     var nutriVC = NutriVC()
+    var itens = [ItemCardapio]()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
 
@@ -24,11 +25,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        json.loadFeed()
+        //json.loadFeed()
         
     }
     
     override func viewWillAppear(animated: Bool) {
+        itens = ItemCardapioServices.allItemCardapios()
     }
     
     
@@ -38,25 +40,26 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return json.listaAlimentos.count
+         return itens.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
-        cell.textLabel.text = "\(json.listaAlimentos[indexPath.row].nomeAlimento)"
+        cell.textLabel.text = itens[indexPath.row].name
         cell.textLabel.textColor = UIColor.blackColor()
         
-        cell.image.image = UIImage(named: json.listaAlimentos[indexPath.row].imagemAlimento)
+        cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
-        cell.layer.cornerRadius = cell.frame.width/4
         cell.image.layer.borderWidth = 2
         cell.image.layer.borderColor = UIColor.blackColor().CGColor
         
+        cell.layer.cornerRadius = cell.frame.width/4
         
         return cell
+        
     }
     
     
@@ -125,7 +128,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
             RefeicaoServices.createRefeicao(self.nameTextField.text, horario: "teste", diaSemana: "Semana Teste")
-        nutriVC.items = RefeicaoServices.allItemRefeicao()
+        //nutriVC.items = RefeicaoServices.allItemRefeicao()
         self.nameTextField.text = ""
     }else{
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
@@ -155,5 +158,29 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         destinationViewController.week = self.daysOfWeekString
         }
     }
+    
+    func TimePicker(sender: UIDatePicker) -> String{
+        
+        var timer = NSDateFormatter()
+        
+        timer.dateFormat = "HH:mm:ss"
+        
+        timer.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        var strdate = timer.stringFromDate(sender.date)
+        
+        println(strdate)
+        
+        return strdate
+        
+    }
+    
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        
+        TimePicker(horario)
+        
+    }
+    
+    
 
 }
