@@ -2,18 +2,22 @@
 import UIKit
 import CoreData
 
+
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
     var diasSemana = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
     let ReuseIdentifier: String = "ReuseIdentifier"
     var items: [Refeicao]!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+ 
 
     }
     
