@@ -30,6 +30,7 @@
 		DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */; };
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
+		FFA5004B1B4E1E3A0023208C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoServices.swift; sourceTree = "<group>"; };
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FFA5004A1B4E1E3A0023208C /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
+				FFA5004A1B4E1E3A0023208C /* Notification.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -260,7 +263,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 97EUAUR8F9;
+						DevelopmentTeam = MERJVB67M9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -325,6 +328,7 @@
 				C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
 				C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */,
+				FFA5004B1B4E1E3A0023208C /* Notification.swift in Sources */,
 				C20B11391B4C41A800A232AC /* WeeksTableViewController.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
