@@ -9,6 +9,7 @@ class ItemCardapio: NSManagedObject
     @NSManaged var name: String
     @NSManaged var horarioInicio: NSDate
     @NSManaged var horarioFim: NSDate
+    @NSManaged var image: String
     @NSManaged var refeicao: NSSet
     
     /// The designated initializer

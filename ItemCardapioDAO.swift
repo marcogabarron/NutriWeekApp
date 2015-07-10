@@ -68,7 +68,7 @@ class ItemCardapioDAO
     }
     
     
-    static func insert(objectToBeInserted: Refeicao)
+    static func insert(objectToBeInserted: ItemCardapio)
     {
         // insert element into context
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)

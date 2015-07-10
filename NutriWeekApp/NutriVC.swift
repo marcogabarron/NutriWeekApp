@@ -8,12 +8,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var diasSemana = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
     let ReuseIdentifier: String = "ReuseIdentifier"
     var items: [Refeicao]!
-
+    var json = ReadJson()
+    var alimento = Alimentos()
+    var collectionview = CollectionVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        //To load json in Array
+        json.loadFeed()
 
     }
     

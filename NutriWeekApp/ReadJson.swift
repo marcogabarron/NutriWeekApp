@@ -16,7 +16,7 @@ class ReadJson {
     
     var listaAlimentos = Array<Alimentos>()
     var listaOrdenada = Array<Alimentos>()
-    
+    var i = 0
     
     func loadFeed () {
         
@@ -26,18 +26,31 @@ class ReadJson {
         
         var feed : NSArray = jsonResult["Alimentos"] as! NSArray
         
-        
-        for buildArray in feed {
+        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+        if firstLaunch  {
+            //println("Not first launch.")
+        }
+        else {
+            //println("First launch, setting NSUserDefault.")
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
             
-            var alimento = Alimentos()
-            alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
-            alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
+            for buildArray in feed {
+                
+                
+                var alimento = Alimentos()
+                alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
+                alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
+                
+                listaAlimentos.append(alimento)
+                
+                ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento)
+                
+            }
             
-            listaAlimentos.append(alimento)
-        
-        
         }
         
+  
+    
         //listaOrdenada = listaAlimentos.nomeAlimento.sorted() { ($0 as! String) < ($1 as! String) }
 
 //        println(listaAlimentos[0].nomeAlimento)

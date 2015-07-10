@@ -4,19 +4,19 @@ import Foundation
 
 class ItemCardapioServices
 {
-//    static func createItemCardapio(name: String, horario: String, diaSemana: String)
-//    {
-//        
-//        var itemCardapio: ItemCardapio = ItemCardapio()
-//        itemCardapio = name
-//        itemCardapio = horario
-//        itemCardapio = diaSemana
-//        
-//        // insert it
-//        ItemCardapioDAO.insert(itemCardapio)
-//        
-//    }
-//    
+    static func createItemCardapio(name: String, image: String)
+    {
+        
+        var itemCardapio: ItemCardapio = ItemCardapio()
+        itemCardapio.name = name
+        itemCardapio.image = image
+
+        
+        // insert it
+        ItemCardapioDAO.insert(itemCardapio)
+        
+    }
+//
 //    static func deleteItemCardapioByName(name: String)
 //    {
 //        // create queue
