@@ -52,19 +52,20 @@ class ItemCardapioDAO
     //        return results
     //    }
     
-    static func findByName(name: String) -> ItemCardapio?
+    static func findByName(name: String, image: String) -> [ItemCardapio]
     {
         // creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
         // assign predicate
-        request.predicate = NSPredicate(format: "name == %@", name)
+        request.predicate = NSPredicate(format: "name CONTAINS[c] %@ AND image CONTAINS[c] %@", name, image)
         
         // perform search
         var error: NSErrorPointer = nil
-        let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
+        let results = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
         
-        return results.last
+        return results
+        
     }
     
     

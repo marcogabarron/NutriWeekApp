@@ -8,29 +8,58 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var json = ReadJson()
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
-
+    var searchActive : Bool = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        //json.loadFeed()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
         itens = ItemCardapioServices.allItemCardapios()
+        searchBar.text = ""
+    }
+    
+    //MARK: To use SearchBar
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if(searchBar.text == ""){
+            searchActive = false;
+            itens = ItemCardapioServices.allItemCardapios()
+        } else {
+            searchActive = true;
+            itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
+        }
+        self.collectionView.reloadData()
     }
     
     
@@ -40,12 +69,13 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return itens.count
+        
+        return itens.count
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
-        
         
         cell.textLabel.text = itens[indexPath.row].name
         cell.textLabel.textColor = UIColor.blackColor()
@@ -124,11 +154,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
 
     //MARK: actions
-    
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
             RefeicaoServices.createRefeicao(self.nameTextField.text, horario: "teste", diaSemana: "Semana Teste")
-        //nutriVC.items = RefeicaoServices.allItemRefeicao()
         self.nameTextField.text = ""
     }else{
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
@@ -141,7 +169,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
                 self.nameTextField.backgroundColor = UIColor.whiteColor()
-                
                 
                 })
         })
@@ -180,7 +207,4 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         TimePicker(horario)
         
     }
-    
-    
-
 }
