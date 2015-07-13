@@ -5,8 +5,9 @@ import CoreData
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    var diasSemana = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
+    var diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
     let ReuseIdentifier: String = "ReuseIdentifier"
+    
     var items: [Refeicao]!
     var json = ReadJson()
     var alimento = Alimentos()
@@ -72,7 +73,9 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
-        items = RefeicaoServices.allItemRefeicao()
+        
+        items = RefeicaoServices.findByWeek("Segunda")
+        
         self.tableView.reloadData()
 
     }
@@ -80,7 +83,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //MARK: TableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
+        self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
         return items.count
         
     }
@@ -101,9 +104,12 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier") as! UITableViewCell
+        self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
     
-        cell.textLabel!.text = items[indexPath.row].name
-    
+        if(self.items.count > 0){
+            cell.textLabel!.text = self.items[indexPath.row].name
+        }
+
         return cell
     
     }
@@ -116,12 +122,22 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         var label: UILabel = UILabel(frame: CGRect(x: 42, y: 0, width: 300, height: 50))
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
-        label.text = diasSemana[section]
+        label.text = self.diasSemana[section]
         label.font = UIFont(name:"AmericanTypewriter-Bold", size: 30)
         headerView.addSubview(label)
         
+        self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
+
+        
         return headerView
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "selected") {
+            let destinationViewController = segue.destinationViewController as! CollectionVC
+            destinationViewController.selectedRefeicao = sender?.textLabel!!.text
+        }
     }
 
 }

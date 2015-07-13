@@ -13,17 +13,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var json = ReadJson()
     var itens = [ItemCardapio]()
     var colorImage = UIColor.blackColor().CGColor
+    var selectedItens = [ItemCardapio]()
+    
+    var selectedRefeicao:String!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println(self.selectedRefeicao)
         
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-     itens = ItemCardapioServices.allItemCardapios()
+        //a partir da refeicao pegar seis Itens cardapios
+        self.itens = ItemCardapioServices.allItemCardapios()
         
     }
 
@@ -43,7 +47,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         
-        cell.myButton.setTitle(itens[indexPath.row].name, forState: .Normal)
+        cell.myButton.setTitle(self.itens[indexPath.row].name, forState: .Normal)
         /*"(json.listaAlimentos[indexPath.row].nomeAlimento)"*/
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
@@ -57,6 +61,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.layer.cornerRadius = cell.frame.width/4
         cell.myImage.layer.borderWidth = 2
         cell.myImage.layer.borderColor = colorImage
+        
+        cell.item = self.itens[indexPath.row]
         
         return cell
         
@@ -85,10 +91,18 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Here is selected
+            self.selectedItens.append(cell.item)
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
             //Here is desselected
+            var i = 0
+            for item in self.selectedItens{
+                if(cell.item == item){
+                    self.selectedItens.removeAtIndex(i)
+                }
+                i++
+            }
         }
         
         cell.click = !cell.click

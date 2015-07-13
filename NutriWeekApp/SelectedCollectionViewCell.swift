@@ -15,6 +15,8 @@ class SelectedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var image: UIImageView!
     
+    var item: ItemCardapio = ItemCardapio()
+    
     
     
 }

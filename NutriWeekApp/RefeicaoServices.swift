@@ -39,4 +39,12 @@ class RefeicaoServices
         return RefeicaoDAO.findAll()
     }
     
+    static func findByWeek(str: String) -> [Refeicao]{
+        return RefeicaoDAO.findByWeek(str)
+    }
+    
+    static func findByName(str: String) -> Refeicao{
+        return RefeicaoDAO.findByName(str)!
+    }
+    
 }

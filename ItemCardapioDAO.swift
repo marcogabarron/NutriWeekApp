@@ -52,7 +52,7 @@ class ItemCardapioDAO
     //        return results
     //    }
     
-    static func findByName(name: String) -> ItemCardapio?
+    static func findByName(name: String) -> [ItemCardapio]
     {
         // creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
@@ -64,7 +64,7 @@ class ItemCardapioDAO
         var error: NSErrorPointer = nil
         let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
         
-        return results.last
+        return results
     }
     
     
