@@ -23,5 +23,17 @@ class Refeicao: NSManagedObject
         // call super using
         self.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
     }
+    
+    func addItemsObject(value: ItemCardapio) {
+        self.mutableSetValueForKey("refeicao").addObject(value)
+    }
+    
+    func getItemsObject()->[ItemCardapio]{
+        var itemFromRefeicao: [ItemCardapio] = []
+        for item in self.mutableArrayValueForKey("refeicao"){
+            itemFromRefeicao.append(item as! ItemCardapio)
+        }
+        return itemFromRefeicao
+    }
 
 }

@@ -13,26 +13,65 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var json = ReadJson()
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
+    var selectedItens = [ItemCardapio]()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    
+    var searchActive: Bool = false
 
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        //json.loadFeed()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
-        itens = ItemCardapioServices.allItemCardapios()
+        self.itens = ItemCardapioServices.allItemCardapios()
+        self.searchBar.text = ""
+        self.collectionView.reloadData()
+
     }
     
+    //MARK: SearchBar
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        self.searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        self.searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+
+        if(searchBar.text == ""){
+            self.searchActive = false;
+            self.itens = ItemCardapioServices.allItemCardapios()
+//            let items = ItemCardapioServices.allItemCardapios()
+//            self.itens.removeAll(keepCapacity: false)
+//            for item in items {
+//                self.itens.append(item)
+//            }
+            
+        } else {
+            self.searchActive = true;
+            self.itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
+        }
+        self.collectionView.reloadData()
+    }
     
     //MARK: CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -40,11 +79,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return itens.count
+         return self.itens.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
+        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
         cell.textLabel.text = itens[indexPath.row].name
@@ -55,6 +94,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.image.layer.borderWidth = 2
         cell.image.layer.borderColor = UIColor.blackColor().CGColor
+        
+        cell.item = itens[indexPath.row]
         
         cell.layer.cornerRadius = cell.frame.width/4
         
@@ -85,13 +126,20 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             //Here is selected
-            
+            self.selectedItens.append(cell.item)
         }else{
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             //Here is desselected
+            var i = 0
+            for item in self.selectedItens{
+                if(cell.item == item){
+                    self.selectedItens.removeAtIndex(i)
+                }
+                i++
+            }
         }
-        
+                
         cell.click = !cell.click
     }
 
@@ -127,37 +175,58 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
-            RefeicaoServices.createRefeicao(self.nameTextField.text, horario: "teste", diaSemana: "Semana Teste")
-        //nutriVC.items = RefeicaoServices.allItemRefeicao()
-        self.nameTextField.text = ""
-    }else{
-        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-        
-        self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
-        
-        }, completion: {(result) -> Void in
-            
-            UIView.animateWithDuration(0.3, animations: {() -> Void in
-                
-                self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                self.nameTextField.backgroundColor = UIColor.whiteColor()
-                
-                
+            var i = 0
+            if(self.selectedItens.count == 0){
+                UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
+                    
+                    self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
+                    
+                    }, completion: {(result) -> Void in
+                        
+                        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                            
+                            self.collectionView.backgroundColor = UIColor.whiteColor()
+                            
+                        })
+                        
                 })
-        })
+                
+            
+            }else{
+                
+                for diaSemana in self.daysOfWeekString.getArrayString(){
+                    
+                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens)
+                }
+                
+                
+
+                self.nameTextField.text = ""
+            }
+        }else{
+            
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+        
+                self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                
+                }, completion: {(result) -> Void in
+            
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                
+                        self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        self.nameTextField.backgroundColor = UIColor.whiteColor()
+                
+                
+                    })
+            })
+            
         }
     }
     
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "Week") {
-        let destinationViewController = segue.destinationViewController as! WeeksTableViewController
-        destinationViewController.week = self.daysOfWeekString
-        }
-    }
+
     
     func TimePicker(sender: UIDatePicker) -> String{
         
@@ -169,18 +238,23 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         var strdate = timer.stringFromDate(sender.date)
         
-        println(strdate)
-        
         return strdate
         
     }
     
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
         
-        TimePicker(horario)
+        TimePicker(self.horario)
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Week") {
+            let destinationViewController = segue.destinationViewController as! WeeksTableViewController
+            destinationViewController.week = self.daysOfWeekString
+        }else{
+            
+        }
+    }
     
-
 }

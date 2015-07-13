@@ -4,12 +4,16 @@ import Foundation
 
 class RefeicaoServices
 {
-    static func createRefeicao(name: String, horario: String, diaSemana: String)
+    static func createRefeicao(name: String, horario: String, diaSemana: String, items: [ItemCardapio])
     {
         var refeicao: Refeicao = Refeicao()
         refeicao.name = name
         refeicao.horario = horario
         refeicao.diaSemana = diaSemana
+        
+        for item in items{
+            refeicao.addItemsObject(item)
+        }
         
         // insert it
         RefeicaoDAO.insert(refeicao)
@@ -38,6 +42,14 @@ class RefeicaoServices
     
     static func allItemRefeicao() -> [Refeicao] {
         return RefeicaoDAO.findAll()
+    }
+    
+    static func findByWeek(str: String) -> [Refeicao]{
+        return RefeicaoDAO.findByWeek(str)
+    }
+    
+    static func findByName(str: String) -> Refeicao{
+        return RefeicaoDAO.findByName(str)!
     }
     
 }
