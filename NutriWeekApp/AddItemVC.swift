@@ -28,42 +28,47 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        //json.loadFeed()
-        
     }
     
     override func viewWillAppear(animated: Bool) {
-        itens = ItemCardapioServices.allItemCardapios()
-        searchBar.text = ""
+        self.itens = ItemCardapioServices.allItemCardapios()
+        self.searchBar.text = ""
+        self.collectionView.reloadData()
+
     }
     
     //MARK: SearchBar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;
+        self.searchActive = true;
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false;
+        self.searchActive = false;
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
+        self.searchActive = false;
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
+        self.searchActive = false;
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
 
         if(searchBar.text == ""){
-            searchActive = false;
-            itens = ItemCardapioServices.allItemCardapios()
+            self.searchActive = false;
+            self.itens = ItemCardapioServices.allItemCardapios()
+//            let items = ItemCardapioServices.allItemCardapios()
+//            self.itens.removeAll(keepCapacity: false)
+//            for item in items {
+//                self.itens.append(item)
+//            }
+            
         } else {
-            searchActive = true;
-            itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
+            self.searchActive = true;
+            self.itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
         }
         self.collectionView.reloadData()
     }
@@ -74,11 +79,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return itens.count
+         return self.itens.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
+        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
         cell.textLabel.text = itens[indexPath.row].name
@@ -221,6 +226,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
+
     
     func TimePicker(sender: UIDatePicker) -> String{
         
@@ -246,7 +252,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! WeeksTableViewController
             destinationViewController.week = self.daysOfWeekString
+        }else{
+            
         }
     }
-
+    
 }

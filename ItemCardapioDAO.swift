@@ -11,8 +11,7 @@ class ItemCardapioDAO
         
         // perform search
         var error: NSErrorPointer = nil
-        let results = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
-        
+        let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
         return results
     }
     

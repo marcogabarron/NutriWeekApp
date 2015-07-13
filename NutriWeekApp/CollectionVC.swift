@@ -21,7 +21,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(self.selectedRefeicao)
         
     }
     

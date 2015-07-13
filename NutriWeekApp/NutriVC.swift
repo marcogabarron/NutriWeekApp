@@ -137,6 +137,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC
             destinationViewController.selectedRefeicao = sender?.textLabel!!.text
+        }else{
+            
         }
     }
 
