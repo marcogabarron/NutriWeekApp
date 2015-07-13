@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -44,7 +44,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KdP-X8-89B" kind="show" identifier="nope" id="KqJ-KJ-mtl"/>
+                                    <segue destination="mUV-d7-g5Y" kind="show" id="bSW-u0-qgb"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="USn-Nc-HPr">
@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="686.5" y="-88.5"/>
+            <point key="canvasLocation" x="1224.5" y="0.5"/>
         </scene>
         <!--CollectionVC-->
         <scene sceneID="VP6-Lr-Rk0">
@@ -404,7 +404,7 @@
                     <navigationItem key="navigationItem" id="DCJ-Ah-fgh">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meal Name*" textAlignment="center" minimumFontSize="17" id="oHL-RJ-w88">
-                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -421,7 +421,7 @@
                         <outlet property="collectionView" destination="q2b-Nd-gbJ" id="Dvv-8K-7Cm"/>
                         <outlet property="horario" destination="Sci-vb-A3J" id="BiP-WF-IiO"/>
                         <outlet property="nameTextField" destination="oHL-RJ-w88" id="3m2-6A-v9i"/>
-                        <outlet property="searchBar" destination="AVq-Iu-tAo" id="eTa-ME-6DF"/>
+                        <outlet property="searchBar" destination="AVq-Iu-tAo" id="QSf-Ty-kMk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeJ-Ah-S44" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,7 +431,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1493.5" y="185.5"/>
+            <point key="canvasLocation" x="1688.5" y="177.5"/>
         </scene>
         <!--Repetir-->
         <scene sceneID="prb-SG-gQN">
@@ -565,9 +565,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="mUV-d7-g5Y" kind="relationship" relationship="rootViewController" id="tXY-Yo-rSR"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CJj-dY-e0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

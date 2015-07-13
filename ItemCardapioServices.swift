@@ -49,8 +49,4 @@ class ItemCardapioServices
         return ItemCardapioDAO.findAll()
     }
     
-    static func findByName(str: String) -> [ItemCardapio]{
-        return ItemCardapioDAO.findByName(str)
-    }
-    
 }

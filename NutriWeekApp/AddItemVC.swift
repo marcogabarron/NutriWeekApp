@@ -13,6 +13,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var json = ReadJson()
     var nutriVC = NutriVC()
@@ -20,6 +21,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     var selectedItens = [ItemCardapio]()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    
+    var searchActive: Bool = false
 
         
     override func viewDidLoad() {
@@ -32,8 +35,38 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     override func viewWillAppear(animated: Bool) {
         itens = ItemCardapioServices.allItemCardapios()
+        searchBar.text = ""
     }
     
+    //MARK: SearchBar
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+
+        if(searchBar.text == ""){
+            searchActive = false;
+            itens = ItemCardapioServices.allItemCardapios()
+        } else {
+            searchActive = true;
+            itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
+        }
+        self.collectionView.reloadData()
+    }
     
     //MARK: CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
