@@ -16,6 +16,14 @@ class ItemCardapioServices
         ItemCardapioDAO.insert(itemCardapio)
         
     }
+    
+    static func findItemCardapio(name: String, image: String) -> [ItemCardapio]
+    {
+        // find it
+        return ItemCardapioDAO.findByName(name, image: image)
+        
+    }
+    
 //
 //    static func deleteItemCardapioByName(name: String)
 //    {
