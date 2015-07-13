@@ -30,7 +30,8 @@ class TodoList {
     }
     
     func addItem(item: TodoItem) {
-//        var interval: NSCalendarUnit = .CalendarUnitWeek
+//        var interval: NSCalendarUnit = .CalendarUnitWeekOfYear
+        var weekInterval: NSCalendarUnit = .CalendarUnitMinute
         
         // persist a representation of this todo item in NSUserDefaults
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? Dictionary() // if todoItems hasn't been set in user defaults, initialize todoDictionary to an empty dictionary using nil-coalescing operator (??)
@@ -43,6 +44,7 @@ class TodoList {
         notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
         notification.fireDate = item.deadline // todo item due date (when notification will be fired)
         notification.soundName = UILocalNotificationDefaultSoundName // play default sound
+        notification.repeatInterval = weekInterval
         notification.userInfo = ["title": item.title, "UUID": item.UUID] // assign a unique identifier to the notification so that we can retrieve it later
         
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
@@ -60,99 +62,7 @@ class TodoList {
             todoItems.removeValueForKey(item.UUID)
             NSUserDefaults.standardUserDefaults().setObject(todoItems, forKey: ITEMS_KEY) // save/overwrite todo item list
         }
-    }
-    
-//    func scheduleReminderforItem(item: TodoItem) {
-//        
-//        var notification = UILocalNotification() // create a new reminder notification
-//        notification.alertBody = "Reminder: Todo Item \"\(item.title)\" Is Overdue" // text that will be displayed in the notification
-//        notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
-//        notification.fireDate = NSDate().dateByAddingTimeInterval(2 * 60) // 30 minutes from current time
-//        notification.soundName = UILocalNotificationDefaultSoundName // play default sound
-//        notification.userInfo = ["title": item.title, "UUID": item.UUID] // assign a unique identifier to the notification that we can use to retrieve it later
-//        //notification.category = "TODO_CATEGORY"
-//        
-//        
-//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
-//        
-//        
-//    }
-    
-    
-    
-//    var localNotification = UILocalNotification()
-//    var appDelegate: AppDelegate?
-//    
-//    
-//    
-//    func scheduleNotification (dateString: String) -> ()  {
-//        
-////        var dateString = "2014-07-15" // change to your date format
-//        println(dateString)
-//        
-//        var dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "HH:mm:ss"  //"yyyy-MM-dd"
-//        
-//        var date = dateFormatter.dateFromString(dateString)
-//        
-//        println(date)
-//        
-//        appDelegate = UIApplication.sharedApplication().delegate
-//            as? AppDelegate
-//        
-//        if appDelegate!.eventStore == nil {
-//            appDelegate!.eventStore = EKEventStore()
-//            appDelegate!.eventStore!.requestAccessToEntityType(
-//                EKEntityTypeReminder, completion: {(granted, error) in
-//                    if !granted {
-//                        println("Access to store not granted")
-//                        println(error.localizedDescription)
-//                    } else {
-//                        println("Access granted")
-//                    }
-//            })
-//        }
-//        
-//        if (appDelegate!.eventStore != nil) {
-//            
-//            let reminder = EKReminder(eventStore: appDelegate!.eventStore)
-//            
-//            reminder.title = "Oi"
-//            reminder.calendar =
-//                appDelegate!.eventStore!.defaultCalendarForNewReminders()
-//            //let date = date
-//            let alarm = EKAlarm(absoluteDate: date)
-//            
-//            reminder.addAlarm(alarm)
-//            
-//            var error: NSError?
-//            appDelegate!.eventStore!.saveReminder(reminder,
-//                commit: true, error: &error)
-//            
-//            if error != nil {
-//                println("Reminder failed with error \(error?.localizedDescription)")
-//            }
-//        }
-//        
-////        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-////        let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: date!)
-//////        let weekDay = myComponents.weekday
-////        
-////        println(date)
-////        
-////        var repeatCalendar: NSCalendar?
-////        //repeatCalendar = .WeekCalendarUnit
-////    
-////        localNotification.alertAction = "Testing notifications on iOS8"
-////        localNotification.alertBody = "Some text here"
-////        localNotification.soundName = UILocalNotificationDefaultSoundName
-////        localNotification.timeZone = NSTimeZone.localTimeZone()
-////    
-////        localNotification.fireDate = date
-////        //localNotification.repeatCalendar = .CalendarUnitWeekday
-////        localNotification.fireDate = NSDate(timeIntervalSinceNow: 10)
-////        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-//        
-//    }
+    } 
+
     
 }

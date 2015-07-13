@@ -65,7 +65,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.myImage.layer.borderWidth = 2
         cell.myImage.layer.borderColor = colorImage
         
-        cell.item = self.itens[indexPath.row]
+       
         
         return cell
         
@@ -94,21 +94,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Here is selected
-            self.selectedItens.append(cell.item)
+//            self.selectedItens.append(cell.item)
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
             //Here is desselected
             var i = 0
             for item in self.selectedItens{
-                if(cell.item == item){
+//                if(cell.item == item){
                     self.selectedItens.removeAtIndex(i)
                 }
                 i++
             }
         }
         
-        cell.click = !cell.click
+        //cell.click = !cell.click
         
     }
     
@@ -123,4 +123,4 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     */
 
-}
+

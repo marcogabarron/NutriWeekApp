@@ -12,7 +12,7 @@ class Notifications {
     
     let day: NSTimeInterval = 60*60*24
     
-    func listNotifications (weekArray: Array<String>, dateHour: String) -> (Array<NSDate>) { //(Array: notificationsToAdd) {
+    func listNotifications (weekArray: Array<String>, dateHour: String) -> (Array<NSDate>) {
         
         var listOfDates = Array<NSDate>()
         
@@ -62,7 +62,7 @@ class Notifications {
                 currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
                 
             default:
-                println("No")
+                println("Error: This day of week is false!")
             }
             
             

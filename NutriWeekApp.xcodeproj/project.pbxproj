@@ -128,9 +128,8 @@
 				C20B113C1B4D8E1B00A232AC /* Weeks.swift */,
 				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
-				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
-				FFA5004A1B4E1E3A0023208C /* TodoList.swift */,
 				FFD1A2A31B534032004A5EED /* TodoItem.swift */,
+				FFA5004A1B4E1E3A0023208C /* TodoList.swift */,
 				FFD1A2A51B53F34D004A5EED /* Notifications.swift */,
 			);
 			name = Model;
@@ -158,14 +157,12 @@
 			isa = PBXGroup;
 			children = (
 				C2B86B641B4AE78100130D63 /* Model */,
+				FFD1A2A91B544090004A5EED /* Views */,
 				C2B86B631B4AE71700130D63 /* Controllers */,
 				DAD5A1951B3D76D6003829BF /* Services */,
 				DAD5A1891B3D76AA003829BF /* Persistence */,
-				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
-				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
 				DAD5A1661B3D7549003829BF /* AppDelegate.swift */,
 				DAD5A1701B3D7549003829BF /* Images.xcassets */,
-				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
 				DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */,
 				DAD5A1641B3D7549003829BF /* Supporting Files */,
 			);
@@ -224,6 +221,17 @@
 				DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		FFD1A2A91B544090004A5EED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
+				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
+				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
+				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
