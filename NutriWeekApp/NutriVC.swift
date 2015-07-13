@@ -22,14 +22,14 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         json.loadFeed()
         
         
-        for scheduleNotification in notification.listNotifications(["Segunda", "Terça"], dateHour: "14:47:00") {
-            
-            let todoItem = TodoItem(deadline: scheduleNotification, title: "Teste", UUID: NSUUID().UUIDString)
-            TodoList.sharedInstance.addItem(todoItem)
-            
-            println(todoItem.UUID)
-            
-        }
+//        for scheduleNotification in notification.listNotifications(["Segunda", "Terça"], dateHour: "14:47:00") {
+//            
+//            let todoItem = TodoItem(deadline: scheduleNotification, title: "Teste", UUID: NSUUID().UUIDString)
+//            TodoList.sharedInstance.addItem(todoItem)
+//            
+//            println(todoItem.UUID)
+//            
+//        }
 
     }
     
