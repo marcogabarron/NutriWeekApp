@@ -158,10 +158,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     
-                    //Não esta savaldo nenhum Item caradapio!!!!!!
-                    //use a array self.selectedItens para salvar os itens
-                    
-                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana)
+                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens)
                 }
                 
                 

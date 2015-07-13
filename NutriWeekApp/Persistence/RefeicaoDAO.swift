@@ -5,6 +5,36 @@ import CoreData
 
 class RefeicaoDAO
 {
+    static func insert(objectToBeInserted: Refeicao)
+    {
+        // insert element into context
+        DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
+        
+        // save context
+        var error: NSErrorPointer = nil
+        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
+        if (error != nil)
+        {
+            // log error
+            print(error)
+        }
+    }
+    
+    static func delete(objectToBeDeleted: Refeicao)
+    {
+        // remove object from context
+        var error:NSErrorPointer = nil
+        DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
+        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
+        
+        // log error
+        if (error != nil)
+        {
+            // log error
+            print(error)
+        }
+    }
+
     
     static func findAll() -> [Refeicao] {
         // creating fetch request
@@ -29,6 +59,22 @@ class RefeicaoDAO
         let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
         
         return results
+    }
+    
+    
+    static func findByName(name: String) -> Refeicao?
+    {
+        // creating fetch request
+        let request = NSFetchRequest(entityName: "Refeicao")
+        
+        // assign predicate
+        request.predicate = NSPredicate(format: "name == %@", name)
+        
+        // perform search
+        var error: NSErrorPointer = nil
+        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        
+        return results.last
     }
     
 //
@@ -67,51 +113,5 @@ class RefeicaoDAO
 //        
 //        return results
 //    }
-    
-    static func findByName(name: String) -> Refeicao?
-    {
-        // creating fetch request
-        let request = NSFetchRequest(entityName: "ItemCardapio")
-        
-        // assign predicate
-        request.predicate = NSPredicate(format: "name == %@", name)
-        
-        // perform search
-        var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
-        
-        return results.last
-    }
-    
-    
-    static func insert(objectToBeInserted: Refeicao)
-    {
-        // insert element into context
-        DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
-        
-        // save context
-        var error: NSErrorPointer = nil
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
-        if (error != nil)
-        {
-            // log error
-            print(error)
-        }
-    }
-    
-    static func delete(objectToBeDeleted: Refeicao)
-    {
-        // remove object from context
-        var error:NSErrorPointer = nil
-        DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
-        
-        // log error
-        if (error != nil)
-        {
-            // log error
-            print(error)
-        }
-    }
     
 }

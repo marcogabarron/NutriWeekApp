@@ -27,7 +27,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewWillAppear(animated: Bool) {
         //a partir da refeicao pegar seis Itens cardapios
-        self.itens = ItemCardapioServices.allItemCardapios()
+        var refeicao: Refeicao = RefeicaoServices.findByName(self.selectedRefeicao)
+        self.itens = refeicao.getItemsObject()
         
     }
 
