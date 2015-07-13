@@ -146,6 +146,25 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
+
+    
+    
+    //MARK - Table View - Deletion and action buttons
+    
+    //futuro delete, para deletar linha e notification
+    
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            cell.removeAtIndex(indexPath.row)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//            let date = NSDate()
+//            let todoItem = TodoItem(deadline: date, title: "Teste", UUID: NSUUID().UUIDString)
+//            TodoList.sharedInstance.removeItem(todoItem)
+//        }
+//    }
+    
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC

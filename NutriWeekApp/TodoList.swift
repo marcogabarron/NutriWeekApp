@@ -21,6 +21,7 @@ class TodoList {
     
     private let ITEMS_KEY = "todoItems"
     
+    /** Mostra todos os itens agendados para notificação **/
     func allItems() -> [TodoItem] {
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? [:]
         let items = Array(todoDictionary.values)
@@ -29,8 +30,9 @@ class TodoList {
         })
     }
     
+    /** Adiciona novas notificações, com o intervalo desejado. **/
     func addItem(item: TodoItem) {
-//        var interval: NSCalendarUnit = .CalendarUnitWeekOfYear
+//        var weekInterval: NSCalendarUnit = .CalendarUnitWeekOfYear
         var weekInterval: NSCalendarUnit = .CalendarUnitMinute
         
         // persist a representation of this todo item in NSUserDefaults
@@ -50,6 +52,7 @@ class TodoList {
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
+    /** Remove itens da lista de notificações **/
     func removeItem(item: TodoItem) {
         for notification in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] { // loop through notifications...
             if (notification.userInfo!["UUID"] as! String == item.UUID) { // ...and cancel the notification that corresponds to this TodoItem instance (matched by UUID)

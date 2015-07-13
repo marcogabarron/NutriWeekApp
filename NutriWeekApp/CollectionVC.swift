@@ -10,7 +10,6 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var json = ReadJson()
     var itens = [ItemCardapio]()
     var colorImage = UIColor.blackColor().CGColor
     var selectedItens = [ItemCardapio]()
@@ -22,7 +21,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         
     }

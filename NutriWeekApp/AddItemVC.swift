@@ -15,7 +15,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var horario: UIDatePicker!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var json = ReadJson()
+
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()

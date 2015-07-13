@@ -11,37 +11,36 @@ import UIKit
 
 class ReadJson {
     
-//    var alimentosNomes = [String]()
-//    var alimentosImages = [String]()
     
-    var listaAlimentos = Array<Alimentos>()
-    var listaOrdenada = Array<Alimentos>()
-    var i = 0
+//    var listaAlimentos = Array<Alimentos>()
     
+    /** Método para leitura do JSON, criando objetos(Alimentos) com nome e imagem. No caso de ser a primeira vez que o app abre, esses objetos são passados para o coreData **/
     func loadFeed () {
         
+        //Leitura do JSON
         let path = NSBundle.mainBundle().pathForResource("Alimentos", ofType: "txt")
         let jsonData = NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe, error: nil)
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         
+        ///Array que permite a construção do objeto
         var feed : NSArray = jsonResult["Alimentos"] as! NSArray
         
+        ///Verifica se é a primeira vez
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
         if firstLaunch  {
-            //println("Not first launch.")
         }
         else {
-            //println("First launch, setting NSUserDefault.")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
             
+            
+            //Gera os Alimentos e passa para o contexto.
             for buildArray in feed {
-                
                 
                 var alimento = Alimentos()
                 alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
                 alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
                 
-                listaAlimentos.append(alimento)
+//                listaAlimentos.append(alimento)
                 
                 ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento)
                 
