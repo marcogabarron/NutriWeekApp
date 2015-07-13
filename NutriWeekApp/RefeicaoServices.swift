@@ -13,6 +13,7 @@ class RefeicaoServices
         
         // insert it
         RefeicaoDAO.insert(refeicao)
+        
     }
     
     static func deleteRefeicaoByName(name: String)

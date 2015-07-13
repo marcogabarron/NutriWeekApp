@@ -14,10 +14,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var itens = [ItemCardapio]()
     var colorImage = UIColor.blackColor().CGColor
     
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
     }
     
