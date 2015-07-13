@@ -51,7 +51,7 @@ class ReadJson {
         
   
     
-        //listaOrdenada = listaAlimentos.nomeAlimento.sorted() { ($0 as! String) < ($1 as! String) }
+//        listaOrdenada = listaAlimentos[0].sorted( { ($0 as! String), ($1 as! String) } )
 
 //        println(listaAlimentos[0].nomeAlimento)
     }

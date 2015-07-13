@@ -12,14 +12,23 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var alimento = Alimentos()
     var collectionview = CollectionVC()
     
-    var notification = Notification()
+    var notification = Notifications()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //To load json in Array
         json.loadFeed()
-        notification.scheduleNotification("2015-07-11-22-32-54")
+        
+        
+        for scheduleNotification in notification.listNotifications(["Segunda", "Terça"], dateHour: "14:47:00") {
+            
+            let todoItem = TodoItem(deadline: scheduleNotification, title: "Teste", UUID: NSUUID().UUIDString)
+            TodoList.sharedInstance.addItem(todoItem)
+            
+            println(todoItem.UUID)
+            
+        }
 
     }
     
