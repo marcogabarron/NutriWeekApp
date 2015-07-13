@@ -17,6 +17,20 @@ class RefeicaoDAO
         return results
     }
     
+    static func findByWeek(week: String) -> [Refeicao] {
+        // creating fetch request
+        let request = NSFetchRequest(entityName: "Refeicao")
+        
+        // assign predicate
+        request.predicate = NSPredicate(format: "diaSemana == %@", week)
+        
+        // perform search
+        var error: NSErrorPointer = nil
+        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        
+        return results
+    }
+    
 //
 //    static func findByTime(horarioInicio: NSDate, horarioFim: NSDate) -> [ItemCardapio]
 //        {
@@ -99,7 +113,5 @@ class RefeicaoDAO
             print(error)
         }
     }
-    
-    
     
 }

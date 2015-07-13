@@ -8,58 +8,30 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UISearchBarDelegate {
+class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     var json = ReadJson()
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
+    var selectedItens = [ItemCardapio]()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
-    var searchActive : Bool = false
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        //json.loadFeed()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         itens = ItemCardapioServices.allItemCardapios()
-        searchBar.text = ""
-    }
-    
-    //MARK: To use SearchBar
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if(searchBar.text == ""){
-            searchActive = false;
-            itens = ItemCardapioServices.allItemCardapios()
-        } else {
-            searchActive = true;
-            itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
-        }
-        self.collectionView.reloadData()
     }
     
     
@@ -69,13 +41,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return itens.count
-        
+         return itens.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
+        
         
         cell.textLabel.text = itens[indexPath.row].name
         cell.textLabel.textColor = UIColor.blackColor()
@@ -85,6 +56,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         cell.image.layer.borderWidth = 2
         cell.image.layer.borderColor = UIColor.blackColor().CGColor
+        
+        cell.item = itens[indexPath.row]
         
         cell.layer.cornerRadius = cell.frame.width/4
         
@@ -115,13 +88,20 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             //Here is selected
-            
+            self.selectedItens.append(cell.item)
         }else{
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             //Here is desselected
+            var i = 0
+            for item in self.selectedItens{
+                if(cell.item == item){
+                    self.selectedItens.removeAtIndex(i)
+                }
+                i++
+            }
         }
-        
+                
         cell.click = !cell.click
     }
 
@@ -154,36 +134,62 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
 
     //MARK: actions
+    
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
-            RefeicaoServices.createRefeicao(self.nameTextField.text, horario: "teste", diaSemana: "Semana Teste")
-        self.nameTextField.text = ""
-    }else{
-        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-        
-        self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
-        
-        }, completion: {(result) -> Void in
-            
-            UIView.animateWithDuration(0.3, animations: {() -> Void in
-                
-                self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                self.nameTextField.backgroundColor = UIColor.whiteColor()
-                
+            var i = 0
+            if(self.selectedItens.count == 0){
+                UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
+                    
+                    self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
+                    
+                    }, completion: {(result) -> Void in
+                        
+                        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                            
+                            self.collectionView.backgroundColor = UIColor.whiteColor()
+                            
+                        })
+                        
                 })
-        })
+                
+            
+            }else{
+                
+                for diaSemana in self.daysOfWeekString.getArrayString(){
+                    
+                    //Não esta savaldo nenhum Item caradapio!!!!!!
+                    //use a array self.selectedItens para salvar os itens
+                    
+                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana)
+                }
+                
+                
+
+                self.nameTextField.text = ""
+            }
+        }else{
+            
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+        
+                self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                
+                }, completion: {(result) -> Void in
+            
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                
+                        self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        self.nameTextField.backgroundColor = UIColor.whiteColor()
+                
+                
+                    })
+            })
+            
         }
     }
     
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "Week") {
-        let destinationViewController = segue.destinationViewController as! WeeksTableViewController
-        destinationViewController.week = self.daysOfWeekString
-        }
     }
     
     func TimePicker(sender: UIDatePicker) -> String{
@@ -196,15 +202,21 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         var strdate = timer.stringFromDate(sender.date)
         
-        println(strdate)
-        
         return strdate
         
     }
     
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
         
-        TimePicker(horario)
+        TimePicker(self.horario)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Week") {
+            let destinationViewController = segue.destinationViewController as! WeeksTableViewController
+            destinationViewController.week = self.daysOfWeekString
+        }
+    }
+
 }

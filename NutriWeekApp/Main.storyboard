@@ -66,7 +66,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="oxc-Ih-3gp" kind="show" id="4mV-AX-ACH"/>
+                                            <segue destination="oxc-Ih-3gp" kind="show" identifier="selected" id="4mV-AX-ACH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -273,12 +273,12 @@
                                     <!--2015-07-06 16:47:30 +0000-->
                                 </date>
                                 <connections>
-                                    <action selector="test:" destination="mUV-d7-g5Y" eventType="valueChanged" id="ZML-yg-nyV"/>
+                                    <action selector="UpdateTimerPicker:" destination="mUV-d7-g5Y" eventType="valueChanged" id="3DS-Wy-9KT"/>
                                 </connections>
                             </datePicker>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-Iu-tAo">
                                 <rect key="frame" x="0.0" y="237" width="375" height="44"/>
-                                <color key="barTintColor" red="0.15858728523853213" green="0.58771474186788997" blue="0.47183916281070337" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="mUV-d7-g5Y" id="gqy-M9-kFH"/>
