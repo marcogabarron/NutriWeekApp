@@ -257,8 +257,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         timer.dateFormat = "HH:mm:ss"
         
-        timer.timeStyle = NSDateFormatterStyle.MediumStyle
-        
         var strdate = timer.stringFromDate(sender.date)
         
         return strdate
