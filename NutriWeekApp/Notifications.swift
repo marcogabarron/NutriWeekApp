@@ -10,12 +10,11 @@ import Foundation
 
 class Notifications {
     
-    
     let day: NSTimeInterval = 60*60*24
     
     /** Recebe o dia da semana e a hora escolhida no PickerDate.
     Através do dia da semana, constrói  a notificação, retornando a data a ser agendada **/
-    func listNotifications (diaDaSemana: String, dateHour: String) -> (NSDate) {
+    func scheduleNotifications (diaDaSemana: String, dateHour: String) -> (NSDate) {
         
         // Obtendo o dia da semana atual
         let currentDate = NSDate()
