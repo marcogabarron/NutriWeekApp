@@ -22,7 +22,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         json.loadFeed()
         
         
-//        for scheduleNotification in notification.listNotifications(["Segunda", "Terça"], dateHour: "15:44:00") {
+//        for scheduleNotification in notification.listNotifications(["Segunda", "Terça"], dateHour: "13:54:00") {
 //            
 //            let todoItem = TodoItem(deadline: scheduleNotification, title: "Teste", UUID: NSUUID().UUIDString)
 //            TodoList.sharedInstance.addItem(todoItem)
@@ -30,6 +30,12 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 //            println(todoItem.UUID)
 //            
 //        }
+        var date = NSDate()
+        let todoItem = TodoItem(deadline: date, title: "Teste", UUID: "816968F1-A573-4CD4-9F19-0645F20CB8D1")
+        TodoList.sharedInstance.removeItem(todoItem)
+        let todoItem2 = TodoItem(deadline: date, title: "Teste", UUID: "9D2E57CB-9AE6-4154-996E-7DF23DFC7E78")
+        TodoList.sharedInstance.removeItem(todoItem2)
+        
         
 
     }
