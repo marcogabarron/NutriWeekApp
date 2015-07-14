@@ -30,11 +30,12 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 //            println(todoItem.UUID)
 //            
 //        }
-        var date = NSDate()
-        let todoItem = TodoItem(deadline: date, title: "Teste", UUID: "816968F1-A573-4CD4-9F19-0645F20CB8D1")
-        TodoList.sharedInstance.removeItem(todoItem)
-        let todoItem2 = TodoItem(deadline: date, title: "Teste", UUID: "9D2E57CB-9AE6-4154-996E-7DF23DFC7E78")
-        TodoList.sharedInstance.removeItem(todoItem2)
+        
+//        var date = NSDate()
+//        let todoItem = TodoItem(deadline: date, title: "Teste", UUID: "816968F1-A573-4CD4-9F19-0645F20CB8D1")
+//        TodoList.sharedInstance.removeItem(todoItem)
+//        let todoItem2 = TodoItem(deadline: date, title: "Teste", UUID: "9D2E57CB-9AE6-4154-996E-7DF23DFC7E78")
+//        TodoList.sharedInstance.removeItem(todoItem2)
         
         
 
@@ -159,15 +160,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //futuro delete, para deletar linha e notification
     
-//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == UITableViewCellEditingStyle.Delete {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
 //            cell.removeAtIndex(indexPath.row)
 //            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
 //            let date = NSDate()
 //            let todoItem = TodoItem(deadline: date, title: "Teste", UUID: NSUUID().UUIDString)
 //            TodoList.sharedInstance.removeItem(todoItem)
-//        }
-//    }
+        }
+    }
     
 
     
