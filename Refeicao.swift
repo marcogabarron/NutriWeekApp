@@ -15,7 +15,7 @@ class Refeicao: NSManagedObject {
     @NSManaged var horario: String
     @NSManaged var name: String
     @NSManaged var refeicao: NSSet
-    
+    @NSManaged var uuid: String
 
     
     /// The designated initializer

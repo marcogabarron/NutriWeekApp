@@ -15,7 +15,7 @@ class Notifications {
     
     /** Recebe a array com dias da semana listados e a hora escolhida no PickerDate. 
     Através do dia da semana, constrói  as notifications de cada dia, com horários iguais, e coloca em uma Array **/
-    func listNotifications (weekArray: Array<String>, dateHour: String) -> (Array<NSDate>) {
+    func listNotifications (diaDaSemana: String, dateHour: String) -> (NSDate) {
         
         ///Lista com as datas de cada dia da semana, já com o horário certo
         var listOfDates = Array<NSDate>()
@@ -29,9 +29,9 @@ class Notifications {
         var currentAdded: NSDate?
         
         ///De acordo com os dias da semana da Array, cria os horários de cada notificação
-        for buildNotifications in weekArray {
-            
-            switch buildNotifications {
+//        for buildNotifications in weekArray {
+        
+            switch diaDaSemana {
             case "Domingo":
                 var daysTo: NSInteger = (8 - weekDay ) % 7
                 var interval: NSTimeInterval = NSTimeInterval(daysTo)
@@ -70,7 +70,7 @@ class Notifications {
             default:
                 println("Error: This day of week is false!")
             }
-            
+        
             //Dia obtido à cima
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -95,11 +95,11 @@ class Notifications {
             }
     
             
-            listOfDates.append(dateToAdd!)
-            
-        }
+//            listOfDates.append(dateToAdd!)
         
-        return listOfDates
+//        }
+        
+        return dateToAdd!
         
     }
     

@@ -4,12 +4,13 @@ import Foundation
 
 class RefeicaoServices
 {
-    static func createRefeicao(name: String, horario: String, diaSemana: String, items: [ItemCardapio])
+    static func createRefeicao(name: String, horario: String, diaSemana: String, items: [ItemCardapio], uuid: String)
     {
         var refeicao: Refeicao = Refeicao()
         refeicao.name = name
         refeicao.horario = horario
         refeicao.diaSemana = diaSemana
+        refeicao.uuid = uuid
         
         for item in items{
             refeicao.addItemsObject(item)

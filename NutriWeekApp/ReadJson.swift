@@ -11,9 +11,6 @@ import UIKit
 
 class ReadJson {
     
-    
-//    var listaAlimentos = Array<Alimentos>()
-    
     /** Método para leitura do JSON, criando objetos(Alimentos) com nome e imagem. No caso de ser a primeira vez que o app abre, esses objetos são passados para o coreData **/
     func loadFeed () {
         
@@ -39,8 +36,6 @@ class ReadJson {
                 var alimento = Alimentos()
                 alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
                 alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
-                
-//                listaAlimentos.append(alimento)
                 
                 ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento)
                 
