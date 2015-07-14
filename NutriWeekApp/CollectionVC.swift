@@ -63,10 +63,29 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.myImage.layer.borderWidth = 2
         cell.myImage.layer.borderColor = colorImage
         
-       
+        if(self.find(self.itens[indexPath.row])){
+            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+            cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.click = true
+            
+        }else{
+            cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
+            cell.myButton.tintColor = UIColor.blackColor()
+            cell.click = false
+        }
         
         return cell
         
+    }
+    
+    func find(itemNew: ItemCardapio)->Bool{
+        var re : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                re = true
+            }
+        }
+        return re
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -92,21 +111,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Here is selected
-//            self.selectedItens.append(cell.item)
+            self.selectedItens.append(self.itens[indexPath.row])
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
             //Here is desselected
             var i = 0
             for item in self.selectedItens{
-//                if(cell.item == item){
+                if(self.itens[indexPath.row] == item){
                     self.selectedItens.removeAtIndex(i)
                 }
                 i++
             }
         }
         
-        //cell.click = !cell.click
+        cell.click = !cell.click
         
     }
     
@@ -121,4 +140,4 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     */
 
-
+}

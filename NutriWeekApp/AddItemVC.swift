@@ -95,12 +95,31 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.image.layer.borderWidth = 2
         cell.image.layer.borderColor = UIColor.blackColor().CGColor
         
-        cell.item = itens[indexPath.row]
-        
         cell.layer.cornerRadius = cell.frame.width/4
+        
+        if(self.find(self.itens[indexPath.row])){
+            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+            cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.click = true
+
+        }else{
+            cell.image.layer.borderColor = UIColor.blackColor().CGColor
+            cell.textLabel.textColor = UIColor.blackColor()
+            cell.click = false
+        }
         
         return cell
         
+    }
+    
+    func find(itemNew: ItemCardapio)->Bool{
+        var re : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                re = true
+            }
+        }
+        return re
     }
     
     
@@ -126,14 +145,14 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             //Here is selected
-            self.selectedItens.append(cell.item)
+            self.selectedItens.append(self.itens[indexPath.row])
         }else{
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             //Here is desselected
             var i = 0
             for item in self.selectedItens{
-                if(cell.item == item){
+                if(self.itens[indexPath.row] == item){
                     self.selectedItens.removeAtIndex(i)
                 }
                 i++
