@@ -15,6 +15,6 @@
     </entity>
     <elements>
         <element name="ItemCardapio" positionX="-63" positionY="-9" width="128" height="118"/>
-        <element name="Refeicao" positionX="207" positionY="-4" width="128" height="103"/>
+        <element name="Refeicao" positionX="207" positionY="-4" width="128" height="105"/>
     </elements>
 </model>
