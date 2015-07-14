@@ -92,18 +92,18 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
-        cell.image.layer.borderWidth = 2
-        cell.image.layer.borderColor = UIColor.blackColor().CGColor
-        
-        cell.layer.cornerRadius = cell.frame.width/4
+//        cell.image.layer.borderWidth = 2
+//        cell.image.layer.borderColor = UIColor.blackColor().CGColor
+//        
+//        cell.layer.cornerRadius = cell.frame.width/4
         
         if(self.find(self.itens[indexPath.row])){
-            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+//            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             cell.click = true
 
         }else{
-            cell.image.layer.borderColor = UIColor.blackColor().CGColor
+//            cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             cell.click = false
         }
@@ -212,7 +212,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
             
             }else{
-                
+                //save here
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens)

@@ -18,6 +18,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var hour: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         //a partir da refeicao pegar seis Itens cardapios
         var refeicao: Refeicao = RefeicaoServices.findByName(self.selectedRefeicao)
         self.itens = refeicao.getItemsObject()
+        self.name.text = refeicao.name
+        self.hour.text = refeicao.horario
         
     }
 
@@ -60,8 +64,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
-        cell.myImage.layer.borderWidth = 2
-        cell.myImage.layer.borderColor = colorImage
+//        cell.myImage.layer.borderWidth = 2
+//        cell.myImage.layer.borderColor = colorImage
         
         if(self.find(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
