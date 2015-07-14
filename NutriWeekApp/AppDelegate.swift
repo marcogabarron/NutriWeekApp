@@ -54,8 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        var newFireDate = notification.fireDate!.dateByAddingTimeInterval(60*3)  //(60*60*24*7)
 //        
-//        var item = TodoItem(deadline: newFireDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
-//        
+        var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
+        
+        println(notification.userInfo!["UUID"] as! String!)
+//
 //        TodoList.sharedInstance.addItem(item)
     }
     

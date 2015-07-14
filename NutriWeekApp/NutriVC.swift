@@ -22,17 +22,19 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         json.loadFeed()
         
         
-//        for scheduleNotification in notification.listNotifications(["Segunda", "Terça"], dateHour: "13:54:00") {
-//            
-//            let todoItem = TodoItem(deadline: scheduleNotification, title: "Teste", UUID: NSUUID().UUIDString)
+//        for scheduleNotification in notification.listNotifications("Segunda", dateHour: "13:54:00") {
+        
+//            notification.listNotifications("Segunda", dateHour: "!6:27:00")
+        
+//            let todoItem = TodoItem(deadline: notification.listNotifications("Segunda", dateHour: "16:27:00"), title: "Teste", UUID: NSUUID().UUIDString)
 //            TodoList.sharedInstance.addItem(todoItem)
 //            
 //            println(todoItem.UUID)
-//            
+        
 //        }
         
 //        var date = NSDate()
-//        let todoItem = TodoItem(deadline: date, title: "Teste", UUID: "816968F1-A573-4CD4-9F19-0645F20CB8D1")
+//        let todoItem = TodoItem(deadline: date, title: "Teste", UUID: "B2FAB7FE-A98E-4B7F-9AAB-79260EEA8A4D")
 //        TodoList.sharedInstance.removeItem(todoItem)
 //        let todoItem2 = TodoItem(deadline: date, title: "Teste", UUID: "9D2E57CB-9AE6-4154-996E-7DF23DFC7E78")
 //        TodoList.sharedInstance.removeItem(todoItem2)
@@ -164,8 +166,12 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            var service = RefeicaoServices()
+//            service.
 //            cell.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
 //            let date = NSDate()
 //            let todoItem = TodoItem(deadline: date, title: "Teste", UUID: NSUUID().UUIDString)
 //            TodoList.sharedInstance.removeItem(todoItem)

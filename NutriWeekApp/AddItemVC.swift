@@ -215,7 +215,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 //save here
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     
-                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens)
+                    let notification = Notifications()
+                    let todoItem = TodoItem(deadline: notification.listNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: "Teste", UUID: NSUUID().UUIDString)
+                    TodoList.sharedInstance.addItem(todoItem)
+                    
+                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                 }
                 
                 
@@ -253,7 +257,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         timer.dateFormat = "HH:mm:ss"
         
-        timer.timeStyle = NSDateFormatterStyle.ShortStyle
+        timer.timeStyle = NSDateFormatterStyle.MediumStyle
         
         var strdate = timer.stringFromDate(sender.date)
         

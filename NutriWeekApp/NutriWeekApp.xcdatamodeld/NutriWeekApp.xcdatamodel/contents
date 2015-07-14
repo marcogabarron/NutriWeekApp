@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ItemCardapio" representedClassName="NutriWeekApp.ItemCardapio" syncable="YES">
         <attribute name="horarioFim" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="horarioInicio" optional="YES" attributeType="Date" syncable="YES"/>
@@ -11,10 +11,11 @@
         <attribute name="diaSemana" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="horario" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" syncable="YES"/>
         <relationship name="refeicao" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemCardapio" inverseName="cardapio" inverseEntity="ItemCardapio" syncable="YES"/>
     </entity>
     <elements>
         <element name="ItemCardapio" positionX="-63" positionY="-9" width="128" height="118"/>
-        <element name="Refeicao" positionX="207" positionY="-4" width="128" height="103"/>
+        <element name="Refeicao" positionX="207" positionY="-4" width="128" height="120"/>
     </elements>
 </model>
