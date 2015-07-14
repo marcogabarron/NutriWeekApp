@@ -109,7 +109,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 45
+        return 30
         
     }
     
@@ -121,6 +121,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
+            cell.detailTextLabel?.text = self.items[indexPath.row].horario
+
         }
 
         return cell
@@ -132,11 +134,11 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let headerView = UIView()
         headerView.backgroundColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
         
-        var label: UILabel = UILabel(frame: CGRect(x: 42, y: 0, width: 300, height: 50))
+        var label: UILabel = UILabel(frame: CGRect(x: 37, y: 0, width: 300, height: 30))
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
         label.text = self.diasSemana[section]
-        label.font = UIFont(name:"AmericanTypewriter-Bold", size: 30)
+        label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
         headerView.addSubview(label)
         
         self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
