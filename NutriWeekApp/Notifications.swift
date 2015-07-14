@@ -13,68 +13,54 @@ class Notifications {
     
     let day: NSTimeInterval = 60*60*24
     
-    /** Recebe a array com dias da semana listados e a hora escolhida no PickerDate. 
-    Através do dia da semana, constrói  as notifications de cada dia, com horários iguais, e coloca em uma Array **/
+    /** Recebe o dia da semana e a hora escolhida no PickerDate.
+    Através do dia da semana, constrói  a notificação, retornando a data a ser agendada **/
     func listNotifications (diaDaSemana: String, dateHour: String) -> (NSDate) {
-        
-        ///Lista com as datas de cada dia da semana, já com o horário certo
-        var listOfDates = Array<NSDate>()
         
         // Obtendo o dia da semana atual
         let currentDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: currentDate)
         let weekDay = myComponents.weekday
+
+        var daysTo: NSInteger?
         
-        var currentAdded: NSDate?
-        
-        ///De acordo com os dias da semana da Array, cria os horários de cada notificação
-//        for buildNotifications in weekArray {
+        ///De acordo com o dia da semana, cria os horários de cada notificação
         
             switch diaDaSemana {
             case "Domingo":
-                var daysTo: NSInteger = (8 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (8 - weekDay ) % 7
                 
             case "Segunda":
-                var daysTo: NSInteger = (9 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (9 - weekDay ) % 7
                 
             case "Terça":
-                var daysTo: NSInteger = (10 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (10 - weekDay ) % 7
                 
             case "Quarta":
-                var daysTo: NSInteger = (11 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (11 - weekDay ) % 7
                 
             case "Quinta":
-                var daysTo: NSInteger = (12 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (12 - weekDay ) % 7
                 
             case "Sexta":
-                var daysTo: NSInteger = (13 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (13 - weekDay ) % 7
                 
             case "Sábado":
-                var daysTo: NSInteger = (14 - weekDay ) % 7
-                var interval: NSTimeInterval = NSTimeInterval(daysTo)
-                currentAdded = currentDate.dateByAddingTimeInterval(interval * day)
+                daysTo = (14 - weekDay ) % 7
+                
                 
             default:
                 println("Error: This day of week is false!")
             }
         
+            let interval: NSTimeInterval = NSTimeInterval(daysTo!)
+            let currentAdded: NSDate = currentDate.dateByAddingTimeInterval(interval * day)
+        
             //Dia obtido à cima
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dateDay = dateFormatter.stringFromDate(currentAdded!)
+            let dateDay = dateFormatter.stringFromDate(currentAdded)
             
             //Hora obtida no pickerdate
             let dateStringToAdd = dateDay + "-" + dateHour
@@ -86,18 +72,13 @@ class Notifications {
             var dateToAdd = dateFormatterBack.dateFromString(dateStringToAdd)
             
             ///Compara a data obtida com a data atual. Se a data obtida já tive passado - acontece apenas se marquei para o dia da semana que é hoje, mas pra horário anterior - acrescenta o intervalo de uma semana
-            var dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)
+            let dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)
             
             if dateComparisionResult == NSComparisonResult.OrderedDescending || dateComparisionResult == NSComparisonResult.OrderedSame
             {
                 // Current date is greater than end date.
                 dateToAdd = dateToAdd?.dateByAddingTimeInterval(60*60*24*7)
             }
-    
-            
-//            listOfDates.append(dateToAdd!)
-        
-//        }
         
         return dateToAdd!
         
