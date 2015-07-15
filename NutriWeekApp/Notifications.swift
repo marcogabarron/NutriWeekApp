@@ -66,6 +66,7 @@ class Notifications {
             //Soma dos dois
             let dateFormatterBack = NSDateFormatter()
             dateFormatterBack.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+            dateFormatterBack.timeZone = NSTimeZone.localTimeZone()
             var dateToAdd = dateFormatterBack.dateFromString(dateStringToAdd)
             
             ///Compara a data obtida com a data atual. Se a data obtida já tive passado - acontece apenas se marquei para o dia da semana que é hoje, mas pra horário anterior - acrescenta o intervalo de uma semana

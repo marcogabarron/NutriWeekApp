@@ -116,20 +116,20 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    //MARK - PickerDate
+    //MARK - FormatTime
     
-    func formatTime(date: NSDate) -> String{
-        
-        var timer = NSDateFormatter()
-        
-        timer.dateFormat = "HH:mm:ss"
-        timer.timeZone = NSTimeZone.localTimeZone()
-        
-        var strdate = timer.stringFromDate(date)
-        
-        return strdate
-        
-    }
+//    func formatTime(date: NSDate) -> String{
+//        
+//        var timer = NSDateFormatter()
+//        
+//        timer.dateFormat = "HH:mm:ss"
+//        timer.timeZone = NSTimeZone.localTimeZone()
+//        
+//        var strdate = timer.stringFromDate(date)
+//        
+//        return strdate
+//        
+//    }
     
     
     //MARK - Prepare for segue

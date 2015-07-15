@@ -219,7 +219,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
-            var i = 0
+//            var i = 0
             if(self.selectedItens.count == 0){
                 UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
                     
@@ -240,6 +240,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 //save here
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     
+                    /// Adiciona a notificação
                     let notification = Notifications()
                     let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                     TodoList.sharedInstance.addItem(todoItem)
