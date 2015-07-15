@@ -86,8 +86,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         super.viewWillAppear(animated)
         
-        //items = RefeicaoServices.findByWeek("Sexta")
-        
         self.tableView.reloadData()
 
     }
@@ -183,7 +181,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-
+    //MARK - Prepare for segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {

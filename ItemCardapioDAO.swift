@@ -9,6 +9,10 @@ class ItemCardapioDAO
         // creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        
+        request.sortDescriptors = [sortDescriptor]
+        
         // perform search
         var error: NSErrorPointer = nil
         let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
