@@ -278,8 +278,6 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                     
                 }
                 
-                
-                self.nameTextField.text = ""
             }
         }else{
             

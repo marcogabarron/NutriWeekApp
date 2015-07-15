@@ -41,6 +41,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.name.text = refeicao.name
         self.hour.text = self.formatTime(refeicao.horario)
         
+        self.collectionView.reloadData()
+        
     }
     
     //MARK: Logic Functions
