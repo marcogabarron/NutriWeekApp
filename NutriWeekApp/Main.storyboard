@@ -454,6 +454,7 @@
                         <outlet property="horario" destination="Sci-vb-A3J" id="BiP-WF-IiO"/>
                         <outlet property="nameTextField" destination="oHL-RJ-w88" id="3m2-6A-v9i"/>
                         <outlet property="searchBar" destination="AVq-Iu-tAo" id="QSf-Ty-kMk"/>
+                        <outlet property="tableView" destination="Gcs-Po-qRI" id="GCD-de-BH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeJ-Ah-S44" userLabel="First Responder" sceneMemberID="firstResponder"/>

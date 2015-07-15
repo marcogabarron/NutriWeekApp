@@ -16,6 +16,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBOutlet weak var searchBar: UISearchBar!
     
 
+    @IBOutlet weak var tableView: UITableView!
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
@@ -34,7 +35,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         self.itens = ItemCardapioServices.allItemCardapios()
         self.searchBar.text = ""
         self.collectionView.reloadData()
-
+        self.tableView.reloadData()
     }
     
     //MARK: SearchBar
@@ -92,18 +93,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
-//        cell.image.layer.borderWidth = 2
-//        cell.image.layer.borderColor = UIColor.blackColor().CGColor
-//        
-//        cell.layer.cornerRadius = cell.frame.width/4
         
         if(self.find(self.itens[indexPath.row])){
-//            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             cell.click = true
 
         }else{
-//            cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             cell.click = false
         }
@@ -179,6 +174,36 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell") as! UITableViewCell
         
+        if(self.daysOfWeekString.getArrayString().count == 7){
+            cell.detailTextLabel?.text = "Todos od Dias"
+        }else{
+            cell.detailTextLabel?.text = ""
+            var text: String = " "
+            for str : String in self.daysOfWeekString.getArrayString(){
+                if(text != " "){
+                    text = text.stringByAppendingString(", ")
+                }
+                switch str {
+                case "Segunda":
+                    text = text.stringByAppendingString("seg")
+                case "Terça":
+                    text = text.stringByAppendingString("ter")
+                case "Quarta":
+                    text = text.stringByAppendingString("qua")
+                case "Quinta":
+                    text = text.stringByAppendingString("qui")
+                case "Sexta":
+                    text = text.stringByAppendingString("sex")
+                case "Sábado":
+                    text = text.stringByAppendingString("sab")
+                case "Domingo":
+                    text = text.stringByAppendingString("dom")
+                default:
+                    text.stringByAppendingString(" ")
+                }
+            }
+            cell.detailTextLabel?.text = text
+        }
         return cell
         
     }
