@@ -92,6 +92,21 @@ class RefeicaoDAO
         return results.last
     }
     
+    static func findByUuid(uuid: String) -> Refeicao?
+    {
+        // creating fetch request
+        let request = NSFetchRequest(entityName: "Refeicao")
+        
+        // assign predicate
+        request.predicate = NSPredicate(format: "uuid == %@", uuid)
+        
+        // perform search
+        var error: NSErrorPointer = nil
+        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        
+        return results.last
+    }
+    
 //
 //    static func findByTime(horarioInicio: NSDate, horarioFim: NSDate) -> [ItemCardapio]
 //        {
