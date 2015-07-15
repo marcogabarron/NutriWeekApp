@@ -120,28 +120,13 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
-            cell.detailTextLabel?.text = self.items[indexPath.row].horario
-            
-            
-
+            cell.detailTextLabel?.text = self.formatTime(self.items[indexPath.row].horario)
         }
 
         return cell
     
     }
     
-    func formatTime(date: NSDate) -> String{
-        
-        var timer = NSDateFormatter()
-        
-        timer.dateFormat = "HH:mm:ss"
-        timer.timeZone = NSTimeZone.localTimeZone()
-        
-        var strdate = timer.stringFromDate(date)
-        
-        return strdate
-        
-    }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -159,6 +144,24 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
         
         return headerView
+        
+    }
+    
+    //get string and returns a string formatted with local time zone
+    func formatTime(dataString: String) -> String{
+        
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        
+        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
+        
+        
+        return stringFormatted
         
     }
     

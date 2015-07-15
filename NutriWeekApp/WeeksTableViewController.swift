@@ -18,12 +18,14 @@ class WeeksTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
+    //write the name of the cell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
         cell.textLabel?.text = self.arrayFix[indexPath.row]
         
+        //says it is selected or not
         if(self.week.findString(self.arrayFix[indexPath.row])){
             cell.accessoryType = .Checkmark
         }else{
@@ -34,6 +36,7 @@ class WeeksTableViewController: UITableViewController {
         
     }
 
+    //select and deselect cell
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if(self.week.getArrayString().count != 1){
@@ -54,6 +57,7 @@ class WeeksTableViewController: UITableViewController {
         
     }
     
+    //remove day deselect
     func removeDay(day: String){
         for i in 0...self.week.getArrayString().count{
             if( self.week.getArrayString()[i] == day){
@@ -63,11 +67,12 @@ class WeeksTableViewController: UITableViewController {
         }
     }
     
-    
+    //add day select
     func addDay(day: String){
         self.week.append(day)
     }
     
+    //prepare for segue back
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! AddItemVC

@@ -14,9 +14,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
@@ -35,16 +34,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     override func viewWillAppear(animated: Bool) {
         self.itens = ItemCardapioServices.allItemCardapios()
-        self.selectedItens = refeicao.getItemsObject()
-        self.nameTextField.text = refeicao.name
         
-        var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-        var weeks: [String] = []
-        for new in allRefWithSameName{
-            weeks.append(new.diaSemana)
-        }
-        
-        self.daysOfWeekString.setArrayString(weeks)
+        self.getDatabaseInformation()
         
         self.searchBar.text = ""
         self.collectionView.reloadData()
@@ -192,6 +183,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         }else{
             cell.detailTextLabel?.text = ""
             var text: String = " "
+            
+              //write in the edited cell in weeks - part to make intuitive
             for str : String in self.daysOfWeekString.getArrayString(){
                 if(text != " "){
                     text = text.stringByAppendingString(", ")
@@ -287,6 +280,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         view.endEditing(true)
     }
     
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        
+        TimePicker(self.horario)
+        
+    }
+    
+    //MARK: Logic Functions
     
     func TimePicker(sender: UIDatePicker) -> String{
         
@@ -300,10 +300,33 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
-    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+    
+    func formatTime(dataString: String) -> NSDate{
         
-        TimePicker(self.horario)
+        var dateFormatter = NSDateFormatter()
         
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        return dateValue!
+        
+    }
+    
+    func getDatabaseInformation(){
+        self.selectedItens = refeicao.getItemsObject()
+        self.nameTextField.text = refeicao.name
+        
+        var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+        var weeks: [String] = []
+        for new in allRefWithSameName{
+            weeks.append(new.diaSemana)
+        }
+        
+        self.daysOfWeekString.setArrayString(weeks)
+        
+        self.horario.date = self.formatTime(self.refeicao.horario)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -107,21 +107,13 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
     }
     
-    func find(itemNew: ItemCardapio)->Bool{
-        var re : Bool = false
-        for item in self.selectedItens{
-            if(itemNew == item){
-                re = true
-            }
-        }
-        return re
-    }
     
-    
+    //select and deselect cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
         
+        //animation
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
             cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
@@ -136,12 +128,14 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
         })
         
+        //selected
         if(cell.click == false){
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             //Here is selected
             self.selectedItens.append(self.itens[indexPath.row])
         }else{
+            //deselect
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             //Here is desselected
@@ -175,10 +169,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell") as! UITableViewCell
         
         if(self.daysOfWeekString.getArrayString().count == 7){
-            cell.detailTextLabel?.text = "Todos od Dias"
+            cell.detailTextLabel?.text = "Todos os Dias"
         }else{
             cell.detailTextLabel?.text = ""
             var text: String = " "
+            
+            //write in the edited cell in weeks - part to make intuitive
             for str : String in self.daysOfWeekString.getArrayString(){
                 if(text != " "){
                     text = text.stringByAppendingString(", ")
@@ -270,11 +266,25 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         }
     }
     
+    
+    
+    //close keyboard
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
 
     
+
+    
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        
+        TimePicker(self.horario)
+        
+    }
+    
+    //MARK: Logic Functions
+    
+    //get datePicker and returns a string formatted for save
     func TimePicker(sender: UIDatePicker) -> String{
         
         var timer = NSDateFormatter()
@@ -286,13 +296,18 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         return strdate
         
     }
-    
-    @IBAction func UpdateTimerPicker(sender: AnyObject) {
-        
-        TimePicker(self.horario)
-        
+    //checks whether the item is selected
+    func find(itemNew: ItemCardapio)->Bool{
+        var re : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                re = true
+            }
+        }
+        return re
     }
     
+    //prepare for Segue to Week page
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! WeeksTableViewController
