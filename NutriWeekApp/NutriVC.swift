@@ -159,10 +159,10 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
 //            self.items = RefeicaoServices.deleteRefeicaoByName(self.items[indexPath.row].uuid)
             
-            var service = RefeicaoServices()
+//            var service = RefeicaoServices()
 //            service.
 //            cell.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
 //            let date = NSDate()
 //            let todoItem = TodoItem(deadline: date, title: "Teste", UUID: NSUUID().UUIDString)
