@@ -216,7 +216,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     
                     let notification = Notifications()
-                    let todoItem = TodoItem(deadline: notification.listNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: "Teste", UUID: NSUUID().UUIDString)
+                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                     TodoList.sharedInstance.addItem(todoItem)
                     
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
