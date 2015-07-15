@@ -14,7 +14,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var colorImage = UIColor.blackColor().CGColor
     var selectedItens = [ItemCardapio]()
     
-    var refeicao: Refeicao!
+    var refeicaoID: String!
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -34,11 +34,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewWillAppear(animated: Bool) {
         //a partir da refeicao pegar seis Itens cardapios
-        self.itens = self.refeicao.getItemsObject()
+        var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+        self.itens = refeicao.getItemsObject()
         
         //get name and time
-        self.name.text = self.refeicao.name
-        self.hour.text = self.formatTime(self.refeicao.horario)
+        self.name.text = refeicao.name
+        self.hour.text = self.formatTime(refeicao.horario)
         
     }
     
@@ -49,7 +50,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         var dateFormatter = NSDateFormatter()
         
-        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         
         let dateValue = dateFormatter.dateFromString(dataString)
@@ -158,7 +159,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Edit") {
             let destinationViewController = segue.destinationViewController as! EditVC
-            destinationViewController.refeicao = self.refeicao
+            var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+            destinationViewController.refeicao = refeicao
         }else{
             
         }

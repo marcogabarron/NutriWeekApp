@@ -11,7 +11,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var items: [Refeicao]!
     var json = ReadJson()
     var alimento = Alimentos()
-    var collectionview = CollectionVC()
     
     var notification = Notifications()
     
@@ -152,7 +151,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         var dateFormatter = NSDateFormatter()
         
-        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         
         let dateValue = dateFormatter.dateFromString(dataString)
@@ -178,6 +177,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
             
+            //delete Notication
             let date = NSDate()
             let todoItem = TodoItem(deadline: date, title: self.items[indexPath.row].name , UUID: self.items[indexPath.row].uuid )
             TodoList.sharedInstance.removeItem(todoItem)
@@ -193,7 +193,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC
             var refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
-            destinationViewController.refeicao = refeicao
+            destinationViewController.refeicaoID = refeicao.uuid
         }else{
             
         }

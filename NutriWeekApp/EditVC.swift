@@ -29,7 +29,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+        var weeks: [String] = []
+        for new in allRefWithSameName{
+            weeks.append(new.diaSemana)
+        }
         
+        self.daysOfWeekString.setArrayString(weeks)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -243,14 +249,33 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
                 
             }else{
+                var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+                var uid: String = self.refeicao.uuid
+                var boolean = false
+                for ref in allRefWithSameName{
+                    RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
+                    let date = NSDate()
+                    let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+                    TodoList.sharedInstance.removeItem(todoItem)
+                }
                 //save here
                 for diaSemana in self.daysOfWeekString.getArrayString(){
+                    if(boolean == false){
+                        let notification = Notifications()
+                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: uid)
+                        TodoList.sharedInstance.addItem(todoItem)
+                        
+                        RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+                        
+                        boolean = true
+                    }else{
+                        let notification = Notifications()
+                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
+                        TodoList.sharedInstance.addItem(todoItem)
+                        
+                        RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                    }
                     
-                    let notification = Notifications()
-                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
-                    TodoList.sharedInstance.addItem(todoItem)
-                    
-                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                 }
                 
                 
@@ -292,7 +317,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         var timer = NSDateFormatter()
         
-        timer.dateFormat = "HH:mm:ss"
+        timer.dateFormat = "HH:mm"
         
         var strdate = timer.stringFromDate(sender.date)
         
@@ -305,7 +330,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         var dateFormatter = NSDateFormatter()
         
-        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         
         let dateValue = dateFormatter.dateFromString(dataString)
@@ -318,13 +343,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         self.selectedItens = refeicao.getItemsObject()
         self.nameTextField.text = refeicao.name
         
-        var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-        var weeks: [String] = []
-        for new in allRefWithSameName{
-            weeks.append(new.diaSemana)
-        }
-        
-        self.daysOfWeekString.setArrayString(weeks)
+
         
         self.horario.date = self.formatTime(self.refeicao.horario)
     }
@@ -334,7 +353,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             let destinationViewController = segue.destinationViewController as! WeeksTableViewController
             destinationViewController.week = self.daysOfWeekString
         }else{
-            
+
         }
     }
     
