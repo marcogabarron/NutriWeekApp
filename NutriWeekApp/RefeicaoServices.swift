@@ -21,6 +21,34 @@ class RefeicaoServices
         
     }
     
+    static func editRefeicao(refeicao: Refeicao, name: String, horario: String, diaSemana: String, items: [ItemCardapio])
+    {
+        if(refeicao.name != name){
+            refeicao.name = name
+        }
+        if(refeicao.horario != horario){
+            refeicao.horario = horario
+        }
+        if(refeicao.diaSemana != diaSemana){
+            refeicao.diaSemana = diaSemana
+        }
+        
+        for item in items{
+            var find = false
+            for itemFromRefeicao in refeicao.getItemsObject(){
+                if(itemFromRefeicao == item){
+                    find = true
+                    break
+                }
+            }
+            if(find == false){
+                refeicao.addItemsObject(item)
+            }
+        }
+        
+    }
+
+    
     static func deleteRefeicaoByName(name: String)
     {
         // create queue
@@ -48,11 +76,11 @@ class RefeicaoServices
         
         // create operation
         let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-            // find challenge
+            // find ref
             var refeicao: Refeicao? = RefeicaoDAO.findByUuid(uuid)
             if (refeicao != nil)
             {
-                // delete challenge
+                // delete ref
                 RefeicaoDAO.delete(refeicao!)
             }
         })
@@ -71,6 +99,10 @@ class RefeicaoServices
     
     static func findByName(str: String) -> Refeicao{
         return RefeicaoDAO.findByName(str)!
+    }
+    
+    static func findByUuid(str: String) -> Refeicao{
+        return RefeicaoDAO.findByUuid(str)!
     }
     
     static func findAllWithSameName(str: String) -> [Refeicao]{

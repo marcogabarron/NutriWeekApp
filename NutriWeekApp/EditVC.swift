@@ -14,9 +14,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    
     @IBOutlet weak var tableView: UITableView!
+    
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
@@ -30,14 +29,6 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.itens = ItemCardapioServices.allItemCardapios()
-        self.selectedItens = refeicao.getItemsObject()
-        self.nameTextField.text = refeicao.name
-        
         var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
         var weeks: [String] = []
         for new in allRefWithSameName{
@@ -45,6 +36,12 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         }
         
         self.daysOfWeekString.setArrayString(weeks)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.itens = ItemCardapioServices.allItemCardapios()
+        
+        self.getDatabaseInformation()
         
         self.searchBar.text = ""
         self.collectionView.reloadData()
@@ -192,6 +189,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         }else{
             cell.detailTextLabel?.text = ""
             var text: String = " "
+            
+              //write in the edited cell in weeks - part to make intuitive
             for str : String in self.daysOfWeekString.getArrayString(){
                 if(text != " "){
                     text = text.stringByAppendingString(", ")
@@ -250,18 +249,35 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
                 
             }else{
+                var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+                var uid: String = self.refeicao.uuid
+                var boolean = false
+                for ref in allRefWithSameName{
+                    RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
+                    let date = NSDate()
+                    let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+                    TodoList.sharedInstance.removeItem(todoItem)
+                }
                 //save here
                 for diaSemana in self.daysOfWeekString.getArrayString(){
+                    if(boolean == false){
+                        let notification = Notifications()
+                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: uid)
+                        TodoList.sharedInstance.addItem(todoItem)
+                        
+                        RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+                        
+                        boolean = true
+                    }else{
+                        let notification = Notifications()
+                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
+                        TodoList.sharedInstance.addItem(todoItem)
+                        
+                        RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                    }
                     
-                    let notification = Notifications()
-                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
-                    TodoList.sharedInstance.addItem(todoItem)
-                    
-                    RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                 }
                 
-                
-                self.nameTextField.text = ""
             }
         }else{
             
@@ -287,12 +303,19 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         view.endEditing(true)
     }
     
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        
+        TimePicker(self.horario)
+        
+    }
+    
+    //MARK: Logic Functions
     
     func TimePicker(sender: UIDatePicker) -> String{
         
         var timer = NSDateFormatter()
         
-        timer.dateFormat = "HH:mm:ss"
+        timer.dateFormat = "HH:mm"
         
         var strdate = timer.stringFromDate(sender.date)
         
@@ -300,10 +323,27 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
-    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+    
+    func formatTime(dataString: String) -> NSDate{
         
-        TimePicker(self.horario)
+        var dateFormatter = NSDateFormatter()
         
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        return dateValue!
+        
+    }
+    
+    func getDatabaseInformation(){
+        self.selectedItens = refeicao.getItemsObject()
+        self.nameTextField.text = refeicao.name
+        
+
+        
+        self.horario.date = self.formatTime(self.refeicao.horario)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -311,7 +351,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             let destinationViewController = segue.destinationViewController as! WeeksTableViewController
             destinationViewController.week = self.daysOfWeekString
         }else{
-            
+
         }
     }
     

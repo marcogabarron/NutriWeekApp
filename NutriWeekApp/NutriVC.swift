@@ -11,7 +11,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var items: [Refeicao]!
     var json = ReadJson()
     var alimento = Alimentos()
-    var collectionview = CollectionVC()
     
     var notification = Notifications()
     
@@ -70,6 +69,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             cell.textLabel!.text = self.items[indexPath.row].name
             cell.detailTextLabel?.text = self.items[indexPath.row].horario
             
+            cell.detailTextLabel?.text = self.formatTime(self.items[indexPath.row].horario)
         }
 
         return cell
@@ -95,6 +95,23 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
+    //get string and returns a string formatted with local time zone
+    func formatTime(dataString: String) -> String{
+        
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        
+        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
+        
+        
+        return stringFormatted
+        
+    }
     
     //MARK - Table View - Deletion and action buttons
     
@@ -106,6 +123,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
             
+            //delete Notication
             let date = NSDate()
             let todoItem = TodoItem(deadline: date, title: self.items[indexPath.row].name , UUID: self.items[indexPath.row].uuid )
             TodoList.sharedInstance.removeItem(todoItem)
@@ -138,7 +156,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC
             var refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
-            destinationViewController.refeicao = refeicao
+            destinationViewController.refeicaoID = refeicao.uuid
         }else{
             
         }
