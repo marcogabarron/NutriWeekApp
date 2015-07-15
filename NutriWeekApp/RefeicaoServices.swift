@@ -41,6 +41,26 @@ class RefeicaoServices
         auxiliarQueue.addOperation(deleteOperation)
     }
     
+    static func deleteRefeicaoByUuid(uuid: String)
+    {
+        // create queue
+        var auxiliarQueue:NSOperationQueue = NSOperationQueue()
+        
+        // create operation
+        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
+            // find challenge
+            var refeicao: Refeicao? = RefeicaoDAO.findByUuid(uuid)
+            if (refeicao != nil)
+            {
+                // delete challenge
+                RefeicaoDAO.delete(refeicao!)
+            }
+        })
+        
+        // execute operation
+        auxiliarQueue.addOperation(deleteOperation)
+    }
+    
     static func allItemRefeicao() -> [Refeicao] {
         return RefeicaoDAO.findAll()
     }
