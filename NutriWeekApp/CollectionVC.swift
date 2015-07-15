@@ -14,7 +14,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var colorImage = UIColor.blackColor().CGColor
     var selectedItens = [ItemCardapio]()
     
-    var refeicao: Refeicao!
+    var refeicaoID: String!
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,17 +27,53 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        //a partir da refeicao pegar seis Itens cardapios
-        self.itens = self.refeicao.getItemsObject()
-        self.name.text = self.refeicao.name
-        self.hour.text = self.refeicao.horario
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //a partir da refeicao pegar seis Itens cardapios
+        var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+        self.itens = refeicao.getItemsObject()
+        
+        //get name and time
+        self.name.text = refeicao.name
+        self.hour.text = self.formatTime(refeicao.horario)
+        
+        self.collectionView.reloadData()
+        
+    }
+    
+    //MARK: Logic Functions
+    
+    //get string and returns a string formatted with local time zone
+    func formatTime(dataString: String) -> String{
+        
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        
+        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
+        
+        
+        return stringFormatted
+        
+    }
+    
+    //checks whether the item is selected
+    func find(itemNew: ItemCardapio)->Bool{
+        var re : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                re = true
+            }
+        }
+        return re
     }
     
     //MARK: CollectionView
@@ -73,20 +109,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    func find(itemNew: ItemCardapio)->Bool{
-        var re : Bool = false
-        for item in self.selectedItens{
-            if(itemNew == item){
-                re = true
-            }
-        }
-        return re
-    }
     
+    //select and deselect cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
         
+        //animation
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
             cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
@@ -101,13 +130,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
         })
         
+        //selected
         if(cell.click == false){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Here is selected
             self.selectedItens.append(self.itens[indexPath.row])
+            
         }else{
+            
+            //deselect
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
             //Here is desselected
@@ -124,10 +157,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
+    //prepare for Segue to Edit page
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Edit") {
             let destinationViewController = segue.destinationViewController as! EditVC
-            destinationViewController.refeicao = self.refeicao
+            var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+            destinationViewController.refeicao = refeicao
         }else{
             
         }

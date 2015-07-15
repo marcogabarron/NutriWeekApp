@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CFAC0902-5659-4DBA-B7D4-65523F9AEDF6</string>
 	<key>IDESourceControlProjectName</key>
-	<string>NutriWeekApp</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>DB9D16F9DC82C00805DD5E6357D73B0DDA423F29</key>
 		<string>https://github.com/marcogabarron/NutriWeekApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>NutriWeekApp.xcodeproj</string>
+	<string>NutriWeekApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>DB9D16F9DC82C00805DD5E6357D73B0DDA423F29</key>
