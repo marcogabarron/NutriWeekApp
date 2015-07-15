@@ -3,75 +3,75 @@
 "Alimentos": [
 {
 "Nome" : "Pao de Queijo",
-"Imagem": "paodequeijo.jpg"
+"Imagem": "cheesebread.jpg"
 },
 {
 "Nome" : "Morango",
-"Imagem": "morango.jpg"
+"Imagem": "strawberry.jpg"
 },
 {
 "Nome" : "Leite",
-"Imagem": "leite.jpg"
+"Imagem": "milk.jpg"
 },
 {
 "Nome" : "Uva",
-"Imagem": "uva.jpg"
+"Imagem": "grape.jpg"
 },
 {
 "Nome" : "Feijão",
-"Imagem": "feijao.jpg"
+"Imagem": "bean.jpg"
 },
 {
 "Nome" : "Ovo Cozido",
-"Imagem": "ovocozido.jpg"
+"Imagem": "boiledegg.jpg"
 },
 {
 "Nome" : "Batata Cozida",
-"Imagem": "batatacozida.jpg"
+"Imagem": "boiledpotato.jpg"
 },
 {
 "Nome" : "Cenoura",
-"Imagem": "cenoura.jpg"
+"Imagem": "carrot.jpg"
 },
 {
 "Nome" : "Barra de Cereal",
-"Imagem": "barradecereal.jpg"
+"Imagem": "cerealbar.jpg"
 },
 {
 "Nome" : "Queijo",
-"Imagem": "queijo.jpg"
+"Imagem": "cheese.jpg"
 },
 {
 "Nome" : "Frango Grelhado",
-"Imagem": "frangogrelhado.jpg"
+"Imagem": "grilledchicken.jpg"
 },
 {
 "Nome" : "Alface",
-"Imagem": "alface.jpg"
+"Imagem": "lettuce.jpg"
 },
 {
 "Nome" : "Bife",
-"Imagem": "bife.jpg"
+"Imagem": "beef.jpg"
 },
 {
 "Nome" : "Suco de Laranka",
-"Imagem": "sucodelaranja.jpg"
+"Imagem": "orangejuice.jpg"
 },
 {
 "Nome" : "Chá de Pêssego",
-"Imagem": "chadepessego.jpg"
+"Imagem": "peachtea.jpg"
 },
 {
 "Nome" : "Tomate",
-"Imagem": "tomate.jpg"
+"Imagem": "tomato.jpg"
 },
 {
 "Nome" : "Arroz Branco",
-"Imagem": "arrozbranco.jpg"
+"Imagem": "whiterice.jpg"
 },
 {
 "Nome" : "Água",
-"Imagem": "bagua.jpg"
+"Imagem": "water.jpg"
 }
 ]
 }

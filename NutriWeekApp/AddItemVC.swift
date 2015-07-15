@@ -17,7 +17,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
 
     @IBOutlet weak var tableView: UITableView!
-    var nutriVC = NutriVC()
+//    var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     

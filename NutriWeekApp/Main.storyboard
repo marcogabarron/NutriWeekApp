@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -384,7 +384,7 @@
                                 </connections>
                             </tableView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-vb-A3J">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="WyB-5k-TJs"/>
                                 </constraints>
@@ -443,7 +443,7 @@
                     <navigationItem key="navigationItem" id="DCJ-Ah-fgh">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meal Name*" textAlignment="center" minimumFontSize="17" id="oHL-RJ-w88">
-                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -668,9 +668,9 @@
                                                         <mask key="constraints">
                                                             <exclude reference="8FN-Wa-z6x"/>
                                                             <exclude reference="X0v-7L-gh7"/>
-                                                            <exclude reference="tTQ-Tr-1zf"/>
                                                             <exclude reference="EEw-kb-oG2"/>
                                                             <exclude reference="Ut9-Mu-Ix5"/>
+                                                            <exclude reference="tTQ-Tr-1zf"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -777,8 +777,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="eZG-p9-nKM"/>
                                 <exclude reference="aKQ-Tl-vSp"/>
+                                <exclude reference="eZG-p9-nKM"/>
                                 <exclude reference="gnd-Yi-br1"/>
                                 <exclude reference="giC-6p-ZUE"/>
                                 <exclude reference="XKc-oV-62O"/>
