@@ -53,19 +53,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
         
         cell.myButton.setTitle(self.itens[indexPath.row].name, forState: .Normal)
-        /*"(json.listaAlimentos[indexPath.row].nomeAlimento)"*/
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
-        
-        //json.listaAlimentos[indexPath.row].imagemAlimento)
-            //"\(itens[indexPath.row].nameImage)")
-        
-        /*json.listaAlimentos[indexPath.row].imagemAlimento*/
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
-//        cell.myImage.layer.borderWidth = 2
-//        cell.myImage.layer.borderColor = colorImage
         
         if(self.find(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
