@@ -199,7 +199,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 case "Domingo":
                     text = text.stringByAppendingString("dom")
                 default:
-                    text.stringByAppendingString(" ")
+                    text.stringByAppendingString("Nunca")
                 }
             }
             cell.detailTextLabel?.text = text

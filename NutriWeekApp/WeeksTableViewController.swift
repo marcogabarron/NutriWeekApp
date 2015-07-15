@@ -35,20 +35,23 @@ class WeeksTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            if cell.accessoryType == .Checkmark
-            {
-                cell.accessoryType = .None
-                self.removeDay(cell.textLabel!.text!)
-            }
-            else
-            {
-                cell.accessoryType = .Checkmark
-                self.addDay(cell.textLabel!.text!)
-            }
-            cell.selected = false
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        if(self.week.getArrayString().count != 1){
+            
+                if cell!.accessoryType == .Checkmark
+                {
+                    cell!.accessoryType = .None
+                    self.removeDay(cell!.textLabel!.text!)
+                }
+                else
+                {
+                    cell!.accessoryType = .Checkmark
+                    self.addDay(cell!.textLabel!.text!)
+                }
+            
         }
+        cell?.selected = false
+        
     }
     
     func removeDay(day: String){
