@@ -61,6 +61,21 @@ class RefeicaoDAO
         return results
     }
     
+    static func findAllWithSameName(name: String) -> [Refeicao]
+    {
+        // creating fetch request
+        let request = NSFetchRequest(entityName: "Refeicao")
+        
+        // assign predicate
+        request.predicate = NSPredicate(format: "name == %@", name)
+        
+        // perform search
+        var error: NSErrorPointer = nil
+        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        
+        return results
+    }
+    
     
     static func findByName(name: String) -> Refeicao?
     {
