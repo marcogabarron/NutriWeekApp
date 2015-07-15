@@ -60,7 +60,7 @@ class Notifications {
             let dateDay = dateFormatter.stringFromDate(currentAdded)
             
             //Hora obtida no pickerdate
-            let dateStringToAdd = dateDay + "-" + dateHour
+            let dateStringToAdd = dateDay + "-" + dateHour + ":00"
             println(dateStringToAdd)
             
             //Soma dos dois

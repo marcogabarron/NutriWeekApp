@@ -86,7 +86,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         super.viewWillAppear(animated)
         
-        items = RefeicaoServices.findByWeek("Segunda")
+        //items = RefeicaoServices.findByWeek("Sexta")
         
         self.tableView.reloadData()
 
@@ -147,26 +147,24 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-
     
     
     //MARK - Table View - Deletion and action buttons
     
-    //futuro delete, para deletar linha e notification
-    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
-//            self.items = RefeicaoServices.deleteRefeicaoByName(self.items[indexPath.row].uuid)
+            self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
             
-//            var service = RefeicaoServices()
-//            service.
-//            cell.removeAtIndex(indexPath.row)
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
             
-//            let date = NSDate()
-//            let todoItem = TodoItem(deadline: date, title: "Teste", UUID: NSUUID().UUIDString)
-//            TodoList.sharedInstance.removeItem(todoItem)
+            let date = NSDate()
+            let todoItem = TodoItem(deadline: date, title: self.items[indexPath.row].name , UUID: self.items[indexPath.row].uuid )
+            TodoList.sharedInstance.removeItem(todoItem)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            
         }
     }
     
