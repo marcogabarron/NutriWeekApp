@@ -121,11 +121,26 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
             cell.detailTextLabel?.text = self.items[indexPath.row].horario
+            
+            
 
         }
 
         return cell
     
+    }
+    
+    func formatTime(date: NSDate) -> String{
+        
+        var timer = NSDateFormatter()
+        
+        timer.dateFormat = "HH:mm:ss"
+        timer.timeZone = NSTimeZone.localTimeZone()
+        
+        var strdate = timer.stringFromDate(date)
+        
+        return strdate
+        
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -175,7 +190,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC
-            destinationViewController.selectedRefeicao = sender?.textLabel!!.text
+            var refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
+            destinationViewController.refeicao = refeicao
         }else{
             
         }

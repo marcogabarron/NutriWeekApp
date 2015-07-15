@@ -53,4 +53,8 @@ class RefeicaoServices
         return RefeicaoDAO.findByName(str)!
     }
     
+    static func findAllWithSameName(str: String) -> [Refeicao]{
+        return RefeicaoDAO.findAllWithSameName(str)
+    }
+    
 }

@@ -1,31 +1,33 @@
 //
-//  AddItemVC.swift
+//  EditVC.swift
 //  NutriWeekApp
 //
-//  Created by Gabarron on 29/06/15.
+//  Created by Jessica Oliveira on 15/07/15.
 //  Copyright (c) 2015 Gabarron. All rights reserved.
 //
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var horario: UIDatePicker!
     @IBOutlet weak var searchBar: UISearchBar!
     
-
+    
     @IBOutlet weak var tableView: UITableView!
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     
-    var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    var daysOfWeekString: Weeks = Weeks(arrayString: [])
     
     var searchActive: Bool = false
-
-        
+    
+    var refeicao:Refeicao!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,17 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     override func viewWillAppear(animated: Bool) {
         self.itens = ItemCardapioServices.allItemCardapios()
+        self.selectedItens = refeicao.getItemsObject()
+        self.nameTextField.text = refeicao.name
+        
+        var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+        var weeks: [String] = []
+        for new in allRefWithSameName{
+            weeks.append(new.diaSemana)
+        }
+        
+        self.daysOfWeekString.setArrayString(weeks)
+        
         self.searchBar.text = ""
         self.collectionView.reloadData()
         self.tableView.reloadData()
@@ -57,15 +70,15 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-
+        
         if(searchBar.text == ""){
             self.searchActive = false;
             self.itens = ItemCardapioServices.allItemCardapios()
-//            let items = ItemCardapioServices.allItemCardapios()
-//            self.itens.removeAll(keepCapacity: false)
-//            for item in items {
-//                self.itens.append(item)
-//            }
+            //            let items = ItemCardapioServices.allItemCardapios()
+            //            self.itens.removeAll(keepCapacity: false)
+            //            for item in items {
+            //                self.itens.append(item)
+            //            }
             
         } else {
             self.searchActive = true;
@@ -80,7 +93,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return self.itens.count
+        return self.itens.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -97,7 +110,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         if(self.find(self.itens[indexPath.row])){
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             cell.click = true
-
+            
         }else{
             cell.textLabel.textColor = UIColor.blackColor()
             cell.click = false
@@ -153,10 +166,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 i++
             }
         }
-                
+        
         cell.click = !cell.click
     }
-
+    
     
     //MARK: TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -214,7 +227,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         cell!.selected = false
         
     }
-
+    
     //MARK: actions
     
     @IBAction func saveItemButton(sender: AnyObject) {
@@ -235,7 +248,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                         
                 })
                 
-            
+                
             }else{
                 //save here
                 for diaSemana in self.daysOfWeekString.getArrayString(){
@@ -253,17 +266,17 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         }else{
             
             UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-        
+                
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
                 
                 }, completion: {(result) -> Void in
-            
+                    
                     UIView.animateWithDuration(0.3, animations: {() -> Void in
-                
+                        
                         self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
                         self.nameTextField.backgroundColor = UIColor.whiteColor()
-                
-                
+                        
+                        
                     })
             })
             
@@ -273,7 +286,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
-
+    
     
     func TimePicker(sender: UIDatePicker) -> String{
         
@@ -294,7 +307,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "Week") {
+        if (segue.identifier == "WeekEdit") {
             let destinationViewController = segue.destinationViewController as! WeeksTableViewController
             destinationViewController.week = self.daysOfWeekString
         }else{
@@ -303,3 +316,4 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
 }
+

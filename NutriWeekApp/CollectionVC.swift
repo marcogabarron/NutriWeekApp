@@ -14,7 +14,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var colorImage = UIColor.blackColor().CGColor
     var selectedItens = [ItemCardapio]()
     
-    var selectedRefeicao:String!
+    var refeicao: Refeicao!
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,10 +29,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewWillAppear(animated: Bool) {
         //a partir da refeicao pegar seis Itens cardapios
-        var refeicao: Refeicao = RefeicaoServices.findByName(self.selectedRefeicao)
-        self.itens = refeicao.getItemsObject()
-        self.name.text = refeicao.name
-        self.hour.text = refeicao.horario
+        self.itens = self.refeicao.getItemsObject()
+        self.name.text = self.refeicao.name
+        self.hour.text = self.refeicao.horario
         
     }
 
@@ -123,6 +122,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         cell.click = !cell.click
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Edit") {
+            let destinationViewController = segue.destinationViewController as! EditVC
+            destinationViewController.refeicao = self.refeicao
+        }else{
+            
+        }
     }
     
 
