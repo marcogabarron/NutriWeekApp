@@ -54,7 +54,7 @@
 "Imagem": "beef.jpg"
 },
 {
-"Nome" : "Suco de Laranka",
+"Nome" : "Suco de Laranja",
 "Imagem": "orangejuice.jpg"
 },
 {
@@ -70,8 +70,156 @@
 "Imagem": "whiterice.jpg"
 },
 {
+"Nome" : "Bacon",
+"Imagem": "bacon.jpg"
+},
+{
 "Nome" : "Água",
 "Imagem": "water.jpg"
+},
+{
+"Nome" : "Banana",
+"Imagem": "banana.jpg"
+},
+{
+"Nome" : "Beet",
+"Imagem": "beet.jpg"
+},
+{
+"Nome" : "Feijão Preto",
+"Imagem": "blackBean.jpg"
+},
+{
+"Nome" : "Carne Cozida",
+"Imagem": "boiledBeef.jpg"
+},
+{
+"Nome" : "Arroz Integral",
+"Imagem": "brownRice.jpg"
+},
+{
+"Nome" : "Café",
+"Imagem": "coffee.jpg"
+},
+{
+"Nome" : "Milho",
+"Imagem": "corn.jpg"
+},
+{
+"Nome" : "Creme de Milho",
+"Imagem": "cornCream.jpg"
+},
+{
+"Nome" : "Farofa",
+"Imagem": "crumbs.jpg"
+},
+{
+"Nome" : "Pão Francês",
+"Imagem": "frenchbread.jpg"
+},
+{
+"Nome" : "Granola",
+"Imagem": "granola.jpg"
+},
+{
+"Nome" : "Carne Moida",
+"Imagem": "groundBeef.jpg"
+},
+{
+"Nome" : "Presunto",
+"Imagem": "ham.jpg"
+},
+{
+"Nome" : "Mamão",
+"Imagem": "mamao.jpg"
+},
+{
+"Nome" : "Mandioca Cozida",
+"Imagem": "manioc.jpg"
+},
+{
+"Nome" : "Pure de Batata",
+"Imagem": "mashedPotatos.jpg"
+},
+{
+"Nome" : "Cebola",
+"Imagem": "onion.jpg"
+},
+{
+"Nome" : "Massa",
+"Imagem": "pasta.jpg"
+},
+{
+"Nome" : "Calabresa",
+"Imagem": "pepperoni.jpg"
+},
+{
+"Nome" : "Molho Vermelho",
+"Imagem": "redSauce.jpg"
+},
+{
+"Nome" : "Linguiça Toscana",
+"Imagem": "sausage.jpg"
+},
+{
+"Nome" : "Espinafre",
+"Imagem": "spinach.jpg"
+},
+{
+"Nome" : "Peito de Peru",
+"Imagem": "turkeyBreast.jpg"
+},
+{
+"Nome" : "Abacate",
+"Imagem": "avocado.jpg"
+},
+{
+"Nome" : "Peixe Assado",
+"Imagem": "bakedFish.jpg"
+},
+{
+"Nome" : "Molho Branco",
+"Imagem": "whiteSauce.jpg"
+},
+{
+"Nome" : "Agrião",
+"Imagem": "watercress.jpg"
+},
+{
+"Nome" : "Pimentão",
+"Imagem": "bellPepper.jpg"
+},
+{
+"Nome" : "Coco",
+"Imagem": "coconut.jpg"
+},
+{
+"Nome" : "Água de coco",
+"Imagem": "coconutWater.jpg"
+},
+{
+"Nome" : "Peixe Cozido",
+"Imagem": "cookedFish.jpg"
+},
+{
+"Nome" : "Beringela",
+"Imagem": "eggplant.jpg"
+},
+{
+"Nome" : "Coco verde",
+"Imagem": "greenCoconut.jpg"
+},
+{
+"Nome" : "Limão",
+"Imagem": "lemon.jpg"
+},
+{
+"Nome" : "Laranja",
+"Imagem": "orange.jpg"
+},
+{
+"Nome" : "Hamburguer de Soja",
+"Imagem": "soyBurger.jpg"
 }
 ]
 }
