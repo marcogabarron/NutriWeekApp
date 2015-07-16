@@ -82,7 +82,24 @@ class Notifications {
         
     }
     
+    //MARK - Format Time
     
+    /** Get a date string and returns a formatted string with local time zone **/
+    func formatTime(dataString: String) -> String{
+        
+        var dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
+        
+        
+        return stringFormatted
+        
+    }
     
     
 }

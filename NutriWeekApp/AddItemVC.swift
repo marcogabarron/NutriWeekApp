@@ -268,20 +268,16 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     
-    
     //close keyboard
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
 
-    
-
-    
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
-        
         TimePicker(self.horario)
         
     }
+    
     
     //MARK: Logic Functions
     

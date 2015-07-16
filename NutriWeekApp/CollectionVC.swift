@@ -13,9 +13,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var itens = [ItemCardapio]()
     var colorImage = UIColor.blackColor().CGColor
     var selectedItens = [ItemCardapio]()
+    var notification = Notifications()
     
     var refeicaoID: String!
-    
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var name: UILabel!
@@ -23,7 +23,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     
@@ -39,31 +38,14 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //get name and time
         self.name.text = refeicao.name
-        self.hour.text = self.formatTime(refeicao.horario)
+        self.hour.text = notification.formatTime(refeicao.horario)
         
         self.collectionView.reloadData()
         
     }
     
-    //MARK: Logic Functions
     
-    //get string and returns a string formatted with local time zone
-    func formatTime(dataString: String) -> String{
-        
-        var dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        
-        let dateValue = dateFormatter.dateFromString(dataString)
-        
-        
-        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
-        
-        
-        return stringFormatted
-        
-    }
+    //MARK: Logic Functions
     
     //checks whether the item is selected
     func find(itemNew: ItemCardapio)->Bool{
@@ -86,7 +68,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
-        
         cell.myButton.setTitle(self.itens[indexPath.row].name, forState: .Normal)
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
@@ -157,14 +138,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    //prepare for Segue to Edit page
+    /** Prepare for Segue to Edit page **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Edit") {
             let destinationViewController = segue.destinationViewController as! EditVC
             var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
             destinationViewController.refeicao = refeicao
-        }else{
-            
         }
     }
     

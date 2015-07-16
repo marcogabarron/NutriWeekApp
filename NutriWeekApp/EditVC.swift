@@ -19,6 +19,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
+    var notification = Notifications()
     
     var daysOfWeekString: Weeks = Weeks(arrayString: [])
     
@@ -340,9 +341,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     func getDatabaseInformation(){
         self.selectedItens = refeicao.getItemsObject()
         self.nameTextField.text = refeicao.name
-        
-
-        
+    
         self.horario.date = self.formatTime(self.refeicao.horario)
     }
     

@@ -21,9 +21,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         json.loadFeed()
     }
     
-
     override func didReceiveMemoryWarning() {
-        
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
@@ -31,7 +29,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     override func viewWillAppear(animated: Bool) {
-        
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
@@ -42,6 +39,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     //MARK: TableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
         self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
         return items.count
         
@@ -67,9 +65,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
-            cell.detailTextLabel?.text = self.items[indexPath.row].horario
+            cell.detailTextLabel?.text = notification.formatTime(self.items[indexPath.row].horario)
             
-            cell.detailTextLabel?.text = self.formatTime(self.items[indexPath.row].horario)
         }
 
         return cell
@@ -95,23 +92,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-    //get string and returns a string formatted with local time zone
-    func formatTime(dataString: String) -> String{
-        
-        var dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        
-        let dateValue = dateFormatter.dateFromString(dataString)
-        
-        
-        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
-        
-        
-        return stringFormatted
-        
-    }
     
     //MARK - Table View - Deletion and action buttons
     
@@ -132,22 +112,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
         }
     }
-    
-    
-    //MARK - FormatTime
-    
-//    func formatTime(date: NSDate) -> String{
-//        
-//        var timer = NSDateFormatter()
-//        
-//        timer.dateFormat = "HH:mm:ss"
-//        timer.timeZone = NSTimeZone.localTimeZone()
-//        
-//        var strdate = timer.stringFromDate(date)
-//        
-//        return strdate
-//        
-//    }
     
     
     //MARK - Prepare for segue
