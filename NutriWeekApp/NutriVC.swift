@@ -8,7 +8,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
-    var diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+    var diasSemana: [String]!
     let ReuseIdentifier: String = "ReuseIdentifier"
     
     //Relative to models and CoreData
@@ -19,6 +19,11 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        diasSemana = []
+        for dia in ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"] {
+            diasSemana.append(NSLocalizedString(dia, comment: ""))
+        }
         
         diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
         
