@@ -11,6 +11,7 @@ class ItemCardapioDAO
         
         /// Sort Descriptor to ascending results by name
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, comparator: .localizedCaseInsensitiveCompare(ItemCardapio))
         request.sortDescriptors = [sortDescriptor]
         
         // Perform search
@@ -100,6 +101,9 @@ class ItemCardapioDAO
         }
     }
     
+//    func localizedCaseInsensitiveCompare(string: String) -> NSComparisonResult {
+//    
+//    }
     
     
 }

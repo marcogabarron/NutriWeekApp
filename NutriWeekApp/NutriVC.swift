@@ -20,8 +20,12 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
+        
         //Load json in CoreData
         json.loadFeed()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +86,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         var label: UILabel = UILabel(frame: CGRect(x: 37, y: 0, width: 300, height: 30))
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
-        label.text = self.diasSemana[section]
+        label.text = NSLocalizedString(self.diasSemana[section], comment: "")
         label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
         headerView.addSubview(label)
         

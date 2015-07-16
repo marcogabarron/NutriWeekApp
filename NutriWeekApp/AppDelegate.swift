@@ -50,10 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         
-        //Help to see a notification when it is received by user and get UUID or other informations
-        //        var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
+//        //Help to see a notification when it is received by user and get UUID or other informations
+                var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
         
-        //        println(notification.userInfo!["UUID"] as! String!)
+                println(notification.userInfo!["UUID"] as! String!)
 
         
     }
