@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -244,8 +244,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="tgE-hN-pWn" id="Z1m-18-3GN"/>
+                        <outlet property="editButton" destination="h2s-Rh-B8Z" id="gHP-J0-gwR"/>
                         <outlet property="hour" destination="AvH-lD-lwI" id="onG-hG-ByX"/>
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
+                        <outlet property="refeicao" destination="5cy-DT-Eq6" id="xxH-Rb-njd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6h3-b7-k1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -594,6 +596,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Repetir" id="rnl-A0-T2e"/>
+                    <connections>
+                        <outlet property="repeat" destination="rnl-A0-T2e" id="EEp-Wg-IQx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -808,6 +813,7 @@
                         <outlet property="collectionView" destination="mrT-A8-Gac" id="pCl-WY-CwT"/>
                         <outlet property="horario" destination="vkI-rZ-RAA" id="T3V-hV-mj4"/>
                         <outlet property="nameTextField" destination="65f-Va-7Bc" id="ESY-37-V2V"/>
+                        <outlet property="saveButton" destination="JHI-lV-N3u" id="jbg-It-ZSl"/>
                         <outlet property="searchBar" destination="13c-H5-4sE" id="Dha-51-F1S"/>
                         <outlet property="tableView" destination="qEl-QA-eZI" id="eMe-3U-LtN"/>
                     </connections>

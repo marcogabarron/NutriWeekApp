@@ -10,7 +10,10 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var refeicao: UINavigationItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     var colorImage = UIColor.blackColor().CGColor
+    
     
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
@@ -28,6 +31,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editButton.title = NSLocalizedString("Editar", comment: "Editar")
+        refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,7 +78,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
-        cell.myButton.setTitle(self.itens[indexPath.row].name, forState: .Normal)
+        cell.myButton.setTitle( NSLocalizedString(itens[indexPath.row].name, comment: ""), forState: .Normal)
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
         cell.myImage.layer.masksToBounds = true

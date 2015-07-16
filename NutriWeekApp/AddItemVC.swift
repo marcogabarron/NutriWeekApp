@@ -41,6 +41,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         saveButton.title = NSLocalizedString ("Salvar", comment: "")
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
         
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -184,8 +185,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell") as! UITableViewCell
         
+        cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
+        
         if(self.daysOfWeekString.getArrayString().count == 7){
-            cell.detailTextLabel?.text = "Todos os Dias"
+            cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
         }else{
             cell.detailTextLabel?.text = ""
             var text: String = " "
@@ -197,19 +200,19 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 }
                 switch str {
                 case "Segunda":
-                    text = text.stringByAppendingString("seg")
+                    text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
                 case "Terça":
-                    text = text.stringByAppendingString("ter")
+                    text = text.stringByAppendingString(NSLocalizedString("ter", comment: ""))
                 case "Quarta":
-                    text = text.stringByAppendingString("qua")
+                    text = text.stringByAppendingString(NSLocalizedString("qua", comment: ""))
                 case "Quinta":
-                    text = text.stringByAppendingString("qui")
+                    text = text.stringByAppendingString(NSLocalizedString("qui", comment: ""))
                 case "Sexta":
-                    text = text.stringByAppendingString("sex")
+                    text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
                 case "Sábado":
-                    text = text.stringByAppendingString("sab")
+                    text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
                 case "Domingo":
-                    text = text.stringByAppendingString("dom")
+                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
                 default:
                     text.stringByAppendingString("Nunca")
                 }
@@ -261,7 +264,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                                 
                                 self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
                                 self.nameTextField.text = ""
-                                self.nameTextField.placeholder = "*Não repita Nome"
+                                self.nameTextField.placeholder = NSLocalizedString("*Não repita Nome", comment: "")
                                 self.nameTextField.tintColor = UIColor.redColor()
                                 
                                 
