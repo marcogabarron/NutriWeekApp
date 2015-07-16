@@ -10,6 +10,9 @@ import UIKit
 
 class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    ///Save Button
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     ///Relative to collection view
     @IBOutlet var collectionView: UICollectionView!
     
@@ -34,6 +37,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        saveButton.title = NSLocalizedString ("Salvar", comment: "")
+        self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
         
     }
     
@@ -93,7 +99,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
-        cell.textLabel.text = itens[indexPath.row].name
+        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
         cell.textLabel.textColor = UIColor.blackColor()
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
