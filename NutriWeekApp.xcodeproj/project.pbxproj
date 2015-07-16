@@ -20,9 +20,6 @@
 		DA60CF961B4D601200C78BA0 /* ItemCardapio.swift.old in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF951B4D601200C78BA0 /* ItemCardapio.swift.old */; };
 		DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */; };
 		DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */; };
-		DAAFB4D41B56EDFA00A5C825 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAFB4D31B56EDFA00A5C825 /* Icon-Small@3x.png */; };
-		DAAFB4D61B56EE0300A5C825 /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAFB4D51B56EE0300A5C825 /* Icon-40@3x.png */; };
-		DAAFB4D81B56EE0B00A5C825 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAAFB4D71B56EE0B00A5C825 /* Icon-60@3x.png */; };
 		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
 		DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */; };
 		DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1661B3D7549003829BF /* AppDelegate.swift */; };
@@ -36,9 +33,6 @@
 		DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */; };
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
-		DAE0B7071B56EF3F002A735B /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE0B7041B56EF3F002A735B /* Icon-40@2x.png */; };
-		DAE0B7081B56EF3F002A735B /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE0B7051B56EF3F002A735B /* Icon-60@2x.png */; };
-		DAE0B7091B56EF3F002A735B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE0B7061B56EF3F002A735B /* Icon-Small@2x.png */; };
 		FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* TodoList.swift */; };
 		FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A31B534032004A5EED /* TodoItem.swift */; };
 		FFD1A2A61B53F34D004A5EED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A51B53F34D004A5EED /* Notifications.swift */; };
@@ -68,13 +62,9 @@
 		DA60CF951B4D601200C78BA0 /* ItemCardapio.swift.old */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ItemCardapio.swift.old; path = ../../ItemCardapio.swift.old; sourceTree = "<group>"; };
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
 		DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioServices.swift; path = ../ItemCardapioServices.swift; sourceTree = "<group>"; };
-		DAAFB4D31B56EDFA00A5C825 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
-		DAAFB4D51B56EE0300A5C825 /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@3x.png"; sourceTree = "<group>"; };
-		DAAFB4D71B56EE0B00A5C825 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		DAD5A1611B3D7549003829BF /* NutriWeekApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriWeekApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAD5A1651B3D7549003829BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5A1661B3D7549003829BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD5A1691B3D7549003829BF /* NutriWeekApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutriWeekApp.xcdatamodel; sourceTree = "<group>"; };
 		DAD5A1701B3D7549003829BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -88,9 +78,8 @@
 		DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoServices.swift; sourceTree = "<group>"; };
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		DAE0B7041B56EF3F002A735B /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
-		DAE0B7051B56EF3F002A735B /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
-		DAE0B7061B56EF3F002A735B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		FF8DB8051B56EB1E006081E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		FF8DB8071B56F0C3006081E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		FFA5004A1B4E1E3A0023208C /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		FFD1A2A31B534032004A5EED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		FFD1A2A51B53F34D004A5EED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -127,11 +116,11 @@
 		C2B86B631B4AE71700130D63 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
 				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
-				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
-				C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
+				C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -171,7 +160,6 @@
 		DAD5A1631B3D7549003829BF /* NutriWeekApp */ = {
 			isa = PBXGroup;
 			children = (
-				DAE0B70A1B56F514002A735B /* Imagens */,
 				C2B86B641B4AE78100130D63 /* Model */,
 				FFD1A2A91B544090004A5EED /* Views */,
 				C2B86B631B4AE71700130D63 /* Controllers */,
@@ -188,7 +176,7 @@
 		DAD5A1641B3D7549003829BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DAD5A1651B3D7549003829BF /* Info.plist */,
+				FF8DB8041B56EB12006081E3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -237,19 +225,6 @@
 				DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */,
 			);
 			name = Services;
-			sourceTree = "<group>";
-		};
-		DAE0B70A1B56F514002A735B /* Imagens */ = {
-			isa = PBXGroup;
-			children = (
-				DAAFB4D31B56EDFA00A5C825 /* Icon-Small@3x.png */,
-				DAAFB4D51B56EE0300A5C825 /* Icon-40@3x.png */,
-				DAAFB4D71B56EE0B00A5C825 /* Icon-60@3x.png */,
-				DAE0B7041B56EF3F002A735B /* Icon-40@2x.png */,
-				DAE0B7051B56EF3F002A735B /* Icon-60@2x.png */,
-				DAE0B7061B56EF3F002A735B /* Icon-Small@2x.png */,
-			);
-			name = Imagens;
 			sourceTree = "<group>";
 		};
 		FFD1A2A91B544090004A5EED /* Views */ = {
@@ -312,7 +287,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = UNMPYLD92U;
+						DevelopmentTeam = MERJVB67M9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -347,12 +322,6 @@
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
 				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
-				DAE0B7091B56EF3F002A735B /* Icon-Small@2x.png in Resources */,
-				DAAFB4D41B56EDFA00A5C825 /* Icon-Small@3x.png in Resources */,
-				DAAFB4D81B56EE0B00A5C825 /* Icon-60@3x.png in Resources */,
-				DAE0B7081B56EF3F002A735B /* Icon-60@2x.png in Resources */,
-				DAE0B7071B56EF3F002A735B /* Icon-40@2x.png in Resources */,
-				DAAFB4D61B56EE0300A5C825 /* Icon-40@3x.png in Resources */,
 				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +392,15 @@
 				DAD5A1731B3D7549003829BF /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		FF8DB8041B56EB12006081E3 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF8DB8051B56EB1E006081E3 /* Base */,
+				FF8DB8071B56F0C3006081E3 /* en */,
+			);
+			name = Info.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

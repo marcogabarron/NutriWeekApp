@@ -21,7 +21,7 @@ class TodoList {
     
     private let ITEMS_KEY = "todoItems"
     
-    /** Mostra todos os itens agendados para notificação **/
+    /** Show the itens scheduled to notification **/
     func allItems() -> [TodoItem] {
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? [:]
         let items = Array(todoDictionary.values)
@@ -30,17 +30,17 @@ class TodoList {
         })
     }
     
-    /** Adiciona novas notificações, com o intervalo desejado. **/
+    /** Add new notifications, with repeat interval. **/
     func addItem(item: TodoItem) {
-//        var weekInterval: NSCalendarUnit = .CalendarUnitWeekOfYear
-        var weekInterval: NSCalendarUnit = .CalendarUnitMinute
+        var weekInterval: NSCalendarUnit = .CalendarUnitWeekOfYear
+//        var weekInterval: NSCalendarUnit = .CalendarUnitMinute
         
-        // persist a representation of this todo item in NSUserDefaults
+        /// persist a representation of this todo item in NSUserDefaults
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? Dictionary() // if todoItems hasn't been set in user defaults, initialize todoDictionary to an empty dictionary using nil-coalescing operator (??)
         todoDictionary[item.UUID] = ["deadline": item.deadline, "title": item.title, "UUID": item.UUID] // store NSData representation of todo item in dictionary with UUID as key
         NSUserDefaults.standardUserDefaults().setObject(todoDictionary, forKey: ITEMS_KEY) // save/overwrite todo item list
         
-        // create a corresponding local notification
+        /// create a corresponding local notification
         var notification = UILocalNotification()
         notification.alertBody = "Horário de refeição: \"\(item.title)\" !" // text that will be displayed in the notification
         notification.alertAction = "open" // text that is displayed after "slide to..." on the lock screen - defaults to "slide to view"
@@ -52,7 +52,7 @@ class TodoList {
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
-    /** Remove itens da lista de notificações **/
+    /** Remove itens of notifications list **/
     func removeItem(item: TodoItem) {
         for notification in UIApplication.sharedApplication().scheduledLocalNotifications as! [UILocalNotification] { // loop through notifications...
             if (notification.userInfo!["UUID"] as! String == item.UUID) { // ...and cancel the notification that corresponds to this TodoItem instance (matched by UUID)

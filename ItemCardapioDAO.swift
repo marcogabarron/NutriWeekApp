@@ -6,10 +6,14 @@ import CoreData
 class ItemCardapioDAO
 {
     static func findAll() -> [ItemCardapio] {
-        // creating fetch request
+        /// Creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
-        // perform search
+        /// Sort Descriptor to ascending results by name
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
         return results
@@ -17,16 +21,16 @@ class ItemCardapioDAO
     
     static func findByTime(horarioInicio: NSDate, horarioFim: NSDate) -> [ItemCardapio]
     {
-        // creating fetch request
+        /// Creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
-        // assign predicate
+        // Assign predicate
         request.predicate = NSPredicate(format: "horarioInicio <= %ld AND horarioFim <= %ld", horarioInicio, horarioFim)
         
         // assign sort descriptor
         //request.sortDescriptors = [NSSortDescriptor(key: "horarioInicio", ascending:true)]
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
         
@@ -53,13 +57,13 @@ class ItemCardapioDAO
     
     static func findByName(name: String, image: String) -> [ItemCardapio]
     {
-        // creating fetch request
+        /// Creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
-        // assign predicate
+        // Assign predicate
         request.predicate = NSPredicate(format: "name CONTAINS[c] %@ AND image CONTAINS[c] %@", name, image)
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
         
@@ -69,30 +73,29 @@ class ItemCardapioDAO
     
     static func insert(objectToBeInserted: ItemCardapio)
     {
-        // insert element into context
+        // Insert element into context
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
         
-        // save context
+        // Save context
         var error: NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.save(error)
         if (error != nil)
         {
-            // log error
+            // Log error
             print(error)
         }
     }
     
     static func delete(objectToBeDeleted: ItemCardapio)
     {
-        // remove object from context
+        // Remove object from context
         var error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
         DatabaseManager.sharedInstance.managedObjectContext?.save(error)
         
-        // log error
+        // Log error
         if (error != nil)
         {
-            // log error
             print(error)
         }
     }

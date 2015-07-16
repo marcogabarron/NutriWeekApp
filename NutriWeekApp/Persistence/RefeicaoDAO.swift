@@ -7,40 +7,39 @@ class RefeicaoDAO
 {
     static func insert(objectToBeInserted: Refeicao)
     {
-        // insert element into context
+        // Insert element into context
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
         
-        // save context
+        // Save context
         var error: NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.save(error)
         if (error != nil)
         {
-            // log error
+            // Log error
             print(error)
         }
     }
     
     static func delete(objectToBeDeleted: Refeicao)
     {
-        // remove object from context
+        // Remove object from context
         var error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
         DatabaseManager.sharedInstance.managedObjectContext?.save(error)
         
-        // log error
+        // Log error
         if (error != nil)
         {
-            // log error
             print(error)
         }
     }
 
     
     static func findAll() -> [Refeicao] {
-        // creating fetch request
+        // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
         
@@ -48,13 +47,13 @@ class RefeicaoDAO
     }
     
     static func findByWeek(week: String) -> [Refeicao] {
-        // creating fetch request
+        // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
-        // assign predicate
+        // Assign predicate
         request.predicate = NSPredicate(format: "diaSemana == %@", week)
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
         
@@ -63,13 +62,13 @@ class RefeicaoDAO
     
     static func findAllWithSameName(name: String) -> [Refeicao]
     {
-        // creating fetch request
+        // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
-        // assign predicate
+        // Assign predicate
         request.predicate = NSPredicate(format: "name == %@", name)
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
         
@@ -79,13 +78,13 @@ class RefeicaoDAO
     
     static func findByName(name: String) -> Refeicao?
     {
-        // creating fetch request
+        // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
-        // assign predicate
+        // Assign predicate
         request.predicate = NSPredicate(format: "name == %@", name)
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
         
@@ -94,13 +93,13 @@ class RefeicaoDAO
     
     static func findByUuid(uuid: String) -> Refeicao?
     {
-        // creating fetch request
+        // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
-        // assign predicate
+        // Assign predicate
         request.predicate = NSPredicate(format: "uuid == %@", uuid)
         
-        // perform search
+        // Perform search
         var error: NSErrorPointer = nil
         let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
         

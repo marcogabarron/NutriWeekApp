@@ -20,13 +20,13 @@ class ItemCardapio: NSManagedObject {
     /// The designated initializer
     convenience init()
     {
-        // get context
+        /// Get context
         let context:NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
         
-        // create entity description
+        /// Create entity description
         let entityDescription:NSEntityDescription? = NSEntityDescription.entityForName("ItemCardapio", inManagedObjectContext: context)
         
-        // call super using
+        // Call super using
         self.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
     }
 

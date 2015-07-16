@@ -28,15 +28,15 @@ class Weeks {
         self.arrayString = array
     }
     
-    func removeAtIndex(i: Int){
-        self.arrayString.removeAtIndex(i)
+    func removeAtIndex(index: Int){
+        self.arrayString.removeAtIndex(index)
     }
     
     func append(str: String){
         self.arrayString.append(str)
     }
     
-    func findString(str: String) -> Bool{
+    func isSelected(str: String) -> Bool{
         var boolean : Bool = false
         for strings in self.arrayString {
             if(strings == str){
