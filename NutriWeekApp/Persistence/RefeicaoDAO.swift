@@ -50,6 +50,10 @@ class RefeicaoDAO
         // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
+        // Put in date order
+        let sortDescriptor = NSSortDescriptor(key: "horario", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
         // Assign predicate
         request.predicate = NSPredicate(format: "diaSemana == %@", week)
         
