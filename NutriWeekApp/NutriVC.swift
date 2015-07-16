@@ -4,27 +4,26 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
     var diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
     let ReuseIdentifier: String = "ReuseIdentifier"
     
+    //Relative to models and CoreData
     var items: [Refeicao]!
     var json = ReadJson()
     var alimento = Alimentos()
-    
     var notification = Notifications()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //To load json in Array
+        //Load json in CoreData
         json.loadFeed()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
         
     }
     
@@ -65,7 +64,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
-            cell.detailTextLabel?.text = notification.formatTime(self.items[indexPath.row].horario)
+            cell.detailTextLabel?.text = notification.formatStringTime(self.items[indexPath.row].horario)
             
         }
 
@@ -87,9 +86,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
         
-        
         return headerView
-        
     }
     
     
@@ -99,15 +96,18 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
+            //Read the sections and all refeicao inside
             self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
             
+            //Delete Refeicao
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
             
-            //delete Notication
+            //Delete Notification
             let date = NSDate()
             let todoItem = TodoItem(deadline: date, title: self.items[indexPath.row].name , UUID: self.items[indexPath.row].uuid )
             TodoList.sharedInstance.removeItem(todoItem)
             
+            //Delete row
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             
         }
@@ -121,8 +121,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             let destinationViewController = segue.destinationViewController as! CollectionVC
             var refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
             destinationViewController.refeicaoID = refeicao.uuid
-        }else{
-            
         }
     }
 

@@ -10,41 +10,57 @@ import UIKit
 
 class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    ///Relative to collection view
     @IBOutlet var collectionView: UICollectionView!
+    
+    //Relative to Refeicao`s name
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var horario: UIDatePicker!
+    
+    //Relative to search
     @IBOutlet weak var searchBar: UISearchBar!
+    var searchActive: Bool = false
+    
+    ///Relative to datePicker
+    @IBOutlet weak var horario: UIDatePicker!
+    
+    //Relative to repeat/week
     @IBOutlet weak var tableView: UITableView!
     
+    //Relative to models and CoreData
     var nutriVC = NutriVC()
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     var notification = Notifications()
-    
     var daysOfWeekString: Weeks = Weeks(arrayString: [])
-    
-    var searchActive: Bool = false
-    
     var refeicao:Refeicao!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ///Get all Refeicao`s with choosed name to edit
         var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+        
+        //Add the array of setted days with this Refeicao
         var weeks: [String] = []
         for new in allRefWithSameName{
             weeks.append(new.diaSemana)
         }
-        
+        //Set array
         self.daysOfWeekString.setArrayString(weeks)
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        //Load all Cardapio itens
         self.itens = ItemCardapioServices.allItemCardapios()
         
+        //Get informations of Refeicao
         self.getDatabaseInformation()
         
+        //Set initial empty text field
         self.searchBar.text = ""
+        
         self.collectionView.reloadData()
         self.tableView.reloadData()
     }
@@ -68,7 +84,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        
+        //Active or inactive the search, depending of searchbar text
         if(searchBar.text == ""){
             self.searchActive = false;
             self.itens = ItemCardapioServices.allItemCardapios()
@@ -119,13 +135,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func find(itemNew: ItemCardapio)->Bool{
-        var re : Bool = false
+        var boolean : Bool = false
         for item in self.selectedItens{
             if(itemNew == item){
-                re = true
+                boolean = true
             }
         }
-        return re
+        return boolean
     }
     
     
@@ -133,6 +149,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
         
+        //Animation to grow and back to normal size when selected or deselected
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
             cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
@@ -147,21 +164,26 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
         })
         
+        //Selected: Change text to green
         if(cell.click == false){
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            //Here is selected
+            
+            //Set it is slected
             self.selectedItens.append(self.itens[indexPath.row])
+            
         }else{
+            
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
-            //Here is desselected
-            var i = 0
+            
+            //Set it is desselected
+            var index = 0
             for item in self.selectedItens{
                 if(self.itens[indexPath.row] == item){
-                    self.selectedItens.removeAtIndex(i)
+                    self.selectedItens.removeAtIndex(index)
                 }
-                i++
+                index++
             }
         }
         
@@ -187,11 +209,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         if(self.daysOfWeekString.getArrayString().count == 7){
             cell.detailTextLabel?.text = "Todos od Dias"
+            
         }else{
+            
             cell.detailTextLabel?.text = ""
             var text: String = " "
             
-              //write in the edited cell in weeks - part to make intuitive
+            // Write in the edited cell in weeks - part to make intuitive
             for str : String in self.daysOfWeekString.getArrayString(){
                 if(text != " "){
                     text = text.stringByAppendingString(", ")
@@ -232,7 +256,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
-            var i = 0
+            
+            //Animation to show there are no selected feed
             if(self.selectedItens.count == 0){
                 UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
                     
@@ -250,6 +275,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
                 
             }else{
+                
+                //Delete Refeicao and notification to each day
                 var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
                 var uid: String = self.refeicao.uuid
                 var boolean = false
@@ -259,7 +286,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                     let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
                     TodoList.sharedInstance.removeItem(todoItem)
                 }
-                //save here
+                
+                //Save new Refeicao and notification to ecah day
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     if(boolean == false){
                         let notification = Notifications()
@@ -269,7 +297,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
                         
                         boolean = true
+                        
                     }else{
+                        
                         let notification = Notifications()
                         let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                         TodoList.sharedInstance.addItem(todoItem)
@@ -282,6 +312,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             }
         }else{
             
+            //Animation to save
             UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
                 
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
@@ -324,7 +355,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
     }
     
-    
+    /** Convert stringDate to Date **/
     func formatTime(dataString: String) -> NSDate{
         
         var dateFormatter = NSDateFormatter()
@@ -337,7 +368,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         return dateValue!
         
     }
-    
+    /** Get infomation of Refeicao`s **/
     func getDatabaseInformation(){
         self.selectedItens = refeicao.getItemsObject()
         self.nameTextField.text = refeicao.name

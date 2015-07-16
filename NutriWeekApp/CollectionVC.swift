@@ -10,13 +10,17 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var itens = [ItemCardapio]()
     var colorImage = UIColor.blackColor().CGColor
+    
+    //Relative to models and CoreData
+    var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     var notification = Notifications()
     
+    ///Get the uuid of choosed Refeicao
     var refeicaoID: String!
     
+    //Relative to collection View
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var hour: UILabel!
@@ -32,13 +36,14 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     override func viewWillAppear(animated: Bool) {
-        //a partir da refeicao pegar seis Itens cardapios
+        ///Find Refeicao by uuid
         var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+        //Get the Cardapio itens with the choosed Refeicao uuid
         self.itens = refeicao.getItemsObject()
         
-        //get name and time
+        //Get Refeicao`s name and time
         self.name.text = refeicao.name
-        self.hour.text = notification.formatTime(refeicao.horario)
+        self.hour.text = notification.formatStringTime(refeicao.horario)
         
         self.collectionView.reloadData()
         
@@ -47,21 +52,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     //MARK: Logic Functions
     
-    //checks whether the item is selected
-    func find(itemNew: ItemCardapio)->Bool{
-        var re : Bool = false
+    //Checks whether the item is selected
+    func isSelected(itemNew: ItemCardapio)->Bool{
+        var boolean : Bool = false
         for item in self.selectedItens{
             if(itemNew == item){
-                re = true
+                boolean = true
             }
         }
-        return re
+        return boolean
     }
     
     //MARK: CollectionView
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itens.count //json.listaAlimentos.count
+        return itens.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -75,7 +80,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.myImage.layer.cornerRadius = cell.frame.width/3
         cell.layer.cornerRadius = cell.frame.width/4
         
-        if(self.find(self.itens[indexPath.row])){
+        if(self.isSelected(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             cell.click = true
@@ -91,12 +96,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     
-    //select and deselect cell
+    //Select and deselect cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
         
-        //animation
+        //Animation to grow and back to normal size when selected or deselected
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
             cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
@@ -111,26 +116,27 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
         })
         
-        //selected
+        //Selected: Change text to green
         if(cell.click == false){
-            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor //ISso ta fazendo alguma coisa?
             cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
-            //Here is selected
+            //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
             
         }else{
             
-            //deselect
+            //Deselect: Change text to black
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myButton.tintColor = UIColor.blackColor()
-            //Here is desselected
-            var i = 0
+            
+            //Set it is desselected
+            var index = 0
             for item in self.selectedItens{
                 if(self.itens[indexPath.row] == item){
-                    self.selectedItens.removeAtIndex(i)
+                    self.selectedItens.removeAtIndex(index)
                 }
-                i++
+                index++
             }
         }
         
@@ -146,16 +152,5 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             destinationViewController.refeicao = refeicao
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

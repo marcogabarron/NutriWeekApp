@@ -10,6 +10,7 @@ import UIKit
 
 class WeeksTableViewController: UITableViewController {
     
+    ///Interact with Weeks model
     var week:Weeks!
     
     var arrayFix: [String] = (["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
@@ -18,15 +19,15 @@ class WeeksTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    //write the name of the cell
+    /** Write the name of the cell **/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
         cell.textLabel?.text = self.arrayFix[indexPath.row]
         
-        //says it is selected or not
-        if(self.week.findString(self.arrayFix[indexPath.row])){
+        //Says it is selected or not
+        if(self.week.isSelected(self.arrayFix[indexPath.row])){
             cell.accessoryType = .Checkmark
         }else{
             cell.accessoryType = .None
@@ -36,9 +37,10 @@ class WeeksTableViewController: UITableViewController {
         
     }
 
-    //select and deselect cell
+    /** Select and deselect cell, adding or removing days of array **/
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
         if(self.week.getArrayString().count != 1){
             
                 if cell!.accessoryType == .Checkmark
@@ -57,22 +59,22 @@ class WeeksTableViewController: UITableViewController {
         
     }
     
-    //remove day deselect
+    /** Remove day deselect **/
     func removeDay(day: String){
-        for i in 0...self.week.getArrayString().count{
-            if( self.week.getArrayString()[i] == day){
-                self.week.removeAtIndex(i)
+        for index in 0...self.week.getArrayString().count{
+            if( self.week.getArrayString()[index] == day){
+                self.week.removeAtIndex(index)
                 break
             }
         }
     }
     
-    //add day select
+    /** Add day select **/
     func addDay(day: String){
         self.week.append(day)
     }
     
-    //prepare for segue back
+    /** Prepare for segue back **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! AddItemVC

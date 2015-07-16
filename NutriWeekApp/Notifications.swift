@@ -10,11 +10,10 @@ import Foundation
 
 class Notifications {
     
-    /** Recebe o dia da semana e a hora escolhida no PickerDate.
-    Através do dia da semana, constrói  a notificação, retornando a data a ser agendada **/
+    /** Receive the day of week and the pickerdate time. Build the notification, returning the date to schedule **/
     func scheduleNotifications (diaDaSemana: String, dateHour: String) -> (NSDate) {
         
-        // Obtendo o dia da semana atual
+        // Gett the current week day
         let currentDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: currentDate)
@@ -22,70 +21,69 @@ class Notifications {
 
         var daysTo: NSInteger?
         
-        ///De acordo com o dia da semana, cria os horários de cada notificação
+        ///Create the notification date day
         
-            switch diaDaSemana {
-            case "Domingo":
-                daysTo = (8 - weekDay ) % 7
+        switch diaDaSemana {
+        case "Domingo":
+            daysTo = (8 - weekDay ) % 7
                 
-            case "Segunda":
-                daysTo = (9 - weekDay ) % 7
+        case "Segunda":
+            daysTo = (9 - weekDay ) % 7
                 
-            case "Terça":
-                daysTo = (10 - weekDay ) % 7
+        case "Terça":
+            daysTo = (10 - weekDay ) % 7
                 
-            case "Quarta":
-                daysTo = (11 - weekDay ) % 7
+        case "Quarta":
+            daysTo = (11 - weekDay ) % 7
                 
-            case "Quinta":
-                daysTo = (12 - weekDay ) % 7
+        case "Quinta":
+            daysTo = (12 - weekDay ) % 7
                 
-            case "Sexta":
-                daysTo = (13 - weekDay ) % 7
+        case "Sexta":
+            daysTo = (13 - weekDay ) % 7
                 
-            case "Sábado":
-                daysTo = (14 - weekDay ) % 7
-                
-                
-            default:
-                println("Error: This day of week is false!")
-            }
+        case "Sábado":
+            daysTo = (14 - weekDay ) % 7
+            
+        default:
+            println("Error: This day of week is false!")
+        }
         
-            let interval: NSTimeInterval = NSTimeInterval(daysTo!)
-            let currentAdded: NSDate = currentDate.dateByAddingTimeInterval(interval * 60*60*24)
+        let interval: NSTimeInterval = NSTimeInterval(daysTo!)
+        let currentAdded: NSDate = currentDate.dateByAddingTimeInterval(interval * 60*60*24)
         
-            //Dia obtido à cima
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let dateDay = dateFormatter.stringFromDate(currentAdded)
+        //Day getted
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateDay = dateFormatter.stringFromDate(currentAdded)
             
-            //Hora obtida no pickerdate
-            let dateStringToAdd = dateDay + "-" + dateHour + ":00"
-            println(dateStringToAdd)
+        //Date hour getted in picker date
+        let dateStringToAdd = dateDay + "-" + dateHour + ":00"
+        println(dateStringToAdd)
             
-            //Soma dos dois
-            let dateFormatterBack = NSDateFormatter()
-            dateFormatterBack.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-            dateFormatterBack.timeZone = NSTimeZone.localTimeZone()
-            var dateToAdd = dateFormatterBack.dateFromString(dateStringToAdd)
+        //Add both
+        let dateFormatterBack = NSDateFormatter()
+        dateFormatterBack.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        dateFormatterBack.timeZone = NSTimeZone.localTimeZone()
+        var dateToAdd = dateFormatterBack.dateFromString(dateStringToAdd)
             
-            ///Compara a data obtida com a data atual. Se a data obtida já tive passado - acontece apenas se marquei para o dia da semana que é hoje, mas pra horário anterior - acrescenta o intervalo de uma semana
-            let dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)
-            
-            if dateComparisionResult == NSComparisonResult.OrderedDescending || dateComparisionResult == NSComparisonResult.OrderedSame
-            {
-                // Current date is greater than end date.
-                dateToAdd = dateToAdd?.dateByAddingTimeInterval(60*60*24*7)
-            }
+        /// Verify if the date generated is before the actual. If its true - only happens if the notification`s day is today early than now - add one week interval
+        let dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)
         
-        return dateToAdd!
+        if dateComparisionResult == NSComparisonResult.OrderedDescending || dateComparisionResult == NSComparisonResult.OrderedSame
+        {
+            // Current date is greater than end date.
+            dateToAdd = dateToAdd?.dateByAddingTimeInterval(60*60*24*7)
+        }
+        
+    return dateToAdd!
         
     }
     
     //MARK - Format Time
     
     /** Get a date string and returns a formatted string with local time zone **/
-    func formatTime(dataString: String) -> String{
+    func formatStringTime(dataString: String) -> String{
         
         var dateFormatter = NSDateFormatter()
         

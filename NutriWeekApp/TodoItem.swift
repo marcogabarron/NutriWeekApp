@@ -19,7 +19,7 @@ struct TodoItem {
         self.UUID = UUID
     }
     
-    //Informa se a data da notificação já passou. Não vai acontecer, porque evitei isso na clsse Notifications.
+    ///Verify if the date to notification is overdue. It is not to happen, because a line in Notifications when it is created.
     var isOverdue: Bool {
         return (NSDate().compare(self.deadline) == NSComparisonResult.OrderedDescending)
     }

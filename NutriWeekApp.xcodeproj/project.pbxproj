@@ -116,11 +116,11 @@
 		C2B86B631B4AE71700130D63 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
 				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
-				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
-				C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
+				C20B11381B4C41A800A232AC /* WeeksTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

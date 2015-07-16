@@ -10,30 +10,41 @@ import UIKit
 
 class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    ///Relative to collection view
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var horario: UIDatePicker!
-    @IBOutlet weak var searchBar: UISearchBar!
     
-
+    //Relative to Refeicao`s name
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    //Relative to search
+    @IBOutlet weak var searchBar: UISearchBar!
+    var searchActive: Bool = false
+    
+    ///Relative to datePicker
+    @IBOutlet weak var horario: UIDatePicker!
+    
+    //Relative to repeat/week
     @IBOutlet weak var tableView: UITableView!
-//    var nutriVC = NutriVC()
+    
+    //Relative to models and CoreData
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
-    
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
-    var searchActive: Bool = false
-
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        //Show all itens, ascending by name
         self.itens = ItemCardapioServices.allItemCardapios()
+        
+        //initial empty serach bar text
         self.searchBar.text = ""
+        
         self.collectionView.reloadData()
         self.tableView.reloadData()
     }
@@ -56,16 +67,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
-
+    
+        //Active or inactive the search, depending of searchbar text
         if(searchBar.text == ""){
             self.searchActive = false;
             self.itens = ItemCardapioServices.allItemCardapios()
-//            let items = ItemCardapioServices.allItemCardapios()
-//            self.itens.removeAll(keepCapacity: false)
-//            for item in items {
-//                self.itens.append(item)
-//            }
             
         } else {
             self.searchActive = true;
@@ -108,12 +114,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     
-    //select and deselect cell
+    /** Select and deselect cell **/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
         
-        //animation
+        //Animation to grow and back to normal size when selected or deselected
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
             cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
@@ -128,23 +134,27 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
         })
         
-        //selected
+        //Selected: Change text to green
         if(cell.click == false){
             cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            //Here is selected
+            
+            //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
+            
         }else{
-            //deselect
+            
+            //Deselect: Change text to black            
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
-            //Here is desselected
-            var i = 0
+            
+            //Set it is desselected
+            var index = 0
             for item in self.selectedItens{
                 if(self.itens[indexPath.row] == item){
-                    self.selectedItens.removeAtIndex(i)
+                    self.selectedItens.removeAtIndex(index)
                 }
-                i++
+                index++
             }
         }
                 
@@ -174,7 +184,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             cell.detailTextLabel?.text = ""
             var text: String = " "
             
-            //write in the edited cell in weeks - part to make intuitive
+            //Write in the edited cell in weeks - part to make intuitive
             for str : String in self.daysOfWeekString.getArrayString(){
                 if(text != " "){
                     text = text.stringByAppendingString(", ")
@@ -215,7 +225,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
-//            var i = 0
+            
+            //Animation to show there are no slected feed
             if(self.selectedItens.count == 0){
                 UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
                     
@@ -233,14 +244,16 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
             
             }else{
-                //save here
+                
+                //Save Refeicao and notification
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     
-                    /// Adiciona a notificação
+                    // Add notification
                     let notification = Notifications()
                     let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                     TodoList.sharedInstance.addItem(todoItem)
                     
+                    //Add Refeicao
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                 }
                 
@@ -268,7 +281,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     
-    //close keyboard
+    //Close keyboard
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
@@ -281,11 +294,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     //MARK: Logic Functions
     
-    //get datePicker and returns a string formatted for save
+    /** Get datePicker and returns a string formatted to save Refeicao **/
     func TimePicker(sender: UIDatePicker) -> String{
         
         var timer = NSDateFormatter()
-        
         timer.dateFormat = "HH:mm"
         
         var strdate = timer.stringFromDate(sender.date)
@@ -293,18 +305,19 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         return strdate
         
     }
-    //checks whether the item is selected
+    
+    //Checks whether the item is selected
     func find(itemNew: ItemCardapio)->Bool{
-        var re : Bool = false
+        var boolean : Bool = false
         for item in self.selectedItens{
             if(itemNew == item){
-                re = true
+                boolean = true
             }
         }
-        return re
+        return boolean
     }
     
-    //prepare for Segue to Week page
+    /** Prepare for Segue to Week page **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! WeeksTableViewController

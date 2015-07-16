@@ -5,7 +5,7 @@ import CoreData
 
 class DatabaseManager
 {
-    // Database manager singleton
+    /// Database manager singleton
     static let sharedInstance = DatabaseManager()
     
     
