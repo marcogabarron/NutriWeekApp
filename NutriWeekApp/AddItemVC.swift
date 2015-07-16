@@ -244,6 +244,24 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
             
             }else{
+                if(RefeicaoServices.findByNameBool(self.nameTextField.text) == true){
+                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                        
+                        self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                        
+                        }, completion: {(result) -> Void in
+                            
+                            UIView.animateWithDuration(0.3, animations: {() -> Void in
+                                
+                                self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                self.nameTextField.text = ""
+                                self.nameTextField.placeholder = "*Não repita Nome"
+                                self.nameTextField.tintColor = UIColor.redColor()
+                                
+                                
+                            })
+                    })
+                }else{
                 
                 //Save Refeicao and notification
                 for diaSemana in self.daysOfWeekString.getArrayString(){
@@ -259,6 +277,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
                 
                 self.nameTextField.text = ""
+                }
             }
         }else{
             

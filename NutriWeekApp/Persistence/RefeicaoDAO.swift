@@ -95,6 +95,21 @@ class RefeicaoDAO
         return results.last
     }
     
+    static func findByNameBool(name: String) -> Bool
+    {
+        var refeicoes : [Refeicao] = self.findAll()
+        var answer : Bool = false
+        
+        for ref in refeicoes{
+            if(ref.name == name){
+                answer = true
+            }
+        }
+        
+        
+        return answer
+    }
+    
     static func findByUuid(uuid: String) -> Refeicao?
     {
         // Creating fetch request
