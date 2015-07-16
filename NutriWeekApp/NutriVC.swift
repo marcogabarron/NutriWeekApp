@@ -4,7 +4,7 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var diaDaSemana: UILabel! 
+    @IBOutlet weak var diasDaSemana: UILabel!
     
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
