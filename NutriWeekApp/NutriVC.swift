@@ -4,6 +4,8 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var diaDaSemana: UILabel! 
+    
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
     var diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]

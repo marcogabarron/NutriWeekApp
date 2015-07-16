@@ -95,6 +95,7 @@
                     <navigationItem key="navigationItem" title="NutriWeek" id="yYQ-51-4qm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="diaDaSemana" destination="hYp-H5-26f" id="DBc-zD-kdA"/>
                         <outlet property="tableView" destination="USn-Nc-HPr" id="6tH-Mj-Voa"/>
                     </connections>
                 </viewController>
@@ -442,13 +443,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="DCJ-Ah-fgh">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meal Name*" textAlignment="center" minimumFontSize="17" id="oHL-RJ-w88">
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome da Refeição*" textAlignment="center" minimumFontSize="17" id="oHL-RJ-w88">
                             <rect key="frame" x="113" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="nae-1R-tOB">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="nae-1R-tOB">
                             <connections>
                                 <action selector="saveItemButton:" destination="mUV-d7-g5Y" id="QMt-XW-7Zr"/>
                             </connections>
@@ -794,7 +795,7 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="JHI-lV-N3u">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="JHI-lV-N3u">
                             <connections>
                                 <action selector="saveItemButton:" destination="jfp-Lu-MSy" id="qEW-5k-iQI"/>
                             </connections>
