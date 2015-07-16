@@ -101,6 +101,10 @@ class RefeicaoServices
         return RefeicaoDAO.findByName(str)!
     }
     
+    static func findByNameBool(str: String) -> Bool{
+        return RefeicaoDAO.findByNameBool(str)
+    }
+    
     static func findByUuid(str: String) -> Refeicao{
         return RefeicaoDAO.findByUuid(str)!
     }
