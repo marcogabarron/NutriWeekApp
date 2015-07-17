@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITextFieldDelegate {
     
     ///Relative to collection view
     @IBOutlet var collectionView: UICollectionView!
@@ -34,7 +34,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.nameTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,15 +51,21 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     //MARK: SearchBar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchActive = true;
+        self.searchActive = true
+        var barTintColor: UIColor
+        self.searchBar.barTintColor = UIColor.clearColor()
+        self.searchBar.showsCancelButton = true
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        self.searchActive = false;
+        self.searchActive = false
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.searchActive = false;
+        self.searchActive = false
+          self.searchBar.showsCancelButton = false
+        self.searchBar.resignFirstResponder()
+        self.searchBar.barTintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -334,6 +340,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             }
         }
         return boolean
+    }
+    
+    func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true;
     }
     
     /** Prepare for Segue to Week page **/
