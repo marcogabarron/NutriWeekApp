@@ -2,43 +2,43 @@
 
 "Alimentos": [
 {
-"Nome" : “Cheese Bread",
+"Nome" : "Cheese Bread",
 "Imagem": "cheesebread.jpg"
 },
 {
-"Nome" : “Strawberry",
+"Nome" : "Strawberry",
 "Imagem": "strawberry.jpg"
 },
 {
-"Nome" : “Milk",
+"Nome" : "Milk",
 "Imagem": "milk.jpg"
 },
 {
-"Nome" : “Grape",
+"Nome" : "Grape",
 "Imagem": "grape.jpg"
 },
 {
-"Nome" : “Bean",
+"Nome" : "Bean",
 "Imagem": "bean.jpg"
 },
 {
-"Nome" : “Boiled Egg",
+"Nome" : "Boiled Egg",
 "Imagem": "boiledegg.jpg"
 },
 {
-"Nome" : “Boiled Potato",
+"Nome" : "Boiled Potato",
 "Imagem": "boiledpotato.jpg"
 },
 {
-"Nome" : “Carrot",
+"Nome" : "Carrot",
 "Imagem": "carrot.jpg"
 },
 {
-"Nome" : “Cereal Bar",
+"Nome" : "Cereal Bar",
 "Imagem": "cerealbar.jpg"
 },
 {
-"Nome" : “Cheese",
+"Nome" : "Cheese",
 "Imagem": "cheese.jpg"
 },
 {
@@ -46,27 +46,27 @@
 "Imagem": "grilledchicken.jpg"
 },
 {
-"Nome" : “Lettuce",
+"Nome" : "Lettuce",
 "Imagem": "lettuce.jpg"
 },
 {
-"Nome" : “Beef",
+"Nome" : "Beef",
 "Imagem": "beef.jpg"
 },
 {
-"Nome" : “Orange Juice",
+"Nome" : "Orange Juice",
 "Imagem": "orangejuice.jpg"
 },
 {
-"Nome" : “Peach Tea",
+"Nome" : "Peach Tea",
 "Imagem": "peachtea.jpg"
 },
 {
-"Nome" : “Tomato",
+"Nome" : "Tomato",
 "Imagem": "tomato.jpg"
 },
 {
-"Nome" : “White Rice",
+"Nome" : "White Rice",
 "Imagem": "whiterice.jpg"
 },
 {
@@ -74,7 +74,7 @@
 "Imagem": "bacon.jpg"
 },
 {
-"Nome" : “Water",
+"Nome" : "Water",
 "Imagem": "water.jpg"
 },
 {
@@ -86,35 +86,35 @@
 "Imagem": "beet.jpg"
 },
 {
-"Nome" : “Black Bean",
+"Nome" : "Black Bean",
 "Imagem": "blackBean.jpg"
 },
 {
-"Nome" : “Boiled Beef",
+"Nome" : "Boiled Beef",
 "Imagem": "boiledBeef.jpg"
 },
 {
-"Nome" : “Brown Rice",
+"Nome" : "Brown Rice",
 "Imagem": "brownRice.jpg"
 },
 {
-"Nome" : “Coffee",
+"Nome" : "Coffee",
 "Imagem": "coffee.jpg"
 },
 {
-"Nome" : “Corn",
+"Nome" : "Corn",
 "Imagem": "corn.jpg"
 },
 {
-"Nome" : “Corn Cream",
+"Nome" : "Corn Cream",
 "Imagem": "cornCream.jpg"
 },
 {
-"Nome" : “Crumbs",
+"Nome" : "Crumbs",
 "Imagem": "crumbs.jpg"
 },
 {
-"Nome" : “French Bread",
+"Nome" : "French Bread",
 "Imagem": "frenchbread.jpg"
 },
 {
@@ -122,11 +122,11 @@
 "Imagem": "granola.jpg"
 },
 {
-"Nome" : “Ground Beef",
+"Nome" : "Ground Beef",
 "Imagem": "groundBeef.jpg"
 },
 {
-"Nome" : “Ham",
+"Nome" : "Ham",
 "Imagem": "ham.jpg"
 },
 {
@@ -134,35 +134,35 @@
 "Imagem": "mamao.jpg"
 },
 {
-"Nome" : “Boiled Manioc",
+"Nome" : "Boiled Manioc",
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : “Mashed Potatos",
+"Nome" : "Mashed Potatos",
 "Imagem": "mashedPotatos.jpg"
 },
 {
-"Nome" : “Onion",
+"Nome" : "Onion",
 "Imagem": "onion.jpg"
 },
 {
-"Nome" : “Pasta",
+"Nome" : "Pasta",
 "Imagem": "pasta.jpg"
 },
 {
-"Nome" : “Pepperoni",
+"Nome" : "Pepperoni",
 "Imagem": "pepperoni.jpg"
 },
 {
-"Nome" : “Red Sauce",
+"Nome" : "Red Sauce",
 "Imagem": "redSauce.jpg"
 },
 {
-"Nome" : “Sausage",
+"Nome" : "Sausage",
 "Imagem": "sausage.jpg"
 },
 {
-"Nome" : “Spinach",
+"Nome" : "Spinach",
 "Imagem": "spinach.jpg"
 },
 {
@@ -170,55 +170,55 @@
 "Imagem": "turkeyBreast.jpg"
 },
 {
-"Nome" : “Avocado",
+"Nome" : "Avocado",
 "Imagem": "avocado.jpg"
 },
 {
-"Nome" : “Baked Fish",
+"Nome" : "Baked Fish",
 "Imagem": "bakedFish.jpg"
 },
 {
-"Nome" : “White Sauce",
+"Nome" : "White Sauce",
 "Imagem": "whiteSauce.jpg"
 },
 {
-"Nome" : “Watercress",
+"Nome" : "Watercress",
 "Imagem": "watercress.jpg"
 },
 {
-"Nome" : “Bell Pepper",
+"Nome" : "Bell Pepper",
 "Imagem": "bellPepper.jpg"
 },
 {
-"Nome" : “Coconut",
+"Nome" : "Coconut",
 "Imagem": "coconut.jpg"
 },
 {
-"Nome" : “Coconut Water",
+"Nome" : "Coconut Water",
 "Imagem": "coconutWater.jpg"
 },
 {
-"Nome" : “Cooked Fish",
+"Nome" : "Cooked Fish",
 "Imagem": "cookedFish.jpg"
 },
 {
-"Nome" : “Eggplant",
+"Nome" : "Eggplant",
 "Imagem": "eggplant.jpg"
 },
 {
-"Nome" : “Green Coconut",
+"Nome" : "Green Coconut",
 "Imagem": "greenCoconut.jpg"
 },
 {
-"Nome" : “Lemon",
+"Nome" : "Lemon",
 "Imagem": "lemon.jpg"
 },
 {
-"Nome" : “Orange",
+"Nome" : "Orange",
 "Imagem": "orange.jpg"
 },
 {
-"Nome" : “Soy Burger",
+"Nome" : "Soy Burger",
 "Imagem": "soyBurger.jpg"
 }
 ]
