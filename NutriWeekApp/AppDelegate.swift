@@ -50,14 +50,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         
+//        var notification = Notifications()
         
 ////        //Help to see a notification when it is received by user and get UUID or other informations
+//                var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
+//        
+//                println(notification.userInfo!["UUID"] as! String!)
         var date = NSDate()
-                var item = TodoItem(deadline: date, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
+        var item = TodoItem(deadline: date, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
         
-                println(notification.userInfo!["UUID"] as! String!)
+        println(notification.userInfo!["UUID"] as! String!)
 
         
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+//        var notification = Notifications()
+//        var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
+//        
+//        println(notification.userInfo!["UUID"] as! String!)
     }
     
     

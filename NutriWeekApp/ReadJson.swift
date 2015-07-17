@@ -16,8 +16,14 @@ class ReadJson {
         
         ///Read JSON
         let path = NSBundle.mainBundle().pathForResource("Alimentos", ofType: "txt")
-        let jsonData = NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe, error: nil)
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+        var error: NSError?
+        let jsonData = NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe, error: &error)
+        if error != nil {
+            println(error?.localizedDescription)
+        }
+        
+        let jsonObj = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil)
+        var jsonResult: NSDictionary = jsonObj as! NSDictionary
         
         ///Array to build the objects
         var feed : NSArray = jsonResult["Alimentos"] as! NSArray

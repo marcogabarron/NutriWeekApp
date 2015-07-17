@@ -15,7 +15,6 @@ class WeeksTableViewController: UITableViewController {
     
     ///Interact with Weeks model
     var week:Weeks!
-    var notification = Notifications()
     
     var arrayFix: [String] = (["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
@@ -52,12 +51,12 @@ class WeeksTableViewController: UITableViewController {
                 if cell!.accessoryType == .Checkmark
                 {
                     cell!.accessoryType = .None
-                    self.removeDay(notification.translate(cell!.textLabel!.text!))
+                    self.removeDay(self.arrayFix[indexPath.row])
                 }
                 else
                 {
                     cell!.accessoryType = .Checkmark
-                    self.addDay(notification.translate(cell!.textLabel!.text!))
+                    self.addDay(self.arrayFix[indexPath.row])
                 }
             
         }
@@ -67,7 +66,7 @@ class WeeksTableViewController: UITableViewController {
     
     /** Remove day deselect **/
     func removeDay(day: String){
-        for index in 0...self.week.getArrayString().count - 1 {
+        for index in 0...self.week.getArrayString().count{
             if( self.week.getArrayString()[index] == day){
                 self.week.removeAtIndex(index)
                 break
@@ -79,8 +78,6 @@ class WeeksTableViewController: UITableViewController {
     func addDay(day: String){
         self.week.append(day)
     }
-    
-
     
     /** Prepare for segue back **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

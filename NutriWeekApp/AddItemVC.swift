@@ -279,7 +279,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                     let notification = Notifications()
                     let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                     TodoList.sharedInstance.addItem(todoItem)
-                    
+                    print(diaSemana)
                     //Add Refeicao
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                     

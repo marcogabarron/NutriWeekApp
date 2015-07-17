@@ -14,6 +14,7 @@
 		C25856351B53EFF000244735 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856341B53EFF000244735 /* ItemCardapio.swift */; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
+		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
@@ -36,6 +37,7 @@
 		FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* TodoList.swift */; };
 		FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A31B534032004A5EED /* TodoItem.swift */; };
 		FFD1A2A61B53F34D004A5EED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A51B53F34D004A5EED /* Notifications.swift */; };
+		FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFE87BBB1B584C50006A9C59 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		C25856341B53EFF000244735 /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../../ItemCardapio.swift; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
 		C2895AF51B4DACA1004700EF /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
+		C29A78041B593CB700E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C29A78051B593CC400E055DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C29A78061B593D1F00E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C29A78071B5949B100E055DF /* AlimentosEn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEn.txt; sourceTree = "<group>"; };
 		C2A0093B1B56C4E500F4A914 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -80,7 +86,7 @@
 		FFA5004A1B4E1E3A0023208C /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		FFD1A2A31B534032004A5EED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		FFD1A2A51B53F34D004A5EED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		FFE87BB81B584C44006A9C59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FFE87BBD1B584D1A006A9C59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C29A78071B5949B100E055DF /* AlimentosEn.txt */,
 				C2895AF51B4DACA1004700EF /* ReadJson.swift */,
 				C20B113C1B4D8E1B00A232AC /* Weeks.swift */,
 				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
@@ -174,6 +181,7 @@
 		DAD5A1641B3D7549003829BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FFE87BBB1B584C50006A9C59 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -284,7 +292,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = MERJVB67M9;
+						DevelopmentTeam = 97EUAUR8F9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -298,6 +306,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				en,
 			);
 			mainGroup = DAD5A1581B3D7549003829BF;
 			productRefGroup = DAD5A1621B3D7549003829BF /* Products */;
@@ -315,7 +324,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
+				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
 				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
 				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,
@@ -385,9 +396,19 @@
 		DAD5A1721B3D7549003829BF /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FFE87BB81B584C44006A9C59 /* Base */,
+				C29A78041B593CB700E055DF /* Base */,
+				C29A78051B593CC400E055DF /* en */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		FFE87BBB1B584C50006A9C59 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFE87BBD1B584D1A006A9C59 /* en */,
+				C29A78061B593D1F00E055DF /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
