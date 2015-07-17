@@ -83,7 +83,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
-        cell.layer.cornerRadius = cell.frame.width/4
+        //cell.layer.cornerRadius = cell.frame.width/4
         
         if(self.isSelected(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
