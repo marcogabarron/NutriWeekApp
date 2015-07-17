@@ -1,100 +1,99 @@
 {
-
 "Alimentos": [
 {
-"Nome" : "Pao de Queijo",
+"Nome": "Pao de Queijo",
 "Imagem": "cheesebread.jpg"
 },
 {
-"Nome" : "Morango",
+"Nome": "Morango",
 "Imagem": "strawberry.jpg"
 },
 {
-"Nome" : "Leite",
+"Nome": "Leite",
 "Imagem": "milk.jpg"
 },
 {
-"Nome" : "Uva",
+"Nome": "Uva",
 "Imagem": "grape.jpg"
 },
 {
-"Nome" : "Feijão",
+"Nome": "Feijão",
 "Imagem": "bean.jpg"
 },
 {
-"Nome" : "Ovo Cozido",
+"Nome": "Ovo Cozido",
 "Imagem": "boiledegg.jpg"
 },
 {
-"Nome" : "Batata Cozida",
+"Nome": "Batata Cozida",
 "Imagem": "boiledpotato.jpg"
 },
 {
-"Nome" : "Cenoura",
+"Nome": "Cenoura",
 "Imagem": "carrot.jpg"
 },
 {
-"Nome" : "Barra de Cereal",
+"Nome": "Barra de Cereal",
 "Imagem": "cerealbar.jpg"
 },
 {
-"Nome" : "Queijo",
+"Nome": "Queijo",
 "Imagem": "cheese.jpg"
 },
 {
-"Nome" : "Frango Grelhado",
+"Nome": "Frango Grelhado",
 "Imagem": "grilledchicken.jpg"
 },
 {
-"Nome" : "Alface",
+"Nome": "Alface",
 "Imagem": "lettuce.jpg"
 },
 {
-"Nome" : "Bife",
+"Nome": "Bife",
 "Imagem": "beef.jpg"
 },
 {
-"Nome" : "Suco de Laranja",
+"Nome": "Suco de Laranja",
 "Imagem": "orangejuice.jpg"
 },
 {
-"Nome" : "Chá de Pêssego",
+"Nome": "Chá de Pêssego",
 "Imagem": "peachtea.jpg"
 },
 {
-"Nome" : "Tomate",
+"Nome": "Tomate",
 "Imagem": "tomato.jpg"
 },
 {
-"Nome" : "Arroz Branco",
+"Nome": "Arroz Branco",
 "Imagem": "whiterice.jpg"
 },
 {
-"Nome" : "Bacon",
+"Nome": "Bacon",
 "Imagem": "bacon.jpg"
 },
 {
-"Nome" : "Água",
+"Nome": "Água",
 "Imagem": "water.jpg"
 },
 {
-"Nome" : "Banana",
+"Nome": "Banana",
 "Imagem": "banana.jpg"
 },
 {
-"Nome" : "Beterraba”,
+"Nome": "Beterraba",
 "Imagem": "beet.jpg"
 },
 {
-"Nome" : "Feijão Preto",
+"Nome" : "FeijãoPreto",
 "Imagem": "blackBean.jpg"
 },
 {
-"Nome" : "Carne Cozida",
+"Nome" : "CarneCozida",
 "Imagem": "boiledBeef.jpg"
 },
 {
-"Nome" : "Arroz Integral",
+"Nome" : "ArrozIntegral",
 "Imagem": "brownRice.jpg"
 },
 {
@@ -106,7 +105,7 @@
 "Imagem": "corn.jpg"
 },
 {
-"Nome" : "Creme de Milho",
+"Nome" : "CremedeMilho",
 "Imagem": "cornCream.jpg"
 },
 {
@@ -114,7 +113,7 @@
 "Imagem": "crumbs.jpg"
 },
 {
-"Nome" : "Pão Francês",
+"Nome" : "PãoFrancês",
 "Imagem": "frenchbread.jpg"
 },
 {
@@ -122,7 +121,7 @@
 "Imagem": "granola.jpg"
 },
 {
-"Nome" : "Carne Moida",
+"Nome" : "CarneMoida",
 "Imagem": "groundBeef.jpg"
 },
 {
@@ -134,11 +133,11 @@
 "Imagem": "mamao.jpg"
 },
 {
-"Nome" : "Mandioca Cozida",
+"Nome" : "MandiocaCozida",
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : "Pure de Batata",
+"Nome" : "PuredeBatata",
 "Imagem": "mashedPotatos.jpg"
 },
 {
@@ -154,11 +153,11 @@
 "Imagem": "pepperoni.jpg"
 },
 {
-"Nome" : "Molho Vermelho",
+"Nome" : "MolhoVermelho",
 "Imagem": "redSauce.jpg"
 },
 {
-"Nome" : "Linguiça Toscana",
+"Nome" : "LinguiçaToscana",
 "Imagem": "sausage.jpg"
 },
 {
@@ -166,7 +165,7 @@
 "Imagem": "spinach.jpg"
 },
 {
-"Nome" : "Peito de Peru",
+"Nome" : "PeitodePeru",
 "Imagem": "turkeyBreast.jpg"
 },
 {
@@ -174,11 +173,11 @@
 "Imagem": "avocado.jpg"
 },
 {
-"Nome" : "Peixe Assado",
+"Nome" : "PeixeAssado",
 "Imagem": "bakedFish.jpg"
 },
 {
-"Nome" : "Molho Branco",
+"Nome" : "MolhoBranco",
 "Imagem": "whiteSauce.jpg"
 },
 {
@@ -194,11 +193,11 @@
 "Imagem": "coconut.jpg"
 },
 {
-"Nome" : "Água de coco",
+"Nome" : "Águadecoco",
 "Imagem": "coconutWater.jpg"
 },
 {
-"Nome" : "Peixe Cozido",
+"Nome" : "PeixeCozido",
 "Imagem": "cookedFish.jpg"
 },
 {
@@ -206,7 +205,7 @@
 "Imagem": "eggplant.jpg"
 },
 {
-"Nome" : "Coco verde",
+"Nome" : "Cocoverde",
 "Imagem": "greenCoconut.jpg"
 },
 {
@@ -218,7 +217,7 @@
 "Imagem": "orange.jpg"
 },
 {
-"Nome" : "Hamburguer de Soja",
+"Nome" : "HamburguerdeSoja",
 "Imagem": "soyBurger.jpg"
 }
 ]
