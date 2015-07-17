@@ -14,6 +14,7 @@
 		C25856351B53EFF000244735 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856341B53EFF000244735 /* ItemCardapio.swift */; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
+		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
@@ -60,6 +61,7 @@
 		C29A78041B593CB700E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C29A78051B593CC400E055DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C29A78061B593D1F00E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C29A78071B5949B100E055DF /* AlimentosEn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEn.txt; sourceTree = "<group>"; };
 		C2A0093B1B56C4E500F4A914 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C29A78071B5949B100E055DF /* AlimentosEn.txt */,
 				C2895AF51B4DACA1004700EF /* ReadJson.swift */,
 				C20B113C1B4D8E1B00A232AC /* Weeks.swift */,
 				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
@@ -323,6 +326,7 @@
 			files = (
 				FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
+				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
 				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
 				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,

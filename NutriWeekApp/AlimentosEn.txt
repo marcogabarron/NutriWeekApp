@@ -2,43 +2,43 @@
 
 "Alimentos": [
 {
-"Nome" : "Pao de Queijo",
+"Nome" : “Cheese Bread",
 "Imagem": "cheesebread.jpg"
 },
 {
-"Nome" : "Morango",
+"Nome" : “Strawberry",
 "Imagem": "strawberry.jpg"
 },
 {
-"Nome" : "Leite",
+"Nome" : “Milk",
 "Imagem": "milk.jpg"
 },
 {
-"Nome" : "Uva",
+"Nome" : “Grape",
 "Imagem": "grape.jpg"
 },
 {
-"Nome" : "Feijão",
+"Nome" : “Bean",
 "Imagem": "bean.jpg"
 },
 {
-"Nome" : "Ovo Cozido",
+"Nome" : “Boiled Egg",
 "Imagem": "boiledegg.jpg"
 },
 {
-"Nome" : "Batata Cozida",
+"Nome" : “Boiled Potato",
 "Imagem": "boiledpotato.jpg"
 },
 {
-"Nome" : "Cenoura",
+"Nome" : “Carrot",
 "Imagem": "carrot.jpg"
 },
 {
-"Nome" : "Barra de Cereal",
+"Nome" : “Cereal Bar",
 "Imagem": "cerealbar.jpg"
 },
 {
-"Nome" : "Queijo",
+"Nome" : “Cheese",
 "Imagem": "cheese.jpg"
 },
 {
@@ -46,27 +46,27 @@
 "Imagem": "grilledchicken.jpg"
 },
 {
-"Nome" : "Alface",
+"Nome" : “Lettuce",
 "Imagem": "lettuce.jpg"
 },
 {
-"Nome" : "Bife",
+"Nome" : “Beef",
 "Imagem": "beef.jpg"
 },
 {
-"Nome" : "Suco de Laranja",
+"Nome" : “Orange Juice",
 "Imagem": "orangejuice.jpg"
 },
 {
-"Nome" : "Chá de Pêssego",
+"Nome" : “Peach Tea",
 "Imagem": "peachtea.jpg"
 },
 {
-"Nome" : "Tomate",
+"Nome" : “Tomato",
 "Imagem": "tomato.jpg"
 },
 {
-"Nome" : "Arroz Branco",
+"Nome" : “White Rice",
 "Imagem": "whiterice.jpg"
 },
 {
@@ -74,7 +74,7 @@
 "Imagem": "bacon.jpg"
 },
 {
-"Nome" : "Água",
+"Nome" : “Water",
 "Imagem": "water.jpg"
 },
 {
@@ -82,39 +82,39 @@
 "Imagem": "banana.jpg"
 },
 {
-"Nome" : "Beterraba”,
+"Nome" : "Beet",
 "Imagem": "beet.jpg"
 },
 {
-"Nome" : "Feijão Preto",
+"Nome" : “Black Bean",
 "Imagem": "blackBean.jpg"
 },
 {
-"Nome" : "Carne Cozida",
+"Nome" : “Boiled Beef",
 "Imagem": "boiledBeef.jpg"
 },
 {
-"Nome" : "Arroz Integral",
+"Nome" : “Brown Rice",
 "Imagem": "brownRice.jpg"
 },
 {
-"Nome" : "Café",
+"Nome" : “Coffee",
 "Imagem": "coffee.jpg"
 },
 {
-"Nome" : "Milho",
+"Nome" : “Corn",
 "Imagem": "corn.jpg"
 },
 {
-"Nome" : "Creme de Milho",
+"Nome" : “Corn Cream",
 "Imagem": "cornCream.jpg"
 },
 {
-"Nome" : "Farofa",
+"Nome" : “Crumbs",
 "Imagem": "crumbs.jpg"
 },
 {
-"Nome" : "Pão Francês",
+"Nome" : “French Bread",
 "Imagem": "frenchbread.jpg"
 },
 {
@@ -122,47 +122,47 @@
 "Imagem": "granola.jpg"
 },
 {
-"Nome" : "Carne Moida",
+"Nome" : “Ground Beef",
 "Imagem": "groundBeef.jpg"
 },
 {
-"Nome" : "Presunto",
+"Nome" : “Ham",
 "Imagem": "ham.jpg"
 },
 {
-"Nome" : "Mamão",
+"Nome" : "Mamao",
 "Imagem": "mamao.jpg"
 },
 {
-"Nome" : "Mandioca Cozida",
+"Nome" : “Boiled Manioc",
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : "Pure de Batata",
+"Nome" : “Mashed Potatos",
 "Imagem": "mashedPotatos.jpg"
 },
 {
-"Nome" : "Cebola",
+"Nome" : “Onion",
 "Imagem": "onion.jpg"
 },
 {
-"Nome" : "Massa",
+"Nome" : “Pasta",
 "Imagem": "pasta.jpg"
 },
 {
-"Nome" : "Calabresa",
+"Nome" : “Pepperoni",
 "Imagem": "pepperoni.jpg"
 },
 {
-"Nome" : "Molho Vermelho",
+"Nome" : “Red Sauce",
 "Imagem": "redSauce.jpg"
 },
 {
-"Nome" : "Linguiça Toscana",
+"Nome" : “Sausage",
 "Imagem": "sausage.jpg"
 },
 {
-"Nome" : "Espinafre",
+"Nome" : “Spinach",
 "Imagem": "spinach.jpg"
 },
 {
@@ -170,55 +170,55 @@
 "Imagem": "turkeyBreast.jpg"
 },
 {
-"Nome" : "Abacate",
+"Nome" : “Avocado",
 "Imagem": "avocado.jpg"
 },
 {
-"Nome" : "Peixe Assado",
+"Nome" : “Baked Fish",
 "Imagem": "bakedFish.jpg"
 },
 {
-"Nome" : "Molho Branco",
+"Nome" : “White Sauce",
 "Imagem": "whiteSauce.jpg"
 },
 {
-"Nome" : "Agrião",
+"Nome" : “Watercress",
 "Imagem": "watercress.jpg"
 },
 {
-"Nome" : "Pimentão",
+"Nome" : “Bell Pepper",
 "Imagem": "bellPepper.jpg"
 },
 {
-"Nome" : "Coco",
+"Nome" : “Coconut",
 "Imagem": "coconut.jpg"
 },
 {
-"Nome" : "Água de coco",
+"Nome" : “Coconut Water",
 "Imagem": "coconutWater.jpg"
 },
 {
-"Nome" : "Peixe Cozido",
+"Nome" : “Cooked Fish",
 "Imagem": "cookedFish.jpg"
 },
 {
-"Nome" : "Beringela",
+"Nome" : “Eggplant",
 "Imagem": "eggplant.jpg"
 },
 {
-"Nome" : "Coco verde",
+"Nome" : “Green Coconut",
 "Imagem": "greenCoconut.jpg"
 },
 {
-"Nome" : "Limão",
+"Nome" : “Lemon",
 "Imagem": "lemon.jpg"
 },
 {
-"Nome" : "Laranja",
+"Nome" : “Orange",
 "Imagem": "orange.jpg"
 },
 {
-"Nome" : "Hamburguer de Soja",
+"Nome" : “Soy Burger",
 "Imagem": "soyBurger.jpg"
 }
 ]
