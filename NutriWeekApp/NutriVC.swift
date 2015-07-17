@@ -29,7 +29,9 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         //Load json in CoreData
         json.loadFeed()
-        
+        let date = NSDate()
+        let todoItem = TodoItem(deadline: date, title: "Tantofaz" , UUID: "7F0F4915-86B1-456D-BBA0-A6BE3896151D" )
+        TodoList.sharedInstance.removeItem(todoItem)
         
     }
     

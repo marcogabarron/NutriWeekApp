@@ -66,7 +66,7 @@ class WeeksTableViewController: UITableViewController {
     
     /** Remove day deselect **/
     func removeDay(day: String){
-        for index in 0...self.week.getArrayString().count{
+        for index in 0...self.week.getArrayString().count - 1 {
             if( self.week.getArrayString()[index] == day){
                 self.week.removeAtIndex(index)
                 break

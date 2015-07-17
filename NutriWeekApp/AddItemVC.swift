@@ -282,6 +282,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                     
                     //Add Refeicao
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                    
                 }
                 
                 
