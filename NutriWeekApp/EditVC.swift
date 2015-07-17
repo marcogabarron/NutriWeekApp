@@ -53,6 +53,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         }
         //Set array
         self.daysOfWeekString.setArrayString(weeks)
+        
     }
     
     override func viewWillAppear(animated: Bool) {

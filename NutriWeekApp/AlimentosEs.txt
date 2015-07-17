@@ -1,15 +1,15 @@
 {
 "Alimentos": [
 {
-"Nome": "Pão de Queijo",
+"Nome": "Pan de Quieso",
 "Imagem": "cheesebread.jpg"
 },
 {
-"Nome": "Morango",
+"Nome": "Fresa",
 "Imagem": "strawberry.jpg"
 },
 {
-"Nome": "Leite",
+"Nome": "Leche",
 "Imagem": "milk.jpg"
 },
 {
@@ -17,19 +17,19 @@
 "Imagem": "grape.jpg"
 },
 {
-"Nome": "Feijão",
+"Nome": "Fava",
 "Imagem": "bean.jpg"
 },
 {
-"Nome": "Ovo Cozido",
+"Nome": "Huevo Cocido",
 "Imagem": "boiledegg.jpg"
 },
 {
-"Nome": "Batata Cozida",
+"Nome": "Papa Cocida",
 "Imagem": "boiledpotato.jpg"
 },
 {
-"Nome": "Cenoura",
+"Nome": "Zanahoria",
 "Imagem": "carrot.jpg"
 },
 {
@@ -37,19 +37,19 @@
 "Imagem": "cerealbar.jpg"
 },
 {
-"Nome": "Queijo",
+"Nome": "Quieso",
 "Imagem": "cheese.jpg"
 },
 {
-"Nome": "Frango Grelhado",
+"Nome": "Pollo a la Parilla",
 "Imagem": "grilledchicken.jpg"
 },
 {
-"Nome": "Alface",
+"Nome": "Lechuga",
 "Imagem": "lettuce.jpg"
 },
 {
-"Nome": "Bife",
+"Nome": "Filete Bovino",
 "Imagem": "beef.jpg"
 },
 {
@@ -57,7 +57,7 @@
 "Imagem": "orangejuice.jpg"
 },
 {
-"Nome": "Chá de Pêssego",
+"Nome": "Te de Melocotón",
 "Imagem": "peachtea.jpg"
 },
 {
@@ -65,7 +65,7 @@
 "Imagem": "tomato.jpg"
 },
 {
-"Nome": "Arroz Branco",
+"Nome": "Arroz Blanco",
 "Imagem": "whiterice.jpg"
 },
 {
@@ -73,7 +73,7 @@
 "Imagem": "bacon.jpg"
 },
 {
-"Nome": "Água",
+"Nome": "Agua",
 "Imagem": "water.jpg"
 },
 {
@@ -81,15 +81,15 @@
 "Imagem": "banana.jpg"
 },
 {
-"Nome": "Beterraba",
+"Nome": "Remolacha",
 "Imagem": "beet.jpg"
 },
 {
-"Nome" : "Feijão Preto",
+"Nome" : "Fava Negra",
 "Imagem": "blackBean.jpg"
 },
 {
-"Nome" : "Carne Cozida",
+"Nome" : "Carne Cocida",
 "Imagem": "boiledBeef.jpg"
 },
 {
@@ -97,23 +97,23 @@
 "Imagem": "brownRice.jpg"
 },
 {
-"Nome" : "Café",
+"Nome" : "Cafe",
 "Imagem": "coffee.jpg"
 },
 {
-"Nome" : "Milho",
+"Nome" : "Maíz",
 "Imagem": "corn.jpg"
 },
 {
-"Nome" : "Creme de Milho",
+"Nome" : "Crema de Milho",
 "Imagem": "cornCream.jpg"
 },
 {
-"Nome" : "Farofa",
+"Nome" : "Migas",
 "Imagem": "crumbs.jpg"
 },
 {
-"Nome" : "Pão Francês",
+"Nome" : "Pan Francés",
 "Imagem": "frenchbread.jpg"
 },
 {
@@ -121,7 +121,7 @@
 "Imagem": "granola.jpg"
 },
 {
-"Nome" : "Carne Moida",
+"Nome" : "Carne Molida",
 "Imagem": "groundBeef.jpg"
 },
 {
@@ -137,11 +137,11 @@
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : "Purê de Batata",
+"Nome" : "Puré de Papas",
 "Imagem": "mashedPotatos.jpg"
 },
 {
-"Nome" : "Cebola",
+"Nome" : "Cebolla",
 "Imagem": "onion.jpg"
 },
 {
@@ -193,7 +193,7 @@
 "Imagem": "coconut.jpg"
 },
 {
-"Nome" : "Água de Coco",
+"Nome" : "Água de coco",
 "Imagem": "coconutWater.jpg"
 },
 {
@@ -205,7 +205,7 @@
 "Imagem": "eggplant.jpg"
 },
 {
-"Nome" : "Coco Verde",
+"Nome" : "Coco verde",
 "Imagem": "greenCoconut.jpg"
 },
 {

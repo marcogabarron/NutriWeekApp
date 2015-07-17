@@ -31,8 +31,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         //Load json in CoreData
         json.loadFeed()
-        
-        
+
     }
     
     override func didReceiveMemoryWarning() {
