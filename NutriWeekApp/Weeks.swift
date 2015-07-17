@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Weeks {
-    var arrayString :[String] = []
+    var arrayString :[String]
     
     init(arrayString: [String]){
         self.arrayString = arrayString
