@@ -4,9 +4,12 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var diasDaSemana: UILabel!
+    
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
-    var diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
+    var diasSemana: [String]!
+    var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     let ReuseIdentifier: String = "ReuseIdentifier"
     
     //Relative to models and CoreData
@@ -18,8 +21,17 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        diasSemana = []
+        for dia in  self.diasPT{
+            diasSemana.append(NSLocalizedString(dia, comment: ""))
+        }
+        
+        diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
+        
         //Load json in CoreData
         json.loadFeed()
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +51,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
+        self.items = RefeicaoServices.findByWeek(self.diasPT[section])
         return items.count
         
     }
@@ -60,7 +72,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier") as! UITableViewCell
-        self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
+        self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
     
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
@@ -80,7 +92,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         var label: UILabel = UILabel(frame: CGRect(x: 37, y: 0, width: 300, height: 30))
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
-        label.text = self.diasSemana[section]
+        label.text = NSLocalizedString(self.diasSemana[section], comment: "")
         label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
         headerView.addSubview(label)
         

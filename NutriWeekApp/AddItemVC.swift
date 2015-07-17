@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITextFieldDelegate {
+class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    ///Save Button
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     ///Relative to collection view
     @IBOutlet var collectionView: UICollectionView!
@@ -34,7 +37,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.nameTextField.delegate = self
+        
+        saveButton.title = NSLocalizedString ("Salvar", comment: "")
+        self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,21 +58,15 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     //MARK: SearchBar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchActive = true
-        var barTintColor: UIColor
-        self.searchBar.barTintColor = UIColor.clearColor()
-        self.searchBar.showsCancelButton = true
+        self.searchActive = true;
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        self.searchActive = false
+        self.searchActive = false;
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.searchActive = false
-          self.searchBar.showsCancelButton = false
-        self.searchBar.resignFirstResponder()
-        self.searchBar.barTintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
+        self.searchActive = false;
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -99,7 +100,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
-        cell.textLabel.text = itens[indexPath.row].name
+        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
         cell.textLabel.textColor = UIColor.blackColor()
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
@@ -184,8 +185,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell") as! UITableViewCell
         
+        cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
+        
         if(self.daysOfWeekString.getArrayString().count == 7){
-            cell.detailTextLabel?.text = "Todos os Dias"
+            cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
         }else{
             cell.detailTextLabel?.text = ""
             var text: String = " "
@@ -197,19 +200,19 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 }
                 switch str {
                 case "Segunda":
-                    text = text.stringByAppendingString("seg")
+                    text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
                 case "Terça":
-                    text = text.stringByAppendingString("ter")
+                    text = text.stringByAppendingString(NSLocalizedString("ter", comment: ""))
                 case "Quarta":
-                    text = text.stringByAppendingString("qua")
+                    text = text.stringByAppendingString(NSLocalizedString("qua", comment: ""))
                 case "Quinta":
-                    text = text.stringByAppendingString("qui")
+                    text = text.stringByAppendingString(NSLocalizedString("qui", comment: ""))
                 case "Sexta":
-                    text = text.stringByAppendingString("sex")
+                    text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
                 case "Sábado":
-                    text = text.stringByAppendingString("sab")
+                    text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
                 case "Domingo":
-                    text = text.stringByAppendingString("dom")
+                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
                 default:
                     text.stringByAppendingString("Nunca")
                 }
@@ -261,7 +264,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                                 
                                 self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
                                 self.nameTextField.text = ""
-                                self.nameTextField.placeholder = "*Não repita Nome"
+                                self.nameTextField.placeholder = NSLocalizedString("*Não repita Nome", comment: "")
                                 self.nameTextField.tintColor = UIColor.redColor()
                                 
                                 
@@ -276,9 +279,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                     let notification = Notifications()
                     let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                     TodoList.sharedInstance.addItem(todoItem)
-                    
+                    print(diaSemana)
                     //Add Refeicao
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                    
                 }
                 
                 
@@ -340,11 +344,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             }
         }
         return boolean
-    }
-    
-    func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
-        return true;
     }
     
     /** Prepare for Segue to Week page **/

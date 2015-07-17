@@ -1,0 +1,93 @@
+/* 
+  Localizable.strings
+  NutriWeekApp
+
+  Created by Vítor Machado Rocha on 16/07/15.
+  Copyright (c) 2015 Gabarron. All rights reserved.
+*/
+
+
+//Dias/Days
+"Dias da Semana" = "Días de la Semana";
+"Todos os dias" = "Todos los días";
+
+//Dias da semana/Days of week
+"Domingo" = "Domingo";
+"Segunda" = "Lunes";
+"Terça" = "Martes";
+"Quarta" = "Miércoles";
+"Quinta" = "Jueves";
+"Sexta" = "Viernes";
+"Sábado" = "Sábado";
+
+"dom" = "dom";
+"seg" = "lun";
+"ter" = "mar";
+"qua" = "mie";
+"qui" = "jue";
+"sex" = "vie";
+"sab" = "sab";
+
+//Alimentos/Feed
+"Uva" = "Uva";
+"Água" = "Agua";
+"Alface" = "Lechuga";
+"Pao de Queijo" = "Pan de Quieso";
+"Morango" = "Fresa";
+"Leite" = "Leche";
+"Feijão" = "Fava";
+"Ovo Cozido" = "Huevo Cocido";
+"Batata Cozida" = "Papa Cocida";
+"Cenoura" = "Zanahoria";
+"Barra de Cereal" = "Barra de Cereal";
+"Queijo" = "Queijo";
+"Frango Grelhado" = "Frango Grelhado";
+"Bife" = "Bife";
+"Suco de Laranja" = "Suco de Laranja";
+"Chá de Pêssego" = "Chá de Pêssego";
+"Tomate" = "Tomate";
+"Arroz Branco" = "Arroz Branco";
+"Bacon" = "Bacon";
+"Banana" = "Banana";
+"Beet" = "Beterraba";
+"Feijão Preto" = "Feijão Preto";
+"Carne Cozida" = "Carne Cozida";
+"Arroz Integral" = "Arroz Integral";
+"Café" = "Café";
+"Milho" = "Milho";
+"Creme de Milho" = "Creme de Milho";
+"Farofa" = "Farofa";
+"Pão Francês" = "Pão Francês";
+"Granola" = "Granola";
+"Carne Moida" = "Carne Moída";
+"Presunto" = "Presunto";
+"Mamão" = "Mamão";
+"Mandioca Cozida" = "Mandioca Cozida";
+"Pure de Batata" = "Purê de Batata";
+"Cebola" = "Cebola";
+"Massa" = "Massa";
+"Calabresa" = "Calabresa";
+"Molho Vermelho" = "Molho Vermelho";
+"Linguiça Toscana" = "Luinguíça Toscana";
+"Espinafre" = "Espinafre";
+"Peito de Peru" = "Peito de Perú";
+"Abacate" = "Abacate";
+"Peixe Assado" = "Peixe Assado";
+"Molho Branco" = "Molho Branco";
+"Agrião" = "Agrião";
+"Pimentão" = "Pimentão";
+"Coco" = "Coco";
+"Água de coco" = "Água de Coco";
+"Peixe Cozido" = "Peixe Cozido";
+"Beringela" = "Berinjela";
+"Coco verde" = "Coco verde";
+"Limão" = "Limão";
+"Laranja" = "Laranja";
+"Hamburguer de Soja" = "Hambúrguer de Soja";
+
+//Outras/Other
+"Repetir" = "Repetir";
+"Salvar" = "Salvar";
+"Nome da Refeição" = "Nome da Refeição";
+"Refeição" = "Refeição";
+"*Não repita nome" = "*Não repita nome";

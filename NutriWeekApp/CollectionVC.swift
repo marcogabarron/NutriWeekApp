@@ -10,7 +10,10 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var refeicao: UINavigationItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     var colorImage = UIColor.blackColor().CGColor
+    
     
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
@@ -28,6 +31,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        editButton.title = NSLocalizedString("Editar", comment: "Editar")
+        refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,7 +78,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
-        cell.myLabel.text = self.itens[indexPath.row].name
+        cell.myButton.setTitle( NSLocalizedString(itens[indexPath.row].name, comment: ""), forState: .Normal)
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
         cell.myImage.layer.masksToBounds = true
@@ -82,12 +87,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         if(self.isSelected(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
-            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             cell.click = true
             
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-            cell.myLabel.textColor = UIColor.blackColor()
+            cell.myButton.tintColor = UIColor.blackColor()
             cell.click = false
         }
         
@@ -119,7 +124,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         //Selected: Change text to green
         if(cell.click == false){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor //ISso ta fazendo alguma coisa?
-            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
@@ -128,7 +133,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             //Deselect: Change text to black
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-            cell.myLabel.textColor = UIColor.blackColor()
+            cell.myButton.tintColor = UIColor.blackColor()
             
             //Set it is desselected
             var index = 0

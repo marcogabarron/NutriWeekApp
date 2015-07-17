@@ -10,6 +10,9 @@ import UIKit
 
 class WeeksTableViewController: UITableViewController {
     
+    ///RepeatStrng
+    @IBOutlet weak var repeat: UINavigationItem!
+    
     ///Interact with Weeks model
     var week:Weeks!
     
@@ -17,6 +20,8 @@ class WeeksTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repeat.title = NSLocalizedString("Repetir", comment: "")
     }
     
     /** Write the name of the cell **/
@@ -24,7 +29,7 @@ class WeeksTableViewController: UITableViewController {
         
         let cell = UITableViewCell()
         
-        cell.textLabel?.text = self.arrayFix[indexPath.row]
+        cell.textLabel?.text = NSLocalizedString(self.arrayFix[indexPath.row], comment: "")
         
         //Says it is selected or not
         if(self.week.isSelected(self.arrayFix[indexPath.row])){
@@ -46,12 +51,12 @@ class WeeksTableViewController: UITableViewController {
                 if cell!.accessoryType == .Checkmark
                 {
                     cell!.accessoryType = .None
-                    self.removeDay(cell!.textLabel!.text!)
+                    self.removeDay(self.arrayFix[indexPath.row])
                 }
                 else
                 {
                     cell!.accessoryType = .Checkmark
-                    self.addDay(cell!.textLabel!.text!)
+                    self.addDay(self.arrayFix[indexPath.row])
                 }
             
         }
