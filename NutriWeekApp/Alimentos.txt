@@ -82,7 +82,7 @@
 "Imagem": "banana.jpg"
 },
 {
-"Nome" : "Beet",
+"Nome" : "Beterraba",
 "Imagem": "beet.jpg"
 },
 {
