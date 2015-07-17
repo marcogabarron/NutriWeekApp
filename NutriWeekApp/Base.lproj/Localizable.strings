@@ -5,6 +5,6 @@
   Created by Vítor Machado Rocha on 16/07/15.
   Copyright (c) 2015 Gabarron. All rights reserved.
 */
-"a" = "TESTE!";
-"Dias da Semana" = "Dias da Semana";
-"Domingo" = "Domingo";
+"a" = "TEST!";
+"Dias da Semana" = "Days of Week";
+"Domingo" = "Sunday";

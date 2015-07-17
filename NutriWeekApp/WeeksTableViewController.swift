@@ -51,12 +51,12 @@ class WeeksTableViewController: UITableViewController {
                 if cell!.accessoryType == .Checkmark
                 {
                     cell!.accessoryType = .None
-                    self.removeDay(cell!.textLabel!.text!)
+                    self.removeDay(self.arrayFix[indexPath.row])
                 }
                 else
                 {
                     cell!.accessoryType = .Checkmark
-                    self.addDay(cell!.textLabel!.text!)
+                    self.addDay(self.arrayFix[indexPath.row])
                 }
             
         }
