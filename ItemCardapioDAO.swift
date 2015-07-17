@@ -11,7 +11,6 @@ class ItemCardapioDAO
         
         /// Sort Descriptor to ascending results by name
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: Selector("localizedCaseInsensitiveCompare:"))
-//        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, comparator: .localizedCaseInsensitiveCompare(ItemCardapio))
         request.sortDescriptors = [sortDescriptor]
         
         // Perform search
@@ -26,9 +25,9 @@ class ItemCardapioDAO
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
         // Assign predicate
-        request.predicate = NSPredicate(format: "horarioInicio <= %ld AND horarioFim <= %ld", horarioInicio, horarioFim)
+        request.predicate = NSPredicate(format: "horarioInicio <= %ld OR horarioFim <= %ld", horarioInicio, horarioFim)
         
-        // assign sort descriptor
+        // Assign sort descriptor
         //request.sortDescriptors = [NSSortDescriptor(key: "horarioInicio", ascending:true)]
         
         // Perform search
@@ -62,7 +61,7 @@ class ItemCardapioDAO
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
         // Assign predicate
-        request.predicate = NSPredicate(format: "name CONTAINS[c] %@ AND image CONTAINS[c] %@", name, image)
+        request.predicate = NSPredicate(format: "name CONTAINS[c] %@ OR image CONTAINS[c] %@", name, image)
         
         // Perform search
         var error: NSErrorPointer = nil

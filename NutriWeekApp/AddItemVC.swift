@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITextFieldDelegate{
     
     ///Save Button
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -34,13 +34,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     var selectedItens = [ItemCardapio]()
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         saveButton.title = NSLocalizedString ("Salvar", comment: "")
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
-        
+        self.nameTextField.delegate = self;
         
     }
     
@@ -59,6 +58,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     //MARK: SearchBar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchActive = true;
+        var barTintColor: UIColor
+        self.searchBar.barTintColor = UIColor.clearColor()
+        self.searchBar.showsCancelButton = true
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -67,6 +69,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.searchActive = false;
+        self.searchBar.showsCancelButton = false
+        self.searchBar.barTintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
+        self.searchBar.resignFirstResponder()
+        
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -282,10 +288,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                     print(diaSemana)
                     //Add Refeicao
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                    
                 }
-                
-                
                 self.nameTextField.text = ""
+                    
+                
                 }
             }
         }else{
@@ -343,6 +350,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             }
         }
         return boolean
+    }
+    
+    func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
     }
     
     /** Prepare for Segue to Week page **/

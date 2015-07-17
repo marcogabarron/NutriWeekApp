@@ -22,6 +22,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         
         diasSemana = []
+        
         for dia in  self.diasPT{
             diasSemana.append(NSLocalizedString(dia, comment: ""))
         }
@@ -30,8 +31,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         //Load json in CoreData
         json.loadFeed()
-        
-        
+
     }
     
     override func didReceiveMemoryWarning() {
