@@ -154,7 +154,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA7-WC-ffX">
-                                                    <rect key="frame" x="5" y="114" width="110" height="18"/>
+                                                    <rect key="frame" x="5" y="122" width="110" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="8Rm-Js-ovV"/>
                                                         <constraint firstAttribute="width" constant="42" id="PPk-T7-JhY"/>
@@ -172,6 +172,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="yA7-WC-ffX" firstAttribute="top" secondItem="bHQ-Wq-7Ty" secondAttribute="bottom" constant="3" id="0Ij-pQ-Een"/>
                                             <constraint firstItem="bHQ-Wq-7Ty" firstAttribute="top" secondItem="6Lc-L3-vn7" secondAttribute="top" id="1sg-pc-wlA"/>
                                             <constraint firstItem="yA7-WC-ffX" firstAttribute="bottom" secondItem="6Lc-L3-vn7" secondAttribute="bottomMargin" id="2I2-ge-1eF"/>
                                             <constraint firstAttribute="trailing" secondItem="bHQ-Wq-7Ty" secondAttribute="trailing" constant="5" id="B2u-Wg-Ein"/>
@@ -185,7 +186,7 @@
                                             <constraint firstItem="bHQ-Wq-7Ty" firstAttribute="leading" secondItem="6Lc-L3-vn7" secondAttribute="leading" constant="5" id="lio-xV-vql"/>
                                             <constraint firstAttribute="centerX" secondItem="yA7-WC-ffX" secondAttribute="centerX" id="msh-SV-LsP"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="bHQ-Wq-7Ty" secondAttribute="bottom" constant="22" id="s3r-fe-A4N"/>
-                                            <constraint firstItem="yA7-WC-ffX" firstAttribute="bottom" secondItem="6Lc-L3-vn7" secondAttribute="bottomMargin" id="wh1-SX-utY"/>
+                                            <constraint firstItem="yA7-WC-ffX" firstAttribute="bottom" secondItem="6Lc-L3-vn7" secondAttribute="bottom" id="wh1-SX-utY"/>
                                             <constraint firstItem="bHQ-Wq-7Ty" firstAttribute="leading" secondItem="6Lc-L3-vn7" secondAttribute="leadingMargin" constant="-3" id="zZN-cv-jzP"/>
                                         </constraints>
                                         <variation key="default">
@@ -198,6 +199,7 @@
                                                 <exclude reference="eGo-4g-iI8"/>
                                                 <exclude reference="s3r-fe-A4N"/>
                                                 <exclude reference="zZN-cv-jzP"/>
+                                                <exclude reference="0Ij-pQ-Een"/>
                                                 <exclude reference="2I2-ge-1eF"/>
                                             </mask>
                                         </variation>
@@ -252,8 +254,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="PHI-5M-ugB" id="cna-PF-D98"/>
+                        <outlet property="editButton" destination="h2s-Rh-B8Z" id="DcW-vK-Txj"/>
                         <outlet property="hour" destination="AvH-lD-lwI" id="onG-hG-ByX"/>
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
+                        <outlet property="refeicao" destination="5cy-DT-Eq6" id="b9c-LT-hRq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6h3-b7-k1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -821,6 +825,7 @@
                         <outlet property="collectionView" destination="mrT-A8-Gac" id="pCl-WY-CwT"/>
                         <outlet property="horario" destination="vkI-rZ-RAA" id="T3V-hV-mj4"/>
                         <outlet property="nameTextField" destination="65f-Va-7Bc" id="ESY-37-V2V"/>
+                        <outlet property="saveButton" destination="JHI-lV-N3u" id="sdC-0l-wsP"/>
                         <outlet property="searchBar" destination="13c-H5-4sE" id="Dha-51-F1S"/>
                         <outlet property="tableView" destination="qEl-QA-eZI" id="eMe-3U-LtN"/>
                     </connections>
