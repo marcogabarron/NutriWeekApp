@@ -137,7 +137,7 @@
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : "Purede Batata",
+"Nome" : "Purê de Batata",
 "Imagem": "mashedPotatos.jpg"
 },
 {
@@ -165,7 +165,7 @@
 "Imagem": "spinach.jpg"
 },
 {
-"Nome" : "Peitode Peru",
+"Nome" : "Peito de Peru",
 "Imagem": "turkeyBreast.jpg"
 },
 {
