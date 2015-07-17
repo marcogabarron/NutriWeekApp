@@ -95,6 +95,7 @@
                     <navigationItem key="navigationItem" title="NutriWeek" id="yYQ-51-4qm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="diasDaSemana" destination="hYp-H5-26f" id="MDw-iA-rMn"/>
                         <outlet property="tableView" destination="USn-Nc-HPr" id="6tH-Mj-Voa"/>
                     </connections>
                 </viewController>
@@ -159,7 +160,7 @@
                                                         <constraint firstAttribute="width" constant="42" id="PPk-T7-JhY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -278,8 +279,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q2b-Nd-gbJ">
-                                <rect key="frame" x="3" y="330" width="366" height="293"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q2b-Nd-gbJ">
+                                <rect key="frame" x="3" y="286" width="366" height="337"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6cz-Jd-g45">
                                     <size key="itemSize" width="120" height="140"/>
@@ -473,6 +474,7 @@
                         <outlet property="collectionView" destination="q2b-Nd-gbJ" id="Dvv-8K-7Cm"/>
                         <outlet property="horario" destination="Sci-vb-A3J" id="BiP-WF-IiO"/>
                         <outlet property="nameTextField" destination="oHL-RJ-w88" id="3m2-6A-v9i"/>
+                        <outlet property="saveButton" destination="nae-1R-tOB" id="fSv-vt-66N"/>
                         <outlet property="searchBar" destination="AVq-Iu-tAo" id="QSf-Ty-kMk"/>
                         <outlet property="tableView" destination="Gcs-Po-qRI" id="GCD-de-BH2"/>
                     </connections>
