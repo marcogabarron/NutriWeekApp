@@ -34,7 +34,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     var selectedItens = [ItemCardapio]()
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -284,9 +283,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                     
                 }
-                
-                
                 self.nameTextField.text = ""
+                    
+                
                 }
             }
         }else{
