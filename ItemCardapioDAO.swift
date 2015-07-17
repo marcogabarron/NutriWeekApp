@@ -10,7 +10,7 @@ class ItemCardapioDAO
         let request = NSFetchRequest(entityName: "ItemCardapio")
         
         /// Sort Descriptor to ascending results by name
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: Selector("localizedCaseInsensitiveCompare:"))
 //        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, comparator: .localizedCaseInsensitiveCompare(ItemCardapio))
         request.sortDescriptors = [sortDescriptor]
         
