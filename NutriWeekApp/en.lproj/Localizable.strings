@@ -19,6 +19,15 @@
 "Sexta" = "Friday";
 "Sábado" = "Saturday";
 
+"dom" = "sun";
+"seg" = "mon";
+"ter" = "tue";
+"qua" = "wed";
+"qui" = "thu";
+"sex" = "fri";
+"sab" = "sat";
+
+
 //Alimentos/Feed
 "Uva" = "Grape";
 "Água" = "Water";

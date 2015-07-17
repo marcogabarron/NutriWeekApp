@@ -8,37 +8,37 @@
 
 
 //Dias/Days
-"Dias da Semana" = "Dias da Semana";
-"Todos os dias" = "Todos os dias";
+"Dias da Semana" = "Días de la Semana";
+"Todos os dias" = "Todos los días";
 
 //Dias da semana/Days of week
 "Domingo" = "Domingo";
-"Segunda" = "Segunda";
-"Terça" = "Terça";
-"Quarta" = "Quarta";
-"Quinta" = "Quinta";
-"Sexta" = "Sexta";
+"Segunda" = "Lunes";
+"Terça" = "Martes";
+"Quarta" = "Miércoles";
+"Quinta" = "Jueves";
+"Sexta" = "Viernes";
 "Sábado" = "Sábado";
 
 "dom" = "dom";
-"seg" = "seg";
-"ter" = "ter";
-"qua" = "qua";
-"qui" = "qui";
-"sex" = "sex";
+"seg" = "lun";
+"ter" = "mar";
+"qua" = "mie";
+"qui" = "jue";
+"sex" = "vie";
 "sab" = "sab";
 
 //Alimentos/Feed
 "Uva" = "Uva";
-"Água" = "Água";
-"Alface" = "Alface";
-"Pao de Queijo" = "Pão de Queijo";
-"Morango" = "Morango";
-"Leite" = "Leite";
-"Feijão" = "Feijão";
-"Ovo Cozido" = "Ovo Cozido";
-"Batata Cozida" = "Batata Cozida";
-"Cenoura" = "Cenoura";
+"Água" = "Agua";
+"Alface" = "Lechuga";
+"Pao de Queijo" = "Pan de Quieso";
+"Morango" = "Fresa";
+"Leite" = "Leche";
+"Feijão" = "Fava";
+"Ovo Cozido" = "Huevo Cocido";
+"Batata Cozida" = "Papa Cocida";
+"Cenoura" = "Zanahoria";
 "Barra de Cereal" = "Barra de Cereal";
 "Queijo" = "Queijo";
 "Frango Grelhado" = "Frango Grelhado";

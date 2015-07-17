@@ -29,9 +29,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         //Load json in CoreData
         json.loadFeed()
-        let date = NSDate()
-        let todoItem = TodoItem(deadline: date, title: "Tantofaz" , UUID: "7F0F4915-86B1-456D-BBA0-A6BE3896151D" )
-        TodoList.sharedInstance.removeItem(todoItem)
         
     }
     
@@ -52,7 +49,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
+        self.items = RefeicaoServices.findByWeek(notification.translate(self.diasSemana[section]))
         return items.count
         
     }
@@ -73,7 +70,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier") as! UITableViewCell
-        self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
+        self.items = RefeicaoServices.findByWeek(notification.translate(self.diasSemana[indexPath.section]))
     
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
@@ -110,7 +107,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             //Read the sections and all refeicao inside
-            self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
+            self.items = RefeicaoServices.findByWeek(notification.translate(self.diasSemana[indexPath.section]))
             
             //Delete Refeicao
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
