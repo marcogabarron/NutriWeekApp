@@ -292,7 +292,11 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
+<<<<<<< HEAD
 						DevelopmentTeam = UNMPYLD92U;
+=======
+						DevelopmentTeam = 97EUAUR8F9;
+>>>>>>> 35121a522f1cf96265929d14d87f0869bb4e3d14
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;

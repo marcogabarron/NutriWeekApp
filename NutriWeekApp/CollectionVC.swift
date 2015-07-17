@@ -78,7 +78,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
-        cell.myButton.setTitle( NSLocalizedString(itens[indexPath.row].name, comment: ""), forState: .Normal)
+        cell.myLabel.text = itens[indexPath.row].name
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
         cell.myImage.layer.masksToBounds = true
@@ -87,12 +87,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         if(self.isSelected(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
-            cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             cell.click = true
             
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-            cell.myButton.tintColor = UIColor.blackColor()
+            cell.myLabel.textColor = UIColor.blackColor()
             cell.click = false
         }
         
@@ -124,7 +124,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         //Selected: Change text to green
         if(cell.click == false){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor //ISso ta fazendo alguma coisa?
-            cell.myButton.tintColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
@@ -133,7 +133,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             //Deselect: Change text to black
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-            cell.myButton.tintColor = UIColor.blackColor()
+            cell.myLabel.textColor = UIColor.blackColor()
             
             //Set it is desselected
             var index = 0
