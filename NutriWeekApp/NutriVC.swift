@@ -5,6 +5,7 @@ import CoreData
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var diasDaSemana: UILabel!
+    @IBOutlet weak var newMeal: UIButton!
     
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +22,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
         diasSemana = []
         
         for dia in  self.diasPT{

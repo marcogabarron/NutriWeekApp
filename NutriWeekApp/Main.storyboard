@@ -37,21 +37,13 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utw-Kt-D9B">
-                                <rect key="frame" x="35" y="79" width="30" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="+">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="mUV-d7-g5Y" kind="show" identifier="nope" id="bSW-u0-qgb"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="USn-Nc-HPr">
-                                <rect key="frame" x="0.0" y="128" width="375" height="539"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="30" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="USn-Nc-HPr">
+                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="separatorColor" red="0.21960784310000001" green="0.31508800482966365" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.21960784310000001" green="0.31508800479999999" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseIdentifier" textLabel="IvW-Bl-R8O" detailTextLabel="hzB-fE-9br" rowHeight="36" style="IBUITableViewCellStyleValue1" id="dnF-6a-wWp">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -83,19 +75,61 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Tra-6b-orQ"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dias da Semana" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYp-H5-26f">
-                                <rect key="frame" x="124" y="83" width="126" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dias da Semana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYp-H5-26f">
+                                <rect key="frame" x="16" y="83" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5jc-8c-fwb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utw-Kt-D9B">
+                                <rect key="frame" x="53" y="75" width="41" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="xWg-lF-0Vs"/>
+                                </constraints>
+                                <color key="tintColor" red="0.18431372549019609" green="0.55294117647058827" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Meal-50">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mUV-d7-g5Y" kind="show" identifier="nope" id="bSW-u0-qgb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="486-JG-qpV"/>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="utw-Kt-D9B" secondAttribute="bottom" constant="16" id="72x-gm-eN8"/>
+                            <constraint firstAttribute="trailing" secondItem="USn-Nc-HPr" secondAttribute="trailing" id="GbQ-LF-twg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hYp-H5-26f" secondAttribute="trailing" id="Ie3-iG-0q1"/>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="JDh-dx-VyP"/>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="utw-Kt-D9B" secondAttribute="bottom" id="NFo-Js-2r7"/>
+                            <constraint firstItem="utw-Kt-D9B" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="11" id="S5v-pG-uSS"/>
+                            <constraint firstItem="hYp-H5-26f" firstAttribute="centerX" secondItem="USn-Nc-HPr" secondAttribute="centerX" id="Upx-A9-Qi9"/>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="YGm-eO-BfJ"/>
+                            <constraint firstItem="hYp-H5-26f" firstAttribute="leading" secondItem="utw-Kt-D9B" secondAttribute="trailing" constant="30" id="ZmF-Lj-iUE"/>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="b3x-pP-GzO"/>
+                            <constraint firstItem="utw-Kt-D9B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="37" id="djY-fn-oK9"/>
+                            <constraint firstItem="hYp-H5-26f" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="imE-br-hvP"/>
+                            <constraint firstItem="utw-Kt-D9B" firstAttribute="centerY" secondItem="hYp-H5-26f" secondAttribute="centerY" id="rZ5-Gh-f6t"/>
+                            <constraint firstItem="hYp-H5-26f" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="wna-H8-FXl"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZmF-Lj-iUE"/>
+                                <exclude reference="72x-gm-eN8"/>
+                                <exclude reference="YGm-eO-BfJ"/>
+                                <exclude reference="b3x-pP-GzO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="NutriWeek" id="yYQ-51-4qm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="diasDaSemana" destination="hYp-H5-26f" id="MDw-iA-rMn"/>
+                        <outlet property="newMeal" destination="utw-Kt-D9B" id="e3T-kL-bXD"/>
                         <outlet property="tableView" destination="USn-Nc-HPr" id="6tH-Mj-Voa"/>
                     </connections>
                 </viewController>
@@ -840,6 +874,9 @@
             <point key="canvasLocation" x="1408.5" y="-1234.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Meal-50" width="57" height="57"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KbV-dY-gbz"/>
     </inferredMetricsTieBreakers>
