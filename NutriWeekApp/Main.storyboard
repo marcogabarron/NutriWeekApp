@@ -690,7 +690,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="132"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knH-1t-KaH">
-                                                            <rect key="frame" x="0.0" y="114" width="120" height="18"/>
+                                                            <rect key="frame" x="5" y="114" width="110" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="kqC-s6-erJ"/>
                                                             </constraints>
@@ -707,6 +707,7 @@
                                                     <constraints>
                                                         <constraint firstItem="ubC-dI-cJ1" firstAttribute="centerX" secondItem="knH-1t-KaH" secondAttribute="centerX" id="8FN-Wa-z6x"/>
                                                         <constraint firstAttribute="bottom" secondItem="knH-1t-KaH" secondAttribute="bottom" id="EEw-kb-oG2"/>
+                                                        <constraint firstItem="ubC-dI-cJ1" firstAttribute="centerX" secondItem="knH-1t-KaH" secondAttribute="centerX" id="ILo-CX-VAq"/>
                                                         <constraint firstItem="knH-1t-KaH" firstAttribute="width" secondItem="2Jc-JW-IGa" secondAttribute="width" id="NIZ-Q7-37m"/>
                                                         <constraint firstAttribute="trailing" secondItem="ubC-dI-cJ1" secondAttribute="trailing" constant="5" id="RNY-aG-Dpk"/>
                                                         <constraint firstAttribute="centerX" secondItem="knH-1t-KaH" secondAttribute="centerX" id="THd-z8-1yJ"/>
@@ -716,12 +717,15 @@
                                                         <constraint firstItem="ubC-dI-cJ1" firstAttribute="top" secondItem="2Jc-JW-IGa" secondAttribute="top" id="eRd-ev-pf5"/>
                                                         <constraint firstAttribute="bottom" secondItem="knH-1t-KaH" secondAttribute="bottom" id="mUm-7N-hvK"/>
                                                         <constraint firstItem="knH-1t-KaH" firstAttribute="top" secondItem="ubC-dI-cJ1" secondAttribute="bottom" id="tTQ-Tr-1zf"/>
+                                                        <constraint firstItem="ubC-dI-cJ1" firstAttribute="width" secondItem="knH-1t-KaH" secondAttribute="width" id="yVQ-eP-ZdS"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="8FN-Wa-z6x"/>
                                                             <exclude reference="X0v-7L-gh7"/>
                                                             <exclude reference="EEw-kb-oG2"/>
+                                                            <exclude reference="NIZ-Q7-37m"/>
+                                                            <exclude reference="THd-z8-1yJ"/>
                                                             <exclude reference="Ut9-Mu-Ix5"/>
                                                             <exclude reference="tTQ-Tr-1zf"/>
                                                         </mask>
