@@ -37,24 +37,6 @@ class ItemCardapioDAO
         return results
     }
     
-    //    static func findByNameAndDuration(name: String, duration: NSInteger) -> [Challenge]
-    //    {
-    //        // creating fetch request
-    //        let request = NSFetchRequest(entityName: "Challenge")
-    //
-    //        // assign predicate
-    //        request.predicate = NSPredicate(format: "name == %@ AND duration >= %ld", name, duration)
-    //
-    //        // assign sort descriptor
-    //        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending:true)]
-    //
-    //        // perform search
-    //        var error:NSErrorPointer = nil
-    //        let results:[Challenge] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Challenge]
-    //
-    //        return results
-    //    }
-    
     static func findByName(name: String, image: String) -> [ItemCardapio]
     {
         /// Creating fetch request

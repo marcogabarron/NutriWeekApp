@@ -47,27 +47,6 @@ class RefeicaoServices
         }
         
     }
-
-    
-    static func deleteRefeicaoByName(name: String)
-    {
-        // create queue
-        var auxiliarQueue:NSOperationQueue = NSOperationQueue()
-        
-        // create operation
-        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-            // find challenge
-            var refeicao: Refeicao? = RefeicaoDAO.findByName(name)
-            if (refeicao != nil)
-            {
-                // delete challenge
-                RefeicaoDAO.delete(refeicao!)
-            }
-        })
-        
-        // execute operation
-        auxiliarQueue.addOperation(deleteOperation)
-    }
     
     static func deleteRefeicaoByUuid(uuid: String)
     {
@@ -87,10 +66,6 @@ class RefeicaoServices
         
         // execute operation
         auxiliarQueue.addOperation(deleteOperation)
-    }
-    
-    static func allItemRefeicao() -> [Refeicao] {
-        return RefeicaoDAO.findAll()
     }
     
     static func findByWeek(str: String) -> [Refeicao]{

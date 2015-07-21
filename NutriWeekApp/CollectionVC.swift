@@ -33,6 +33,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         editButton.title = NSLocalizedString("Editar", comment: "Editar")
         refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
+        self.collectionView.allowsMultipleSelection = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +70,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     //MARK: CollectionView
+    // show the items save in the Core Data
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itens.count
@@ -88,12 +90,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(self.isSelected(self.itens[indexPath.row])){
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            cell.click = true
             
         }else{
             cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myLabel.textColor = UIColor.blackColor()
-            cell.click = false
         }
         
         return cell
@@ -121,32 +121,59 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
         })
         
-        //Selected: Change text to green
-        if(cell.click == false){
+        if(cell.myLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+        }else{
             cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor //ISso ta fazendo alguma coisa?
             cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
-            
-        }else{
-            
-            //Deselect: Change text to black
-            cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-            cell.myLabel.textColor = UIColor.blackColor()
-            
-            //Set it is desselected
-            var index = 0
-            for item in self.selectedItens{
-                if(self.itens[indexPath.row] == item){
-                    self.selectedItens.removeAtIndex(index)
-                }
-                index++
-            }
         }
         
-        cell.click = !cell.click
         
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        didDeselectItemAtIndexPath indexPath: NSIndexPath){
+            
+            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
+            
+            //Animation to grow and back to normal size when selected or deselected
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                
+                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                
+                }, completion: {(result) -> Void in
+                    
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        
+                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        
+                    })
+                    
+            })
+            
+          
+                
+                //Deselect: Change text to black
+                cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
+                cell.myLabel.textColor = UIColor.blackColor()
+                
+                //Set it is desselected
+                var index = 0
+                for item in self.selectedItens{
+                    if(self.itens[indexPath.row] == item){
+                        self.selectedItens.removeAtIndex(index)
+                    }
+                    index++
+                }
+            
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool{
+            return true
     }
     
     /** Prepare for Segue to Edit page **/

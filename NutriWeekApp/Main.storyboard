@@ -529,7 +529,7 @@
         <!--Repetir-->
         <scene sceneID="prb-SG-gQN">
             <objects>
-                <tableViewController id="wIO-eg-H86" customClass="WeeksTableViewController" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wIO-eg-H86" customClass="WeeksTVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsMultipleSelection="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ww3-ZZ-Ow5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -645,6 +645,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Repetir" id="rnl-A0-T2e"/>
+                    <connections>
+                        <outlet property="repeat" destination="rnl-A0-T2e" id="uSU-1X-hxN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -882,7 +885,7 @@
         <image name="Meal-50" width="57" height="57"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KbV-dY-gbz"/>
+        <segue reference="lVe-Qv-OL8"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

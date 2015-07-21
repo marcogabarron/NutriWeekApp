@@ -9,8 +9,7 @@
 import UIKit
 
 class SelectedCollectionViewCell: UICollectionViewCell {
-    var click: Bool = false
-        
+    
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     

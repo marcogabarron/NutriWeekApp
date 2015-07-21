@@ -67,6 +67,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         //Set initial empty text field
         self.searchBar.text = ""
         
+        self.collectionView.allowsMultipleSelection = true
+        
         self.collectionView.reloadData()
         self.tableView.reloadData()
     }
@@ -129,11 +131,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         if(self.find(self.itens[indexPath.row])){
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            cell.click = true
-            
         }else{
             cell.textLabel.textColor = UIColor.blackColor()
-            cell.click = false
         }
         
         return cell
@@ -151,10 +150,17 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     }
     
     
+    /** Select cell **/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+        //Selected: Change text to green
         
+        if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+        }else{
+            
+            
         //Animation to grow and back to normal size when selected or deselected
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
@@ -170,16 +176,43 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
         })
         
-        //Selected: Change text to green
-        if(cell.click == false){
-            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+        
+        
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            
-            //Set it is slected
+        
+            //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
+        }
+        
+        
+        
+    }
+    
+    /** DeSelect cell **/
+    func collectionView(collectionView: UICollectionView,
+        didDeselectItemAtIndexPath indexPath: NSIndexPath){
             
-        }else{
+            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+            if(cell.textLabel.textColor == UIColor.blackColor()){
+                self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
+            }else{
+            //Animation to grow and back to normal size when selected or deselected
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                
+                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                
+                }, completion: {(result) -> Void in
+                    
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        
+                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        
+                    })
+                    
+            })
             
+            
+            //Deselect: Change text to black
             cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             
@@ -191,9 +224,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 }
                 index++
             }
-        }
-        
-        cell.click = !cell.click
+            }
+            
     }
     
     
@@ -386,7 +418,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "WeekEdit") {
-            let destinationViewController = segue.destinationViewController as! WeeksTableViewController
+            let destinationViewController = segue.destinationViewController as! WeeksTVC
             destinationViewController.week = self.daysOfWeekString
         }else{
 

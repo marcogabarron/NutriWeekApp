@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeeksTableViewController: UITableViewController {
+class WeeksTVC: UITableViewController {
     
     ///RepeatStrng
     @IBOutlet weak var repeat: UINavigationItem!

@@ -32,8 +32,8 @@ class Refeicao: NSManagedObject {
     }
     
     func addItemsObject(value: ItemCardapio) {
-        var refeicao = self.mutableSetValueForKey("refeicao")
-        refeicao.addObject(value)
+        var mutableSet = self.mutableSetValueForKey("refeicao")
+        mutableSet.addObject(value)
         
     }
     

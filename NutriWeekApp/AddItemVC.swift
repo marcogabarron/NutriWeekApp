@@ -41,6 +41,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
         self.nameTextField.delegate = self;
         
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -50,6 +51,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         //initial empty serach bar text
         self.searchBar.text = ""
+        
+        self.collectionView.allowsMultipleSelection = true
         
         self.collectionView.reloadData()
         self.tableView.reloadData()
@@ -115,11 +118,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         if(self.find(self.itens[indexPath.row])){
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            cell.click = true
-
         }else{
             cell.textLabel.textColor = UIColor.blackColor()
-            cell.click = false
         }
         
         return cell
@@ -127,51 +127,82 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     
-    /** Select and deselect cell **/
+    /** Select cell **/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
-        
-        //Animation to grow and back to normal size when selected or deselected
-        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-            
-            cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-            
-            }, completion: {(result) -> Void in
-                
-                UIView.animateWithDuration(0.3, animations: {() -> Void in
-                    
-                    cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    
-                })
-                
-        })
-        
         //Selected: Change text to green
-        if(cell.click == false){
-            cell.image.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
+        
+        if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+        }else{
+            
+            
+            //Animation to grow and back to normal size when selected or deselected
+            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                
+                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                
+                }, completion: {(result) -> Void in
+                    
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        
+                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        
+                    })
+                    
+            })
+            
+            
+            
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
-            
-        }else{
-            
-            //Deselect: Change text to black            
-            cell.image.layer.borderColor = UIColor.blackColor().CGColor
-            cell.textLabel.textColor = UIColor.blackColor()
-            
-            //Set it is desselected
-            var index = 0
-            for item in self.selectedItens{
-                if(self.itens[indexPath.row] == item){
-                    self.selectedItens.removeAtIndex(index)
-                }
-                index++
-            }
         }
+        
+        
+        
+    }
+    
+    /** DeSelect cell **/
+    func collectionView(collectionView: UICollectionView,
+        didDeselectItemAtIndexPath indexPath: NSIndexPath){
+            
+            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+            if(cell.textLabel.textColor == UIColor.blackColor()){
+                self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
+            }else{
+                //Animation to grow and back to normal size when selected or deselected
+                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                    
+                    cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                    
+                    }, completion: {(result) -> Void in
+                        
+                        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                            
+                            cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                            
+                        })
+                        
+                })
                 
-        cell.click = !cell.click
+                
+                //Deselect: Change text to black
+                cell.image.layer.borderColor = UIColor.blackColor().CGColor
+                cell.textLabel.textColor = UIColor.blackColor()
+                
+                //Set it is desselected
+                var index = 0
+                for item in self.selectedItens{
+                    if(self.itens[indexPath.row] == item){
+                        self.selectedItens.removeAtIndex(index)
+                    }
+                    index++
+                }
+            }
+            
     }
 
     
@@ -360,7 +391,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     /** Prepare for Segue to Week page **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
-            let destinationViewController = segue.destinationViewController as! WeeksTableViewController
+            let destinationViewController = segue.destinationViewController as! WeeksTVC
             destinationViewController.week = self.daysOfWeekString
         }else{
             
