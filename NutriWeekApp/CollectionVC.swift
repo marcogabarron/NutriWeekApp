@@ -31,9 +31,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editButton.title = NSLocalizedString("Editar", comment: "Editar")
-        refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
-        self.collectionView.allowsMultipleSelection = true
+        self.editButton.title = NSLocalizedString("Editar", comment: "Editar")
+        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,22 +51,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.name.text = refeicao.name
         self.hour.text = notification.formatStringTime(refeicao.horario)
         
+        //allows multiple selections
+        self.collectionView.allowsMultipleSelection = true
+        
         self.collectionView.reloadData()
         
-    }
-    
-    
-    //MARK: Logic Functions
-    
-    //Checks whether the item is selected
-    func isSelected(itemNew: ItemCardapio)->Bool{
-        var boolean : Bool = false
-        for item in self.selectedItens{
-            if(itemNew == item){
-                boolean = true
-            }
-        }
-        return boolean
     }
     
     //MARK: CollectionView
@@ -81,18 +70,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         cell.myLabel.text = itens[indexPath.row].name
-        cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         
+        cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
-        //cell.layer.cornerRadius = cell.frame.width/4
         
+        
+        //change the label color when it is already selected - It is within the selected array
         if(self.isSelected(self.itens[indexPath.row])){
-            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
         }else{
-            cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myLabel.textColor = UIColor.blackColor()
         }
         
@@ -101,11 +89,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     
-    //Select and deselect cell
+    /**Select cell**/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
         
+        //verify the collor text label because it is the way for verify if the object already selected
+        if(cell.myLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            //go to deselected
+            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+        }else{
+            
         //Animation to grow and back to normal size when selected or deselected
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
@@ -121,10 +115,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
         })
         
-        if(cell.myLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
-            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
-        }else{
-            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor //ISso ta fazendo alguma coisa?
             cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
@@ -134,13 +124,20 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
+    /**deselect cell**/
     func collectionView(collectionView: UICollectionView,
         didDeselectItemAtIndexPath indexPath: NSIndexPath){
             
             var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
             
-            //Animation to grow and back to normal size when selected or deselected
-            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+            //verify the collor text label because it is the way for verify if the object already deselected
+            if(cell.myLabel.textColor == UIColor.blackColor()){
+                //go to selected
+                self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
+            }else{
+            
+                //Animation to grow and back to normal size when selected or deselected
+                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
                 
                 cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
                 
@@ -152,7 +149,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                         
                     })
                     
-            })
+                })
             
           
                 
@@ -168,15 +165,27 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     }
                     index++
                 }
+            }
             
     }
     
-    func collectionView(collectionView: UICollectionView,
-        shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool{
-            return true
+    
+    
+    //MARK: Logic Functions
+    
+    //Checks whether the item is selected
+    func isSelected(itemNew: ItemCardapio)->Bool{
+        var boolean : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                boolean = true
+            }
+        }
+        return boolean
     }
     
-    /** Prepare for Segue to Edit page **/
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Edit page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Edit") {
             let destinationViewController = segue.destinationViewController as! EditVC

@@ -123,12 +123,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         
         cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
-        cell.textLabel.textColor = UIColor.blackColor()
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         
+        
+        //change the label color when it is already selected - It is within the selected array
         if(self.find(self.itens[indexPath.row])){
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
         }else{
@@ -156,7 +157,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
         //Selected: Change text to green
         
+        //verify the collor text label because it is the way for verify if the object already selected
         if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            //go to deselected
             self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
         }else{
             
@@ -193,7 +196,10 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         didDeselectItemAtIndexPath indexPath: NSIndexPath){
             
             var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+            
+            //verify the collor text label because it is the way for verify if the object already deselected
             if(cell.textLabel.textColor == UIColor.blackColor()){
+                //go to selected
                 self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
             }else{
             //Animation to grow and back to normal size when selected or deselected
@@ -213,7 +219,6 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             
             
             //Deselect: Change text to black
-            cell.image.layer.borderColor = UIColor.blackColor().CGColor
             cell.textLabel.textColor = UIColor.blackColor()
             
             //Set it is desselected
@@ -230,6 +235,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     
     //MARK: TableView
+    //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         return 1
@@ -297,8 +304,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
             
-            //Animation to show there are no selected feed
             if(self.selectedItens.count == 0){
+                //Animation to show there are no selected food
                 UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
                     
                     self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
@@ -316,7 +323,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
             }else{
                 
-                //Delete Refeicao and notification to each day
+                //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
                 var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
                 var uid: String = self.refeicao.uuid
                 var boolean = false
@@ -327,7 +334,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                     TodoList.sharedInstance.removeItem(todoItem)
                 }
                 
-                //Save new Refeicao and notification to ecah day
+                //Save new Refeicao and notification to each day
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     if(boolean == false){
                         let notification = Notifications()
@@ -352,7 +359,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             }
         }else{
             
-            //Animation to save
+            //Animation to show there are no name food
             UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
                 
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
@@ -382,7 +389,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     }
     
     //MARK: Logic Functions
-    
+    /** read and transform DatePicker**/
     func TimePicker(sender: UIDatePicker) -> String{
         
         var timer = NSDateFormatter()
@@ -416,6 +423,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         self.horario.date = self.formatTime(self.refeicao.horario)
     }
     
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Week page -- pass the information from Weeks() **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "WeekEdit") {
             let destinationViewController = segue.destinationViewController as! WeeksTVC

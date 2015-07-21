@@ -24,7 +24,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         //collor image Button
         self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
-        diasSemana = []
+        self.diasSemana = []
         
         //translate the weekdays
         for dia in  self.diasPT{
@@ -63,7 +63,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         //here is number of sections - seven
-        return diasSemana.count
+        return self.diasSemana.count
     }
     
     
@@ -134,7 +134,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     //MARK - Prepare for segue
-    //if is clicked in the cell, go to the CollectionVC and pass the uuid information from cell clicked
+    /** Prepare for Segue to CollectionVC page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC

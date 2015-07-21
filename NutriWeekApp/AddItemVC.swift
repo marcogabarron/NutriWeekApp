@@ -110,12 +110,13 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         
         cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
-        cell.textLabel.textColor = UIColor.blackColor()
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.image.frame.width/3
         
+        
+        //change the label color when it is already selected - It is within the selected array
         if(self.find(self.itens[indexPath.row])){
             cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
         }else{
@@ -133,7 +134,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
         //Selected: Change text to green
         
+        
+        //verify the collor text label because it is the way for verify if the object already selected
         if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            //go to deselected
             self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
         }else{
             
@@ -170,7 +174,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         didDeselectItemAtIndexPath indexPath: NSIndexPath){
             
             var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+            
+            //verify the collor text label because it is the way for verify if the object already deselected
             if(cell.textLabel.textColor == UIColor.blackColor()){
+                //go to selected
                 self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
             }else{
                 //Animation to grow and back to normal size when selected or deselected
@@ -190,7 +197,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
                 
                 //Deselect: Change text to black
-                cell.image.layer.borderColor = UIColor.blackColor().CGColor
                 cell.textLabel.textColor = UIColor.blackColor()
                 
                 //Set it is desselected
@@ -207,6 +213,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
 
     
     //MARK: TableView
+    //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         return 1
@@ -269,11 +277,12 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
 
     //MARK: actions
     
+    /**save action**/
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
             
-            //Animation to show there are no slected feed
             if(self.selectedItens.count == 0){
+                //Animation to show there are no selected food
                 UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
                     
                     self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
@@ -290,6 +299,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 
             
             }else{
+                //Animation to show there are name already existing in the database
                 if(RefeicaoServices.findByNameBool(self.nameTextField.text) == true){
                     UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
                         
@@ -317,6 +327,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                     let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
                     TodoList.sharedInstance.addItem(todoItem)
                     print(diaSemana)
+                    
                     //Add Refeicao
                     RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                     
@@ -327,7 +338,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 }
             }
         }else{
-            
+            //Animation to show there are no name food
             UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
         
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
@@ -347,7 +358,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     }
     
     
-    //Close keyboard
+    /**Close keyboard**/
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
@@ -372,7 +383,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
     }
     
-    //Checks whether the item is selected
+    /**Checks whether the item is selected**/
     func find(itemNew: ItemCardapio)->Bool{
         var boolean : Bool = false
         for item in self.selectedItens{
@@ -383,12 +394,14 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         return boolean
     }
     
+    /**Close keyboard when clicked return **/
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
     }
     
-    /** Prepare for Segue to Week page **/
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Week page -- pass the information from Weeks() **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! WeeksTVC
