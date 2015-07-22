@@ -9,7 +9,7 @@
 import UIKit
 
 class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    
+    ///Save Button
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     ///Relative to collection view
@@ -20,6 +20,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     //Relative to search
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    ///variable assist the search bar
     var searchActive: Bool = false
     
     ///Relative to datePicker
@@ -30,10 +32,20 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     //Relative to models and CoreData
     var nutriVC = NutriVC()
+    
+    ///Relative to models and CoreData
     var itens = [ItemCardapio]()
+    
+     ///Array ItemCardapio with selected items
     var selectedItens = [ItemCardapio]()
+    
+     ///Notification to edit
     var notification = Notifications()
+    
+    ///array Weeks with the week to edit
     var daysOfWeekString: Weeks = Weeks(arrayString: [])
+    
+    ///Meal to edit
     var refeicao:Refeicao!
     
 
@@ -377,7 +389,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             
         }
     }
-    
+    /**Close keyboard**/
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
@@ -421,6 +433,12 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         self.nameTextField.text = refeicao.name
     
         self.horario.date = self.formatTime(self.refeicao.horario)
+    }
+    
+    /**Close keyboard when clicked return **/
+    func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
     }
     
     //MARK - Prepare for segue

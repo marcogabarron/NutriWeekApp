@@ -16,23 +16,31 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     ///Relative to collection view
     @IBOutlet var collectionView: UICollectionView!
     
-    //Relative to Refeicao`s name
+    ///Relative to Refeicao`s name
     @IBOutlet weak var nameTextField: UITextField!
     
-    //Relative to search
+    ///Relative to search
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    ///variable assist the search bar
     var searchActive: Bool = false
     
     ///Relative to datePicker
     @IBOutlet weak var horario: UIDatePicker!
     
-    //Relative to repeat/week
+    ///Relative to repeat/week
     @IBOutlet weak var tableView: UITableView!
     
-    //Relative to models and CoreData
+    ///Relative to models and CoreData
     var itens = [ItemCardapio]()
+    
+    ///Array ItemCardapio with selected items
     var selectedItens = [ItemCardapio]()
+    
+    ///array Weeks with the week - init with all
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
