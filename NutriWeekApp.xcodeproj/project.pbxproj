@@ -11,6 +11,7 @@
 		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
 		C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTVC.swift */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
+		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
 		C25856351B53EFF000244735 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856341B53EFF000244735 /* ItemCardapio.swift */; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
@@ -53,6 +54,8 @@
 		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
 		C20B11381B4C41A800A232AC /* WeeksTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTVC.swift; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
+		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
+		C23850BF1B5F445D00A21CD5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C25856341B53EFF000244735 /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../../ItemCardapio.swift; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
 		C2895AF51B4DACA1004700EF /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		C29A78061B593D1F00E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C29A78071B5949B100E055DF /* AlimentosEn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEn.txt; sourceTree = "<group>"; };
 		C2A0093B1B56C4E500F4A914 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
+		C2A5B1731B5F43A300C7EAB1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */,
 				C29A78071B5949B100E055DF /* AlimentosEn.txt */,
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
 				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
@@ -301,6 +306,7 @@
 			knownRegions = (
 				Base,
 				en,
+				es,
 			);
 			mainGroup = DAD5A1581B3D7549003829BF;
 			productRefGroup = DAD5A1621B3D7549003829BF /* Products */;
@@ -319,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */,
+				C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
 				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
@@ -390,6 +397,7 @@
 			children = (
 				C29A78041B593CB700E055DF /* Base */,
 				C29A78051B593CC400E055DF /* en */,
+				C2A5B1731B5F43A300C7EAB1 /* es */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -399,6 +407,7 @@
 			children = (
 				FFE87BBD1B584D1A006A9C59 /* en */,
 				C29A78061B593D1F00E055DF /* Base */,
+				C23850BF1B5F445D00A21CD5 /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
