@@ -335,6 +335,26 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
                 
             }else{
+                //Animation to show there are name already existing in the database
+                if(RefeicaoServices.findByNameBool(self.nameTextField.text) == true && self.nameTextField.text != self.refeicao.name){
+                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                        
+                        self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                        
+                        }, completion: {(result) -> Void in
+                            
+                            UIView.animateWithDuration(0.3, animations: {() -> Void in
+                                
+                                self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                self.nameTextField.text = ""
+                                self.nameTextField.placeholder = NSLocalizedString("*Use outro nome", comment: "")
+                                self.nameTextField.tintColor = UIColor.redColor()
+                                
+                                
+                            })
+                    })
+                }else{
+                
                 
                 //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
                 var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
@@ -368,7 +388,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                     }
                     
                 }
-                
+            }
+            
             }
         }else{
             
