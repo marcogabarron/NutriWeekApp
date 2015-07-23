@@ -145,47 +145,47 @@
 "Imagem": "onion.jpg"
 },
 {
-"Nome" : "Massa",
+"Nome" : "Pasta",
 "Imagem": "pasta.jpg"
 },
 {
-"Nome" : "Calabresa",
+"Nome" : "Pepperoni",
 "Imagem": "pepperoni.jpg"
 },
 {
-"Nome" : "Molho Vermelho",
+"Nome" : "Salsa Roja",
 "Imagem": "redSauce.jpg"
 },
 {
-"Nome" : "Linguiça Toscana",
+"Nome" : "Salsicha Toscana",
 "Imagem": "sausage.jpg"
 },
 {
-"Nome" : "Espinafre",
+"Nome" : "Espinacas",
 "Imagem": "spinach.jpg"
 },
 {
-"Nome" : "Peito de Peru",
+"Nome" : "Pechuga de Pavo",
 "Imagem": "turkeyBreast.jpg"
 },
 {
-"Nome" : "Abacate",
+"Nome" : "Aguacate",
 "Imagem": "avocado.jpg"
 },
 {
-"Nome" : "Peixe Assado",
+"Nome" : "Pescado Asado",
 "Imagem": "bakedFish.jpg"
 },
 {
-"Nome" : "Molho Branco",
+"Nome" : "Salsa Blanca",
 "Imagem": "whiteSauce.jpg"
 },
 {
-"Nome" : "Agrião",
+"Nome" : "Berro",
 "Imagem": "watercress.jpg"
 },
 {
-"Nome" : "Pimentão",
+"Nome" : "Pimiento",
 "Imagem": "bellPepper.jpg"
 },
 {
@@ -193,11 +193,11 @@
 "Imagem": "coconut.jpg"
 },
 {
-"Nome" : "Água de coco",
+"Nome" : "Agua de coco",
 "Imagem": "coconutWater.jpg"
 },
 {
-"Nome" : "Peixe Cozido",
+"Nome" : "Pescado Cocido",
 "Imagem": "cookedFish.jpg"
 },
 {
@@ -209,11 +209,11 @@
 "Imagem": "greenCoconut.jpg"
 },
 {
-"Nome" : "Limão",
+"Nome" : "Limón",
 "Imagem": "lemon.jpg"
 },
 {
-"Nome" : "Laranja",
+"Nome" : "Naranja",
 "Imagem": "orange.jpg"
 },
 {
