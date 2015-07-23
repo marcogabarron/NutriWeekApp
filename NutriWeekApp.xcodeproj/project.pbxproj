@@ -14,6 +14,7 @@
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
 		C25856351B53EFF000244735 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856341B53EFF000244735 /* ItemCardapio.swift */; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
+		C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */ = {isa = PBXBuildFile; fileRef = C273B1FF1B610E2A0048936E /* AlimentosFr.txt */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
 		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
@@ -58,6 +59,9 @@
 		C23850BF1B5F445D00A21CD5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C25856341B53EFF000244735 /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../../ItemCardapio.swift; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
+		C273B1FD1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C273B1FF1B610E2A0048936E /* AlimentosFr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosFr.txt; sourceTree = "<group>"; };
 		C2895AF51B4DACA1004700EF /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		C29A78041B593CB700E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C29A78051B593CC400E055DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		C2B86B641B4AE78100130D63 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C273B1FF1B610E2A0048936E /* AlimentosFr.txt */,
 				C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */,
 				C29A78071B5949B100E055DF /* AlimentosEn.txt */,
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
@@ -307,6 +312,7 @@
 				Base,
 				en,
 				es,
+				fr,
 			);
 			mainGroup = DAD5A1581B3D7549003829BF;
 			productRefGroup = DAD5A1621B3D7549003829BF /* Products */;
@@ -325,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */,
+				C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */,
 				C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
 				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
@@ -398,6 +405,7 @@
 				C29A78041B593CB700E055DF /* Base */,
 				C29A78051B593CC400E055DF /* en */,
 				C2A5B1731B5F43A300C7EAB1 /* es */,
+				C273B1FD1B610DFF0048936E /* fr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -408,6 +416,7 @@
 				FFE87BBD1B584D1A006A9C59 /* en */,
 				C29A78061B593D1F00E055DF /* Base */,
 				C23850BF1B5F445D00A21CD5 /* es */,
+				C273B1FE1B610DFF0048936E /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

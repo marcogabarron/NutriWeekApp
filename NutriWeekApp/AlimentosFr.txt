@@ -1,0 +1,225 @@
+{
+
+"Alimentos": [
+{
+"Nome" : "Pain de Fromage",
+"Imagem": "cheesebread.jpg"
+},
+{
+"Nome" : "Fraise",
+"Imagem": "strawberry.jpg"
+},
+{
+"Nome" : "Lait",
+"Imagem": "milk.jpg"
+},
+{
+"Nome" : "Raisin",
+"Imagem": "grape.jpg"
+},
+{
+"Nome" : "Haricot",
+"Imagem": "bean.jpg"
+},
+{
+"Nome" : "Oeuf à la Coque",
+"Imagem": "boiledegg.jpg"
+},
+{
+"Nome" : "Pomme de Terre Bouillie",
+"Imagem": "boiledpotato.jpg"
+},
+{
+"Nome" : "Carotte",
+"Imagem": "carrot.jpg"
+},
+{
+"Nome" : "Barre de Céréales",
+"Imagem": "cerealbar.jpg"
+},
+{
+"Nome" : "Fromage",
+"Imagem": "cheese.jpg"
+},
+{
+"Nome" : "Poulet Grillé",
+"Imagem": "grilledchicken.jpg"
+},
+{
+"Nome" : "Laitue",
+"Imagem": "lettuce.jpg"
+},
+{
+"Nome" : "Bœuf",
+"Imagem": "beef.jpg"
+},
+{
+"Nome" : "Jus d'Orange",
+"Imagem": "orangejuice.jpg"
+},
+{
+"Nome" : "Thé à la Pêche",
+"Imagem": "peachtea.jpg"
+},
+{
+"Nome" : "Tomate",
+"Imagem": "tomato.jpg"
+},
+{
+"Nome" : "Riz",
+"Imagem": "whiterice.jpg"
+},
+{
+"Nome" : "Bacon",
+"Imagem": "bacon.jpg"
+},
+{
+"Nome" : "Eau",
+"Imagem": "water.jpg"
+},
+{
+"Nome" : "Banane",
+"Imagem": "banana.jpg"
+},
+{
+"Nome" : "Betterave",
+"Imagem": "beet.jpg"
+},
+{
+"Nome" : "Haricot Noir",
+"Imagem": "blackBean.jpg"
+},
+{
+"Nome" : "Bœuf Bouilli",
+"Imagem": "boiledBeef.jpg"
+},
+{
+"Nome" : "Riz Brun",
+"Imagem": "brownRice.jpg"
+},
+{
+"Nome" : "Café",
+"Imagem": "coffee.jpg"
+},
+{
+"Nome" : "Maïs",
+"Imagem": "corn.jpg"
+},
+{
+"Nome" : "La Crème de Maïs",
+"Imagem": "cornCream.jpg"
+},
+{
+"Nome" : "Miettes",
+"Imagem": "crumbs.jpg"
+},
+{
+"Nome" : "Pain",
+"Imagem": "frenchbread.jpg"
+},
+{
+"Nome" : "Granola",
+"Imagem": "granola.jpg"
+},
+{
+"Nome" : "Boeuf Haché",
+"Imagem": "groundBeef.jpg"
+},
+{
+"Nome" : "Jambon",
+"Imagem": "ham.jpg"
+},
+{
+"Nome" : "Papaye",
+"Imagem": "mamao.jpg"
+},
+{
+"Nome" : "Manioc Bouilli",
+"Imagem": "manioc.jpg"
+},
+{
+"Nome" : "Purée de Pomme de Terre",
+"Imagem": "mashedPotatos.jpg"
+},
+{
+"Nome" : "Oignon",
+"Imagem": "onion.jpg"
+},
+{
+"Nome" : "Pâtes",
+"Imagem": "pasta.jpg"
+},
+{
+"Nome" : "Pepperoni",
+"Imagem": "pepperoni.jpg"
+},
+{
+"Nome" : "Sauce Tomate",
+"Imagem": "redSauce.jpg"
+},
+{
+"Nome" : "Saucisse",
+"Imagem": "sausage.jpg"
+},
+{
+"Nome" : "Épinards",
+"Imagem": "spinach.jpg"
+},
+{
+"Nome" : "Poitrine de Dinde",
+"Imagem": "turkeyBreast.jpg"
+},
+{
+"Nome" : "Avocat",
+"Imagem": "avocado.jpg"
+},
+{
+"Nome" : "Poisson Cuit au Four",
+"Imagem": "bakedFish.jpg"
+},
+{
+"Nome" : "Sauce Blanche",
+"Imagem": "whiteSauce.jpg"
+},
+{
+"Nome" : "Cresson",
+"Imagem": "watercress.jpg"
+},
+{
+"Nome" : "Poivron",
+"Imagem": "bellPepper.jpg"
+},
+{
+"Nome" : "Noix de Coco",
+"Imagem": "coconut.jpg"
+},
+{
+"Nome" : "L'eau de Noix de Coco",
+"Imagem": "coconutWater.jpg"
+},
+{
+"Nome" : "Poisson Cuit",
+"Imagem": "cookedFish.jpg"
+},
+{
+"Nome" : "Aubergine",
+"Imagem": "eggplant.jpg"
+},
+{
+"Nome" : "Noix de Coco Verte",
+"Imagem": "greenCoconut.jpg"
+},
+{
+"Nome" : "Citron",
+"Imagem": "lemon.jpg"
+},
+{
+"Nome" : "Orange",
+"Imagem": "orange.jpg"
+},
+{
+"Nome" : "Burger de Soja",
+"Imagem": "soyBurger.jpg"
+}
+]
+}
