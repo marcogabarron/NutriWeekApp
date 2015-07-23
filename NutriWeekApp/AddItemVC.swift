@@ -118,6 +118,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         
         cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
+        cell.textLabel.autoresizesSubviews = true
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
@@ -319,7 +320,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                                 
                                 self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
                                 self.nameTextField.text = ""
-                                self.nameTextField.placeholder = NSLocalizedString("*Não repita Nome", comment: "")
+                                self.nameTextField.placeholder = NSLocalizedString("*Use outro nome", comment: "")
                                 self.nameTextField.tintColor = UIColor.redColor()
                                 
                                 

@@ -187,7 +187,7 @@
                                                         <constraint firstAttribute="width" secondItem="bHQ-Wq-7Ty" secondAttribute="height" multiplier="1:1" id="zH5-Dt-bxw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA7-WC-ffX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yA7-WC-ffX">
                                                     <rect key="frame" x="5" y="122" width="110" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="8Rm-Js-ovV"/>
@@ -343,7 +343,7 @@
                                                                 <constraint firstAttribute="width" secondItem="CLI-Ik-D1c" secondAttribute="height" multiplier="1:1" id="OKG-OF-g5L"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-gw-gOa">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-gw-gOa">
                                                             <rect key="frame" x="0.0" y="114" width="120" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="CAn-sG-G9t"/>
@@ -692,7 +692,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-JW-IGa">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="132"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knH-1t-KaH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="knH-1t-KaH">
                                                             <rect key="frame" x="5" y="114" width="110" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="kqC-s6-erJ"/>
@@ -885,7 +885,7 @@
         <image name="Meal-50" width="57" height="57"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVe-Qv-OL8"/>
+        <segue reference="KbV-dY-gbz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

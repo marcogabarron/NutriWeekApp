@@ -135,6 +135,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         
         cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
+        cell.textLabel.autoresizesSubviews = true
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
         cell.image.layer.masksToBounds = true
