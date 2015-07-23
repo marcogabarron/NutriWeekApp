@@ -5,6 +5,39 @@ import CoreData
 
 class ItemCardapioDAO
 {
+    
+    /** Insert element into context and Save context **/
+    static func insert(objectToBeInserted: ItemCardapio)
+    {
+        // Insert element into context
+        DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
+        
+        // Save context
+        var error: NSErrorPointer = nil
+        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
+        if (error != nil)
+        {
+            // Log error
+            print(error)
+        }
+    }
+    
+    /** Remove object from context **/
+    static func delete(objectToBeDeleted: ItemCardapio)
+    {
+        // Remove object from context
+        var error:NSErrorPointer = nil
+        DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
+        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
+        
+        // Log error
+        if (error != nil)
+        {
+            print(error)
+        }
+    }
+    
+    /** creating fetch to find all items **/
     static func findAll() -> [ItemCardapio] {
         /// Creating fetch request
         let request = NSFetchRequest(entityName: "ItemCardapio")
@@ -19,6 +52,7 @@ class ItemCardapioDAO
         return results
     }
     
+    /** find the food with time begin and finish **/
     static func findByTime(horarioInicio: NSDate, horarioFim: NSDate) -> [ItemCardapio]
     {
         /// Creating fetch request
@@ -37,24 +71,7 @@ class ItemCardapioDAO
         return results
     }
     
-    //    static func findByNameAndDuration(name: String, duration: NSInteger) -> [Challenge]
-    //    {
-    //        // creating fetch request
-    //        let request = NSFetchRequest(entityName: "Challenge")
-    //
-    //        // assign predicate
-    //        request.predicate = NSPredicate(format: "name == %@ AND duration >= %ld", name, duration)
-    //
-    //        // assign sort descriptor
-    //        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending:true)]
-    //
-    //        // perform search
-    //        var error:NSErrorPointer = nil
-    //        let results:[Challenge] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Challenge]
-    //
-    //        return results
-    //    }
-    
+    /** find the food with name used to predicate **/
     static func findByName(name: String, image: String) -> [ItemCardapio]
     {
         /// Creating fetch request
@@ -69,40 +86,5 @@ class ItemCardapioDAO
         
         return results
     }
-    
-    
-    static func insert(objectToBeInserted: ItemCardapio)
-    {
-        // Insert element into context
-        DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
-        
-        // Save context
-        var error: NSErrorPointer = nil
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
-        if (error != nil)
-        {
-            // Log error
-            print(error)
-        }
-    }
-    
-    static func delete(objectToBeDeleted: ItemCardapio)
-    {
-        // Remove object from context
-        var error:NSErrorPointer = nil
-        DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
-        
-        // Log error
-        if (error != nil)
-        {
-            print(error)
-        }
-    }
-    
-//    func localizedCaseInsensitiveCompare(string: String) -> NSComparisonResult {
-//    
-//    }
-    
     
 }

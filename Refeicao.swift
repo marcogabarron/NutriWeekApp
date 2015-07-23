@@ -18,7 +18,7 @@ class Refeicao: NSManagedObject {
     @NSManaged var uuid: String
 
     
-    /// The designated initializer
+    /** The designated initializer **/
     convenience init()
     {
         /// Get context
@@ -31,12 +31,14 @@ class Refeicao: NSManagedObject {
         self.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
     }
     
+    /** with array of itemsCardapio you set Relationship for NSSet **/
     func addItemsObject(value: ItemCardapio) {
-        var refeicao = self.mutableSetValueForKey("refeicao")
-        refeicao.addObject(value)
+        var mutableSet = self.mutableSetValueForKey("refeicao")
+        mutableSet.addObject(value)
         
     }
     
+    /** transform the Relationship (NSSet) in array of itemsCardapio **/
     func getItemsObject()->[ItemCardapio]{
         var itemFromRefeicao: [ItemCardapio] = []
         var refeicao = self.mutableSetValueForKey("refeicao")

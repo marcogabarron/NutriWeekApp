@@ -31,8 +31,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editButton.title = NSLocalizedString("Editar", comment: "Editar")
-        refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
+        self.editButton.title = NSLocalizedString("Editar", comment: "Editar")
+        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,25 +51,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.name.text = refeicao.name
         self.hour.text = notification.formatStringTime(refeicao.horario)
         
+        //allows multiple selections
+        self.collectionView.allowsMultipleSelection = true
+        
         self.collectionView.reloadData()
         
     }
     
-    
-    //MARK: Logic Functions
-    
-    //Checks whether the item is selected
-    func isSelected(itemNew: ItemCardapio)->Bool{
-        var boolean : Bool = false
-        for item in self.selectedItens{
-            if(itemNew == item){
-                boolean = true
-            }
-        }
-        return boolean
-    }
-    
     //MARK: CollectionView
+    // show the items save in the Core Data
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itens.count
@@ -79,21 +70,20 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         cell.myLabel.text = itens[indexPath.row].name
-        cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
+        cell.myLabel.autoresizesSubviews = true
         
+        
+        cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         cell.myImage.layer.masksToBounds = true
         cell.myImage.layer.cornerRadius = cell.frame.width/3
-        //cell.layer.cornerRadius = cell.frame.width/4
         
+        
+        //change the label color when it is already selected - It is within the selected array
         if(self.isSelected(self.itens[indexPath.row])){
-            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor
             cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            cell.click = true
             
         }else{
-            cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
             cell.myLabel.textColor = UIColor.blackColor()
-            cell.click = false
         }
         
         return cell
@@ -101,11 +91,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     
-    //Select and deselect cell
+    /**Select cell**/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
         
+        //verify the collor text label because it is the way for verify if the object already selected
+        if(cell.myLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            //go to deselected
+            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+        }else{
+            
         //Animation to grow and back to normal size when selected or deselected
         UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
             
@@ -121,35 +117,77 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
         })
         
-        //Selected: Change text to green
-        if(cell.click == false){
-            cell.myImage.layer.borderColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1).CGColor //ISso ta fazendo alguma coisa?
             cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
-            
-        }else{
-            
-            //Deselect: Change text to black
-            cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-            cell.myLabel.textColor = UIColor.blackColor()
-            
-            //Set it is desselected
-            var index = 0
-            for item in self.selectedItens{
-                if(self.itens[indexPath.row] == item){
-                    self.selectedItens.removeAtIndex(index)
-                }
-                index++
-            }
         }
         
-        cell.click = !cell.click
         
     }
     
-    /** Prepare for Segue to Edit page **/
+    /**deselect cell**/
+    func collectionView(collectionView: UICollectionView,
+        didDeselectItemAtIndexPath indexPath: NSIndexPath){
+            
+            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
+            
+            //verify the collor text label because it is the way for verify if the object already deselected
+            if(cell.myLabel.textColor == UIColor.blackColor()){
+                //go to selected
+                self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
+            }else{
+            
+                //Animation to grow and back to normal size when selected or deselected
+                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                
+                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                
+                }, completion: {(result) -> Void in
+                    
+                    UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        
+                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                        
+                    })
+                    
+                })
+            
+          
+                
+                //Deselect: Change text to black
+                cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
+                cell.myLabel.textColor = UIColor.blackColor()
+                
+                //Set it is desselected
+                var index = 0
+                for item in self.selectedItens{
+                    if(self.itens[indexPath.row] == item){
+                        self.selectedItens.removeAtIndex(index)
+                    }
+                    index++
+                }
+            }
+            
+    }
+    
+    
+    
+    //MARK: Logic Functions
+    
+    //Checks whether the item is selected
+    func isSelected(itemNew: ItemCardapio)->Bool{
+        var boolean : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                boolean = true
+            }
+        }
+        return boolean
+    }
+    
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Edit page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Edit") {
             let destinationViewController = segue.destinationViewController as! EditVC

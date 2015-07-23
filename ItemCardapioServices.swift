@@ -4,6 +4,7 @@ import Foundation
 
 class ItemCardapioServices
 {
+    /**create the Entity ItemCardapio that represent the Food**/
     static func createItemCardapio(name: String, image: String)
     {
         
@@ -17,6 +18,7 @@ class ItemCardapioServices
         
     }
     
+    /** find one or more food with name(s) **/
     static func findItemCardapio(name: String, image: String) -> [ItemCardapio]
     {
         // find it
@@ -24,27 +26,7 @@ class ItemCardapioServices
         
     }
     
-//
-//    static func deleteItemCardapioByName(name: String)
-//    {
-//        // create queue
-//        var auxiliarQueue:NSOperationQueue = NSOperationQueue()
-//        
-//        // create operation
-//        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-//            // find challenge
-//            var itemCardapio: ItemCardapio? = ItemCardapioFindByName(name)
-//            if (itemCardapio != nil)
-//            {
-//                // delete challenge
-//                ItemCardapioDAO.delete(itemCardapio!)
-//            }
-//        })
-    
-        // execute operation
-//        auxiliarQueue.addOperation(deleteOperation)
-//    }
-    
+    /** find all ItemCardapio **/
     static func allItemCardapios() -> [ItemCardapio] {
         return ItemCardapioDAO.findAll()
     }

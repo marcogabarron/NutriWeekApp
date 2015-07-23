@@ -4,6 +4,8 @@ import Foundation
 
 class RefeicaoServices
 {
+    
+    /**create the Entity Refeicao that represent the Meal chosen for the user**/
     static func createRefeicao(name: String, horario: String, diaSemana: String, items: [ItemCardapio], uuid: String)
     {
         var refeicao: Refeicao = Refeicao()
@@ -21,6 +23,7 @@ class RefeicaoServices
         
     }
     
+    /**edit datas from the Entity Refeicao - if different**/
     static func editRefeicao(refeicao: Refeicao, name: String, horario: String, diaSemana: String, items: [ItemCardapio])
     {
         if(refeicao.name != name){
@@ -47,28 +50,8 @@ class RefeicaoServices
         }
         
     }
-
     
-    static func deleteRefeicaoByName(name: String)
-    {
-        // create queue
-        var auxiliarQueue:NSOperationQueue = NSOperationQueue()
-        
-        // create operation
-        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-            // find challenge
-            var refeicao: Refeicao? = RefeicaoDAO.findByName(name)
-            if (refeicao != nil)
-            {
-                // delete challenge
-                RefeicaoDAO.delete(refeicao!)
-            }
-        })
-        
-        // execute operation
-        auxiliarQueue.addOperation(deleteOperation)
-    }
-    
+    /** delete Refeicao (Meal) By Uuid **/
     static func deleteRefeicaoByUuid(uuid: String)
     {
         // create queue
@@ -89,26 +72,27 @@ class RefeicaoServices
         auxiliarQueue.addOperation(deleteOperation)
     }
     
-    static func allItemRefeicao() -> [Refeicao] {
-        return RefeicaoDAO.findAll()
-    }
-    
+    /** find all Meals with weekday passed **/
     static func findByWeek(str: String) -> [Refeicao]{
         return RefeicaoDAO.findByWeek(str)
     }
     
+    /** find one Meal with name passed **/
     static func findByName(str: String) -> Refeicao{
         return RefeicaoDAO.findByName(str)!
     }
     
+    /** verify if the name existed in any Meals **/
     static func findByNameBool(str: String) -> Bool{
         return RefeicaoDAO.findByNameBool(str)
     }
     
+    /** find one Meal with uuid passed **/
     static func findByUuid(str: String) -> Refeicao{
         return RefeicaoDAO.findByUuid(str)!
     }
     
+    /** find all Meals with name passed **/
     static func findAllWithSameName(str: String) -> [Refeicao]{
         return RefeicaoDAO.findAllWithSameName(str)
     }

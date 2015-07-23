@@ -5,6 +5,7 @@ import CoreData
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var diasDaSemana: UILabel!
+    @IBOutlet weak var newMeal: UIButton!
     
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
@@ -21,16 +22,20 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diasSemana = []
+        //collor image Button
+        self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
+        self.diasSemana = []
         
+        //translate the weekdays
         for dia in  self.diasPT{
-            diasSemana.append(NSLocalizedString(dia, comment: ""))
+            self.diasSemana.append(NSLocalizedString(dia, comment: ""))
         }
         
-        diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
+        //translate the label
+        self.diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
         
         //Load json in CoreData
-        json.loadFeed()
+        self.json.loadFeed()
 
     }
     
@@ -43,22 +48,22 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
-
     }
     
     
     //MARK: TableView
+    //the TableView is used to show the meals from each weekday. It is used to show the name and the notification hour.
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
+        //here passed the items from same week and count
         self.items = RefeicaoServices.findByWeek(self.diasPT[section])
         return items.count
         
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return diasSemana.count
+        //here is number of sections - seven
+        return self.diasSemana.count
     }
     
     
@@ -74,6 +79,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier") as! UITableViewCell
         self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
     
+        //verify if there is any item in this weekday
         if(self.items.count > 0){
             cell.textLabel!.text = self.items[indexPath.row].name
             cell.detailTextLabel?.text = notification.formatStringTime(self.items[indexPath.row].horario)
@@ -84,6 +90,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     }
     
+    //configure the layout of section
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
@@ -103,7 +110,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     //MARK - Table View - Deletion and action buttons
-    
+    //delete cell and data in the Core Data
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.Delete {
@@ -127,7 +134,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     //MARK - Prepare for segue
-    
+    /** Prepare for Segue to CollectionVC page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC

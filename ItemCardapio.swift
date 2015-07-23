@@ -17,7 +17,7 @@ class ItemCardapio: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var cardapio: NSSet
     
-    /// The designated initializer
+    /** The designated initializer **/
     convenience init()
     {
         /// Get context

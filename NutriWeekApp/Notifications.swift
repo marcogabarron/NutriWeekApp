@@ -99,39 +99,4 @@ class Notifications {
         
     }
     
-    //MARK - Translation
-    
-    /** Do translation if english week day is received **/
-    func translate (day: String) -> (String) {
-        var newDay: String!
-        
-        if day == "Domingo" || day == "Segunda" || day == "Terça" || day == "Quarta" || day == "Quinta" || day == "Sexta" || day == "Sábado" {
-            newDay = day
-        }
-        else {
-            
-            switch day {
-            case "Sunday":
-                newDay = "Domingo"
-            case "Monday":
-                newDay = "Segunda"
-            case "Tuesday":
-                newDay = "Terça"
-            case "Wednesday":
-                newDay = "Quarta"
-            case "Thursday":
-                newDay = "Quinta"
-            case "Friday":
-                newDay = "Sexta"
-            case "Saturday":
-                newDay = "Sábado"
-                
-            default:
-                println("Nenhum")
-            }
-            
-        }
-        return newDay
-    }
-    
 }

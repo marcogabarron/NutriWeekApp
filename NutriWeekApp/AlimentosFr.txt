@@ -1,119 +1,120 @@
 {
+
 "Alimentos": [
 {
-"Nome": "Pan de Quieso",
+"Nome" : "Pain de Fromage",
 "Imagem": "cheesebread.jpg"
 },
 {
-"Nome": "Fresa",
+"Nome" : "Fraise",
 "Imagem": "strawberry.jpg"
 },
 {
-"Nome": "Leche",
+"Nome" : "Lait",
 "Imagem": "milk.jpg"
 },
 {
-"Nome": "Uva",
+"Nome" : "Raisin",
 "Imagem": "grape.jpg"
 },
 {
-"Nome": "Fava",
+"Nome" : "Haricot",
 "Imagem": "bean.jpg"
 },
 {
-"Nome": "Huevo Cocido",
+"Nome" : "Oeuf à la Coque",
 "Imagem": "boiledegg.jpg"
 },
 {
-"Nome": "Papa Cocida",
+"Nome" : "Pomme de Terre Bouillie",
 "Imagem": "boiledpotato.jpg"
 },
 {
-"Nome": "Zanahoria",
+"Nome" : "Carotte",
 "Imagem": "carrot.jpg"
 },
 {
-"Nome": "Barra de Cereal",
+"Nome" : "Barre de Céréales",
 "Imagem": "cerealbar.jpg"
 },
 {
-"Nome": "Quieso",
+"Nome" : "Fromage",
 "Imagem": "cheese.jpg"
 },
 {
-"Nome": "Pollo a la Parilla",
+"Nome" : "Poulet Grillé",
 "Imagem": "grilledchicken.jpg"
 },
 {
-"Nome": "Lechuga",
+"Nome" : "Laitue",
 "Imagem": "lettuce.jpg"
 },
 {
-"Nome": "Filete Bovino",
+"Nome" : "Bœuf",
 "Imagem": "beef.jpg"
 },
 {
-"Nome": "Suco de Laranja",
+"Nome" : "Jus d'Orange",
 "Imagem": "orangejuice.jpg"
 },
 {
-"Nome": "Te de Melocotón",
+"Nome" : "Thé à la Pêche",
 "Imagem": "peachtea.jpg"
 },
 {
-"Nome": "Tomate",
+"Nome" : "Tomate",
 "Imagem": "tomato.jpg"
 },
 {
-"Nome": "Arroz Blanco",
+"Nome" : "Riz",
 "Imagem": "whiterice.jpg"
 },
 {
-"Nome": "Bacon",
+"Nome" : "Bacon",
 "Imagem": "bacon.jpg"
 },
 {
-"Nome": "Agua",
+"Nome" : "Eau",
 "Imagem": "water.jpg"
 },
 {
-"Nome": "Banana",
+"Nome" : "Banane",
 "Imagem": "banana.jpg"
 },
 {
-"Nome": "Remolacha",
+"Nome" : "Betterave",
 "Imagem": "beet.jpg"
 },
 {
-"Nome" : "Fava Negra",
+"Nome" : "Haricot Noir",
 "Imagem": "blackBean.jpg"
 },
 {
-"Nome" : "Carne Cocida",
+"Nome" : "Bœuf Bouilli",
 "Imagem": "boiledBeef.jpg"
 },
 {
-"Nome" : "Arroz Integral",
+"Nome" : "Riz Brun",
 "Imagem": "brownRice.jpg"
 },
 {
-"Nome" : "Cafe",
+"Nome" : "Café",
 "Imagem": "coffee.jpg"
 },
 {
-"Nome" : "Maíz",
+"Nome" : "Maïs",
 "Imagem": "corn.jpg"
 },
 {
-"Nome" : "Crema de Milho",
+"Nome" : "La Crème de Maïs",
 "Imagem": "cornCream.jpg"
 },
 {
-"Nome" : "Migas",
+"Nome" : "Miettes",
 "Imagem": "crumbs.jpg"
 },
 {
-"Nome" : "Pan Francés",
+"Nome" : "Pain",
 "Imagem": "frenchbread.jpg"
 },
 {
@@ -121,31 +122,31 @@
 "Imagem": "granola.jpg"
 },
 {
-"Nome" : "Carne Molida",
+"Nome" : "Boeuf Haché",
 "Imagem": "groundBeef.jpg"
 },
 {
-"Nome" : "Presunto",
+"Nome" : "Jambon",
 "Imagem": "ham.jpg"
 },
 {
-"Nome" : "Mamão",
+"Nome" : "Papaye",
 "Imagem": "mamao.jpg"
 },
 {
-"Nome" : "Mandioca Cozida",
+"Nome" : "Manioc Bouilli",
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : "Puré de Papas",
+"Nome" : "Purée de Pomme de Terre",
 "Imagem": "mashedPotatos.jpg"
 },
 {
-"Nome" : "Cebolla",
+"Nome" : "Oignon",
 "Imagem": "onion.jpg"
 },
 {
-"Nome" : "Pasta",
+"Nome" : "Pâtes",
 "Imagem": "pasta.jpg"
 },
 {
@@ -153,71 +154,71 @@
 "Imagem": "pepperoni.jpg"
 },
 {
-"Nome" : "Salsa Roja",
+"Nome" : "Sauce Tomate",
 "Imagem": "redSauce.jpg"
 },
 {
-"Nome" : "Salsicha Toscana",
+"Nome" : "Saucisse",
 "Imagem": "sausage.jpg"
 },
 {
-"Nome" : "Espinacas",
+"Nome" : "Épinards",
 "Imagem": "spinach.jpg"
 },
 {
-"Nome" : "Pechuga de Pavo",
+"Nome" : "Poitrine de Dinde",
 "Imagem": "turkeyBreast.jpg"
 },
 {
-"Nome" : "Aguacate",
+"Nome" : "Avocat",
 "Imagem": "avocado.jpg"
 },
 {
-"Nome" : "Pescado Asado",
+"Nome" : "Poisson Cuit au Four",
 "Imagem": "bakedFish.jpg"
 },
 {
-"Nome" : "Salsa Blanca",
+"Nome" : "Sauce Blanche",
 "Imagem": "whiteSauce.jpg"
 },
 {
-"Nome" : "Berro",
+"Nome" : "Cresson",
 "Imagem": "watercress.jpg"
 },
 {
-"Nome" : "Pimiento",
+"Nome" : "Poivron",
 "Imagem": "bellPepper.jpg"
 },
 {
-"Nome" : "Coco",
+"Nome" : "Noix de Coco",
 "Imagem": "coconut.jpg"
 },
 {
-"Nome" : "Agua de coco",
+"Nome" : "L'eau de Noix de Coco",
 "Imagem": "coconutWater.jpg"
 },
 {
-"Nome" : "Pescado Cocido",
+"Nome" : "Poisson Cuit",
 "Imagem": "cookedFish.jpg"
 },
 {
-"Nome" : "Berinjela",
+"Nome" : "Aubergine",
 "Imagem": "eggplant.jpg"
 },
 {
-"Nome" : "Coco verde",
+"Nome" : "Noix de Coco Verte",
 "Imagem": "greenCoconut.jpg"
 },
 {
-"Nome" : "Limón",
+"Nome" : "Citron",
 "Imagem": "lemon.jpg"
 },
 {
-"Nome" : "Naranja",
+"Nome" : "Orange",
 "Imagem": "orange.jpg"
 },
 {
-"Nome" : "Hamburguer de Soja",
+"Nome" : "Burger de Soja",
 "Imagem": "soyBurger.jpg"
 }
 ]

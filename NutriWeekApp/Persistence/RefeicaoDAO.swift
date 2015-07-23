@@ -5,6 +5,7 @@ import CoreData
 
 class RefeicaoDAO
 {
+    /** Insert element into context and Save context **/
     static func insert(objectToBeInserted: Refeicao)
     {
         // Insert element into context
@@ -20,6 +21,7 @@ class RefeicaoDAO
         }
     }
     
+    /** Remove object from context **/
     static func delete(objectToBeDeleted: Refeicao)
     {
         // Remove object from context
@@ -34,7 +36,7 @@ class RefeicaoDAO
         }
     }
 
-    
+    /** creating fetch to find all meals **/
     static func findAll() -> [Refeicao] {
         // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
@@ -46,6 +48,7 @@ class RefeicaoDAO
         return results
     }
     
+    /** find meal with same week used to predicate **/
     static func findByWeek(week: String) -> [Refeicao] {
         // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
@@ -64,6 +67,7 @@ class RefeicaoDAO
         return results
     }
     
+     /** find meal with same name used to predicate **/
     static func findAllWithSameName(name: String) -> [Refeicao]
     {
         // Creating fetch request
@@ -79,7 +83,7 @@ class RefeicaoDAO
         return results
     }
     
-    
+     /** find the last meal with same week used to predicate **/
     static func findByName(name: String) -> Refeicao?
     {
         // Creating fetch request
@@ -95,6 +99,7 @@ class RefeicaoDAO
         return results.last
     }
     
+    /** find the first meal and return true or no find and return false **/
     static func findByNameBool(name: String) -> Bool
     {
         var refeicoes : [Refeicao] = self.findAll()
@@ -110,6 +115,7 @@ class RefeicaoDAO
         return answer
     }
     
+    /** find the last meal with uuid used to predicate **/
     static func findByUuid(uuid: String) -> Refeicao?
     {
         // Creating fetch request
@@ -124,42 +130,5 @@ class RefeicaoDAO
         
         return results.last
     }
-    
-//
-//    static func findByTime(horarioInicio: NSDate, horarioFim: NSDate) -> [ItemCardapio]
-//        {
-//            // creating fetch request
-//            let request = NSFetchRequest(entityName: "ItemCardapio")
-//    
-//            // assign predicate
-//            request.predicate = NSPredicate(format: "horarioInicio <= %ld AND horarioFim <= %ld", horarioInicio, horarioFim)
-//            
-//            // assign sort descriptor
-//            //request.sortDescriptors = [NSSortDescriptor(key: "horarioInicio", ascending:true)]
-//    
-//            // perform search
-//            var error: NSErrorPointer = nil
-//            let results: [ItemCardapio] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [ItemCardapio]
-//    
-//            return results
-//        }
-    
-//    static func findByNameAndDuration(name: String, duration: NSInteger) -> [Challenge]
-//    {
-//        // creating fetch request
-//        let request = NSFetchRequest(entityName: "Challenge")
-//        
-//        // assign predicate
-//        request.predicate = NSPredicate(format: "name == %@ AND duration >= %ld", name, duration)
-//        
-//        // assign sort descriptor
-//        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending:true)]
-//        
-//        // perform search
-//        var error:NSErrorPointer = nil
-//        let results:[Challenge] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Challenge]
-//        
-//        return results
-//    }
     
 }
