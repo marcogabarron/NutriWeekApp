@@ -64,13 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
-//        var notification = Notifications()
-//        var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
-//        
-//        println(notification.userInfo!["UUID"] as! String!)
-    }
-    
+
     
 }

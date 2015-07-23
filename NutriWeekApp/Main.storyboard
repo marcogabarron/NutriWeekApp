@@ -611,6 +611,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Repetir" id="rnl-A0-T2e"/>
+                    <connections>
+                        <outlet property="repeat" destination="rnl-A0-T2e" id="rFd-oB-QM3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
