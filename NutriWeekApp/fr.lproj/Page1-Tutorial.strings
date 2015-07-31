@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "Este é o NutriWeek, seu aplicativo de Nutrição. Avance de tela para seguir no tutorial"; ObjectID = "LCl-WF-h3s"; */
+"LCl-WF-h3s.text" = "Ceci est NutriWeek, votre application de nutrition. Allez à l'écran suivant de suivre le tutoriel";
+
+/* Class = "UILabel"; text = "Bem-Vindo"; ObjectID = "lEM-4n-5bL"; */
+"lEM-4n-5bL.text" = "bienvenue";
+
+/* Class = "UILabel"; text = "NutriWeek"; ObjectID = "sX3-Qh-1G9"; */
+"sX3-Qh-1G9.text" = "NutriWeek";
