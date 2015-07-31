@@ -26,7 +26,6 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         // Initiliaze NSUserDefaults default values
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
         if (firstLaunch == false) {
-            println("é a primeira vez que o app é rodado")
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
             NSUserDefaults.standardUserDefaults().synchronize()
         } else {
@@ -39,6 +38,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         let page1: UIView! = NSBundle.mainBundle().loadNibNamed("Page1-Tutorial",
             owner: self,
             options: nil)[0] as! UIView
+        
         let page2: UIView! = NSBundle.mainBundle().loadNibNamed("Page2-Tutorial",
             owner: self,
             options: nil)[0] as! UIView
@@ -118,7 +118,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
             start.hidden = false
             
         }
-        else{
+        else {
             
             start.hidden = true
             

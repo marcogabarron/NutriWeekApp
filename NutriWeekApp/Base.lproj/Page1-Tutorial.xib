@@ -20,13 +20,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bem-Vindo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEM-4n-5bL">
-                    <rect key="frame" x="83" y="346" width="208" height="89"/>
+                    <rect key="frame" x="83" y="357" width="208" height="89"/>
                     <fontDescription key="fontDescription" type="system" pointSize="42"/>
                     <color key="textColor" red="0.19545091058935465" green="0.73222626339696961" blue="0.59058568149757484" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este é o NutriWeek, seu aplicativo de Nutrição. Avance de tela para seguir no tutorial" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-WF-h3s">
-                    <rect key="frame" x="83" y="408" width="193" height="94"/>
+                    <rect key="frame" x="83" y="419.5" width="193" height="93.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.52490729359999999" green="1" blue="0.25160054599999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
