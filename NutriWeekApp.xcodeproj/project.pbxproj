@@ -22,6 +22,14 @@
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */; };
 		DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */; };
+		DAC467661B6BBEA900F56E67 /* Page1-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4675E1B6BBEA900F56E67 /* Page1-Tutorial.xib */; };
+		DAC467671B6BBEA900F56E67 /* Page2-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4675F1B6BBEA900F56E67 /* Page2-Tutorial.xib */; };
+		DAC467681B6BBEA900F56E67 /* Page3-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467601B6BBEA900F56E67 /* Page3-Tutorial.xib */; };
+		DAC467691B6BBEA900F56E67 /* Page4-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467611B6BBEA900F56E67 /* Page4-Tutorial.xib */; };
+		DAC4676A1B6BBEA900F56E67 /* Page5-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467621B6BBEA900F56E67 /* Page5-Tutorial.xib */; };
+		DAC4676B1B6BBEA900F56E67 /* Page6-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467631B6BBEA900F56E67 /* Page6-Tutorial.xib */; };
+		DAC4676C1B6BBEA900F56E67 /* Page7-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467641B6BBEA900F56E67 /* Page7-Tutorial.xib */; };
+		DAC4676D1B6BBEA900F56E67 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC467651B6BBEA900F56E67 /* TutorialVC.swift */; };
 		DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */; };
 		DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */; };
 		DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1661B3D7549003829BF /* AppDelegate.swift */; };
@@ -73,6 +81,14 @@
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
 		DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioServices.swift; path = ../ItemCardapioServices.swift; sourceTree = "<group>"; };
+		DAC4675E1B6BBEA900F56E67 /* Page1-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page1-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC4675F1B6BBEA900F56E67 /* Page2-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page2-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467601B6BBEA900F56E67 /* Page3-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page3-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467611B6BBEA900F56E67 /* Page4-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page4-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467621B6BBEA900F56E67 /* Page5-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page5-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467631B6BBEA900F56E67 /* Page6-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page6-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467641B6BBEA900F56E67 /* Page7-Tutorial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Page7-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467651B6BBEA900F56E67 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		DAD5A1611B3D7549003829BF /* NutriWeekApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriWeekApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +140,7 @@
 		C2B86B631B4AE71700130D63 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DAC467651B6BBEA900F56E67 /* TutorialVC.swift */,
 				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
 				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
@@ -148,6 +165,20 @@
 				FFD1A2A51B53F34D004A5EED /* Notifications.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DAC4676E1B6BBEB800F56E67 /* Pages-Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				DAC4675E1B6BBEA900F56E67 /* Page1-Tutorial.xib */,
+				DAC4675F1B6BBEA900F56E67 /* Page2-Tutorial.xib */,
+				DAC467601B6BBEA900F56E67 /* Page3-Tutorial.xib */,
+				DAC467611B6BBEA900F56E67 /* Page4-Tutorial.xib */,
+				DAC467621B6BBEA900F56E67 /* Page5-Tutorial.xib */,
+				DAC467631B6BBEA900F56E67 /* Page6-Tutorial.xib */,
+				DAC467641B6BBEA900F56E67 /* Page7-Tutorial.xib */,
+			);
+			name = "Pages-Tutorial";
 			sourceTree = "<group>";
 		};
 		DAD5A1581B3D7549003829BF = {
@@ -239,6 +270,7 @@
 		FFD1A2A91B544090004A5EED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAC4676E1B6BBEB800F56E67 /* Pages-Tutorial */,
 				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
 				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
@@ -332,10 +364,17 @@
 			files = (
 				FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */,
 				C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */,
+				DAC4676C1B6BBEA900F56E67 /* Page7-Tutorial.xib in Resources */,
 				C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
+				DAC467661B6BBEA900F56E67 /* Page1-Tutorial.xib in Resources */,
+				DAC4676B1B6BBEA900F56E67 /* Page6-Tutorial.xib in Resources */,
+				DAC467691B6BBEA900F56E67 /* Page4-Tutorial.xib in Resources */,
 				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
+				DAC467681B6BBEA900F56E67 /* Page3-Tutorial.xib in Resources */,
+				DAC4676A1B6BBEA900F56E67 /* Page5-Tutorial.xib in Resources */,
+				DAC467671B6BBEA900F56E67 /* Page2-Tutorial.xib in Resources */,
 				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
 				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,
 			);
@@ -364,6 +403,7 @@
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
+				DAC4676D1B6BBEA900F56E67 /* TutorialVC.swift in Sources */,
 				C25856371B53EFF100244735 /* Refeicao.swift in Sources */,
 				C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,

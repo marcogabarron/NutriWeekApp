@@ -118,10 +118,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="ZmF-Lj-iUE"/>
                                 <exclude reference="72x-gm-eN8"/>
                                 <exclude reference="YGm-eO-BfJ"/>
                                 <exclude reference="b3x-pP-GzO"/>
+                                <exclude reference="ZmF-Lj-iUE"/>
                             </mask>
                         </variation>
                     </view>
