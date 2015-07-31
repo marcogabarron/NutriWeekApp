@@ -27,9 +27,13 @@ class ReadJson {
         ///Verify if is the first launch
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
         if firstLaunch  {
+            
+            
+            
         }
         else {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+            NSUserDefaults.standardUserDefaults().synchronize()
             
             
             //Create Alimentos and pass to context

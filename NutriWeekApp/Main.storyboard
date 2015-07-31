@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Uy7-UN-XTR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -9,7 +9,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Nj9-1t-bSa">
             <objects>
-                <navigationController id="Uy7-UN-XTR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationID" id="Uy7-UN-XTR" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="pUd-KT-N90">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -18,12 +18,12 @@
                         <color key="barTintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="0.89000000000000001" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="tPr-Q2-jCe"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="sb4-91-aw0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4p-wa-4EQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.5" y="-88.5"/>
+            <point key="canvasLocation" x="736.5" y="-70.5"/>
         </scene>
         <!--NutriWeek-->
         <scene sceneID="ufC-wZ-h7g">
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="30" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="USn-Nc-HPr">
-                                <rect key="frame" x="0.0" y="112" width="375" height="555"/>
+                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <color key="separatorColor" red="0.21960784310000001" green="0.31508800482966365" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -105,7 +105,7 @@
                             <constraint firstAttribute="trailing" secondItem="USn-Nc-HPr" secondAttribute="trailing" id="GbQ-LF-twg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hYp-H5-26f" secondAttribute="trailing" id="Ie3-iG-0q1"/>
                             <constraint firstItem="USn-Nc-HPr" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="JDh-dx-VyP"/>
-                            <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="utw-Kt-D9B" secondAttribute="bottom" id="NFo-Js-2r7"/>
+                            <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="utw-Kt-D9B" secondAttribute="bottom" constant="-50" id="NFo-Js-2r7"/>
                             <constraint firstItem="utw-Kt-D9B" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="11" id="S5v-pG-uSS"/>
                             <constraint firstItem="hYp-H5-26f" firstAttribute="centerX" secondItem="USn-Nc-HPr" secondAttribute="centerX" id="Upx-A9-Qi9"/>
                             <constraint firstItem="USn-Nc-HPr" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="64" id="YGm-eO-BfJ"/>
@@ -135,7 +135,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1224.5" y="0.5"/>
+            <point key="canvasLocation" x="2036.5" y="0.5"/>
+        </scene>
+        <!--TutorialVC-->
+        <scene sceneID="TJB-sY-zk4">
+            <objects>
+                <viewController id="cf5-aG-LZM" customClass="TutorialVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ryO-cT-td2"/>
+                        <viewControllerLayoutGuide type="bottom" id="C2v-F3-CvC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JjP-ou-Z8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqv-Za-OHF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cf5-aG-LZM" id="New-fh-NJK"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-cY-nfs">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-7V-5N5">
+                                <rect key="frame" x="317" y="610" width="42" height="40"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="cf5-aG-LZM" eventType="touchUpInside" id="awh-cO-dmK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kCW-4L-GCj"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="pageControl" destination="Zkd-cY-nfs" id="Sqt-Mv-8Fg"/>
+                        <outlet property="scrollView" destination="aqv-Za-OHF" id="LQY-2i-zHw"/>
+                        <outlet property="start" destination="0hu-7V-5N5" id="83O-M4-gHa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="am4-YJ-caQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224.5" y="-70.5"/>
         </scene>
         <!--Refeição-->
         <scene sceneID="VP6-Lr-Rk0">
@@ -524,7 +570,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1680.5" y="177.5"/>
+            <point key="canvasLocation" x="2492.5" y="177.5"/>
         </scene>
         <!--Repetir-->
         <scene sceneID="prb-SG-gQN">
@@ -651,7 +697,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2138.5" y="-742.5"/>
+            <point key="canvasLocation" x="2950.5" y="-742.5"/>
         </scene>
         <!--Edit ItemVC-->
         <scene sceneID="vkn-ak-RLv">

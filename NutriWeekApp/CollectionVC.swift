@@ -78,7 +78,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //change the label color when it is already selected - It is within the selected array
         if(self.isSelected(self.itens[indexPath.row])){
-            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            //cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
         }else{
             cell.myLabel.textColor = UIColor.blackColor()
@@ -99,23 +99,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             //go to deselected
             self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
         }else{
-            
-        //Animation to grow and back to normal size when selected or deselected
-        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-            
-            cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-            
-            }, completion: {(result) -> Void in
-                
-                UIView.animateWithDuration(0.3, animations: {() -> Void in
-                    
-                    cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    
-                })
-                
-        })
         
-            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            //cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
@@ -135,21 +120,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 //go to selected
                 self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
             }else{
-            
-                //Animation to grow and back to normal size when selected or deselected
-                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-                
-                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-                
-                }, completion: {(result) -> Void in
-                    
-                    UIView.animateWithDuration(0.3, animations: {() -> Void in
-                        
-                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                        
-                    })
-                    
-                })
+        
             
           
                 
