@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  NutriWeekApp
+
+  Created by Vítor Machado Rocha on 16/07/15.
+  Copyright (c) 2015 Gabarron. All rights reserved.
+*/
+"Dias da Semana" = "jours de la Semaine";
+"Domingo" = "Dimanche";
+"Segunda" = "Lundi";
+"Terça" = "Mardi";
+"Quarta" = "Mercredi";
+"Quinta" = "Jeudi";
+"Sexta" = "Vendredi";
+"Sábado" = "Samedi";
+"Repetir" = "Répéter";
+"Salvar" = "Enregistrer";
+"Editar" = "Éditer";
+"Todos os dias" = "Tous les Jours";
+"seg" = "Lun";
+"ter" = "Mar";
+"qua" = "Mer";
+"qui" = "Jeu";
+"sex" = "Ven";
+"sab" = "Sam";
+"dom" = "Dim";
+"Refeição" = "Repas";
+"Alimentos" = "AlimentosFr";
+"Nome da Refeição" = "Nom du Repas";
+"*Use outro nome" = "Utiliser un Autre Nom";

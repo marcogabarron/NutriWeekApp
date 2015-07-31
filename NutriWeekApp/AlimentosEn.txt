@@ -42,7 +42,7 @@
 "Imagem": "cheese.jpg"
 },
 {
-"Nome" : "Frango Grelhado",
+"Nome" : "Grilled Chicken",
 "Imagem": "grilledchicken.jpg"
 },
 {
@@ -114,7 +114,7 @@
 "Imagem": "crumbs.jpg"
 },
 {
-"Nome" : "French Bread",
+"Nome" : "Bread",
 "Imagem": "frenchbread.jpg"
 },
 {
@@ -130,7 +130,7 @@
 "Imagem": "ham.jpg"
 },
 {
-"Nome" : "Mamao",
+"Nome" : "Papaya",
 "Imagem": "mamao.jpg"
 },
 {
@@ -138,7 +138,7 @@
 "Imagem": "manioc.jpg"
 },
 {
-"Nome" : "Mashed Potatos",
+"Nome" : "Mashed Potatoes",
 "Imagem": "mashedPotatos.jpg"
 },
 {
@@ -166,7 +166,7 @@
 "Imagem": "spinach.jpg"
 },
 {
-"Nome" : "Peito de Peru",
+"Nome" : "Turkey Breast",
 "Imagem": "turkeyBreast.jpg"
 },
 {

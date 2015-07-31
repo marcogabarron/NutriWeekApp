@@ -70,6 +70,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         cell.myLabel.text = itens[indexPath.row].name
+        cell.myLabel.autoresizesSubviews = true
+        
         
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         cell.myImage.layer.masksToBounds = true
