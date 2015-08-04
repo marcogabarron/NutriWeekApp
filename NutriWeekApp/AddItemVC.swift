@@ -146,8 +146,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         //verify the collor text label because it is the way for verify if the object already selected
         if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
+            
             //go to deselected
             self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+            
         }else{
             
             

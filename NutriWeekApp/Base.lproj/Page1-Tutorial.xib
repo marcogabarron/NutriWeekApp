@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,31 +11,47 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LauhchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-JK-xGw">
-                    <rect key="frame" x="105" y="119" width="159" height="157"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauhchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-JK-xGw">
+                    <rect key="frame" x="108" y="130" width="159" height="157"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="157" id="G06-f9-5yD"/>
+                        <constraint firstAttribute="width" constant="159" id="ONW-x3-NGX"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NutriWeek" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-Qh-1G9">
-                    <rect key="frame" x="129" y="284" width="111" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NutriWeek" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-Qh-1G9">
+                    <rect key="frame" x="134" y="295" width="109" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <color key="textColor" red="0.22352941179999999" green="0.61960784310000006" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bem-Vindo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEM-4n-5bL">
-                    <rect key="frame" x="83" y="357" width="208" height="89"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-Vindo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEM-4n-5bL">
+                    <rect key="frame" x="68" y="354" width="239" height="51"/>
                     <fontDescription key="fontDescription" type="system" pointSize="42"/>
                     <color key="textColor" red="0.19545091058935465" green="0.73222626339696961" blue="0.59058568149757484" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Este é o NutriWeek, seu aplicativo de Nutrição. Avance de tela para seguir no tutorial" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-WF-h3s">
-                    <rect key="frame" x="83" y="419.5" width="193" height="93.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este é o NutriWeek, seu aplicativo de Nutrição. Avance de tela para seguir no tutorial" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-WF-h3s">
+                    <rect key="frame" x="68" y="425" width="239" height="61"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.52490729359999999" green="1" blue="0.25160054599999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="lEM-4n-5bL" firstAttribute="width" secondItem="4Ac-JK-xGw" secondAttribute="width" multiplier="1.5" id="2zU-aC-cN2"/>
+                <constraint firstItem="lEM-4n-5bL" firstAttribute="centerX" secondItem="sX3-Qh-1G9" secondAttribute="centerX" id="HYf-6F-99B"/>
+                <constraint firstItem="4Ac-JK-xGw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="130" id="K4B-PA-DtL"/>
+                <constraint firstItem="LCl-WF-h3s" firstAttribute="top" secondItem="lEM-4n-5bL" secondAttribute="bottom" constant="20" id="Rgt-AC-DXi"/>
+                <constraint firstItem="LCl-WF-h3s" firstAttribute="centerX" secondItem="lEM-4n-5bL" secondAttribute="centerX" id="WSL-8E-TlT"/>
+                <constraint firstAttribute="centerX" secondItem="4Ac-JK-xGw" secondAttribute="centerX" id="Y01-H7-M4i"/>
+                <constraint firstItem="sX3-Qh-1G9" firstAttribute="centerX" secondItem="4Ac-JK-xGw" secondAttribute="centerX" id="fSX-YO-bWT"/>
+                <constraint firstItem="sX3-Qh-1G9" firstAttribute="top" secondItem="4Ac-JK-xGw" secondAttribute="bottom" constant="8" id="obh-6J-mFu"/>
+                <constraint firstItem="LCl-WF-h3s" firstAttribute="width" secondItem="lEM-4n-5bL" secondAttribute="width" id="p6m-d7-wMy"/>
+                <constraint firstItem="lEM-4n-5bL" firstAttribute="top" secondItem="sX3-Qh-1G9" secondAttribute="bottom" constant="30" id="rIO-og-BoT"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="352.5" y="322.5"/>
+            <point key="canvasLocation" x="352" y="322"/>
         </view>
     </objects>
     <resources>

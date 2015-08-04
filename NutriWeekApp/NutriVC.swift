@@ -96,12 +96,24 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let headerView = UIView()
         headerView.backgroundColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
         
-        var label: UILabel = UILabel(frame: CGRect(x: 37, y: 0, width: 300, height: 30))
+        var label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 130, height: 30))
         label.textColor = UIColor.whiteColor()
-        label.textAlignment = .Center
+        label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.diasSemana[section], comment: "")
         label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
         headerView.addSubview(label)
+        
+//        let horizontalConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: headerView, attribute: NSLayoutAttribute.CenterX, multiplier: 1, constant: 100)
+//        headerView.addConstraint(horizontalConstraint)
+//        
+//        let verticalConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: headerView, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 0)
+//        headerView.addConstraint(verticalConstraint)
+//        
+//        let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 200)
+//        headerView.addConstraint(widthConstraint)
+//        
+//        let heightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 100)
+//        headerView.addConstraint(heightConstraint)
         
         self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
         

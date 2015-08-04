@@ -12,9 +12,9 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
     @IBAction func start(sender: AnyObject) {
         
         if start.hidden == false{
-            
             dismissTutorial(true)
-            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTutorial")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
         
     }
@@ -24,17 +24,14 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         
         
         // Initiliaze NSUserDefaults default values
-        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
-        if (firstLaunch == false) {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        } else {
+        let firstLaunchTutorial = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunchTutorial")
+        if firstLaunchTutorial {
             dismissTutorial(false)
         }
         
         //Esconde botão
         start.hidden = true
-        
+
         let page1: UIView! = NSBundle.mainBundle().loadNibNamed("Page1-Tutorial",
             owner: self,
             options: nil)[0] as! UIView
@@ -65,18 +62,20 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         
         let pages: [UIView!] = [page1,page2, page3, page4, page5, page6, page7]
         
-        for page in pages {
-            
-            page.frame = CGRectOffset(page.frame,
-                scrollView.contentSize.width, 0)
-            
-            scrollView.addSubview(page)
-            
-            println(self.scrollView.contentSize)
-            
-            scrollView.contentSize = CGSizeMake(
-                (scrollView.contentSize.width + self.view.frame.width),
-                (page.frame.height))
+        var size = view.bounds.size
+        size.width = CGFloat(pages.count) * view.bounds.size.width
+        scrollView.contentSize = size
+        
+        for i in 0..<pages.count {
+            let page = pages[i]
+            let contentView = UIView()
+            contentView.frame = self.view.frame
+            contentView.addSubview(page)
+            page.center = contentView.center
+            scrollView.addSubview(contentView)
+            var frame = contentView.frame
+            frame.origin.x = contentView.frame.origin.x + CGFloat(i) * contentView.frame.size.width
+            contentView.frame = frame
         }
         
         pageControl.currentPage = 0

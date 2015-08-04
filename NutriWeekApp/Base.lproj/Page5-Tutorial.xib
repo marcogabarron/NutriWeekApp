@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,20 +11,37 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-oi-rOx">
-                    <rect key="frame" x="48" y="40" width="278" height="348"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-oi-rOx">
+                    <rect key="frame" x="84" y="174" width="206" height="259"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="259" id="05q-rL-WYW"/>
+                        <constraint firstAttribute="width" constant="206" id="hcn-7X-1Hy"/>
+                    </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Page6-Search if you needed" translatesAutoresizingMaskIntoConstraints="NO" id="IUP-NS-AYA">
-                    <rect key="frame" x="112" y="79" width="151" height="270"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page6-Search if you needed" translatesAutoresizingMaskIntoConstraints="NO" id="IUP-NS-AYA">
+                    <rect key="frame" x="131" y="202" width="113" height="203"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="203" id="B0m-0n-trv"/>
+                        <constraint firstAttribute="width" constant="113" id="dwd-h4-19W"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pesquise por um alimento de precisar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-pm-f2a">
-                    <rect key="frame" x="58" y="429" width="294" height="147"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pesquise por um alimento de precisar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-pm-f2a">
+                    <rect key="frame" x="81" y="441" width="247" height="52.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="3HZ-pm-f2a" firstAttribute="centerX" secondItem="aaG-oi-rOx" secondAttribute="centerX" constant="18" id="AjO-EX-bke"/>
+                <constraint firstAttribute="centerX" secondItem="aaG-oi-rOx" secondAttribute="centerX" constant="0.5" id="B6Y-5K-Kfk"/>
+                <constraint firstItem="3HZ-pm-f2a" firstAttribute="width" secondItem="aaG-oi-rOx" secondAttribute="width" multiplier="1.2" id="Mx9-GS-Z1g"/>
+                <constraint firstItem="3HZ-pm-f2a" firstAttribute="top" secondItem="aaG-oi-rOx" secondAttribute="bottom" constant="8" id="SRm-Yp-hEo"/>
+                <constraint firstAttribute="centerY" secondItem="aaG-oi-rOx" secondAttribute="centerY" constant="30" id="ZDN-7R-kFI"/>
+                <constraint firstAttribute="centerX" secondItem="IUP-NS-AYA" secondAttribute="centerX" id="gm0-Zi-Xwz"/>
+                <constraint firstAttribute="centerY" secondItem="IUP-NS-AYA" secondAttribute="centerY" constant="30" id="mNb-qb-zZh"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
         </view>
     </objects>
