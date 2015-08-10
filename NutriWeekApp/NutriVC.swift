@@ -96,7 +96,9 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let headerView = UIView()
         headerView.backgroundColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
         
-        var label: UILabel = UILabel(frame: CGRect(x: 37, y: 0, width: 300, height: 30))
+        var label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
+        label.autoresizesSubviews = true
+        label.minimumScaleFactor = 0.5
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
         label.text = NSLocalizedString(self.diasSemana[section], comment: "")

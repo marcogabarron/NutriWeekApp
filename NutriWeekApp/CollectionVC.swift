@@ -80,7 +80,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //change the label color when it is already selected - It is within the selected array
         if(self.isSelected(self.itens[indexPath.row])){
-            //cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
         }else{
             cell.myLabel.textColor = UIColor.blackColor()
