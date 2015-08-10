@@ -33,7 +33,6 @@ class ReadJson {
         }
         else {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
-            NSUserDefaults.standardUserDefaults().synchronize()
             
             
             //Create Alimentos and pass to context
