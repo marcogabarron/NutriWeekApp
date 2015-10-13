@@ -46,7 +46,7 @@ class Notifications {
             daysTo = (14 - weekDay ) % 7
             
         default:
-            println("Error: This day of week is false!")
+            print("Error: This day of week is false!")
         }
         
         let interval: NSTimeInterval = NSTimeInterval(daysTo!)
@@ -59,7 +59,7 @@ class Notifications {
             
         //Date hour getted in picker date
         let dateStringToAdd = dateDay + "-" + dateHour + ":00"
-        println(dateStringToAdd)
+        print(dateStringToAdd)
             
         //Add both
         let dateFormatterBack = NSDateFormatter()
