@@ -12,35 +12,23 @@ class RefeicaoDAO
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
         
         // Save context
-        let error: NSErrorPointer = nil
         do {
             try DatabaseManager.sharedInstance.managedObjectContext?.save()
-        } catch let error1 as NSError {
-            error.memory = error1
-        }
-        if (error != nil)
-        {
-            // Log error
-            print(error, terminator: "")
+        } catch {
+            print("\(error)")
         }
     }
     
     /** Remove object from context **/
     static func delete(objectToBeDeleted: Refeicao)
     {
-        // Remove object from context
-        let error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
+        
+        // Save context
         do {
             try DatabaseManager.sharedInstance.managedObjectContext?.save()
-        } catch let error1 as NSError {
-            error.memory = error1
-        }
-        
-        // Log error
-        if (error != nil)
-        {
-            print(error, terminator: "")
+        } catch {
+            print("\(error)")
         }
     }
 
@@ -50,7 +38,7 @@ class RefeicaoDAO
         let request = NSFetchRequest(entityName: "Refeicao")
         
         // Perform search
-        var error: NSErrorPointer = nil
+       // var error: NSErrorPointer = nil
         let results = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
@@ -69,7 +57,7 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "diaSemana == %@", week)
         
         // Perform search
-        var error: NSErrorPointer = nil
+        //var error: NSErrorPointer = nil
         let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
@@ -85,7 +73,7 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "name == %@", name)
         
         // Perform search
-        var error: NSErrorPointer = nil
+        //var error: NSErrorPointer = nil
         let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
@@ -101,7 +89,7 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "name == %@", name)
         
         // Perform search
-        var error: NSErrorPointer = nil
+        //var error: NSErrorPointer = nil
         let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results.last
@@ -133,7 +121,7 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "uuid == %@", uuid)
         
         // Perform search
-        var error: NSErrorPointer = nil
+        //var error: NSErrorPointer = nil
         let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results.last

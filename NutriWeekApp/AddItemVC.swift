@@ -69,7 +69,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     //MARK: SearchBar
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchActive = true;
-        var barTintColor: UIColor
+        //var barTintColor: UIColor
         self.searchBar.barTintColor = UIColor.clearColor()
         self.searchBar.showsCancelButton = true
     }
