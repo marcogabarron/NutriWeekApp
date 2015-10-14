@@ -11,7 +11,7 @@ import UIKit
 class WeeksTVC: UITableViewController {
     
     ///RepeatStrng
-    @IBOutlet weak var repeat: UINavigationItem!
+    @IBOutlet weak var `repeat`: UINavigationItem!
     
     ///Interact with Weeks model
     var week:Weeks!
@@ -21,7 +21,8 @@ class WeeksTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        repeat.title = NSLocalizedString("Repetir", comment: "")
+        `repeat`.title = NSLocalizedString("Repetir", comment: "")
+        
     }
     
     /** Write the name of the cell **/

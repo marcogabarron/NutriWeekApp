@@ -33,7 +33,7 @@ class Refeicao: NSManagedObject {
     
     /** with array of itemsCardapio you set Relationship for NSSet **/
     func addItemsObject(value: ItemCardapio) {
-        var mutableSet = self.mutableSetValueForKey("refeicao")
+        let mutableSet = self.mutableSetValueForKey("refeicao")
         mutableSet.addObject(value)
         
     }
@@ -41,7 +41,7 @@ class Refeicao: NSManagedObject {
     /** transform the Relationship (NSSet) in array of itemsCardapio **/
     func getItemsObject()->[ItemCardapio]{
         var itemFromRefeicao: [ItemCardapio] = []
-        var refeicao = self.mutableSetValueForKey("refeicao")
+        let refeicao = self.mutableSetValueForKey("refeicao")
         for item in refeicao{
             itemFromRefeicao.append(item as! ItemCardapio)
         }

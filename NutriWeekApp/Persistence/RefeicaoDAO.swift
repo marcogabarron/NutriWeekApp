@@ -12,12 +12,16 @@ class RefeicaoDAO
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
         
         // Save context
-        var error: NSErrorPointer = nil
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
+        let error: NSErrorPointer = nil
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch let error1 as NSError {
+            error.memory = error1
+        }
         if (error != nil)
         {
             // Log error
-            print(error)
+            print(error, terminator: "")
         }
     }
     
@@ -25,14 +29,18 @@ class RefeicaoDAO
     static func delete(objectToBeDeleted: Refeicao)
     {
         // Remove object from context
-        var error:NSErrorPointer = nil
+        let error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch let error1 as NSError {
+            error.memory = error1
+        }
         
         // Log error
         if (error != nil)
         {
-            print(error)
+            print(error, terminator: "")
         }
     }
 
@@ -43,7 +51,7 @@ class RefeicaoDAO
         
         // Perform search
         var error: NSErrorPointer = nil
-        let results = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        let results = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
     }
@@ -62,7 +70,7 @@ class RefeicaoDAO
         
         // Perform search
         var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
     }
@@ -78,7 +86,7 @@ class RefeicaoDAO
         
         // Perform search
         var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
     }
@@ -94,7 +102,7 @@ class RefeicaoDAO
         
         // Perform search
         var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results.last
     }
@@ -102,7 +110,7 @@ class RefeicaoDAO
     /** find the first meal and return true or no find and return false **/
     static func findByNameBool(name: String) -> Bool
     {
-        var refeicoes : [Refeicao] = self.findAll()
+        let refeicoes : [Refeicao] = self.findAll()
         var answer : Bool = false
         
         for ref in refeicoes{
@@ -126,7 +134,7 @@ class RefeicaoDAO
         
         // Perform search
         var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results.last
     }

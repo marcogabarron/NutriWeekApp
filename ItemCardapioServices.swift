@@ -8,7 +8,7 @@ class ItemCardapioServices
     static func createItemCardapio(name: String, image: String)
     {
         
-        var itemCardapio: ItemCardapio = ItemCardapio()
+        let itemCardapio: ItemCardapio = ItemCardapio()
         itemCardapio.name = name
         itemCardapio.image = image
 
