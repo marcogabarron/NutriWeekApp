@@ -99,7 +99,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             
         } else {
             self.searchActive = true;
-            self.itens = ItemCardapioServices.findItemCardapio(searchBar.text, image: "\(searchBar.text)")
+            self.itens = ItemCardapioServices.findItemCardapio(searchBar.text!, image: "\(searchBar.text)")
         }
         self.collectionView.reloadData()
     }
