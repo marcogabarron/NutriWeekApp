@@ -33,7 +33,6 @@ class TodoList {
     /** Add new notifications, with repeat interval. **/
     func addItem(item: TodoItem) {
         let weekInterval: NSCalendarUnit = .WeekOfYear
-//        var weekInterval: NSCalendarUnit = .CalendarUnitMinute
         
         /// persist a representation of this todo item in NSUserDefaults
         var todoDictionary = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) ?? Dictionary() // if todoItems hasn't been set in user defaults, initialize todoDictionary to an empty dictionary using nil-coalescing operator (??)
@@ -66,7 +65,23 @@ class TodoList {
             todoItems.removeValueForKey(item.UUID)
             NSUserDefaults.standardUserDefaults().setObject(todoItems, forKey: ITEMS_KEY) // save/overwrite todo item list
         }
-    } 
+    }
+    
+    func editItem(item: TodoItem) {
+        
+        if let scheduledLocalNotifications = UIApplication.sharedApplication().scheduledLocalNotifications {
+            for notification in scheduledLocalNotifications{ // loop through notifications...
+                if (notification.userInfo!["UUID"] as! String == item.UUID) {
+                  
+                    notification.fireDate = item.deadline // todo item due date (when notification will be fired)
+                    notification.userInfo = ["title": item.title, "UUID": item.UUID] // assign a unique identifier to the notification so that we can retrieve it later
+                    
+                    UIApplication.sharedApplication().scheduleLocalNotification(notification)
+                    
+                }
+            }
+        }
+    }
 
     
 }
