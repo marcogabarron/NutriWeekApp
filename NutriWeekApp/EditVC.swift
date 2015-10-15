@@ -55,7 +55,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "Nome da Refeição")
         
-        ///Get all Refeicao`s with choosed name to edit
+        self.automaticallyAdjustsScrollViewInsets = false;
+        
+        //Get all Refeicao`s with choosed name to edit
         let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
         
         //Add the array of setted days with this Refeicao
@@ -82,7 +84,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         self.collectionView.allowsMultipleSelection = true
         
         self.collectionView.reloadData()
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
     }
     
     //MARK: SearchBar
@@ -247,70 +249,70 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     }
     
     
-    //MARK: TableView
-    //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        
-        return 1
-        
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath)
-        
-        cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
-        
-        if(self.daysOfWeekString.getArrayString().count == 7){
-            cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
-            
-        }else{
-            
-            cell.detailTextLabel?.text = ""
-            var text: String = " "
-            
-            // Write in the edited cell in weeks - part to make intuitive
-            for str : String in self.daysOfWeekString.getArrayString(){
-                if(text != " "){
-                    text = text.stringByAppendingString(", ")
-                }
-                switch str {
-                case "Segunda":
-                    text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
-                case "Terça":
-                    text = text.stringByAppendingString(NSLocalizedString("ter", comment: ""))
-                case "Quarta":
-                    text = text.stringByAppendingString(NSLocalizedString("qua", comment: ""))
-                case "Quinta":
-                    text = text.stringByAppendingString(NSLocalizedString("qui", comment: ""))
-                case "Sexta":
-                    text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
-                case "Sábado":
-                    text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
-                case "Domingo":
-                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
-                default:
-                    text.stringByAppendingString("Nunca")
-                }
-            }
-            cell.detailTextLabel?.text = text
-        }
-        return cell
-        
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.selected = false
-        
-    }
+//    //MARK: TableView
+//    //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
+//    
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+//        
+//        return 1
+//        
+//    }
+//    
+//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        
+//        return 1
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath)
+//        
+//        cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
+//        
+//        if(self.daysOfWeekString.getArrayString().count == 7){
+//            cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
+//            
+//        }else{
+//            
+//            cell.detailTextLabel?.text = ""
+//            var text: String = " "
+//            
+//            // Write in the edited cell in weeks - part to make intuitive
+//            for str : String in self.daysOfWeekString.getArrayString(){
+//                if(text != " "){
+//                    text = text.stringByAppendingString(", ")
+//                }
+//                switch str {
+//                case "Segunda":
+//                    text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
+//                case "Terça":
+//                    text = text.stringByAppendingString(NSLocalizedString("ter", comment: ""))
+//                case "Quarta":
+//                    text = text.stringByAppendingString(NSLocalizedString("qua", comment: ""))
+//                case "Quinta":
+//                    text = text.stringByAppendingString(NSLocalizedString("qui", comment: ""))
+//                case "Sexta":
+//                    text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
+//                case "Sábado":
+//                    text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
+//                case "Domingo":
+//                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
+//                default:
+//                    text.stringByAppendingString("Nunca")
+//                }
+//            }
+//            cell.detailTextLabel?.text = text
+//        }
+//        return cell
+//        
+//    }
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let cell = tableView.cellForRowAtIndexPath(indexPath)
+//        cell!.selected = false
+//        
+//    }
     
     //MARK: actions
     
@@ -357,8 +359,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
                 
                 //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-                var uid: String = self.refeicao.uuid
+                let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+                let uid: String = self.refeicao.uuid
                 var boolean = false
                 for ref in allRefWithSameName{
                     RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
@@ -466,12 +468,12 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     //MARK - Prepare for segue
     /** Prepare for Segue to Week page -- pass the information from Weeks() **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "WeekEdit") {
-            let destinationViewController = segue.destinationViewController as! WeeksTVC
-            destinationViewController.week = self.daysOfWeekString
-        }else{
-
-        }
+//        if (segue.identifier == "WeekEdit") {
+//            let destinationViewController = segue.destinationViewController as! WeeksTVC
+//            destinationViewController.week = self.daysOfWeekString
+//        }else{
+//
+//        }
     }
     
 }
