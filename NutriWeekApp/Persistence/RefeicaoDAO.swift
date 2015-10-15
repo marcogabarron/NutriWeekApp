@@ -12,27 +12,23 @@ class RefeicaoDAO
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
         
         // Save context
-        var error: NSErrorPointer = nil
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
-        if (error != nil)
-        {
-            // Log error
-            print(error)
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch {
+            print("\(error)")
         }
     }
     
     /** Remove object from context **/
     static func delete(objectToBeDeleted: Refeicao)
     {
-        // Remove object from context
-        var error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
         
-        // Log error
-        if (error != nil)
-        {
-            print(error)
+        // Save context
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch {
+            print("\(error)")
         }
     }
 
@@ -42,8 +38,8 @@ class RefeicaoDAO
         let request = NSFetchRequest(entityName: "Refeicao")
         
         // Perform search
-        var error: NSErrorPointer = nil
-        let results = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+       // var error: NSErrorPointer = nil
+        let results = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
     }
@@ -61,8 +57,8 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "diaSemana == %@", week)
         
         // Perform search
-        var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        //var error: NSErrorPointer = nil
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
     }
@@ -77,8 +73,8 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "name == %@", name)
         
         // Perform search
-        var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        //var error: NSErrorPointer = nil
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results
     }
@@ -93,8 +89,8 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "name == %@", name)
         
         // Perform search
-        var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        //var error: NSErrorPointer = nil
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results.last
     }
@@ -102,7 +98,7 @@ class RefeicaoDAO
     /** find the first meal and return true or no find and return false **/
     static func findByNameBool(name: String) -> Bool
     {
-        var refeicoes : [Refeicao] = self.findAll()
+        let refeicoes : [Refeicao] = self.findAll()
         var answer : Bool = false
         
         for ref in refeicoes{
@@ -125,8 +121,8 @@ class RefeicaoDAO
         request.predicate = NSPredicate(format: "uuid == %@", uuid)
         
         // Perform search
-        var error: NSErrorPointer = nil
-        let results: [Refeicao] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Refeicao]
+        //var error: NSErrorPointer = nil
+        let results: [Refeicao] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]
         
         return results.last
     }

@@ -16,7 +16,7 @@ class Notifications {
         // Gett the current week day
         let currentDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.CalendarUnitWeekday, fromDate: currentDate)
+        let myComponents = myCalendar.components(.Weekday, fromDate: currentDate)
         let weekDay = myComponents.weekday
 
         var daysTo: NSInteger?
@@ -46,7 +46,7 @@ class Notifications {
             daysTo = (14 - weekDay ) % 7
             
         default:
-            println("Error: This day of week is false!")
+            print("Error: This day of week is false!")
         }
         
         let interval: NSTimeInterval = NSTimeInterval(daysTo!)
@@ -59,7 +59,7 @@ class Notifications {
             
         //Date hour getted in picker date
         let dateStringToAdd = dateDay + "-" + dateHour + ":00"
-        println(dateStringToAdd)
+        print(dateStringToAdd)
             
         //Add both
         let dateFormatterBack = NSDateFormatter()
@@ -85,18 +85,17 @@ class Notifications {
     /** Get a date string and returns a formatted string with local time zone **/
     func formatStringTime(dataString: String) -> String{
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         
         let dateValue = dateFormatter.dateFromString(dataString)
         
-        var stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
+        let stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
         
         
         return stringFormatted
         
     }
-    
 }

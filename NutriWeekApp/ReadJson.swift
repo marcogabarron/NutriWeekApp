@@ -18,15 +18,24 @@ class ReadJson {
         let nameDoc = NSLocalizedString("Alimentos", comment: "Alimento")
         let path = NSBundle.mainBundle().pathForResource(nameDoc, ofType: "txt")
         var error: NSError?
-        let jsonData = NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe, error: &error)
-        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+        let jsonData: NSData?
+        do {
+            jsonData = try NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe)
+        } catch let error1 as NSError {
+            error = error1
+            jsonData = nil
+        }
+        let jsonResult: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
         
         ///Array to build the objects
-        var feed : NSArray = jsonResult["Alimentos"] as! NSArray
+        let feed : NSArray = jsonResult["Alimentos"] as! NSArray
         
         ///Verify if is the first launch
         let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
         if firstLaunch  {
+            
+            
+            
         }
         else {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
@@ -35,7 +44,7 @@ class ReadJson {
             //Create Alimentos and pass to context
             for buildArray in feed {
                 
-                var alimento = Alimentos()
+                let alimento = Alimentos()
                 alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
                 alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
                 

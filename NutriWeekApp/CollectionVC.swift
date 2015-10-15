@@ -43,7 +43,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewWillAppear(animated: Bool) {
         ///Find Refeicao by uuid
-        var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+        let refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
         //Get the Cardapio itens with the choosed Refeicao uuid
         self.itens = refeicao.getItemsObject()
         
@@ -67,7 +67,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
 
         cell.myLabel.text = itens[indexPath.row].name
         cell.myLabel.autoresizesSubviews = true
@@ -94,30 +94,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     /**Select cell**/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
         
         //verify the collor text label because it is the way for verify if the object already selected
         if(cell.myLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
             //go to deselected
             self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
         }else{
-            
-        //Animation to grow and back to normal size when selected or deselected
-        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-            
-            cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-            
-            }, completion: {(result) -> Void in
-                
-                UIView.animateWithDuration(0.3, animations: {() -> Void in
-                    
-                    cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    
-                })
-                
-        })
         
-            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            //cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
             
             //Set it is selected
             self.selectedItens.append(self.itens[indexPath.row])
@@ -130,28 +115,14 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(collectionView: UICollectionView,
         didDeselectItemAtIndexPath indexPath: NSIndexPath){
             
-            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
             
             //verify the collor text label because it is the way for verify if the object already deselected
             if(cell.myLabel.textColor == UIColor.blackColor()){
                 //go to selected
                 self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
             }else{
-            
-                //Animation to grow and back to normal size when selected or deselected
-                UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
-                
-                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-                
-                }, completion: {(result) -> Void in
-                    
-                    UIView.animateWithDuration(0.3, animations: {() -> Void in
-                        
-                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                        
-                    })
-                    
-                })
+        
             
           
                 
@@ -191,7 +162,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Edit") {
             let destinationViewController = segue.destinationViewController as! EditVC
-            var refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+            let refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
             destinationViewController.refeicao = refeicao
         }
     }

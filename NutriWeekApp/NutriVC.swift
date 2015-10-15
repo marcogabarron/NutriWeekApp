@@ -22,6 +22,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
+        
         //collor image Button
         self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
         self.diasSemana = []
@@ -76,11 +78,12 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-        let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier", forIndexPath: indexPath)
         self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
     
         //verify if there is any item in this weekday
         if(self.items.count > 0){
+            
             cell.textLabel!.text = self.items[indexPath.row].name
             cell.detailTextLabel?.text = notification.formatStringTime(self.items[indexPath.row].horario)
             
@@ -96,9 +99,11 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let headerView = UIView()
         headerView.backgroundColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
         
-        var label: UILabel = UILabel(frame: CGRect(x: 37, y: 0, width: 300, height: 30))
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
+        label.autoresizesSubviews = true
+        label.minimumScaleFactor = 0.5
         label.textColor = UIColor.whiteColor()
-        label.textAlignment = .Center
+        label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.diasSemana[section], comment: "")
         label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
         headerView.addSubview(label)
@@ -138,7 +143,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             let destinationViewController = segue.destinationViewController as! CollectionVC
-            var refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
+            let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
             destinationViewController.refeicaoID = refeicao.uuid
         }
     }

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
     
         // Create the settings to use register user local notifications
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Badge | UIUserNotificationType.Sound | UIUserNotificationType.Alert, categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge, UIUserNotificationType.Sound, UIUserNotificationType.Alert], categories: nil))
         
         return true
     }
@@ -56,10 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
 //        
 //                println(notification.userInfo!["UUID"] as! String!)
-        var date = NSDate()
+        let date = NSDate()
         var item = TodoItem(deadline: date, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
         
-        println(notification.userInfo!["UUID"] as! String!)
+        print(notification.userInfo!["UUID"] as! String!)
 
         
     }

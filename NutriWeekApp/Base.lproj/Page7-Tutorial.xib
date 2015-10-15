@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="utr-uv-kCf">
+                    <rect key="frame" x="84" y="174" width="206" height="259"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="259" id="2hd-kb-jrZ"/>
+                        <constraint firstAttribute="width" constant="206" id="lIp-rs-znn"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page8-Check Items of a meal" translatesAutoresizingMaskIntoConstraints="NO" id="Lk5-FR-uKF">
+                    <rect key="frame" x="131" y="202" width="113" height="203"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="113" id="npc-Td-2Vi"/>
+                        <constraint firstAttribute="height" constant="203" id="vOA-Q2-zde"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Verifique os alimentos selecionados para cada refeição" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl4-es-k0E">
+                    <rect key="frame" x="63" y="441" width="247" height="79"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="Ax2-U0-SY5"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="8" id="Ldo-6X-i1z"/>
+                <constraint firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" constant="0.5" id="N4s-1x-zem"/>
+                <constraint firstAttribute="centerY" secondItem="Lk5-FR-uKF" secondAttribute="centerY" constant="30" id="a51-yU-ixS"/>
+                <constraint firstAttribute="centerY" secondItem="utr-uv-kCf" secondAttribute="centerY" constant="30" id="fV1-7s-PJB"/>
+                <constraint firstAttribute="centerX" secondItem="Lk5-FR-uKF" secondAttribute="centerX" id="q7F-Q8-FPz"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="width" secondItem="utr-uv-kCf" secondAttribute="width" multiplier="1.2" id="ul3-Bj-Wf3"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Page8-Check Items of a meal" width="750" height="1334"/>
+        <image name="iphone6-plus-box-silver-2014" width="478" height="595"/>
+    </resources>
+</document>
