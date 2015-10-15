@@ -22,6 +22,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
+        
         //collor image Button
         self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
         self.diasSemana = []
@@ -100,7 +102,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
         label.autoresizesSubviews = true
         label.minimumScaleFactor = 0.5
-        //var label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 130, height: 30))
         label.textColor = UIColor.whiteColor()
         label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.diasSemana[section], comment: "")
@@ -141,9 +142,42 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     /** Prepare for Segue to CollectionVC page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
+            
+            //let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
+            var refeicao:[Refeicao] = []
+            var refID: String = ""
+            let c = self.tableView.indexPathsForSelectedRows!.last?.section
+            if(c==0){
+                refeicao = RefeicaoServices.findByWeek("Domingo")
+            }
+            if(c==1){
+                refeicao = RefeicaoServices.findByWeek("Segunda")
+            }
+            if(c==2){
+                refeicao = RefeicaoServices.findByWeek("Terça")
+            }
+            if(c==3){
+                refeicao = RefeicaoServices.findByWeek("Quarta")
+            }
+            if(c==4){
+                refeicao = RefeicaoServices.findByWeek("Quinta")
+            }
+            if(c==5){
+                refeicao = RefeicaoServices.findByWeek("Sexta")
+            }
+            if(c==6){
+                refeicao = RefeicaoServices.findByWeek("Sábado")
+            }
+            
+            for ref in refeicao {
+                if(ref.name == (sender!.textLabel!!.text!)){
+                    refID = ref.uuid
+                }
+            }
+            print(refID)
             let destinationViewController = segue.destinationViewController as! CollectionVC
-            let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
-            destinationViewController.refeicaoID = refeicao.uuid
+            destinationViewController.refeicaoID = refID
+            
         }
     }
 
