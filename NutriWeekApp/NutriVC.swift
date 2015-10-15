@@ -142,9 +142,42 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     /** Prepare for Segue to CollectionVC page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
+            
+            //let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
+            var refeicao:[Refeicao] = []
+            var refID: String = ""
+            let c = self.tableView.indexPathsForSelectedRows!.last?.section
+            if(c==0){
+                refeicao = RefeicaoServices.findByWeek("Domingo")
+            }
+            if(c==1){
+                refeicao = RefeicaoServices.findByWeek("Segunda")
+            }
+            if(c==2){
+                refeicao = RefeicaoServices.findByWeek("Terca")
+            }
+            if(c==3){
+                refeicao = RefeicaoServices.findByWeek("Quarta")
+            }
+            if(c==4){
+                refeicao = RefeicaoServices.findByWeek("Quinta")
+            }
+            if(c==5){
+                refeicao = RefeicaoServices.findByWeek("Sexta")
+            }
+            if(c==6){
+                refeicao = RefeicaoServices.findByWeek("Sabado")
+            }
+            
+            for ref in refeicao {
+                if(ref.name == (sender!.textLabel!!.text!)){
+                    refID = ref.uuid
+                }
+            }
+            print(refID)
             let destinationViewController = segue.destinationViewController as! CollectionVC
-            let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
-            destinationViewController.refeicaoID = refeicao.uuid
+            destinationViewController.refeicaoID = refID
+            
         }
     }
 
