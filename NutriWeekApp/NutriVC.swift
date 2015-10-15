@@ -154,7 +154,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 refeicao = RefeicaoServices.findByWeek("Segunda")
             }
             if(c==2){
-                refeicao = RefeicaoServices.findByWeek("Terca")
+                refeicao = RefeicaoServices.findByWeek("Terça")
             }
             if(c==3){
                 refeicao = RefeicaoServices.findByWeek("Quarta")
@@ -166,7 +166,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 refeicao = RefeicaoServices.findByWeek("Sexta")
             }
             if(c==6){
-                refeicao = RefeicaoServices.findByWeek("Sabado")
+                refeicao = RefeicaoServices.findByWeek("Sábado")
             }
             
             for ref in refeicao {
