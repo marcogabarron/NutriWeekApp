@@ -315,6 +315,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     //MARK: actions
     
     @IBAction func saveItemButton(sender: AnyObject) {
+        
+        //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+        let alert = UIAlertController(title: "Take one option",
+            message: "This is a repeating event",
+            preferredStyle: .Alert)
+        
+        
         if(self.nameTextField.text != ""){
             
             if(self.selectedItens.count == 0){
@@ -354,11 +361,15 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                             })
                     })
                 }else{
-                
-                
+                            
+                let allDaysAction = UIAlertAction(title: "Save for all days",
+                        style: .Default) { (action: UIAlertAction!) -> Void in
+                            
+                            print("Salve para todos os dias")
+                    
                 //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-                var uid: String = self.refeicao.uuid
+                let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+                let uid: String = self.refeicao.uuid
                 var boolean = false
                 for ref in allRefWithSameName{
                     RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
@@ -374,9 +385,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
                         TodoList.sharedInstance.addItem(todoItem)
                         
-                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
                         
-                        boolean = true
+                    boolean = true
                         
                     }else{
                         
@@ -384,13 +395,60 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
                         TodoList.sharedInstance.addItem(todoItem)
                         
-                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                     }
                     
+                
                 }
             }
             
-            }
+                alert.addAction(allDaysAction)
+                
+                    let saveOnlyAction = UIAlertAction(title: "Save only the selected days",
+                        style: .Default) { (action: UIAlertAction!) -> Void in
+                            
+                            print("Não vai apagar nada!!")
+                            
+                    //select only weekdays to delete and re-create
+                    //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
+                    let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+                    let uid: String = self.refeicao.uuid
+                    var boolean = false
+                            for ref in allRefWithSameName{
+                                
+                                RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
+                                let date = NSDate()
+                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+                                TodoList.sharedInstance.removeItem(todoItem)
+                                
+                            }
+                            
+                            //Save new Refeicao and notification to each day
+                            for diaSemana in self.daysOfWeekString.getArrayString(){
+                                if(boolean == false){
+                                    let notification = Notifications()
+                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                                    TodoList.sharedInstance.addItem(todoItem)
+                                    
+                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+                                    
+                                    boolean = true
+                                    
+                                }else{
+                                    
+                                    let notification = Notifications()
+                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
+                                    TodoList.sharedInstance.addItem(todoItem)
+                                    
+                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                                }
+                            
+                            }
+                    }
+                    
+                    alert.addAction(saveOnlyAction)
+                
+                }}
         }else{
             
             //Animation to show there are no name food
@@ -408,9 +466,14 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         
                     })
             })
-            
         }
+ 
+        presentViewController(alert,
+            animated: true,
+            completion: nil)
+        
     }
+    
     /**Close keyboard**/
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
