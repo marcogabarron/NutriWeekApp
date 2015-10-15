@@ -8,7 +8,7 @@ class RefeicaoServices
     /**create the Entity Refeicao that represent the Meal chosen for the user**/
     static func createRefeicao(name: String, horario: String, diaSemana: String, items: [ItemCardapio], uuid: String)
     {
-        var refeicao: Refeicao = Refeicao()
+        let refeicao: Refeicao = Refeicao()
         refeicao.name = name
         refeicao.horario = horario
         refeicao.diaSemana = diaSemana
@@ -55,12 +55,12 @@ class RefeicaoServices
     static func deleteRefeicaoByUuid(uuid: String)
     {
         // create queue
-        var auxiliarQueue:NSOperationQueue = NSOperationQueue()
+        let auxiliarQueue:NSOperationQueue = NSOperationQueue()
         
         // create operation
         let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
             // find ref
-            var refeicao: Refeicao? = RefeicaoDAO.findByUuid(uuid)
+            let refeicao: Refeicao? = RefeicaoDAO.findByUuid(uuid)
             if (refeicao != nil)
             {
                 // delete ref

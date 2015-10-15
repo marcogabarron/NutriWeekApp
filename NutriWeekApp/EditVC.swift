@@ -56,7 +56,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "Nome da Refeição")
         
         ///Get all Refeicao`s with choosed name to edit
-        var allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+        let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
         
         //Add the array of setted days with this Refeicao
         var weeks: [String] = []
@@ -167,7 +167,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     /** Select cell **/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
         //Selected: Change text to green
         
         //verify the collor text label because it is the way for verify if the object already selected
@@ -178,7 +178,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             
             
         //Animation to grow and back to normal size when selected or deselected
-        UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+        UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
             
             cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
             
@@ -208,7 +208,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(collectionView: UICollectionView,
         didDeselectItemAtIndexPath indexPath: NSIndexPath){
             
-            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
             
             //verify the collor text label because it is the way for verify if the object already deselected
             if(cell.textLabel.textColor == UIColor.blackColor()){
@@ -216,7 +216,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
             }else{
             //Animation to grow and back to normal size when selected or deselected
-            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+            UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                 
                 cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
                 
@@ -263,7 +263,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath)
         
         cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
         
@@ -319,7 +319,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             
             if(self.selectedItens.count == 0){
                 //Animation to show there are no selected food
-                UIView.animateWithDuration(0.5, delay: 0.0, options: nil, animations: {() -> Void in
+                UIView.animateWithDuration(0.5, delay: 0.0, options: [], animations: {() -> Void in
                     
                     self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
                     
@@ -336,8 +336,8 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
             }else{
                 //Animation to show there are name already existing in the database
-                if(RefeicaoServices.findByNameBool(self.nameTextField.text) == true && self.nameTextField.text != self.refeicao.name){
-                    UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+                if(RefeicaoServices.findByNameBool(self.nameTextField.text!) == true && self.nameTextField.text != self.refeicao.name){
+                    UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                         
                         self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
                         
@@ -371,20 +371,20 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 for diaSemana in self.daysOfWeekString.getArrayString(){
                     if(boolean == false){
                         let notification = Notifications()
-                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: uid)
+                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
                         TodoList.sharedInstance.addItem(todoItem)
                         
-                        RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
                         
                         boolean = true
                         
                     }else{
                         
                         let notification = Notifications()
-                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text, UUID: NSUUID().UUIDString)
+                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
                         TodoList.sharedInstance.addItem(todoItem)
                         
-                        RefeicaoServices.createRefeicao(self.nameTextField.text, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
                     }
                     
                 }
@@ -394,7 +394,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         }else{
             
             //Animation to show there are no name food
-            UIView.animateWithDuration(0.3, delay: 0.0, options: nil, animations: {() -> Void in
+            UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                 
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
                 
@@ -426,11 +426,11 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     /** read and transform DatePicker**/
     func TimePicker(sender: UIDatePicker) -> String{
         
-        var timer = NSDateFormatter()
+        let timer = NSDateFormatter()
         
         timer.dateFormat = "HH:mm"
         
-        var strdate = timer.stringFromDate(sender.date)
+        let strdate = timer.stringFromDate(sender.date)
         
         return strdate
         
@@ -439,7 +439,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     /** Convert stringDate to Date **/
     func formatTime(dataString: String) -> NSDate{
         
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
