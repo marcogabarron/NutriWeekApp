@@ -410,47 +410,63 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         style: .Default) { (action: UIAlertAction!) -> Void in
                             
                             print("Não vai apagar nada!!")
+                            let uid: String = self.refeicao.uuid
+                            let nameDay: String  = self.refeicao.diaSemana
+                            
+                            RefeicaoServices.deleteRefeicaoByUuid(self.refeicao.uuid)
+                            let date = NSDate()
+                            let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid )
+                            TodoList.sharedInstance.removeItem(todoItem)
+                            
+                            let notification = Notifications()
+                            let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(nameDay, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                            TodoList.sharedInstance.addItem(todoItem2)
+                            
+                            RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: nameDay, items: self.selectedItens, uuid: uid)
+                                                                
+                            //boolean = true
                             
                     //select only weekdays to delete and re-create
                     //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                    let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-                    let uid: String = self.refeicao.uuid
-                    var boolean = false
-                            for ref in allRefWithSameName{
-                                
-                                RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
-                                let date = NSDate()
-                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-                                TodoList.sharedInstance.removeItem(todoItem)
-                                
-                            }
-                            
-                            //Save new Refeicao and notification to each day
-                            for diaSemana in self.daysOfWeekString.getArrayString(){
-                                if(boolean == false){
-                                    let notification = Notifications()
-                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
-                                    TodoList.sharedInstance.addItem(todoItem)
-                                    
-                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
-                                    
-                                    boolean = true
-                                    
-                                }else{
-                                    
-                                    let notification = Notifications()
-                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
-                                    TodoList.sharedInstance.addItem(todoItem)
-                                    
-                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
-                                }
-                            
-                            }
-                    }
+//                    let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+//                    let uid: String = self.refeicao.uuid
+//                    var boolean = false
+//                            for ref in allRefWithSameName{
+//                                
+//                                RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
+//                                let date = NSDate()
+//                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+//                                TodoList.sharedInstance.removeItem(todoItem)
+//                                
+//                            }
+//                            
+//                            //Save new Refeicao and notification to each day
+//                            for diaSemana in self.daysOfWeekString.getArrayString(){
+//                                if(boolean == false){
+//                                    let notification = Notifications()
+//                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+//                                    TodoList.sharedInstance.addItem(todoItem)
+//                                    
+//                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+//                                    
+//                                    boolean = true
+//                                    
+//                                }else{
+//                                    
+//                                    let notification = Notifications()
+//                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
+//                                    TodoList.sharedInstance.addItem(todoItem)
+//                                    
+//                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+//                                }
+//                            
+//                            }
+                   }
                     
                     alert.addAction(saveOnlyAction)
                 
-                }}
+               }
+                   }
         }else{
             
             //Animation to show there are no name food

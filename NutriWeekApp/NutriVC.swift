@@ -121,7 +121,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             //Read the sections and all refeicao inside
-            self.items = RefeicaoServices.findByWeek(self.diasSemana[indexPath.section])
+            self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
             
             //Delete Refeicao
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
