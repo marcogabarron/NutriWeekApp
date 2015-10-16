@@ -48,6 +48,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     ///Meal to edit
     var refeicao:Refeicao!
     
+    var i:Int = 0
+    
+    var quantityVerify: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -318,6 +321,19 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     
     @IBAction func saveItemButton(sender: AnyObject) {
         
+        let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+        
+        //Testa condição para veriicar se há a necessidade de exibir o UIAlert
+        for ref in allRefWithSameName{
+                
+                i++
+
+        }
+        
+        if i > 1{
+            quantityVerify = true
+        }
+        
         //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
         let alert = UIAlertController(title: "Take one option",
             message: "This is a repeating event",
@@ -363,7 +379,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                             })
                     })
                 }else{
-                            
+                    
                 let allDaysAction = UIAlertAction(title: "Save for all days",
                         style: .Default) { (action: UIAlertAction!) -> Void in
                             
@@ -403,9 +419,24 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                 
                 }
             }
-            
+                    if quantityVerify == true {
                 alert.addAction(allDaysAction)
-                
+                    }else{
+                        let uid: String = self.refeicao.uuid
+                        let nameDay: String  = self.refeicao.diaSemana
+                        
+                        RefeicaoServices.deleteRefeicaoByUuid(self.refeicao.uuid)
+                        let date = NSDate()
+                        let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid )
+                        TodoList.sharedInstance.removeItem(todoItem)
+                        
+                        let notification = Notifications()
+                        let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(nameDay, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                        TodoList.sharedInstance.addItem(todoItem2)
+                        
+                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: nameDay, items: self.selectedItens, uuid: uid)
+                    }
+                    
                     let saveOnlyAction = UIAlertAction(title: "Save only the selected days",
                         style: .Default) { (action: UIAlertAction!) -> Void in
                             
@@ -462,9 +493,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
 //                            
 //                            }
                    }
-                    
+                    if quantityVerify == true {
                     alert.addAction(saveOnlyAction)
-                
+                    }
                }
                    }
         }else{
@@ -485,11 +516,11 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                     })
             })
         }
- 
+        if quantityVerify == true {
         presentViewController(alert,
             animated: true,
             completion: nil)
-        
+        }
     }
     
     /**Close keyboard**/
@@ -553,6 +584,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
 //        }else{
 //
 //        }
+        
     }
     
 }
