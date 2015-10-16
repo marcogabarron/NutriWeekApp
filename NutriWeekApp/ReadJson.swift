@@ -17,12 +17,12 @@ class ReadJson {
         ///Read JSON
         let nameDoc = NSLocalizedString("Alimentos", comment: "Alimento")
         let path = NSBundle.mainBundle().pathForResource(nameDoc, ofType: "txt")
-        var error: NSError?
+        //var error: NSError?
         let jsonData: NSData?
         do {
             jsonData = try NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe)
-        } catch let error1 as NSError {
-            error = error1
+        } catch {//let error1 as NSError {
+            //error = error1
             jsonData = nil
         }
         let jsonResult: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary

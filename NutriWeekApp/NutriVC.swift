@@ -123,7 +123,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             //Read the sections and all refeicao inside
             self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
             
-            
             //Delete Refeicao
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
             

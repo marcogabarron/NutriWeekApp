@@ -4,7 +4,7 @@
 //
 //  Created by Gabarron on 03/07/15.
 //  Copyright (c) 2015 Gabarron. All rights reserved.
-//
+
 
 import UIKit
 
@@ -71,7 +71,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
         cell.myLabel.text = itens[indexPath.row].name
         cell.myLabel.autoresizesSubviews = true
-        
         
         cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
         cell.myImage.layer.masksToBounds = true
@@ -141,8 +140,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
             
     }
-    
-    
     
     //MARK: Logic Functions
     
