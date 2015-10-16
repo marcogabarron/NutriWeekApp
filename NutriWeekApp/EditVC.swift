@@ -250,72 +250,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             }
             
     }
-    
-    
-//    //MARK: TableView
-//    //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
-//    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-//        
-//        return 1
-//        
-//    }
-//    
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        
-//        return 1
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath)
-//        
-//        cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
-//        
-//        if(self.daysOfWeekString.getArrayString().count == 7){
-//            cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
-//            
-//        }else{
-//            
-//            cell.detailTextLabel?.text = ""
-//            var text: String = " "
-//            
-//            // Write in the edited cell in weeks - part to make intuitive
-//            for str : String in self.daysOfWeekString.getArrayString(){
-//                if(text != " "){
-//                    text = text.stringByAppendingString(", ")
-//                }
-//                switch str {
-//                case "Segunda":
-//                    text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
-//                case "Terça":
-//                    text = text.stringByAppendingString(NSLocalizedString("ter", comment: ""))
-//                case "Quarta":
-//                    text = text.stringByAppendingString(NSLocalizedString("qua", comment: ""))
-//                case "Quinta":
-//                    text = text.stringByAppendingString(NSLocalizedString("qui", comment: ""))
-//                case "Sexta":
-//                    text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
-//                case "Sábado":
-//                    text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
-//                case "Domingo":
-//                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
-//                default:
-//                    text.stringByAppendingString("Nunca")
-//                }
-//            }
-//            cell.detailTextLabel?.text = text
-//        }
-//        return cell
-//        
-//    }
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        let cell = tableView.cellForRowAtIndexPath(indexPath)
-//        cell!.selected = false
-//        
-//    }
+
     
     //MARK: actions
     
@@ -323,14 +258,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         
         let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
         
-        //Testa condição para veriicar se há a necessidade de exibir o UIAlert
-        for ref in allRefWithSameName{
-                
-                i++
-
-        }
-        
-        if i > 1{
+        if allRefWithSameName.count > 1{
             quantityVerify = true
         }
         
@@ -379,129 +307,87 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                             })
                     })
                 }else{
+                    //the program is going to modify least one that it is the selected
+                    //It is delete and create notification - need to change
+                    let uid: String = self.refeicao.uuid
+                    let nameDay: String  = self.refeicao.diaSemana
                     
-                let allDaysAction = UIAlertAction(title: "Save for all days",
+                    let date = NSDate()
+                    let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid )
+                    TodoList.sharedInstance.removeItem(todoItem)
+                    
+                    let notification = Notifications()
+                    let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(nameDay, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                    TodoList.sharedInstance.addItem(todoItem2)
+                    
+                    //edit MEAL
+                    RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: nameDay, items: self.selectedItens)
+                    
+                    let allDaysAction = UIAlertAction(title: "Save for all days",
                         style: .Default) { (action: UIAlertAction!) -> Void in
                             
                             print("Salve para todos os dias")
                     
-                //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-                let uid: String = self.refeicao.uuid
-                var boolean = false
-                for ref in allRefWithSameName{
-                    RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
-                    let date = NSDate()
-                    let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-                    TodoList.sharedInstance.removeItem(todoItem)
-                }
+                            //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
+                            let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
+                            let uid: String = self.refeicao.uuid
+                            var boolleanTest = false
                 
-                //Save new Refeicao and notification to each day
-                for diaSemana in self.daysOfWeekString.getArrayString(){
-                    if(boolean == false){
-                        let notification = Notifications()
-                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
-                        TodoList.sharedInstance.addItem(todoItem)
-                        
-                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
-                        
-                    boolean = true
-                        
-                    }else{
-                        
-                        let notification = Notifications()
-                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
-                        TodoList.sharedInstance.addItem(todoItem)
-                        
-                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
-                    }
+                            //delete notifications that refer a meal
+                            for ref in allRefWithSameName{
+                                if(ref.uuid != uid){
+                                    let date = NSDate()
+                                    let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+                                    TodoList.sharedInstance.removeItem(todoItem)
+                                    RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
+                                }
+
+                            }
+                
+                            //Save new Refeicao and notification to each day
+                            for diaSemana in self.daysOfWeekString.getArrayString(){
+                                if(diaSemana != self.refeicao.diaSemana){
+                                    if(boolleanTest == false){
+                                        let notification = Notifications()
+                                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                                        TodoList.sharedInstance.addItem(todoItem)
+                                        
+                                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
+                                        
+                                        boolleanTest = true
+                                        
+                                    }else{
+                                        
+                                        let notification = Notifications()
+                                        let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
+                                        TodoList.sharedInstance.addItem(todoItem)
+                                        
+                                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
+                                    }
+                                }
                     
                 
-                }
-            }
+                            }
+                    }
                     if quantityVerify == true {
-                alert.addAction(allDaysAction)
-                    }else{
-                        let uid: String = self.refeicao.uuid
-                        let nameDay: String  = self.refeicao.diaSemana
-                        
-                        RefeicaoServices.deleteRefeicaoByUuid(self.refeicao.uuid)
-                        let date = NSDate()
-                        let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid )
-                        TodoList.sharedInstance.removeItem(todoItem)
-                        
-                        let notification = Notifications()
-                        let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(nameDay, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
-                        TodoList.sharedInstance.addItem(todoItem2)
-                        
-                        RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: nameDay, items: self.selectedItens, uuid: uid)
+                            alert.addAction(allDaysAction)
                     }
                     
                     let saveOnlyAction = UIAlertAction(title: "Save only the selected days",
                         style: .Default) { (action: UIAlertAction!) -> Void in
-                            
-                            print("Não vai apagar nada!!")
-                            let uid: String = self.refeicao.uuid
-                            let nameDay: String  = self.refeicao.diaSemana
-                            
-                            RefeicaoServices.deleteRefeicaoByUuid(self.refeicao.uuid)
-                            let date = NSDate()
-                            let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid )
-                            TodoList.sharedInstance.removeItem(todoItem)
-                            
-                            let notification = Notifications()
-                            let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(nameDay, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
-                            TodoList.sharedInstance.addItem(todoItem2)
-                            
-                            RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: nameDay, items: self.selectedItens, uuid: uid)
-                                                                
-                            //boolean = true
-                            
-                    //select only weekdays to delete and re-create
-                    //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-//                    let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.refeicao.name)
-//                    let uid: String = self.refeicao.uuid
-//                    var boolean = false
-//                            for ref in allRefWithSameName{
-//                                
-//                                RefeicaoServices.deleteRefeicaoByUuid(ref.uuid)
-//                                let date = NSDate()
-//                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-//                                TodoList.sharedInstance.removeItem(todoItem)
-//                                
-//                            }
-//                            
-//                            //Save new Refeicao and notification to each day
-//                            for diaSemana in self.daysOfWeekString.getArrayString(){
-//                                if(boolean == false){
-//                                    let notification = Notifications()
-//                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
-//                                    TodoList.sharedInstance.addItem(todoItem)
-//                                    
-//                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: uid)
-//                                    
-//                                    boolean = true
-//                                    
-//                                }else{
-//                                    
-//                                    let notification = Notifications()
-//                                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
-//                                    TodoList.sharedInstance.addItem(todoItem)
-//                                    
-//                                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
-//                                }
-//                            
-//                            }
+
                    }
+                    
                     if quantityVerify == true {
-                    alert.addAction(saveOnlyAction)
+                        alert.addAction(saveOnlyAction)
                     }
-               }
-                   }
-        }else{
+                    
+                }
+                    }
+            }else{
             
-            //Animation to show there are no name food
-            UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
+                //Animation to show there are no name food
+                UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                 
                 self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
                 
@@ -578,12 +464,6 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     //MARK - Prepare for segue
     /** Prepare for Segue to Week page -- pass the information from Weeks() **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "WeekEdit") {
-//            let destinationViewController = segue.destinationViewController as! WeeksTVC
-//            destinationViewController.week = self.daysOfWeekString
-//        }else{
-//
-//        }
         
     }
     
