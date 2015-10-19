@@ -313,9 +313,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                             
                             print("Salve para todos os dias")
                     
-                            //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                            let uid: String = self.refeicao.uuid
-                
+                            //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid                
                             //delete notifications that refer a meal
                             for ref in allRefWithSameName{
                                 let date = NSDate()
@@ -323,7 +321,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                                 TodoList.sharedInstance.removeItem(todoItem)
                                 
                                 let notification = Notifications()
-                                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: ref.uuid)
                                 TodoList.sharedInstance.addItem(todoItem2)
                                 
                                 RefeicaoServices.editRefeicao(ref, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: ref.diaSemana, items: self.selectedItens)
