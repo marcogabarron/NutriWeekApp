@@ -27,6 +27,13 @@ class ItemCardapioServices
         return ItemCardapioDAO.findByName(name, image: image)
         
     }
+    /** find one or more food with name(s) **/
+    static func findItemCardapioByCategory(category: String) -> [ItemCardapio]
+    {
+        // find it
+        return ItemCardapioDAO.findByCategory(category)
+        
+    }
     
     /** find all ItemCardapio **/
     static func allItemCardapios() -> [ItemCardapio] {

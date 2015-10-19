@@ -48,12 +48,12 @@
 {
 "Nome": "Cereal Bar",
 "Imagem": "cerealbar.jpg",
-"Category": "grains"
+"Category": "Grains"
 },
 {
 "Nome" : "Cheese",
 "Imagem": "cheese.jpg",
-"Category": "Cold"
+"Category": "Cold Cuts"
 },
 {
 "Nome" : "Grilled Chicken",
@@ -188,7 +188,7 @@
 {
 "Nome" : "Ham",
 "Imagem": "ham.jpg",
-"Category": "Cold"
+"Category": "Cold Cuts"
 },
 {
 "Nome" : "Papaya",
@@ -238,7 +238,7 @@
 {
 "Nome" : "Turkey Breast",
 "Imagem": "turkeyBreast.jpg",
-"Category": "Cold"
+"Category": "Cold Cuts"
 },
 {
 "Nome" : "Avocado",

@@ -111,15 +111,14 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         if(searchBar.text == ""){
             self.searchActive = false;
             self.itens = ItemCardapioServices.allItemCardapios()
-            //            let items = ItemCardapioServices.allItemCardapios()
-            //            self.itens.removeAll(keepCapacity: false)
-            //            for item in items {
-            //                self.itens.append(item)
-            //            }
             
         } else {
             self.searchActive = true;
             self.itens = ItemCardapioServices.findItemCardapio(searchBar.text!, image: "\(searchBar.text)")
+        }
+        //find by category
+        if(self.itens.count < 1){
+            self.itens = ItemCardapioServices.findItemCardapioByCategory(searchBar.text!)
         }
         self.collectionView.reloadData()
     }
