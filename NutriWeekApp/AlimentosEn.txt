@@ -1,225 +1,359 @@
 {
-
 "Alimentos": [
 {
-"Nome" : "Cheese Bread",
-"Imagem": "cheesebread.jpg"
+"Nome": "Pão de Queijo",
+"Imagem": "cheesebread.jpg",
+"Category": "Pães e Massa"
 },
 {
-"Nome" : "Strawberry",
-"Imagem": "strawberry.jpg"
+"Nome": "Morango",
+"Imagem": "strawberry.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Milk",
-"Imagem": "milk.jpg"
+"Nome": "Suco de Morango",
+"Imagem": "juicestrawberry.jpg",
+"Category": "Liquido"
 },
 {
-"Nome" : "Grape",
-"Imagem": "grape.jpg"
+"Nome": "Leite",
+"Imagem": "milk.jpg",
+"Category": "Leite"
 },
 {
-"Nome" : "Bean",
-"Imagem": "bean.jpg"
+"Nome": "Uva",
+"Imagem": "grape.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Boiled Egg",
-"Imagem": "boiledegg.jpg"
+"Nome": "Feijão",
+"Imagem": "bean.jpg",
+"Category": "Feijão"
 },
 {
-"Nome" : "Boiled Potato",
-"Imagem": "boiledpotato.jpg"
+"Nome": "Ovo Cozido",
+"Imagem": "boiledegg.jpg",
+"Category": "ovo"
 },
 {
-"Nome" : "Carrot",
-"Imagem": "carrot.jpg"
+"Nome": "Batata Cozida",
+"Imagem": "boiledpotato.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Cereal Bar",
-"Imagem": "cerealbar.jpg"
+"Nome": "Cenoura",
+"Imagem": "carrot.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Cheese",
-"Imagem": "cheese.jpg"
+"Nome": "Barra de Cereal",
+"Imagem": "cerealbar.jpg",
+"Category": "Grãos"
 },
 {
-"Nome" : "Grilled Chicken",
-"Imagem": "grilledchicken.jpg"
+"Nome": "Queijo",
+"Imagem": "cheese.jpg",
+"Category": "Frios"
 },
 {
-"Nome" : "Lettuce",
-"Imagem": "lettuce.jpg"
+"Nome": "Frango Grelhado",
+"Imagem": "grilledchicken.jpg",
+"Category": "Carne Branca"
 },
 {
-"Nome" : "Beef",
-"Imagem": "beef.jpg"
+"Nome": "Frango Cozido",
+"Imagem": "cookchicken.jpg",
+"Category": "Carne Branca"
 },
 {
-"Nome" : "Orange Juice",
-"Imagem": "orangejuice.jpg"
+"Nome": "Frango Assado",
+"Imagem": "cookedchicken.jpg",
+"Category": "Carne Branca"
 },
 {
-"Nome" : "Peach Tea",
-"Imagem": "peachtea.jpg"
+"Nome": "Alface",
+"Imagem": "lettuce.jpg",
+"Category": "Vegetais"
 },
 {
-"Nome" : "Tomato",
-"Imagem": "tomato.jpg"
+"Nome": "Chá",
+"Imagem": "tea.jpg",
+"Category": "Liquido"
 },
 {
-"Nome" : "White Rice",
-"Imagem": "whiterice.jpg"
+"Nome": "Pera",
+"Imagem": "pear.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Bacon",
-"Imagem": "bacon.jpg"
+"Nome": "Bife",
+"Imagem": "beef.jpg",
+"Category": "Carne Vermelha"
 },
 {
-"Nome" : "Water",
-"Imagem": "water.jpg"
+"Nome": "Vitamina",
+"Imagem": "vitamin.jpg",
+"Category": "Liquido"
 },
 {
-"Nome" : "Banana",
-"Imagem": "banana.jpg"
+"Nome": "Suco de Laranja",
+"Imagem": "orangejuice.jpg",
+"Category": "Liquido"
 },
 {
-"Nome" : "Beet",
-"Imagem": "beet.jpg"
+"Nome": "Chá de Pêssego",
+"Imagem": "peachtea.jpg",
+"Category": "Liquido"
 },
 {
-"Nome" : "Black Bean",
-"Imagem": "blackBean.jpg"
+"Nome": "Tomate",
+"Imagem": "tomato.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Boiled Beef",
-"Imagem": "boiledBeef.jpg"
+"Nome": "Arroz Branco",
+"Imagem": "whiterice.jpg",
+"Category": "Arroz"
 },
 {
-"Nome" : "Brown Rice",
-"Imagem": "brownRice.jpg"
+"Nome": "Bacon",
+"Imagem": "bacon.jpg",
+"Category": "Carne Vermelha"
 },
 {
-"Nome" : "Coffee",
-"Imagem": "coffee.jpg"
+"Nome": "Água",
+"Imagem": "water.jpg",
+"Category": "Água"
 },
 {
-"Nome" : "Corn",
-"Imagem": "corn.jpg"
+"Nome": "Banana",
+"Imagem": "banana.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Corn Cream",
-"Imagem": "cornCream.jpg"
+"Nome": "Beterraba",
+"Imagem": "beet.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Crumbs",
-"Imagem": "crumbs.jpg"
+"Nome" : "Feijão Preto",
+"Imagem": "blackBean.jpg",
+"Category": "Feijão"
 },
 {
-"Nome" : "Bread",
-"Imagem": "frenchbread.jpg"
+"Nome" : "Carne Cozida",
+"Imagem": "boiledBeef.jpg",
+"Category": "Carne Vermelha"
+},
+{
+"Nome" : "Arroz Integral",
+"Imagem": "brownRice.jpg",
+"Category": "Arroz"
+},
+{
+"Nome" : "Café",
+"Imagem": "coffee.jpg",
+"Category": "Café"
+},
+{
+"Nome" : "Milho",
+"Imagem": "corn.jpg",
+"Category": "Grão"
+},
+{
+"Nome" : "Creme de Milho",
+"Imagem": "cornCream.jpg",
+"Category": "Molho"
+},
+{
+"Nome" : "Farofa",
+"Imagem": "crumbs.jpg",
+"Category": "Farofa"
+},
+{
+"Nome" : "Pão Francês",
+"Imagem": "frenchbread.jpg",
+"Category": "Pães e Massa"
 },
 {
 "Nome" : "Granola",
-"Imagem": "granola.jpg"
+"Imagem": "granola.jpg",
+"Category": "Grãos"
 },
 {
-"Nome" : "Ground Beef",
-"Imagem": "groundBeef.jpg"
+"Nome" : "Carne Moida",
+"Imagem": "groundBeef.jpg",
+"Category": "Carne Vermelha"
 },
 {
-"Nome" : "Ham",
-"Imagem": "ham.jpg"
+"Nome" : "Presunto",
+"Imagem": "ham.jpg",
+"Category": "Frios"
 },
 {
-"Nome" : "Papaya",
-"Imagem": "mamao.jpg"
+"Nome" : "Mamão",
+"Imagem": "mamao.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Boiled Manioc",
-"Imagem": "manioc.jpg"
+"Nome" : "Mandioca Cozida",
+"Imagem": "manioc.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Mashed Potatoes",
-"Imagem": "mashedPotatos.jpg"
+"Nome" : "Purê de Batata",
+"Imagem": "mashedPotatos.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Onion",
-"Imagem": "onion.jpg"
+"Nome" : "Cebola",
+"Imagem": "onion.jpg",
+"Category": "Vegetais"
 },
 {
-"Nome" : "Pasta",
-"Imagem": "pasta.jpg"
+"Nome" : "Massa",
+"Imagem": "pasta.jpg",
+"Category": "Massa"
 },
 {
-"Nome" : "Pepperoni",
-"Imagem": "pepperoni.jpg"
+"Nome" : "Calabresa",
+"Imagem": "pepperoni.jpg",
+"Category": "Carne Vermelha"
 },
 {
-"Nome" : "Red Sauce",
-"Imagem": "redSauce.jpg"
+"Nome" : "Molho Vermelho",
+"Imagem": "redSauce.jpg",
+"Category": "Molho"
 },
 {
-"Nome" : "Sausage",
-"Imagem": "sausage.jpg"
+"Nome" : "Linguiça Toscana",
+"Imagem": "sausage.jpg",
+"Category": "Carne Vermelha"
 },
 {
-"Nome" : "Spinach",
-"Imagem": "spinach.jpg"
+"Nome" : "Espinafre",
+"Imagem": "spinach.jpg",
+"Category": "Carne Vermelha"
 },
 {
-"Nome" : "Turkey Breast",
-"Imagem": "turkeyBreast.jpg"
+"Nome" : "Peito de Peru",
+"Imagem": "turkeyBreast.jpg",
+"Category": "Frios"
 },
 {
-"Nome" : "Avocado",
-"Imagem": "avocado.jpg"
+"Nome" : "Abacate",
+"Imagem": "avocado.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Baked Fish",
-"Imagem": "bakedFish.jpg"
+"Nome" : "Peixe Assado",
+"Imagem": "bakedFish.jpg",
+"Category": "Carne Branca"
 },
 {
-"Nome" : "White Sauce",
-"Imagem": "whiteSauce.jpg"
+"Nome" : "Molho Branco",
+"Imagem": "whiteSauce.jpg",
+"Category": "Molho"
 },
 {
-"Nome" : "Watercress",
-"Imagem": "watercress.jpg"
+"Nome" : "Agrião",
+"Imagem": "watercress.jpg",
+"Category": "Vegetais"
 },
 {
-"Nome" : "Bell Pepper",
-"Imagem": "bellPepper.jpg"
+"Nome" : "Pimentão",
+"Imagem": "bellPepper.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Coconut",
-"Imagem": "coconut.jpg"
+"Nome" : "Coco",
+"Imagem": "coconut.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Coconut Water",
-"Imagem": "coconutWater.jpg"
+"Nome" : "Água de Coco",
+"Imagem": "coconutWater.jpg",
+"Category": "Liquido"
 },
 {
-"Nome" : "Cooked Fish",
-"Imagem": "cookedFish.jpg"
+"Nome" : "Peixe Cozido",
+"Imagem": "cookedFish.jpg",
+"Category": "Carne Branca"
 },
 {
-"Nome" : "Eggplant",
-"Imagem": "eggplant.jpg"
+"Nome" : "Berinjela",
+"Imagem": "eggplant.jpg",
+"Category": "Legume"
 },
 {
-"Nome" : "Green Coconut",
-"Imagem": "greenCoconut.jpg"
+"Nome" : "Coco Verde",
+"Imagem": "greenCoconut.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Lemon",
-"Imagem": "lemon.jpg"
+"Nome" : "Limão",
+"Imagem": "lemon.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Orange",
-"Imagem": "orange.jpg"
+"Nome" : "Laranja",
+"Imagem": "orange.jpg",
+"Category": "Fruta"
 },
 {
-"Nome" : "Soy Burger",
-"Imagem": "soyBurger.jpg"
+"Nome" : "Suco de Pessego",
+"Imagem": "juicepeach.jpg",
+"Category": "Liquido"
+},
+{
+"Nome" : "Pessego",
+"Imagem": "peach.jpg",
+"Category": "Fruta"
+},
+{
+"Nome" : "Ameixa",
+"Imagem": "pulm.jpg",
+"Category": "Fruta"
+},
+{
+"Nome" : "Ameixa",
+"Imagem": "pulmDry.jpg",
+"Category": "Fruta"
+},
+{
+"Nome" : "Yogurt",
+"Imagem": "yogurt.jpg",
+"Category": "Liquido"
+},
+{
+"Nome" : "Yogurt de morango",
+"Imagem": "yogurtstrawberry.jpg",
+"Category": "Liquido"
+},
+{
+"Nome": "Soja cozida",
+"Imagem": "soy.jpg",
+"Category": "Soja"
+},
+{
+"Nome": "Grão de Bico",
+"Imagem": "chickpea.jpg",
+"Category": "Grãos"
+},
+{
+"Nome": "Ervilha",
+"Imagem": "pea.jpg",
+"Category": "Grãos"
+},
+{
+"Nome": "Amendoins e Castanhas",
+"Imagem": "peanut.jpg",
+"Category": "Grãos"
+},
+{
+"Nome" : "Hamburguer de Soja",
+"Imagem": "soyBurger.jpg",
+"Category": "Soja"
 }
 ]
 }

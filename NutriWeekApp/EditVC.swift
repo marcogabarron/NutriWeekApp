@@ -137,7 +137,7 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
-        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
+        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name!, comment: "")
         cell.textLabel.autoresizesSubviews = true
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)

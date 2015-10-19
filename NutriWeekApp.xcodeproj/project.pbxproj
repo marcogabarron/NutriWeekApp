@@ -12,13 +12,13 @@
 		C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTVC.swift */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
-		C25856351B53EFF000244735 /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856341B53EFF000244735 /* ItemCardapio.swift */; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */ = {isa = PBXBuildFile; fileRef = C273B1FF1B610E2A0048936E /* AlimentosFr.txt */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
 		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
+		C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F175361BD555E5000B2A3E /* ItemCardapio.swift */; settings = {ASSET_TAGS = (); }; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */; };
 		DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */; };
@@ -65,7 +65,6 @@
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
 		C23850BF1B5F445D00A21CD5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C25856341B53EFF000244735 /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../../ItemCardapio.swift; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
 		C273B1FD1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -78,6 +77,7 @@
 		C2A0093B1B56C4E500F4A914 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		C2A5B1731B5F43A300C7EAB1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2F175361BD555E5000B2A3E /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../ItemCardapio.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
 		DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioServices.swift; path = ../ItemCardapioServices.swift; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 		DAD5A18C1B3D76AA003829BF /* VO */ = {
 			isa = PBXGroup;
 			children = (
-				C25856341B53EFF000244735 /* ItemCardapio.swift */,
+				C2F175361BD555E5000B2A3E /* ItemCardapio.swift */,
 				C25856361B53EFF100244735 /* Refeicao.swift */,
 			);
 			path = VO;
@@ -422,7 +422,6 @@
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
 				FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */,
 				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
-				C25856351B53EFF000244735 /* ItemCardapio.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
@@ -435,6 +434,7 @@
 				FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */,
 				C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */,
 				FFD1A2A61B53F34D004A5EED /* Notifications.swift in Sources */,
+				C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
 				DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */,

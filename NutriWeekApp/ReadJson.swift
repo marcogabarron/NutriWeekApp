@@ -47,8 +47,9 @@ class ReadJson {
                 let alimento = Alimentos()
                 alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
                 alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
-                
-                ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento)
+                alimento.setValue(buildArray.objectForKey("Category"), forKeyPath: "categoriaAlimento")
+
+                ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento, category: alimento.categoriaAlimento )
                 
             }
             

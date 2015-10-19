@@ -5,12 +5,14 @@ import Foundation
 class ItemCardapioServices
 {
     /**create the Entity ItemCardapio that represent the Food**/
-    static func createItemCardapio(name: String, image: String)
+    static func createItemCardapio(name: String, image: String, category: String)
     {
         
         let itemCardapio: ItemCardapio = ItemCardapio()
         itemCardapio.name = name
         itemCardapio.image = image
+        itemCardapio.categoria = category
+
 
         
         // insert it
