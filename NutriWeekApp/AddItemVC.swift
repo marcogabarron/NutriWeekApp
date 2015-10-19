@@ -83,7 +83,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         self.searchActive = true;
         //var barTintColor: UIColor
-        self.searchBar.barTintColor = UIColor.clearColor()
+        self.searchBar.barTintColor = UIColor.darkGrayColor()
         self.searchBar.showsCancelButton = true
     }
     
@@ -96,7 +96,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         self.searchBar.showsCancelButton = false
         self.searchBar.barTintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
         self.searchBar.resignFirstResponder()
-        
+        self.itens = ItemCardapioServices.allItemCardapios()
+        searchBar.text = ""
+        self.collectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -114,6 +116,11 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             self.searchActive = true;
             self.itens = ItemCardapioServices.findItemCardapio(searchBar.text!, image: "\(searchBar.text)")
         }
+        
+        //find by category
+        if(self.itens.count < 1){
+            self.itens = ItemCardapioServices.findItemCardapioByCategory(searchBar.text!)
+        }
         self.collectionView.reloadData()
     }
     
@@ -130,7 +137,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
         
-        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
+        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name!, comment: "")
         cell.textLabel.autoresizesSubviews = true
         
         cell.image.image = UIImage(named:itens[indexPath.row].image)
@@ -283,7 +290,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 case "Domingo":
                     text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
                 default:
-                    text.stringByAppendingString("Nunca")
+                    text = text.stringByAppendingString(NSLocalizedString("Nunca", comment: ""))
                 }
             }
             cell.detailTextLabel?.text = text

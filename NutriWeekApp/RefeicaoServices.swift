@@ -48,6 +48,21 @@ class RefeicaoServices
                 refeicao.addItemsObject(item)
             }
         }
+        for itemFromRefeicao in refeicao.getItemsObject(){
+            var find = false
+            for item in items{
+                if(itemFromRefeicao == item){
+                    find = true
+                    break
+                }
+            }
+            if(find == false){
+                refeicao.removeItemsObject(itemFromRefeicao)
+            }
+        }
+        
+        // edit it and persist it
+        RefeicaoDAO.edit(refeicao)
         
     }
     
