@@ -407,6 +407,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             animated: true,
             completion: nil)
         }
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     /**Close keyboard**/
