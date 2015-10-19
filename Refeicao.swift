@@ -38,6 +38,14 @@ class Refeicao: NSManagedObject {
         
     }
     
+    /** with array of itemsCardapio you remove Relationship for NSSet **/
+    func removeItemsObject(value: ItemCardapio) {
+        let mutableSet = self.mutableSetValueForKey("refeicao")
+        mutableSet.removeObject(value)
+        
+    }
+    
+    
     /** transform the Relationship (NSSet) in array of itemsCardapio **/
     func getItemsObject()->[ItemCardapio]{
         var itemFromRefeicao: [ItemCardapio] = []

@@ -31,6 +31,17 @@ class RefeicaoDAO
             print("\(error)")
         }
     }
+    
+    /** Edit element into context and Save context **/
+    static func edit(objectToBeInserted: Refeicao)
+    {
+        // Save context
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch {
+            print("\(error)")
+        }
+    }
 
     /** creating fetch to find all meals **/
     static func findAll() -> [Refeicao] {
