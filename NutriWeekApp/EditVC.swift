@@ -324,7 +324,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                                 TodoList.sharedInstance.addItem(todoItem2)
                                 
                                 RefeicaoServices.editRefeicao(ref, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: ref.diaSemana, items: self.selectedItens)
+                                
                             }
+                                self.navigationController?.popViewControllerAnimated(true)
 
                     }
                     
@@ -349,9 +351,13 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                                     number++
                                 }
                                 RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text! + String(number), horario: self.TimePicker(self.horario), diaSemana: self.refeicao.diaSemana, items: self.selectedItens)
+                                
                             }else{
                                 RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: self.refeicao.diaSemana, items: self.selectedItens)
                             }
+                            
+                            
+                            self.navigationController?.popViewControllerAnimated(true)
 
                    }
                     if quantityVerify == true {
@@ -371,6 +377,9 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         
                         //edit MEAL
                         RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: self.refeicao.diaSemana, items: self.selectedItens)
+                        
+                        self.navigationController?.popViewControllerAnimated(true)
+                        
                     }
                     
                 }
@@ -398,8 +407,6 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
             animated: true,
             completion: nil)
         }
-        
-        self.navigationController?.popViewControllerAnimated(true)
         
     }
     
