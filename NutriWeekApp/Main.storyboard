@@ -72,7 +72,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseIdentifier" textLabel="IvW-Bl-R8O" detailTextLabel="hzB-fE-9br" rowHeight="36" style="IBUITableViewCellStyleValue1" id="dnF-6a-wWp">
-                                        <rect key="frame" x="0.0" y="113.5" width="375" height="36"/>
+                                        <rect key="frame" x="0.0" y="114" width="375" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnF-6a-wWp" id="Ybe-bt-DUm">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="35.5"/>
@@ -401,7 +401,7 @@
             </objects>
             <point key="canvasLocation" x="1624.5" y="-789.5"/>
         </scene>
-        <!--Add ItemVC-->
+        <!--Add Item-->
         <scene sceneID="Hnc-jX-H1V">
             <objects>
                 <viewController id="mUV-d7-g5Y" customClass="AddItemVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -421,7 +421,7 @@
                                 </state>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q2b-Nd-gbJ">
-                                <rect key="frame" x="3" y="286" width="366" height="337"/>
+                                <rect key="frame" x="3" y="326" width="366" height="297"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6cz-Jd-g45">
                                     <size key="itemSize" width="120" height="140"/>
@@ -499,7 +499,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gcs-Po-qRI">
-                                <rect key="frame" x="0.0" y="199" width="375" height="38"/>
+                                <rect key="frame" x="0.0" y="199" width="375" height="78"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="simpleCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="simpleCell" textLabel="O0Z-g2-9JK" detailTextLabel="b7j-B3-EWU" style="IBUITableViewCellStyleValue1" id="ouR-W8-WbN">
@@ -549,7 +549,7 @@
                                 </connections>
                             </datePicker>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-Iu-tAo">
-                                <rect key="frame" x="0.0" y="237" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="277" width="375" height="44"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.52549019607843139" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -561,12 +561,21 @@
                                     <outlet property="delegate" destination="mUV-d7-g5Y" id="gqy-M9-kFH"/>
                                 </connections>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLJ-s1-EMc">
+                                <rect key="frame" x="107" y="245" width="160" height="30"/>
+                                <state key="normal" title="Create Item">
+                                    <color key="titleColor" red="0.1843137255" green="0.55294117649999996" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3oe-J8-4c6" kind="show" id="0UX-fa-KeD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iQs-Fl-zNT" firstAttribute="top" secondItem="Sci-vb-A3J" secondAttribute="bottom" constant="5" id="1dT-qb-afI"/>
                             <constraint firstItem="AVq-Iu-tAo" firstAttribute="trailing" secondItem="DZO-CR-lW4" secondAttribute="trailing" id="1wi-ER-HeK"/>
-                            <constraint firstItem="AVq-Iu-tAo" firstAttribute="top" secondItem="iQs-Fl-zNT" secondAttribute="bottom" id="5NB-vd-geu"/>
+                            <constraint firstItem="AVq-Iu-tAo" firstAttribute="top" secondItem="iQs-Fl-zNT" secondAttribute="bottom" constant="40" id="5NB-vd-geu"/>
                             <constraint firstItem="Sci-vb-A3J" firstAttribute="leading" secondItem="DZO-CR-lW4" secondAttribute="leading" id="5Tr-LY-OEv"/>
                             <constraint firstItem="Gcs-Po-qRI" firstAttribute="leading" secondItem="Sci-vb-A3J" secondAttribute="leading" id="7aN-Uf-ATR"/>
                             <constraint firstItem="AVq-Iu-tAo" firstAttribute="top" secondItem="Gcs-Po-qRI" secondAttribute="bottom" id="93b-RV-ORM"/>
@@ -598,8 +607,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="DCJ-Ah-fgh">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Add Item" id="DCJ-Ah-fgh">
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome da Refeição*" textAlignment="center" minimumFontSize="17" id="oHL-RJ-w88">
                             <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -616,6 +624,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="q2b-Nd-gbJ" id="Dvv-8K-7Cm"/>
+                        <outlet property="createItemButton" destination="CLJ-s1-EMc" id="dgr-eH-ZAT"/>
                         <outlet property="horario" destination="Sci-vb-A3J" id="BiP-WF-IiO"/>
                         <outlet property="nameTextField" destination="oHL-RJ-w88" id="3m2-6A-v9i"/>
                         <outlet property="saveButton" destination="nae-1R-tOB" id="fSv-vt-66N"/>
@@ -630,7 +639,85 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1624.5" y="-70.5"/>
+            <point key="canvasLocation" x="1935.5" y="-70.5"/>
+        </scene>
+        <!--New Item-->
+        <scene sceneID="M3K-vq-iUn">
+            <objects>
+                <viewController id="3oe-J8-4c6" customClass="CreateItemVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DIe-Ht-FYl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fwk-5z-jzL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5XS-HU-2Vh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNn-fU-SQx">
+                                <rect key="frame" x="82" y="294" width="210" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldShouldReturn" destination="3oe-J8-4c6" eventType="editingDidEndOnExit" id="tu4-6K-iLr"/>
+                                    <outlet property="delegate" destination="3oe-J8-4c6" id="jan-2k-Xg9"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPt-Qe-9JQ">
+                                <rect key="frame" x="37" y="332" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wjk-RY-Vvb">
+                                <rect key="frame" x="0.0" y="361" width="375" height="107"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiL-dg-RkD">
+                                <rect key="frame" x="88" y="506" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="haC-hw-xgt"/>
+                                    <constraint firstAttribute="height" constant="30" id="pmS-O4-UMZ"/>
+                                </constraints>
+                                <state key="normal" title="Library Photo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCB-so-Qqp">
+                                <rect key="frame" x="87" y="538" width="200" height="30"/>
+                                <state key="normal" title="Take a Photo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-vP-gy4">
+                                <rect key="frame" x="88" y="570" width="200" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LiL-dg-RkD" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leadingMargin" constant="68" id="Cny-t6-l2F"/>
+                            <constraint firstItem="cLO-vP-gy4" firstAttribute="height" secondItem="DCB-so-Qqp" secondAttribute="height" id="GHt-XM-n9D"/>
+                            <constraint firstItem="Wjk-RY-Vvb" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leadingMargin" constant="-20" id="GtL-x6-7nU"/>
+                            <constraint firstItem="DCB-so-Qqp" firstAttribute="height" secondItem="LiL-dg-RkD" secondAttribute="height" id="KLU-zG-ka3"/>
+                            <constraint firstItem="cLO-vP-gy4" firstAttribute="leading" secondItem="DCB-so-Qqp" secondAttribute="leading" id="Qew-ZG-hzq"/>
+                            <constraint firstItem="Wjk-RY-Vvb" firstAttribute="top" secondItem="yPt-Qe-9JQ" secondAttribute="top" id="SF6-iu-aWj"/>
+                            <constraint firstItem="DCB-so-Qqp" firstAttribute="leading" secondItem="LiL-dg-RkD" secondAttribute="leading" id="Uep-jg-Cpc"/>
+                            <constraint firstItem="DCB-so-Qqp" firstAttribute="width" secondItem="LiL-dg-RkD" secondAttribute="width" id="Z12-Ld-MUy"/>
+                            <constraint firstItem="DCB-so-Qqp" firstAttribute="top" secondItem="LiL-dg-RkD" secondAttribute="bottom" constant="2" id="gPl-VN-prB"/>
+                            <constraint firstItem="LiL-dg-RkD" firstAttribute="top" secondItem="DIe-Ht-FYl" secondAttribute="bottom" constant="442" id="gmi-FF-5y3"/>
+                            <constraint firstItem="cLO-vP-gy4" firstAttribute="top" secondItem="DCB-so-Qqp" secondAttribute="bottom" constant="2" id="yeR-oF-5uC"/>
+                            <constraint firstItem="cLO-vP-gy4" firstAttribute="width" secondItem="DCB-so-Qqp" secondAttribute="width" id="ytr-zz-1mM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Item" id="6GT-Si-qNj">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mKN-Va-qNY"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="cLO-vP-gy4" id="reY-pR-lwR"/>
+                        <outlet property="libraryPicButton" destination="LiL-dg-RkD" id="N64-mD-z2J"/>
+                        <outlet property="nameTextField" destination="rNn-fU-SQx" id="ETX-60-QAj"/>
+                        <outlet property="takePicButton" destination="DCB-so-Qqp" id="opi-Ct-ID6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1RQ-zO-Owi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2653.5" y="-25.5"/>
         </scene>
         <!--Repetir-->
         <scene sceneID="prb-SG-gQN">
@@ -923,7 +1010,7 @@
                     <navigationItem key="navigationItem" id="B8g-9M-KOX">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meal Name*" textAlignment="center" minimumFontSize="17" id="65f-Va-7Bc">
-                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>

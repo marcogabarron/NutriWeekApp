@@ -10,6 +10,9 @@ import UIKit
 
 class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITextFieldDelegate{
     
+    //CreateItem Button
+    @IBOutlet weak var createItemButton: UIButton!
+    
     ///Save Button
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -47,8 +50,18 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         
         saveButton.title = NSLocalizedString ("Salvar", comment: "")
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
-        self.nameTextField.delegate = self;
+        self.nameTextField.delegate = self
         
+        //Setting a border for createitem button
+        createItemButton.backgroundColor = UIColor.clearColor()
+        createItemButton.layer.cornerRadius = 5
+        createItemButton.layer.borderWidth = 1
+        createItemButton.layer.borderColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1).CGColor
+        
+//        createItemButton.layer.shadowColor = UIColor.blackColor().CGColor
+//        createItemButton.layer.shadowOffset = CGSizeMake(3, 3)
+//        createItemButton.layer.shadowRadius = 8
+//        createItemButton.layer.shadowOpacity = 0.4
         
     }
     
@@ -373,6 +386,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             })
             
         }
+        
+        self.navigationController?.popViewControllerAnimated(true)
+        
     }
     
     
@@ -411,7 +427,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         }
         return boolean
     }
-    
+        
     /**Close keyboard when clicked return **/
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
