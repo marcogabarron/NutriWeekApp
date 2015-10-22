@@ -662,7 +662,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNn-fU-SQx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNn-fU-SQx">
                                 <rect key="frame" x="82" y="74" width="210" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QWN-Tu-Yfd"/>
@@ -677,12 +677,13 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <action selector="nameChanged" destination="3oe-J8-4c6" eventType="editingChanged" id="Flj-Yl-oq4"/>
                                     <action selector="textFieldShouldReturn" destination="3oe-J8-4c6" eventType="editingDidEndOnExit" id="tu4-6K-iLr"/>
                                     <outlet property="delegate" destination="3oe-J8-4c6" id="jan-2k-Xg9"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPt-Qe-9JQ">
-                                <rect key="frame" x="33" y="158" width="75" height="21"/>
+                                <rect key="frame" x="33" y="158" width="75" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="iV6-oM-miQ"/>
                                     <constraint firstAttribute="height" constant="21" id="p6m-AJ-eQc"/>
@@ -697,14 +698,24 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ngw-Zr-kD0">
-                                <rect key="frame" x="22" y="414" width="322" height="202"/>
+                                <rect key="frame" x="112.5" y="414" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="322" id="5kO-uW-yGz"/>
-                                    <constraint firstAttribute="height" constant="202" id="TrS-uF-vgs"/>
+                                    <constraint firstAttribute="width" constant="150" id="5kO-uW-yGz"/>
+                                    <constraint firstAttribute="height" constant="150" id="TrS-uF-vgs"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXo-vG-7cN">
+                                <rect key="frame" x="137.5" y="577" width="100" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="kf2-ry-Br8"/>
+                                    <constraint firstAttribute="height" constant="56" id="pBU-66-vlB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wjk-RY-Vvb">
-                                <rect key="frame" x="0.0" y="195" width="375" height="188"/>
+                                <rect key="frame" x="0.0" y="194.5" width="375" height="188"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="DzK-R2-daG"/>
                                     <constraint firstAttribute="height" constant="188" id="JxA-Eb-zc9"/>
@@ -724,9 +735,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rNn-fU-SQx" firstAttribute="top" secondItem="DIe-Ht-FYl" secondAttribute="bottom" constant="10" id="8JP-NO-zUi"/>
+                            <constraint firstItem="ngw-Zr-kD0" firstAttribute="centerX" secondItem="5XS-HU-2Vh" secondAttribute="centerX" id="8id-R6-zWy"/>
+                            <constraint firstItem="AXo-vG-7cN" firstAttribute="centerX" secondItem="ngw-Zr-kD0" secondAttribute="centerX" id="9Ya-JO-01r"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leading" id="BRd-7z-pJH"/>
+                            <constraint firstItem="ngw-Zr-kD0" firstAttribute="centerY" secondItem="5XS-HU-2Vh" secondAttribute="centerY" id="DlT-gS-mZU"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leading" id="GtL-x6-7nU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ngw-Zr-kD0" secondAttribute="trailing" constant="283" id="HtL-DJ-ZZW"/>
                             <constraint firstItem="Fwk-5z-jzL" firstAttribute="top" secondItem="Wjk-RY-Vvb" secondAttribute="bottom" constant="109" id="JHF-mm-25l"/>
+                            <constraint firstItem="AXo-vG-7cN" firstAttribute="top" secondItem="ngw-Zr-kD0" secondAttribute="bottom" constant="13" id="Kz9-ET-qU3"/>
                             <constraint firstItem="yPt-Qe-9JQ" firstAttribute="top" secondItem="rNn-fU-SQx" secondAttribute="bottom" constant="54" id="LlR-8G-kDN"/>
                             <constraint firstItem="rNn-fU-SQx" firstAttribute="top" secondItem="DIe-Ht-FYl" secondAttribute="bottom" constant="10" id="OPt-L6-pRo"/>
                             <constraint firstItem="rNn-fU-SQx" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leading" constant="82" id="R1E-EN-L6e"/>
@@ -749,6 +765,9 @@
                                 <exclude reference="aLU-hs-Di5"/>
                                 <exclude reference="qOK-Fg-lQw"/>
                                 <exclude reference="skF-3c-Dw4"/>
+                                <exclude reference="DlT-gS-mZU"/>
+                                <exclude reference="HtL-DJ-ZZW"/>
+                                <exclude reference="z3E-nN-dfB"/>
                                 <exclude reference="JHF-mm-25l"/>
                             </mask>
                         </variation>
@@ -759,6 +778,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="imageCategory" destination="ngw-Zr-kD0" id="6gf-wd-JlN"/>
+                        <outlet property="labelName" destination="AXo-vG-7cN" id="5Au-Fh-V2f"/>
                         <outlet property="nameTextField" destination="rNn-fU-SQx" id="ETX-60-QAj"/>
                         <outlet property="pickerView" destination="Wjk-RY-Vvb" id="cZ6-hC-Dbe"/>
                     </connections>

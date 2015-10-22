@@ -12,6 +12,8 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     @IBOutlet weak var imageCategory: UIImageView!
     
+    @IBOutlet weak var labelName: UILabel!
+    
     
     var categoryArray:[String] = [String]()
     
@@ -31,6 +33,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         
         imageCategory.layer.masksToBounds = true
         imageCategory.layer.cornerRadius = imageCategory.frame.width/6
+        imageCategory.layer.borderWidth = 1
         
     }
     
@@ -65,5 +68,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         return true
         
     }
+    
+    @IBAction func nameChanged(){
+        
+        
+        labelName.text = nameTextField.text
+        
+    }
+    
     
 }
