@@ -103,7 +103,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         label.textColor = UIColor.whiteColor()
         label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.diasSemana[section], comment: "")
-        label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
+        label.font = UIFont(name:"Helvetica-SemiBold", size: 22)
         headerView.addSubview(label)
         
         self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
