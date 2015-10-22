@@ -3,43 +3,60 @@
 import UIKit
 import CoreData
 
-class CreateItemVC: UIViewController, UITextFieldDelegate{
+class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBOutlet weak var libraryPicButton: UIButton!
+    @IBOutlet weak var pickerView: UIPickerView!
     
-    @IBOutlet weak var takePicButton: UIButton!
+    @IBOutlet weak var imageCategory: UIImageView!
     
-    @IBOutlet weak var cancelButton: UIButton!
+    
+    var categoryArray:[String] = [String]()
+    
+    var selectedCategory:String = ""
+    
+    var numberCategory: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.nameTextField.delegate = self
         
-        //Setting a border for libraryPic button
-        libraryPicButton.backgroundColor = UIColor.clearColor()
-        libraryPicButton.layer.cornerRadius = 5
-        libraryPicButton.layer.borderColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1).CGColor
-        libraryPicButton.layer.borderWidth = 1
+        self.pickerView.dataSource = self
+        self.pickerView.delegate = self
         
-        //Setting a border for TakePic button
-        takePicButton.backgroundColor = UIColor.clearColor()
-        takePicButton.layer.cornerRadius = 5
-        takePicButton.layer.borderColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1).CGColor
-        takePicButton.layer.borderWidth = 1
+        categoryArray = ["Pães e Massas", "Frutas", "Líquido", "Leite", "Feijão", "Ovo", "Legume", "Grão", "Frios", "Carne Branca", "Vegetais", "Carne Vermelha", "Arroz", "Água", "Café", "Molho", "Farofa", "Massa", "Soja"]
         
-        //Setting a border for Cancel button
-        cancelButton.backgroundColor = UIColor.clearColor()
-        cancelButton.layer.cornerRadius = 5
-        cancelButton.layer.borderColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1).CGColor
-        cancelButton.layer.borderWidth = 1
+        imageCategory.layer.masksToBounds = true
+        imageCategory.layer.cornerRadius = imageCategory.frame.width/6
         
     }
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        
+        return 1
+    }
     
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return categoryArray.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return "\(categoryArray[row])"
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedCategory = categoryArray[row]
+        numberCategory = row + 1
+        
+        imageCategory.image = UIImage(named: "\(numberCategory)")
+        
+    }
     
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
         
@@ -48,9 +65,5 @@ class CreateItemVC: UIViewController, UITextFieldDelegate{
         return true
         
     }
-    
-    
-    
-    
     
 }
