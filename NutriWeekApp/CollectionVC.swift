@@ -89,58 +89,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    
-    /**Select cell**/
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
-        
-        //verify the collor text label because it is the way for verify if the object already selected
-        if(cell.myLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
-            //go to deselected
-            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
-        }else{
-        
-            //cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            
-            //Set it is selected
-            self.selectedItens.append(self.itens[indexPath.row])
-        }
-        
-        
-    }
-    
-    /**deselect cell**/
-    func collectionView(collectionView: UICollectionView,
-        didDeselectItemAtIndexPath indexPath: NSIndexPath){
-            
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CollectionCell
-            
-            //verify the collor text label because it is the way for verify if the object already deselected
-            if(cell.myLabel.textColor == UIColor.blackColor()){
-                //go to selected
-                self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
-            }else{
-        
-            
-          
-                
-                //Deselect: Change text to black
-                cell.myImage.layer.borderColor = UIColor.blackColor().CGColor
-                cell.myLabel.textColor = UIColor.blackColor()
-                
-                //Set it is desselected
-                var index = 0
-                for item in self.selectedItens{
-                    if(self.itens[indexPath.row] == item){
-                        self.selectedItens.removeAtIndex(index)
-                    }
-                    index++
-                }
-            }
-            
-    }
-    
     //MARK: Logic Functions
     
     //Checks whether the item is selected

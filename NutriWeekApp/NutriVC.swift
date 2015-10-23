@@ -3,8 +3,6 @@ import UIKit
 import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    
-    @IBOutlet weak var diasDaSemana: UILabel!
     @IBOutlet weak var newMeal: UIButton!
     
     //Relative to tableview
@@ -30,10 +28,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         for dia in  self.diasPT{
             self.diasSemana.append(NSLocalizedString(dia, comment: ""))
         }
-        
-        //translate the label
-        self.diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
-        
+      
         //Load json in CoreData
         self.json.loadFeed()
 
@@ -172,7 +167,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     refID = ref.uuid
                 }
             }
-            print(refID)
             let destinationViewController = segue.destinationViewController as! CollectionVC
             destinationViewController.refeicaoID = refID
             
