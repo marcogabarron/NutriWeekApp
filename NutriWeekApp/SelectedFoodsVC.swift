@@ -101,26 +101,32 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.itens.count
+        return self.itens.count+1
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
-        
-        
-        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name!, comment: "")
-        cell.textLabel.autoresizesSubviews = true
-        
-        cell.image.image = UIImage(named:itens[indexPath.row].image)
-        cell.image.layer.masksToBounds = true
-        cell.image.layer.cornerRadius = cell.image.frame.width/3
-        
-        
-        //change the label color when it is already selected - It is within the selected array
-        if(self.find(self.itens[indexPath.row])){
-            cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+        if(Int(indexPath.row) == self.itens.count){
+            cell.textLabel.text = ""
+            
+            cell.image.image = UIImage(named: "add")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/3
         }else{
-            cell.textLabel.textColor = UIColor.blackColor()
+            cell.textLabel.text = itens[indexPath.row].name
+            cell.textLabel.autoresizesSubviews = true
+            
+            cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/3
+            
+            
+            //change the label color when it is already selected - It is within the selected array
+            if(self.find(self.itens[indexPath.row])){
+                cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            }else{
+                cell.textLabel.textColor = UIColor.blackColor()
+            }
         }
         
         return cell
@@ -131,44 +137,47 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
     /** Select cell **/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
-        //Selected: Change text to green
-        
-        
-        //verify the collor text label because it is the way for verify if the object already selected
-        if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
-            
-            //go to deselected
-            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
-            
+        if(indexPath.row == self.itens.count){
+            self.performSegueWithIdentifier("New", sender: self)
         }else{
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
+            //Selected: Change text to green
             
             
-            //Animation to grow and back to normal size when selected or deselected
-            UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
+            //verify the collor text label because it is the way for verify if the object already selected
+            if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
                 
-                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                //go to deselected
+                self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
                 
-                }, completion: {(result) -> Void in
+            }else{
+                
+                
+                //Animation to grow and back to normal size when selected or deselected
+                UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                     
-                    UIView.animateWithDuration(0.3, animations: {() -> Void in
-                        
-                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                        
-                    })
+                    cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
                     
-            })
-            
-            
-            
-            cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            
-            //Set it is selected
-            self.selectedItens.append(self.itens[indexPath.row])
+                    }, completion: {(result) -> Void in
+                        
+                        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                            
+                            cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                            
+                        })
+                        
+                })
+                
+                
+                
+                cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+                
+                //Set it is selected
+                self.selectedItens.append(self.itens[indexPath.row])
+            }
+        
+
         }
-        
-        
-        
     }
     
     /** DeSelect cell **/

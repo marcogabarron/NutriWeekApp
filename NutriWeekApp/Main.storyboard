@@ -260,7 +260,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6Lc-L3-vn7" customClass="CollectionCell" customModule="NutriWeekApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SelectedCollectionViewCell" id="6Lc-L3-vn7" customClass="SelectedCollectionViewCell" customModule="NutriWeekApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -324,8 +324,8 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <outlet property="myImage" destination="bHQ-Wq-7Ty" id="uHq-lW-RGZ"/>
-                                            <outlet property="myLabel" destination="yA7-WC-ffX" id="Hg1-21-dEp"/>
+                                            <outlet property="image" destination="bHQ-Wq-7Ty" id="cf1-Ax-P6b"/>
+                                            <outlet property="textLabel" destination="yA7-WC-ffX" id="5Cv-OR-Nn5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -374,11 +374,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Refeição" id="5cy-DT-Eq6">
-                        <barButtonItem key="rightBarButtonItem" title="Editar" id="h2s-Rh-B8Z">
-                            <connections>
-                                <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="ZxL-XP-jL6"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="h2s-Rh-B8Z"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -387,6 +383,7 @@
                         <outlet property="hour" destination="AvH-lD-lwI" id="onG-hG-ByX"/>
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
                         <outlet property="refeicao" destination="5cy-DT-Eq6" id="b9c-LT-hRq"/>
+                        <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="vUv-t4-hOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6h3-b7-k1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -920,6 +917,7 @@
                         <outlet property="collectionView" destination="Exh-ue-vKx" id="eab-lp-jDo"/>
                         <outlet property="saveButton" destination="JHI-lV-N3u" id="sdC-0l-wsP"/>
                         <outlet property="searchBar" destination="13c-H5-4sE" id="Dha-51-F1S"/>
+                        <segue destination="3oe-J8-4c6" kind="show" identifier="New" id="tEw-8l-R7X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94Q-c5-Ghh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1134,6 +1132,7 @@
                         <outlet property="collectionView" destination="C0B-kU-u2E" id="Fur-SQ-cVc"/>
                         <outlet property="saveButton" destination="keq-Z1-ufH" id="luS-zc-vW6"/>
                         <outlet property="searchBar" destination="UiD-71-Wox" id="cWF-34-Fj8"/>
+                        <segue destination="3oe-J8-4c6" kind="show" identifier="New" id="0MD-79-vIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVx-6a-buz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1148,5 +1147,8 @@
         <image name="Service Bell-50" width="32" height="32"/>
         <image name="noImage" width="564" height="280"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tEw-8l-R7X"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
