@@ -12,5 +12,6 @@ class SelectedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var checkImage: UIImageView!
     
 }
