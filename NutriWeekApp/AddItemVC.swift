@@ -36,6 +36,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
         }
         
         self.tableView.reloadData()
+        
     }
     
     
