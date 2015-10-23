@@ -15,6 +15,8 @@
 		C246E4171BD950990068ED68 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E4161BD950990068ED68 /* Meal.swift */; settings = {ASSET_TAGS = (); }; };
 		C246E4191BD951A60068ED68 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E4181BD951A60068ED68 /* Food.swift */; settings = {ASSET_TAGS = (); }; };
 		C246E41B1BD963B60068ED68 /* SelectedFoodsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */; settings = {ASSET_TAGS = (); }; };
+		C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */; settings = {ASSET_TAGS = (); }; };
+		C246E41F1BD9DA800068ED68 /* SelectedFoodsAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */; settings = {ASSET_TAGS = (); }; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */ = {isa = PBXBuildFile; fileRef = C273B1FF1B610E2A0048936E /* AlimentosFr.txt */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
@@ -72,6 +74,8 @@
 		C246E4161BD950990068ED68 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C246E4181BD951A60068ED68 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsVC.swift; sourceTree = "<group>"; };
+		C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsSave.swift; sourceTree = "<group>"; };
+		C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsAdd.swift; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
 		C273B1FD1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 				C20B11381B4C41A800A232AC /* WeeksTVC.swift */,
 				DA81107F1BD565C800632A40 /* CreateItemVC.swift */,
 				C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */,
+				C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */,
+				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -455,6 +461,8 @@
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
 				DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */,
 				DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */,
+				C246E41F1BD9DA800068ED68 /* SelectedFoodsAdd.swift in Sources */,
+				C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */,
 				C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */,
 				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
 			);

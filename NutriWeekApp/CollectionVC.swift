@@ -21,7 +21,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var notification = Notifications()
     
     ///Get the uuid of choosed Refeicao
-    var refeicaoID: String!
+    var meal: Meal!
     
     //Relative to collection View
     @IBOutlet weak var collectionView: UICollectionView!
@@ -42,14 +42,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     override func viewWillAppear(animated: Bool) {
-        ///Find Refeicao by uuid
-        let refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
+
         //Get the Cardapio itens with the choosed Refeicao uuid
-        self.itens = refeicao.getItemsObject()
+        self.itens = self.meal.foods
         
         //Get Refeicao`s name and time
-        self.name.text = refeicao.name
-        self.hour.text = notification.formatStringTime(refeicao.horario)
+        self.name.text = self.meal.name
+        self.hour.text = self.notification.formatStringTime(meal.hour)
         
         //allows multiple selections
         self.collectionView.allowsMultipleSelection = true
@@ -105,10 +104,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK - Prepare for segue
     /** Prepare for Segue to Edit page -- pass the uuid information from cell clicked  **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "Edit") {
-            let destinationViewController = segue.destinationViewController as! EditVC
-            let refeicao: Refeicao = RefeicaoServices.findByUuid(self.refeicaoID)
-            destinationViewController.refeicao = refeicao
+        if (segue.identifier == "Add") {
+            let destinationViewController = segue.destinationViewController as! SelectedFoodsVC
+          
+            destinationViewController.meal = self.meal
         }
     }
 

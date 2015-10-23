@@ -161,14 +161,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             if(c==6){
                 refeicao = RefeicaoServices.findByWeek("Sábado")
             }
-            
+            var meal: Meal = Meal(week: [], time: "", name: "")
             for ref in refeicao {
                 if(ref.name == (sender!.textLabel!!.text!)){
                     refID = ref.uuid
+                    meal = Meal(id: ref.uuid, week: [ref.diaSemana], time: ref.horario, name: ref.name, foods: ref.getItemsObject())
                 }
             }
             let destinationViewController = segue.destinationViewController as! CollectionVC
-            destinationViewController.refeicaoID = refID
+            destinationViewController.meal = meal
             
         }
     }
