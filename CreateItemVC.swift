@@ -77,4 +77,11 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     }
     
     
+    @IBAction func saveButtonClicked(sender: UIBarButtonItem) {
+        
+        //colocar função para criar item no core Data
+        
+    }
+    
+    
 }
