@@ -22,8 +22,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     ///array Weeks with the week - init with all
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +30,10 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     }
     
     override func viewWillAppear(animated: Bool) {
+        if(self.nameTextField.text != ""){
+            self.navigationController?.popViewControllerAnimated(true)
+
+        }
         
         self.tableView.reloadData()
     }
@@ -149,8 +151,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
             
         }
         
-//        self.navigationController?.popViewControllerAnimated(true)
-        
     }
     
     
@@ -195,6 +195,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
             if (segue.identifier == "Next") {
                 let destination = segue.destinationViewController as! SelectedFoodsVC
                 var meal: Meal
+
                 meal = Meal(week: self.daysOfWeekString.getArrayString(), time: self.TimePicker(self.horario), name: self.nameTextField.text!)
                 destination.meal = meal
             }

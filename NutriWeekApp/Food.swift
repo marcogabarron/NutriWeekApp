@@ -14,7 +14,7 @@ class Food: NSObject {
     var name: String?
     var category: String
     
-    /** create Meal **/
+    /** create Food **/
     init(imageName: String, name: String, category: String){
         self.image = imageName
         self.name = name

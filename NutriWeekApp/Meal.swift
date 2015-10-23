@@ -14,10 +14,10 @@ class Meal: NSObject {
     var dayOfWeek: [String]
     var hour: String
     var name: String
-    var foods: [Food]
+    var foods: [ItemCardapio]
     
     /** create Meal **/
-    init(week: [String], time: String, name: String, foods: [Food]){
+    init(week: [String], time: String, name: String, foods: [ItemCardapio]){
         self.dayOfWeek = week
         self.hour = time
         self.name = name
@@ -30,6 +30,10 @@ class Meal: NSObject {
         self.hour = time
         self.name = name
         self.foods = []
+    }
+    
+    func setItems(foods: [ItemCardapio]){
+        self.foods = foods
     }
     
 }

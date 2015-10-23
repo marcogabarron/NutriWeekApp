@@ -233,6 +233,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
                 
                 
             }else{
+                self.meal.setItems(self.selectedItens)
                 for diaSemana in self.meal.dayOfWeek{
                         
                         // Add notification
