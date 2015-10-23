@@ -101,6 +101,8 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
         //colocar função para criar item no core Data
         ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)", category: selectedCategory)
+            self.navigationController?.popViewControllerAnimated(true)
+            
             }
     
 }
