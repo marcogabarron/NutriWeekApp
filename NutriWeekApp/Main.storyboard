@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Lj-4B-1Df">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3oe-J8-4c6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -73,7 +73,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseIdentifier" textLabel="IvW-Bl-R8O" detailTextLabel="hzB-fE-9br" rowHeight="36" style="IBUITableViewCellStyleValue1" id="dnF-6a-wWp">
-                                        <rect key="frame" x="0.0" y="113.5" width="375" height="36"/>
+                                        <rect key="frame" x="0.0" y="114" width="375" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnF-6a-wWp" id="Ybe-bt-DUm">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="35.5"/>
@@ -412,7 +412,7 @@
                                 </connections>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DwK-ZG-ewI">
-                                <rect key="frame" x="94" y="94" width="187.5" height="30"/>
+                                <rect key="frame" x="94" y="94" width="188" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -536,7 +536,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPt-Qe-9JQ">
-                                <rect key="frame" x="33" y="114" width="75" height="20.5"/>
+                                <rect key="frame" x="33" y="114" width="75" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="iV6-oM-miQ"/>
                                     <constraint firstAttribute="height" constant="21" id="p6m-AJ-eQc"/>
@@ -626,7 +626,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Item" id="6GT-Si-qNj">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="mKN-Va-qNY"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="mKN-Va-qNY">
+                            <connections>
+                                <action selector="saveButtonClicked:" destination="3oe-J8-4c6" id="eDc-YY-F4c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

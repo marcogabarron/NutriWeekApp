@@ -77,4 +77,31 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     }
     
     
+    @IBAction func saveButtonClicked(sender: UIBarButtonItem) {
+        
+        if nameTextField.text == ""{
+            
+            UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
+                
+                self.nameTextField.transform = CGAffineTransformMakeScale(1.2, 1.2)
+                
+                }, completion: {(result) -> Void in
+                        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                
+                self.nameTextField.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                self.nameTextField.text = ""
+                self.nameTextField.placeholder = NSLocalizedString("*Choose a Name", comment: "")
+                self.nameTextField.tintColor = UIColor.redColor()
+                
+                
+            })
+        })
+        
+        }else{
+    
+        //colocar função para criar item no core Data
+        ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)", category: selectedCategory)
+            }
+    
+}
 }
