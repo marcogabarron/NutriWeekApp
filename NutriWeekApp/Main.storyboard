@@ -913,6 +913,7 @@
                         <outlet property="collectionView" destination="Exh-ue-vKx" id="eab-lp-jDo"/>
                         <outlet property="saveButton" destination="JHI-lV-N3u" id="sdC-0l-wsP"/>
                         <outlet property="searchBar" destination="13c-H5-4sE" id="Dha-51-F1S"/>
+                        <segue destination="3oe-J8-4c6" kind="show" identifier="New" id="tEw-8l-R7X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94Q-c5-Ghh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1127,6 +1128,7 @@
                         <outlet property="collectionView" destination="C0B-kU-u2E" id="Fur-SQ-cVc"/>
                         <outlet property="saveButton" destination="keq-Z1-ufH" id="luS-zc-vW6"/>
                         <outlet property="searchBar" destination="UiD-71-Wox" id="cWF-34-Fj8"/>
+                        <segue destination="3oe-J8-4c6" kind="show" identifier="New" id="0MD-79-vIg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVx-6a-buz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1141,5 +1143,8 @@
         <image name="Service Bell-50" width="32" height="32"/>
         <image name="noImage" width="564" height="280"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tEw-8l-R7X"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
