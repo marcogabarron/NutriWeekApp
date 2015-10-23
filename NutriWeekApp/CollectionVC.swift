@@ -31,7 +31,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.editButton.title = NSLocalizedString("Editar", comment: "Editar")
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Editar")
         self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
         
     }
@@ -61,31 +61,46 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     // show the items save in the Core Data
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return itens.count
+        return itens.count+1
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! CollectionCell
+        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
 
-        cell.myLabel.text = itens[indexPath.row].name
-        cell.myLabel.autoresizesSubviews = true
-        
-        cell.myImage.image = UIImage(named: "\(itens[indexPath.row].image)")
-        cell.myImage.layer.masksToBounds = true
-        cell.myImage.layer.cornerRadius = cell.frame.width/3
-        
-        
-        //change the label color when it is already selected - It is within the selected array
-        if(self.isSelected(self.itens[indexPath.row])){
-            cell.myLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            
+        if(Int(indexPath.row) == self.itens.count){
+            cell.textLabel.text = ""
+
+            cell.image.image = UIImage(named: "add")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/3
         }else{
-            cell.myLabel.textColor = UIColor.blackColor()
+            cell.textLabel.text = itens[indexPath.row].name
+            cell.textLabel.autoresizesSubviews = true
+            
+            cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/3
+            
+            
+            //change the label color when it is already selected - It is within the selected array
+            if(self.isSelected(self.itens[indexPath.row])){
+                cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+                
+            }else{
+                cell.textLabel.textColor = UIColor.blackColor()
+            }
         }
+
         
         return cell
         
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.row == self.itens.count){
+            self.performSegueWithIdentifier("Add", sender: self)
+        }
     }
     
     //MARK: Logic Functions
