@@ -108,7 +108,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
         }
         
-        cell.dellButton.layer.setValue(indexPath.row, forKey: "index")
+        cell.dellButton.layer.setValue(indexPath, forKey: "index")
         
         
         return cell
@@ -152,7 +152,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func deleteButton(sender:UIButton) {
         
-        let i : Int = (sender.layer.valueForKey("index")) as! Int
+        let i : Int = (sender.layer.valueForKey("index")!.row) as Int
         self.meal.removeFood(i)
         
         self.dell = false
@@ -162,7 +162,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
         self.editButton.enabled = true
         
-        self.collectionView.reloadData()
+        var index: [NSIndexPath] = []
+        index.append(sender.layer.valueForKey("index") as! NSIndexPath)
+        
+        self.collectionView.deleteItemsAtIndexPaths(index)
     }
     
     func shakeIcons(layer: CALayer) {
