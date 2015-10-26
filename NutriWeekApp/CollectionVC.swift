@@ -83,7 +83,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
             
-            cell.dellImage.hidden = true
+            cell.dellButton.hidden = true
             
         }else{
             cell.textLabel.text = itens[indexPath.row].name
@@ -94,21 +94,21 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.image.layer.cornerRadius = cell.frame.width/3
             
             if(dell == true){
-                cell.dellImage.hidden = false
+                cell.dellButton.hidden = false
                 
-                let tapDell = UITapGestureRecognizer(target: self, action: "deletePressed:")
-                cell.dellView.addGestureRecognizer(tapDell)
-
+                cell.dellButton.addTarget(self, action: "deleteButton:", forControlEvents: UIControlEvents.TouchUpInside)
+                
+                self.shakeIcons(cell.layer)
 
             }else{
-                cell.dellImage.hidden = true
+                cell.dellButton.hidden = true
 
                 let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
                 cell.view.addGestureRecognizer(longPressRecognizer)
             }
         }
         
-        
+        cell.dellButton.layer.setValue(indexPath.row, forKey: "index")
         
         
         return cell
@@ -120,7 +120,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             self.performSegueWithIdentifier("Add", sender: self)
         }
         
+        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
+
         self.dell = false
+        
+        self.stopShakingIcons(cell.layer)
         
         self.collectionView.reloadData()
     }
@@ -146,12 +150,41 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    func deletePressed(sender: UITapGestureRecognizer)
-    {
+    func deleteButton(sender:UIButton) {
+        
+        let i : Int = (sender.layer.valueForKey("index")) as! Int
+        self.meal.removeFood(i)
+        
         self.dell = false
         
-        self.collectionView.reloadData()
+        self.itens = self.meal.foods
         
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.editButton.enabled = true
+        
+        self.collectionView.reloadData()
+    }
+    
+    func shakeIcons(layer: CALayer) {
+        let shakeAnim = CABasicAnimation(keyPath: "transform.rotation")
+        shakeAnim.duration = 0.05
+        shakeAnim.repeatCount = 2
+        shakeAnim.autoreverses = true
+        let startAngle: Float = (-2) * 3.14159/180
+        let stopAngle = -startAngle
+        shakeAnim.fromValue = NSNumber(float: startAngle)
+        shakeAnim.toValue = NSNumber(float: 3 * stopAngle)
+        shakeAnim.autoreverses = true
+        shakeAnim.duration = 0.2
+        shakeAnim.repeatCount = 10000
+        shakeAnim.timeOffset = 290 * drand48()
+        
+        layer.addAnimation(shakeAnim, forKey:"shaking")
+    }
+    
+    // This function stop shaking the collection view cells
+    func stopShakingIcons(layer: CALayer) {
+        layer.removeAnimationForKey("shaking")
     }
     
     @IBAction func save(sender: AnyObject) {

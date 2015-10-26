@@ -45,15 +45,9 @@ class Meal: NSObject {
         self.foods = []
     }
     
-    func removeFood(item: ItemCardapio){
-        var n: Int = 0
-        for food in foods {
-            if(food == item){
-                self.foods.removeAtIndex(n)
-                break
-            }
-            n++
-        }
+    func removeFood(n: Int){
+        self.foods.removeAtIndex(n)
+        print(self.foods)
     }
 
     
