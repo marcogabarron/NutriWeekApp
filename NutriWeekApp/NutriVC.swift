@@ -31,6 +31,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
       
         //Load json in CoreData
         self.json.loadFeed()
+        
 
     }
     
@@ -43,6 +44,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
+        
     }
     
     

@@ -21,9 +21,48 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var numberCategory: Int = 0
     
+    var saveClicked: Bool!
+    
+    override func viewWillDisappear(animated: Bool) {
+        
+        if self.navigationController?.viewControllers.indexOf(self) == nil && !saveClicked {
+            
+            let alert = UIAlertView(title: "Take one option", message: "Really want to go back", delegate: nil, cancelButtonTitle: "Cancel")
+            alert.show()
+            
+        
+            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+//            let alert = UIAlertController(title: "Take one option",
+//                message: "Really want to go back?",
+//                preferredStyle: .Alert)
+//            
+//            let save = UIAlertAction(title: "Save modifications",
+//                style: .Default) { (action: UIAlertAction!) -> Void in
+//            }
+//            
+//            let cancel = UIAlertAction(title: "Cancel",
+//                style: .Default) { (action: UIAlertAction!) -> Void in
+//                    
+//            }
+//            
+//            alert.addAction(save)
+//            alert.addAction(cancel)
+//        }
+            
+        }
+        
+        super.viewWillDisappear(animated)
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveClicked = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.nameTextField.delegate = self
         
         self.pickerView.dataSource = self
@@ -78,6 +117,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     
     @IBAction func saveButtonClicked(sender: UIBarButtonItem) {
+        saveClicked = true
         
         if nameTextField.text == ""{
             
@@ -97,13 +137,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
             })
         })
         
-        }else{
-    
-        //colocar função para criar item no core Data
-        ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)", category: selectedCategory)
-            self.navigationController?.popViewControllerAnimated(true)
+        } else {
+            //colocar função para criar item no core Data
+            ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)", category: selectedCategory)
+                self.navigationController?.popViewControllerAnimated(true)
             
-            }
+        }
     
 }
+    
 }

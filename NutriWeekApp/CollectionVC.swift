@@ -32,8 +32,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         super.viewDidLoad()
         
         self.editButton.title = NSLocalizedString("Salvar", comment: "Editar")
-        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
-        
+        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")     
     }
     
     override func didReceiveMemoryWarning() {
