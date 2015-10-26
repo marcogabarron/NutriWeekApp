@@ -9,18 +9,10 @@
 import UIKit
 
 class CollectionCell: UICollectionViewCell {
-    var imageView: UIImageView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*2/3))
-        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        contentView.addSubview(imageView)
-    }
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var dellButton: UIButton!
+    @IBOutlet weak var view: UIView!
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 }

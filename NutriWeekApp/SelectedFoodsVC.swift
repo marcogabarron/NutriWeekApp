@@ -123,8 +123,12 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
             //change the label color when it is already selected - It is within the selected array
             if(self.find(self.itens[indexPath.row])){
                 cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+                cell.checkImage.hidden = false
+                cell.checkImage.layer.masksToBounds = true
             }else{
                 cell.textLabel.textColor = UIColor.blackColor()
+                cell.checkImage.hidden = true
+                cell.checkImage.layer.masksToBounds = true
             }
         }
         
@@ -194,6 +198,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
             }else{
                 cell.checkImage.image = UIImage(named: "")
                 cell.checkImage.layer.masksToBounds = true
+                
                 //Animation to grow and back to normal size when selected or deselected
                 UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                     

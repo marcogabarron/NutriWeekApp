@@ -32,11 +32,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Editar")
+        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")     
+=======
         self.editButton.title = NSLocalizedString("", comment: "")
         self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
         self.editButton.enabled = false
         self.itens = self.meal.foods
         
+>>>>>>> 2da7f66f08a67974ed5fa8d43e3fd28559317de5
     }
     
     override func didReceiveMemoryWarning() {
