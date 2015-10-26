@@ -38,4 +38,23 @@ class Meal: NSObject {
         self.foods = foods
     }
     
+    func setDatas(week: [String], time: String, name: String){
+        self.dayOfWeek = week
+        self.hour = time
+        self.name = name
+        self.foods = []
+    }
+    
+    func removeFood(item: ItemCardapio){
+        var n: Int = 0
+        for food in foods {
+            if(food == item){
+                self.foods.removeAtIndex(n)
+                break
+            }
+            n++
+        }
+    }
+
+    
 }

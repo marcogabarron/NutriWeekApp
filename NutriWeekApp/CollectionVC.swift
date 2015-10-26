@@ -19,6 +19,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     var notification = Notifications()
+    var dell: Bool = false
     
     ///Get the uuid of choosed Refeicao
     var meal: Meal!
@@ -31,8 +32,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Editar")
+        self.editButton.title = NSLocalizedString("", comment: "")
         self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
+        self.editButton.enabled = false
+        self.itens = self.meal.foods
         
     }
     
@@ -43,8 +46,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewWillAppear(animated: Bool) {
 
-        //Get the Cardapio itens with the choosed Refeicao uuid
-        self.itens = self.meal.foods
+        if(self.itens != self.meal.foods){
+            //Get the Cardapio itens with the choosed Refeicao uuid
+            self.itens = self.meal.foods
+            self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+            self.editButton.enabled = true
+
+        }
         
         //Get Refeicao`s name and time
         self.name.text = self.meal.name
@@ -66,7 +74,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
+        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
 
         if(Int(indexPath.row) == self.itens.count){
             cell.textLabel.text = ""
@@ -74,6 +82,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.image.image = UIImage(named: "add")
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
+            
+            cell.dellImage.hidden = true
+            
         }else{
             cell.textLabel.text = itens[indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
@@ -82,16 +93,23 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
             
-            
-            //change the label color when it is already selected - It is within the selected array
-            if(self.isSelected(self.itens[indexPath.row])){
-                cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+            if(dell == true){
+                cell.dellImage.hidden = false
                 
+                let tapDell = UITapGestureRecognizer(target: self, action: "deletePressed:")
+                cell.dellView.addGestureRecognizer(tapDell)
+
+
             }else{
-                cell.textLabel.textColor = UIColor.blackColor()
+                cell.dellImage.hidden = true
+
+                let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPressed:")
+                cell.view.addGestureRecognizer(longPressRecognizer)
             }
         }
-
+        
+        
+        
         
         return cell
         
@@ -101,6 +119,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(indexPath.row == self.itens.count){
             self.performSegueWithIdentifier("Add", sender: self)
         }
+        
+        self.dell = false
+        
+        self.collectionView.reloadData()
     }
     
     //MARK: Logic Functions
@@ -114,6 +136,26 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
         }
         return boolean
+    }
+    
+    func longPressed(sender: UILongPressGestureRecognizer)
+    {
+        self.dell = true
+        
+        self.collectionView.reloadData()
+        
+    }
+    
+    func deletePressed(sender: UITapGestureRecognizer)
+    {
+        self.dell = false
+        
+        self.collectionView.reloadData()
+        
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        
     }
     
     //MARK - Prepare for segue
