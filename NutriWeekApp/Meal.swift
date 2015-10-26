@@ -47,7 +47,6 @@ class Meal: NSObject {
     
     func removeFood(n: Int){
         self.foods.removeAtIndex(n)
-        print(self.foods)
     }
 
     

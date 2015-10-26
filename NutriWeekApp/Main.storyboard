@@ -863,7 +863,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-kL-70l">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-kL-70l">
                                                             <rect key="frame" x="78.5" y="0.0" width="36.5" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="eRI-kL-70l" secondAttribute="height" multiplier="36:35" id="yp1-Ui-BHh"/>
@@ -1081,7 +1081,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pt8-pD-gdh">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Pt8-pD-gdh">
                                                             <rect key="frame" x="80" y="0.0" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="Pt8-pD-gdh" secondAttribute="height" multiplier="1:1" id="P3j-6F-RiP"/>
@@ -1183,10 +1183,11 @@
         <image name="Meal-50" width="57" height="57"/>
         <image name="Service Bell-50" width="32" height="32"/>
         <image name="dell" width="100" height="100"/>
+        <image name="logo" width="510" height="510"/>
         <image name="noImage" width="564" height="280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tEw-8l-R7X"/>
+        <segue reference="0MD-79-vIg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
