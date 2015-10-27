@@ -38,38 +38,38 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     var saveClicked: Bool!
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
-        if parent == nil && !saveClicked{
-            
-            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-            let alert = UIAlertController(title: "Take one option",
-                message: "Really want to go back?",
-                preferredStyle: .Alert)
-            
-            let save = UIAlertAction(title: "Save modifications",
-                style: .Default) { (action: UIAlertAction!) -> Void in
-                    
-                    
-                    self.saveButtonClicked()
-                    
-            }
-            
-            let cancel = UIAlertAction(title: "Discard",
-                style: .Default) { (action: UIAlertAction!) -> Void in
-                    
-            }
-            presentViewController(alert,
-                animated: true,
-                completion: nil)
-            
-            
-            alert.addAction(save)
-            alert.addAction(cancel)
-            
-            
-        }
-    }
+//    override func willMoveToParentViewController(parent: UIViewController?) {
+//        super.willMoveToParentViewController(parent)
+//        if parent == nil && !saveClicked{
+//            
+//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+//            let alert = UIAlertController(title: "Take one option",
+//                message: "Really want to go back?",
+//                preferredStyle: .Alert)
+//            
+//            let save = UIAlertAction(title: "Save modifications",
+//                style: .Default) { (action: UIAlertAction!) -> Void in
+//                    
+//                    
+//                    self.saveButtonClicked()
+//                    
+//            }
+//            
+//            let cancel = UIAlertAction(title: "Discard",
+//                style: .Default) { (action: UIAlertAction!) -> Void in
+//                    
+//            }
+//            presentViewController(alert,
+//                animated: true,
+//                completion: nil)
+//            
+//            
+//            alert.addAction(save)
+//            alert.addAction(cancel)
+//            
+//            
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -233,15 +233,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func save(sender: AnyObject) {
-//        if(self.cancelNotification.on){
-//            print("on")
-//        }else{
-//            print("off")
-//            //        //Delete Notification
-//            //        let date = NSDate()
-//            //        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id! )
-//            //        TodoList.sharedInstance.removeItem(todoItem)
-//        }
 
     }
     @IBAction func datePickerAppear(sender: AnyObject) {
@@ -314,24 +305,18 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
         TodoList.sharedInstance.removeItem(todoItem)
             
-            print("o switch foi desligado, excluir notification \(notificationId)")
-            
         }else {
             
             if notificationSwitch.on{
                 
-                
                 let notification = Notifications()
                 let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek[0], dateHour: meal.hour), title: meal.name, UUID: notificationId)
                 TodoList.sharedInstance.addItem(todoItem)
-                print("o switch foi ligado, criar notification\(notificationId)")
                 
             }
-            
-            
+
         }
     }
-    
     
     //MARK - Prepare for segue
     /** Prepare for Segue to Edit page -- pass the uuid information from cell clicked  **/

@@ -3,9 +3,10 @@
 import UIKit
 import CoreData
 
-//protocol CreateItemVCDelegate {
-//    func willComeBackFromCreateItemVC(fromSave: Bool)
-//}
+protocol CreateItemVCDelegate {
+    func willComeBackFromCreateItemVC(fromSave: Bool)
+   // func saveItemVC(name: String, image: String, category: String)
+}
 
 class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -26,42 +27,42 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var numberCategory: Int = 1
     
-    //var delegate: CreateItemVCDelegate?
+    var delegate: CreateItemVCDelegate?
     
     var saveClicked: Bool!
     
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
-        if parent == nil && !saveClicked{
-
-            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-                        let alert = UIAlertController(title: "Take one option",
-                            message: "Really want to go back?",
-                            preferredStyle: .Alert)
-            
-                        let save = UIAlertAction(title: "Save modifications",
-                            style: .Default) { (action: UIAlertAction!) -> Void in
-                                
-                                
-                                self.saveButtonClicked()
-                                
-                        }
-            
-                        let cancel = UIAlertAction(title: "Discard",
-                            style: .Default) { (action: UIAlertAction!) -> Void in
-                                
-                        }
-            presentViewController(alert,
-                animated: true,
-                completion: nil)
-            
-            
-                        alert.addAction(save)
-                        alert.addAction(cancel)
-            
-        
-        }
-    }
+//    override func willMoveToParentViewController(parent: UIViewController?) {
+//        super.willMoveToParentViewController(parent)
+//        if parent == nil && !saveClicked{
+//
+//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+//                        let alert = UIAlertController(title: "Take one option",
+//                            message: "Really want to go back?",
+//                            preferredStyle: .Alert)
+//            
+//                        let save = UIAlertAction(title: "Save modifications",
+//                            style: .Default) { (action: UIAlertAction!) -> Void in
+//                                
+//                                
+//                                self.saveButtonClicked()
+//                                
+//                        }
+//            
+//                        let cancel = UIAlertAction(title: "Discard",
+//                            style: .Default) { (action: UIAlertAction!) -> Void in
+//                                
+//                        }
+//            presentViewController(alert,
+//                animated: true,
+//                completion: nil)
+//            
+//            
+//                        alert.addAction(save)
+//                        alert.addAction(cancel)
+//            
+//        
+//        }
+//    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -93,7 +94,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-       // delegate?.willComeBackFromCreateItemVC(saveClicked)
+        delegate?.willComeBackFromCreateItemVC(saveClicked)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -165,6 +166,6 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
             
         }
     
-}
+    }
     
 }
