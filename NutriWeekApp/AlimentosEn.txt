@@ -73,7 +73,7 @@
 {
 "Nome" : "Lettuce",
 "Imagem": "lettuce.jpg",
-"Category": "Vegetais"
+"Category": "Vegetable"
 },
 {
 "Nome": "Tea",

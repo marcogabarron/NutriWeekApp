@@ -14,6 +14,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     @IBOutlet weak var labelName: UILabel!
     
+    @IBOutlet weak var simpleLabel: UILabel!
     
     var categoryArray:[String] = [String]()
     
@@ -25,6 +26,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         super.viewDidLoad()
         
         self.nameTextField.delegate = self
+        
+        self.nameTextField.placeholder = NSLocalizedString("Nome do Item", comment: "")
+        
+        self.labelName.text = NSLocalizedString("Nome do Item", comment: "")
+        
+        self.simpleLabel.text = NSLocalizedString("Selecione uma categoria:", comment: "")
+
         
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
@@ -48,8 +56,9 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let show = NSLocalizedString(self.categoryArray[row], comment: "")
         
-        return "\(categoryArray[row])"
+        return show
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

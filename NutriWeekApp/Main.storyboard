@@ -562,7 +562,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPt-Qe-9JQ">
-                                <rect key="frame" x="33" y="158" width="75" height="20.5"/>
+                                <rect key="frame" x="33" y="158" width="326" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="iV6-oM-miQ"/>
                                     <constraint firstAttribute="height" constant="21" id="p6m-AJ-eQc"/>
@@ -572,6 +572,7 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="iV6-oM-miQ"/>
                                         <exclude reference="p6m-AJ-eQc"/>
                                     </mask>
                                 </variation>
@@ -618,6 +619,7 @@
                             <constraint firstItem="AXo-vG-7cN" firstAttribute="centerX" secondItem="ngw-Zr-kD0" secondAttribute="centerX" id="9Ya-JO-01r"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leading" id="BRd-7z-pJH"/>
                             <constraint firstItem="ngw-Zr-kD0" firstAttribute="centerY" secondItem="5XS-HU-2Vh" secondAttribute="centerY" id="DlT-gS-mZU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yPt-Qe-9JQ" secondAttribute="trailing" id="GK7-0J-ja9"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leading" id="GtL-x6-7nU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ngw-Zr-kD0" secondAttribute="trailing" constant="283" id="HtL-DJ-ZZW"/>
                             <constraint firstItem="Fwk-5z-jzL" firstAttribute="top" secondItem="Wjk-RY-Vvb" secondAttribute="bottom" constant="109" id="JHF-mm-25l"/>
@@ -664,6 +666,7 @@
                         <outlet property="labelName" destination="AXo-vG-7cN" id="5Au-Fh-V2f"/>
                         <outlet property="nameTextField" destination="rNn-fU-SQx" id="ETX-60-QAj"/>
                         <outlet property="pickerView" destination="Wjk-RY-Vvb" id="cZ6-hC-Dbe"/>
+                        <outlet property="simpleLabel" destination="yPt-Qe-9JQ" id="aep-Qo-HZN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RQ-zO-Owi" userLabel="First Responder" sceneMemberID="firstResponder"/>
