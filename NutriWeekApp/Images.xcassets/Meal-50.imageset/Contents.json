@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Meal-50.png"
+      "filename" : "Meal-50.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
@@ -16,7 +16,9 @@
   ],
   "info" : {
     "version" : 1,
-    "author" : "xcode",
+    "author" : "xcode"
+  },
+  "properties" : {
     "template-rendering-intent" : "template"
   }
 }

@@ -3,7 +3,6 @@ import UIKit
 import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    @IBOutlet weak var newMeal: UIButton!
     
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +20,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewDidLoad()
         
         //collor image Button
-        self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
         self.diasSemana = []
         
         //translate the weekdays
@@ -90,7 +88,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
+        headerView.backgroundColor = UIColor(red: 51/255, green: 153/255, blue: 102/255, alpha: 1)
         
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
         label.autoresizesSubviews = true

@@ -226,6 +226,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
 
     }
+    @IBAction func cancelNotification(sender: AnyObject) {
+
+    }
     
     /** Get datePicker and returns a string formatted to save Refeicao **/
     func timePicker(sender: UIDatePicker) -> String{
