@@ -27,7 +27,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //Relative to collection View
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var hour: UILabel!
+    @IBOutlet weak var hour: UIButton!
+    @IBOutlet weak var bottomCV: NSLayoutConstraint!
+    
+    ///Relative to datePicker
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +60,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //Get Refeicao`s name and time
         self.name.text = self.meal.name
-        self.hour.text = self.notification.formatStringTime(meal.hour)
+        self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
         
         //allows multiple selections
         self.collectionView.allowsMultipleSelection = true
@@ -191,6 +195,58 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func save(sender: AnyObject) {
+        
+    }
+    @IBAction func datePickerAppear(sender: AnyObject) {
+        if(self.bottomCV.constant == 0){
+            
+            self.datePicker.date = self.formatTime((self.meal.hour))
+            
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1, animations: {
+                self.bottomCV.constant = self.view.frame.height*0.30
+                self.view.layoutIfNeeded()
+            })
+
+        }else{
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1, animations: {
+                self.bottomCV.constant = 0
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        
+        self.meal.hour = timePicker(self.datePicker)
+        self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
+
+    }
+    
+    /** Get datePicker and returns a string formatted to save Refeicao **/
+    func timePicker(sender: UIDatePicker) -> String{
+        
+        let timer = NSDateFormatter()
+        timer.dateFormat = "HH:mm"
+        
+        let strdate = timer.stringFromDate(sender.date)
+        
+        return strdate
+        
+    }
+    
+    /** Convert stringDate to Date **/
+    func formatTime(dataString: String) -> NSDate{
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        return dateValue!
         
     }
     

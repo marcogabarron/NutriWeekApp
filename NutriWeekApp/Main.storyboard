@@ -236,15 +236,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLg-S9-Pih">
-                                <rect key="frame" x="15" y="72" width="344" height="21"/>
+                                <rect key="frame" x="15" y="69" width="344" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvH-lD-lwI">
-                                <rect key="frame" x="15" y="93" width="344" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PHI-5M-ugB">
@@ -355,36 +349,46 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
                                 <rect key="frame" x="306" y="83" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1e-FH-v8s">
-                                <rect key="frame" x="293" y="68" width="76" height="11"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-MK-TVd">
+                                <rect key="frame" x="11" y="99" width="352" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="datePickerAppear:" destination="oxc-Ih-3gp" eventType="touchUpInside" id="Kdp-fU-qhW"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RzB-Z0-gB5">
+                                <rect key="frame" x="3" y="618" width="366" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="YAj-IG-NU8"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="467651480.59770602">
+                                    <!--2015-10-27 15:11:20 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="UpdateTimerPicker:" destination="oxc-Ih-3gp" eventType="valueChanged" id="HMH-kF-BHi"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PHI-5M-ugB" firstAttribute="leading" secondItem="IRe-0O-Qyc" secondAttribute="leading" constant="3" id="6Yk-68-Krt"/>
                             <constraint firstItem="Kip-Bd-Szr" firstAttribute="top" secondItem="PHI-5M-ugB" secondAttribute="bottom" id="6fQ-qE-raf"/>
-                            <constraint firstItem="PHI-5M-ugB" firstAttribute="top" secondItem="AvH-lD-lwI" secondAttribute="bottom" constant="8" id="CvR-hP-Hfw"/>
-                            <constraint firstItem="PHI-5M-ugB" firstAttribute="top" secondItem="AvH-lD-lwI" secondAttribute="bottom" constant="7" id="J1s-uS-Fvn"/>
+                            <constraint firstItem="Akj-MK-TVd" firstAttribute="top" secondItem="NLg-S9-Pih" secondAttribute="bottom" constant="0.5" id="8GX-oE-rc1"/>
+                            <constraint firstItem="RzB-Z0-gB5" firstAttribute="trailing" secondItem="PHI-5M-ugB" secondAttribute="trailing" id="C5x-Cu-IvN"/>
+                            <constraint firstItem="Akj-MK-TVd" firstAttribute="leading" secondItem="IRe-0O-Qyc" secondAttribute="leadingMargin" constant="-5" id="MJ7-3w-dED"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NLg-S9-Pih" secondAttribute="trailing" id="MOm-Hh-AbX"/>
-                            <constraint firstItem="NLg-S9-Pih" firstAttribute="top" secondItem="mj6-DZ-Sgi" secondAttribute="bottom" constant="8" id="aF0-Jh-GDx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AvH-lD-lwI" secondAttribute="trailing" id="fTq-mA-xjP"/>
-                            <constraint firstItem="AvH-lD-lwI" firstAttribute="top" secondItem="NLg-S9-Pih" secondAttribute="bottom" constant="1" id="geP-O4-BzV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Akj-MK-TVd" secondAttribute="trailing" constant="-4" id="OSk-EM-kv3"/>
+                            <constraint firstItem="NLg-S9-Pih" firstAttribute="top" secondItem="mj6-DZ-Sgi" secondAttribute="bottom" constant="5" id="aF0-Jh-GDx"/>
                             <constraint firstAttribute="centerX" secondItem="NLg-S9-Pih" secondAttribute="centerX" constant="0.5" id="hWv-tl-KRh"/>
                             <constraint firstItem="PHI-5M-ugB" firstAttribute="top" secondItem="mj6-DZ-Sgi" secondAttribute="bottom" constant="64" id="iKW-s6-2RH"/>
-                            <constraint firstItem="AvH-lD-lwI" firstAttribute="centerX" secondItem="NLg-S9-Pih" secondAttribute="centerX" id="m7z-gA-phb"/>
-                            <constraint firstItem="PHI-5M-ugB" firstAttribute="top" secondItem="AvH-lD-lwI" secondAttribute="bottom" constant="7" id="ncs-vs-fEv"/>
+                            <constraint firstItem="Akj-MK-TVd" firstAttribute="height" secondItem="NLg-S9-Pih" secondAttribute="height" id="lLm-8i-XYd"/>
+                            <constraint firstItem="RzB-Z0-gB5" firstAttribute="top" secondItem="PHI-5M-ugB" secondAttribute="bottom" id="pqJ-MH-cSP"/>
+                            <constraint firstItem="RzB-Z0-gB5" firstAttribute="leading" secondItem="PHI-5M-ugB" secondAttribute="leading" id="vPP-8O-Yso"/>
                             <constraint firstAttribute="trailing" secondItem="PHI-5M-ugB" secondAttribute="trailing" constant="6" id="waC-Z9-gFr"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="CvR-hP-Hfw"/>
-                                <exclude reference="J1s-uS-Fvn"/>
-                                <exclude reference="ncs-vs-fEv"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Refeição" id="5cy-DT-Eq6">
                         <barButtonItem key="rightBarButtonItem" title="Salvar" id="h2s-Rh-B8Z">
@@ -395,9 +399,11 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="bottomCV" destination="6fQ-qE-raf" id="NkD-yT-BhE"/>
                         <outlet property="collectionView" destination="PHI-5M-ugB" id="cna-PF-D98"/>
+                        <outlet property="datePicker" destination="RzB-Z0-gB5" id="vsU-xT-qbK"/>
                         <outlet property="editButton" destination="h2s-Rh-B8Z" id="DcW-vK-Txj"/>
-                        <outlet property="hour" destination="AvH-lD-lwI" id="onG-hG-ByX"/>
+                        <outlet property="hour" destination="Akj-MK-TVd" id="qa4-KH-R7f"/>
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
                         <outlet property="refeicao" destination="5cy-DT-Eq6" id="b9c-LT-hRq"/>
                         <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="vUv-t4-hOd"/>
@@ -405,7 +411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6h3-b7-k1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.5" y="-789.5"/>
+            <point key="canvasLocation" x="1589.5" y="-811.5"/>
         </scene>
         <!--Informações-->
         <scene sceneID="Hnc-jX-H1V">
