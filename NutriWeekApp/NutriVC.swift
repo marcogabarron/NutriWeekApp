@@ -136,7 +136,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             //let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
             var refeicao:[Refeicao] = []
-            var refID: String = ""
             let c = self.tableView.indexPathsForSelectedRows!.last?.section
             if(c==0){
                 refeicao = RefeicaoServices.findByWeek("Domingo")
@@ -162,7 +161,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             var meal: Meal = Meal(week: [], time: "", name: "")
             for ref in refeicao {
                 if(ref.name == (sender!.textLabel!!.text!)){
-                    refID = ref.uuid
                     meal = Meal(id: ref.uuid, week: [ref.diaSemana], time: ref.horario, name: ref.name, foods: ref.getItemsObject())
                 }
             }

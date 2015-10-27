@@ -12,6 +12,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     @IBOutlet weak var refeicao: UINavigationItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var cancelNotification: UISwitch!
     var colorImage = UIColor.blackColor().CGColor
     
     
@@ -195,7 +196,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func save(sender: AnyObject) {
-        
+        if(self.cancelNotification.on){
+            print("on")
+        }else{
+            print("off")
+            //        //Delete Notification
+            //        let date = NSDate()
+            //        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id! )
+            //        TodoList.sharedInstance.removeItem(todoItem)
+        }
+
     }
     @IBAction func datePickerAppear(sender: AnyObject) {
         
@@ -226,8 +236,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
 
     }
-    @IBAction func cancelNotification(sender: AnyObject) {
-
+    
+    @IBAction func changeSwitch(sender: AnyObject) {
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.editButton.enabled = true
     }
     
     /** Get datePicker and returns a string formatted to save Refeicao **/

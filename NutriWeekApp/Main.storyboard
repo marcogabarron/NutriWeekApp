@@ -336,11 +336,11 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
                                 <rect key="frame" x="310" y="83" width="51" height="31"/>
                                 <connections>
-                                    <action selector="cancelNotification:" destination="oxc-Ih-3gp" eventType="touchUpInside" id="0CK-Wy-pOi"/>
+                                    <action selector="changeSwitch:" destination="oxc-Ih-3gp" eventType="valueChanged" id="FO0-AF-V4o"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-MK-TVd">
-                                <rect key="frame" x="11" y="99" width="299" height="30"/>
+                                <rect key="frame" x="64" y="99" width="246" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="datePickerAppear:" destination="oxc-Ih-3gp" eventType="touchUpInside" id="Kdp-fU-qhW"/>
@@ -379,6 +379,7 @@
                             <constraint firstItem="s5w-AR-wlP" firstAttribute="leading" secondItem="NLg-S9-Pih" secondAttribute="trailing" id="j4g-N6-p3P"/>
                             <constraint firstItem="Akj-MK-TVd" firstAttribute="height" secondItem="NLg-S9-Pih" secondAttribute="height" id="lLm-8i-XYd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="s5w-AR-wlP" secondAttribute="trailing" id="ooj-Yn-LNw"/>
+                            <constraint firstItem="Akj-MK-TVd" firstAttribute="centerX" secondItem="NLg-S9-Pih" secondAttribute="centerX" id="pae-PE-e9U"/>
                             <constraint firstItem="RzB-Z0-gB5" firstAttribute="top" secondItem="PHI-5M-ugB" secondAttribute="bottom" id="pqJ-MH-cSP"/>
                             <constraint firstItem="RzB-Z0-gB5" firstAttribute="leading" secondItem="PHI-5M-ugB" secondAttribute="leading" id="vPP-8O-Yso"/>
                             <constraint firstAttribute="trailing" secondItem="PHI-5M-ugB" secondAttribute="trailing" constant="6" id="waC-Z9-gFr"/>
@@ -386,6 +387,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="MOm-Hh-AbX"/>
+                                <exclude reference="MJ7-3w-dED"/>
                                 <exclude reference="OSk-EM-kv3"/>
                             </mask>
                         </variation>
@@ -400,6 +402,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bottomCV" destination="6fQ-qE-raf" id="NkD-yT-BhE"/>
+                        <outlet property="cancelNotification" destination="s5w-AR-wlP" id="CoX-0F-fQJ"/>
                         <outlet property="collectionView" destination="PHI-5M-ugB" id="cna-PF-D98"/>
                         <outlet property="datePicker" destination="RzB-Z0-gB5" id="vsU-xT-qbK"/>
                         <outlet property="editButton" destination="h2s-Rh-B8Z" id="DcW-vK-Txj"/>
