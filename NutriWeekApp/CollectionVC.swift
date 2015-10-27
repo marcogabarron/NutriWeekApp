@@ -198,6 +198,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     @IBAction func datePickerAppear(sender: AnyObject) {
+        
         if(self.bottomCV.constant == 0){
             
             self.datePicker.date = self.formatTime((self.meal.hour))
@@ -218,7 +219,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
-        
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.editButton.enabled = true
+
         self.meal.hour = timePicker(self.datePicker)
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
 
