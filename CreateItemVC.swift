@@ -3,9 +3,9 @@
 import UIKit
 import CoreData
 
-protocol CreateItemVCDelegate {
-    func willComeBackFromCreateItemVC(fromSave: Bool)
-}
+//protocol CreateItemVCDelegate {
+//    func willComeBackFromCreateItemVC(fromSave: Bool)
+//}
 
 class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -26,11 +26,11 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var numberCategory: Int = 1
     
-    var delegate: CreateItemVCDelegate?
+    //var delegate: CreateItemVCDelegate?
     
     var saveClicked: Bool!
     
-    /*override func willMoveToParentViewController(parent: UIViewController?) {
+    override func willMoveToParentViewController(parent: UIViewController?) {
         super.willMoveToParentViewController(parent)
         if parent == nil && !saveClicked{
 
@@ -61,7 +61,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
             
         
         }
-    }*/
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -93,7 +93,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        delegate?.willComeBackFromCreateItemVC(saveClicked)
+       // delegate?.willComeBackFromCreateItemVC(saveClicked)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

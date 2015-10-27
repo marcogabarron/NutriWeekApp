@@ -36,6 +36,41 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     ///Relative to datePicker
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var saveClicked: Bool!
+    
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        super.willMoveToParentViewController(parent)
+        if parent == nil && !saveClicked{
+            
+            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+            let alert = UIAlertController(title: "Take one option",
+                message: "Really want to go back?",
+                preferredStyle: .Alert)
+            
+            let save = UIAlertAction(title: "Save modifications",
+                style: .Default) { (action: UIAlertAction!) -> Void in
+                    
+                    
+                    self.saveButtonClicked()
+                    
+            }
+            
+            let cancel = UIAlertAction(title: "Discard",
+                style: .Default) { (action: UIAlertAction!) -> Void in
+                    
+            }
+            presentViewController(alert,
+                animated: true,
+                completion: nil)
+            
+            
+            alert.addAction(save)
+            alert.addAction(cancel)
+            
+            
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,12 +80,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.itens = self.meal.foods
         
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     override func viewWillAppear(animated: Bool) {
 
         if(self.itens != self.meal.foods){
@@ -198,15 +233,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func save(sender: AnyObject) {
-        if(self.cancelNotification.on){
-            print("on")
-        }else{
-            print("off")
-            //        //Delete Notification
-            //        let date = NSDate()
-            //        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id! )
-            //        TodoList.sharedInstance.removeItem(todoItem)
-        }
+//        if(self.cancelNotification.on){
+//            print("on")
+//        }else{
+//            print("off")
+//            //        //Delete Notification
+//            //        let date = NSDate()
+//            //        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id! )
+//            //        TodoList.sharedInstance.removeItem(todoItem)
+//        }
 
     }
     @IBAction func datePickerAppear(sender: AnyObject) {
@@ -287,7 +322,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
                 
                 let notification = Notifications()
-                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek, dateHour: meal.hour), title: meal.name, UUID: notificationId)
+                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek[0], dateHour: meal.hour), title: meal.name, UUID: notificationId)
                 TodoList.sharedInstance.addItem(todoItem)
                 print("o switch foi ligado, criar notification\(notificationId)")
                 
