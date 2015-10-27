@@ -3,6 +3,10 @@
 import UIKit
 import CoreData
 
+protocol CreateItemVCDelegate {
+    func willComeBackFromCreateItemVC(fromSave: Bool)
+}
+
 class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     
@@ -19,41 +23,44 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var selectedCategory:String = ""
     
-    var numberCategory: Int = 0
+    var numberCategory: Int = 1
+    
+    var delegate: CreateItemVCDelegate?
     
     var saveClicked: Bool!
     
-    override func viewWillDisappear(animated: Bool) {
-        
-        if self.navigationController?.viewControllers.indexOf(self) == nil && !saveClicked {
-            
-            let alert = UIAlertView(title: "Take one option", message: "Really want to go back", delegate: nil, cancelButtonTitle: "Cancel")
-            alert.show()
-            
-        
+    /*override func willMoveToParentViewController(parent: UIViewController?) {
+        super.willMoveToParentViewController(parent)
+        if parent == nil && !saveClicked{
+
             //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-//            let alert = UIAlertController(title: "Take one option",
-//                message: "Really want to go back?",
-//                preferredStyle: .Alert)
-//            
-//            let save = UIAlertAction(title: "Save modifications",
-//                style: .Default) { (action: UIAlertAction!) -> Void in
-//            }
-//            
-//            let cancel = UIAlertAction(title: "Cancel",
-//                style: .Default) { (action: UIAlertAction!) -> Void in
-//                    
-//            }
-//            
-//            alert.addAction(save)
-//            alert.addAction(cancel)
-//        }
+                        let alert = UIAlertController(title: "Take one option",
+                            message: "Really want to go back?",
+                            preferredStyle: .Alert)
             
+                        let save = UIAlertAction(title: "Save modifications",
+                            style: .Default) { (action: UIAlertAction!) -> Void in
+                                
+                                
+                                self.saveButtonClicked()
+                                
+                        }
+            
+                        let cancel = UIAlertAction(title: "Discard",
+                            style: .Default) { (action: UIAlertAction!) -> Void in
+                                
+                        }
+            presentViewController(alert,
+                animated: true,
+                completion: nil)
+            
+            
+                        alert.addAction(save)
+                        alert.addAction(cancel)
+            
+        
         }
-        
-        super.viewWillDisappear(animated)
-        
-    }
+    }*/
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -73,7 +80,12 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         imageCategory.layer.masksToBounds = true
         imageCategory.layer.cornerRadius = imageCategory.frame.width/6
         imageCategory.layer.borderWidth = 1
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        delegate?.willComeBackFromCreateItemVC(saveClicked)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -116,9 +128,9 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     }
     
     
-    @IBAction func saveButtonClicked(sender: UIBarButtonItem) {
+    @IBAction func saveButtonClicked() {
         saveClicked = true
-        
+
         if nameTextField.text == ""{
             
             UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in

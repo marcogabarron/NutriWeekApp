@@ -354,6 +354,9 @@
                             </collectionView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
                                 <rect key="frame" x="306" y="83" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchNotificationChanged" destination="oxc-Ih-3gp" eventType="valueChanged" id="fEM-lc-A0j"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1e-FH-v8s">
                                 <rect key="frame" x="293" y="68" width="76" height="11"/>
@@ -399,6 +402,7 @@
                         <outlet property="editButton" destination="h2s-Rh-B8Z" id="DcW-vK-Txj"/>
                         <outlet property="hour" destination="AvH-lD-lwI" id="onG-hG-ByX"/>
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
+                        <outlet property="notificationSwitch" destination="s5w-AR-wlP" id="ueu-vw-I1q"/>
                         <outlet property="refeicao" destination="5cy-DT-Eq6" id="b9c-LT-hRq"/>
                         <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="vUv-t4-hOd"/>
                     </connections>
@@ -862,13 +866,8 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-<<<<<<< HEAD
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-kL-70l">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-kL-70l">
                                                             <rect key="frame" x="79" y="0.0" width="37" height="36"/>
-=======
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-kL-70l">
-                                                            <rect key="frame" x="78.5" y="0.0" width="36.5" height="36"/>
->>>>>>> 2da7f66f08a67974ed5fa8d43e3fd28559317de5
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="eRI-kL-70l" secondAttribute="height" multiplier="36:35" id="yp1-Ui-BHh"/>
                                                             </constraints>
@@ -1191,7 +1190,7 @@
         <image name="noImage" width="564" height="280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0MD-79-vIg"/>
+        <segue reference="tEw-8l-R7X"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

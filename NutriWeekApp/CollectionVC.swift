@@ -12,6 +12,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     @IBOutlet weak var refeicao: UINavigationItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var notificationSwitch: UISwitch!
+    
     var colorImage = UIColor.blackColor().CGColor
     
     
@@ -193,6 +195,34 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBAction func save(sender: AnyObject) {
         
     }
+    
+    @IBAction func switchNotificationChanged(){
+        
+        let notificationId: String = meal.id!
+        
+        if !notificationSwitch.on{
+        let date = NSDate()
+        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
+        TodoList.sharedInstance.removeItem(todoItem)
+            
+            print("o switch foi desligado, excluir notification \(notificationId)")
+            
+        }else {
+            
+            if notificationSwitch.on{
+                
+                
+                let notification = Notifications()
+                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek, dateHour: meal.hour), title: meal.name, UUID: notificationId)
+                TodoList.sharedInstance.addItem(todoItem)
+                print("o switch foi ligado, criar notification\(notificationId)")
+                
+            }
+            
+            
+        }
+    }
+    
     
     //MARK - Prepare for segue
     /** Prepare for Segue to Edit page -- pass the uuid information from cell clicked  **/
