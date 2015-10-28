@@ -34,6 +34,9 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
 //        self.view.backgroundColor = UIColor.whiteColor()
         self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.5)
         
+        self.collectionView.layer.masksToBounds = true
+        self.collectionView.layer.cornerRadius = self.collectionView.frame.height/5
+        
         
         let tap = UITapGestureRecognizer(target: self, action: "bringImageToFront:")
         tap.numberOfTapsRequired = 1
@@ -72,6 +75,8 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
         cell.image.layer.masksToBounds = true
         cell.image.layer.cornerRadius = cell.frame.width/3
+        
+        cell.checkImage.hidden = true
         
         return cell
         
