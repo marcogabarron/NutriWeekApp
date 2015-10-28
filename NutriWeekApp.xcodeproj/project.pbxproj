@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		433C44201BE12945003AE48C /* ChangeFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 433C441F1BE12945003AE48C /* ChangeFoodVC.swift */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
 		C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTVC.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		433C441F1BE12945003AE48C /* ChangeFoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFoodVC.swift; sourceTree = "<group>"; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
 		C20B11381B4C41A800A232AC /* WeeksTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTVC.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */,
 				C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */,
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
+				433C441F1BE12945003AE48C /* ChangeFoodVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				C246E4171BD950990068ED68 /* Meal.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
+				433C44201BE12945003AE48C /* ChangeFoodVC.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				C246E4191BD951A60068ED68 /* Food.swift in Sources */,
 				DA8110801BD565C800632A40 /* CreateItemVC.swift in Sources */,
