@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class SelectedFoodsVC: UIViewController, UICollectionViewDataSource, CreateItemVCDelegate {
+//colocar creteitemVC delegate se for o caso
+class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
 
     ///Save Button
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -242,43 +242,18 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource, CreateItemV
         return boolean
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "New") {
-            let destinationViewController = segue.destinationViewController as! CreateItemVC
-            
-            destinationViewController.delegate = self
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if (segue.identifier == "New") {
+//            let destinationViewController = segue.destinationViewController as! CreateItemVC
+//            
+//            destinationViewController.delegate = self
+//        }
+//    }
     
-    func willComeBackFromCreateItemVC(fromSave: Bool) {
-        if !fromSave {
-            // exibir alert
-            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-                                    let alert = UIAlertController(title: "Take one option",
-                                        message: "Really want to go back?",
-                                        preferredStyle: .Alert)
-            
-                                    let save = UIAlertAction(title: "Save modifications",
-                                        style: .Default) { (action: UIAlertAction!) -> Void in
-            
-            
-                                           // self.saveButtonClicked()
-            
-                                    }
-            
-                                    let cancel = UIAlertAction(title: "Discard",
-                                        style: .Default) { (action: UIAlertAction!) -> Void in
-            
-                                    }
-                        presentViewController(alert,
-                            animated: true,
-                            completion: nil)
-                        
-                        
-                                    alert.addAction(save)
-                                    alert.addAction(cancel)
-            
-        }
-    }
+//    func willComeBackFromCreateItemVC(fromSave: Bool) {
+//        if !fromSave {
+//            // exibir alert
+//        }
+//    }
     
 }
