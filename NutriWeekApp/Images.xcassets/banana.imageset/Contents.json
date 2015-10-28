@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "Banana_caturra.JPG"
+      "filename" : "banana.jpg",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
