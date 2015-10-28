@@ -161,12 +161,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(indexPath.row == self.itens.count){
             self.performSegueWithIdentifier("Add", sender: self)
         }
-        
-        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
-
-        self.dell = false
-        
-        self.stopShakingIcons(cell.layer)
+        else if self.dell {
+            let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
+            
+            self.dell = false
+            
+            self.stopShakingIcons(cell.layer)
+        }
+        else {
+            self.performSegueWithIdentifier("ChangeFood", sender: indexPath)
+        }
         
         self.collectionView.reloadData()
     }
@@ -435,9 +439,32 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Add") {
             let destinationViewController = segue.destinationViewController as! SelectedFoodsVC
-          
+            
             destinationViewController.meal = self.meal
         }
+        else if (segue.identifier == "ChangeFood") {
+            let destinationViewController = segue.destinationViewController as! ChangeFoodVC
+            
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeFoodDismiss", name: "ChangeFoodDismiss", object: nil)
+            
+            destinationViewController.view.frame = CGRectInset(destinationViewController.view.frame, 100, 50);
+            
+            
+            let indexPath = sender as! NSIndexPath
+            let foodSelected = itens[indexPath.row]
+            
+            destinationViewController.itens = ItemCardapioServices.findItemCardapioByCategory(foodSelected.categoria)
+            destinationViewController.selectedItemIndex = indexPath.row
+            destinationViewController.meal = self.meal
+        }
+    }
+    
+    func changeFoodDismiss() {
+        self.itens = self.meal.foods
+        self.collectionView.reloadData()
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ChangeFoodDismiss", object: nil)
     }
 
 }
