@@ -656,7 +656,7 @@
                     <navigationItem key="navigationItem" title="New Item" id="6GT-Si-qNj">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="mKN-Va-qNY">
                             <connections>
-                                <action selector="saveButtonClicked:" destination="3oe-J8-4c6" id="eDc-YY-F4c"/>
+                                <action selector="saveButtonClicked" destination="3oe-J8-4c6" id="y5S-f5-2L8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

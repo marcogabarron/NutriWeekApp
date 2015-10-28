@@ -155,8 +155,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
                 
             }else{
                 
-                cell.checkImage.image = UIImage(named: "logo")
-                cell.checkImage.layer.masksToBounds = true
+                cell.checkImage.hidden = false
                 
                 //Animation to grow and back to normal size when selected or deselected
                 UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
@@ -196,8 +195,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
                 //go to selected
                 self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
             }else{
-                cell.checkImage.image = UIImage(named: "")
-                cell.checkImage.layer.masksToBounds = true
+                cell.checkImage.hidden = true
                 
                 //Animation to grow and back to normal size when selected or deselected
                 UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in

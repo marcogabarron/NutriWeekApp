@@ -345,11 +345,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 //                completion: nil)
 //        }
     }
-    //Final func save button
-    //
-    //
-    //
-    //
+
     
     @IBAction func datePickerAppear(sender: AnyObject) {
         

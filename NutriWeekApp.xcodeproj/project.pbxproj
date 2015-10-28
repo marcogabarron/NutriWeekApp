@@ -22,6 +22,7 @@
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
 		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
+		C2A0F6491BE12602007EA3AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A0F6481BE12602007EA3AD /* Images.xcassets */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F175361BD555E5000B2A3E /* ItemCardapio.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
@@ -40,7 +41,6 @@
 		DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */; };
 		DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1661B3D7549003829BF /* AppDelegate.swift */; };
 		DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */; };
-		DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A1701B3D7549003829BF /* Images.xcassets */; };
 		DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A1721B3D7549003829BF /* LaunchScreen.xib */; };
 		DAD5A1801B3D7549003829BF /* NutriWeekAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A17F1B3D7549003829BF /* NutriWeekAppTests.swift */; };
 		DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A18A1B3D76AA003829BF /* RefeicaoDAO.swift */; };
@@ -86,6 +86,7 @@
 		C29A78061B593D1F00E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C29A78071B5949B100E055DF /* AlimentosEn.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEn.txt; sourceTree = "<group>"; };
 		C2A0093B1B56C4E500F4A914 /* EditVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
+		C2A0F6481BE12602007EA3AD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C2A5B1731B5F43A300C7EAB1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2F175361BD555E5000B2A3E /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../ItemCardapio.swift; sourceTree = "<group>"; };
@@ -127,7 +128,6 @@
 		DAD5A1611B3D7549003829BF /* NutriWeekApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriWeekApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5A1661B3D7549003829BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAD5A1691B3D7549003829BF /* NutriWeekApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutriWeekApp.xcdatamodel; sourceTree = "<group>"; };
-		DAD5A1701B3D7549003829BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DAD5A1791B3D7549003829BF /* NutriWeekAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NutriWeekAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD5A17E1B3D7549003829BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAD5A17F1B3D7549003829BF /* NutriWeekAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriWeekAppTests.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 				DAD5A1951B3D76D6003829BF /* Services */,
 				DAD5A1891B3D76AA003829BF /* Persistence */,
 				DAD5A1661B3D7549003829BF /* AppDelegate.swift */,
-				DAD5A1701B3D7549003829BF /* Images.xcassets */,
+				C2A0F6481BE12602007EA3AD /* Images.xcassets */,
 				DAD5A1681B3D7549003829BF /* NutriWeekApp.xcdatamodeld */,
 				DAD5A1641B3D7549003829BF /* Supporting Files */,
 			);
@@ -410,6 +410,7 @@
 				C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
 				DAC4676F1B6BC09100F56E67 /* Page1-Tutorial.xib in Resources */,
+				C2A0F6491BE12602007EA3AD /* Images.xcassets in Resources */,
 				DAC467881B6BC26900F56E67 /* Page6-Tutorial.xib in Resources */,
 				DAC4677E1B6BC1A300F56E67 /* Page4-Tutorial.xib in Resources */,
 				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
@@ -417,7 +418,6 @@
 				DAC467791B6BC18600F56E67 /* Page3-Tutorial.xib in Resources */,
 				DAC467831B6BC20A00F56E67 /* Page5-Tutorial.xib in Resources */,
 				DAC467741B6BC14300F56E67 /* Page2-Tutorial.xib in Resources */,
-				DAD5A1711B3D7549003829BF /* Images.xcassets in Resources */,
 				C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
