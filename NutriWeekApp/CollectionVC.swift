@@ -232,11 +232,125 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         layer.removeAnimationForKey("shaking")
     }
     
+    //botão save clicked
+    //
+    //
+    //
+    //
+    
     @IBAction func save() {
         
         self.saveClicked = true
-
+//        
+//        let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
+//        var quantityVerify: Bool = false
+//        
+//        if allRefWithSameName.count > 1{
+//            quantityVerify = true
+//        }
+//        
+//        
+//        //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+//        let alert = UIAlertController(title: "Take one option",
+//            message: "This is a repeating event",
+//            preferredStyle: .Alert)
+//        
+//                //Animation to show there are name already existing in the database
+//                if(RefeicaoServices.findByNameBool(self.meal.name) == true){
+//          
+//                }else{
+//                    
+//                    let allDaysAction = UIAlertAction(title: "Save for all days",
+//                        style: .Default) { (action: UIAlertAction!) -> Void in
+//                            
+//                            print("Salve para todos os dias")
+//                            
+//                            //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
+//                            //delete notifications that refer a meal
+//                            for ref in allRefWithSameName{
+//                                let date = NSDate()
+//                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+//                                TodoList.sharedInstance.removeItem(todoItem)
+//                                
+//                                let notification = Notifications()
+//                                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
+//                                TodoList.sharedInstance.addItem(todoItem2)
+//                                
+//                                RefeicaoServices.editRefeicao(ref, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: ref.diaSemana, items: self.selectedItens)
+//                                
+//                            }
+//                            self.navigationController?.popViewControllerAnimated(true)
+//                            
+//                    }
+//                    
+//                    let saveOnlyAction = UIAlertAction(title: "Save only the selected days",
+//                        style: .Default) { (action: UIAlertAction!) -> Void in
+//                            //It is delete and create notification - need to change
+//                            let uid: String = self.refeicao.uuid
+//                            
+//                            let date = NSDate()
+//                            let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid)
+//                            TodoList.sharedInstance.removeItem(todoItem)
+//                            
+//                            let notification = Notifications()
+//                            let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.refeicao.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+//                            TodoList.sharedInstance.addItem(todoItem2)
+//                            
+//                            if(self.nameTextField.text! == self.refeicao.name){
+//                                //edit MEAL name
+//                                var number: Int = 1
+//                                
+//                                while( RefeicaoServices.findByNameBool(self.nameTextField.text! + String(number))){
+//                                    number++
+//                                }
+//                                RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text! + String(number), horario: self.TimePicker(self.horario), diaSemana: self.refeicao.diaSemana, items: self.selectedItens)
+//                                
+//                            }else{
+//                                RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: self.refeicao.diaSemana, items: self.selectedItens)
+//                            }
+//                            
+//                            
+//                            self.navigationController?.popViewControllerAnimated(true)
+//                            
+//                    }
+//                    if quantityVerify == true {
+//                        alert.addAction(allDaysAction)
+//                        alert.addAction(saveOnlyAction)
+//                    }else{
+//                        //It is delete and create notification - need to change
+//                        let uid: String = self.refeicao.uuid
+//                        
+//                        let date = NSDate()
+//                        let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid)
+//                        TodoList.sharedInstance.removeItem(todoItem)
+//                        
+//                        let notification = Notifications()
+//                        let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.refeicao.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+//                        TodoList.sharedInstance.addItem(todoItem2)
+//                        
+//                        //edit MEAL
+//                        RefeicaoServices.editRefeicao(self.refeicao, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: self.refeicao.diaSemana, items: self.selectedItens)
+//                        
+//                        self.navigationController?.popViewControllerAnimated(true)
+//                        
+//                    }
+//                    
+//                }
+//            }
+//        }else{
+//        }
+//        if quantityVerify == true {
+//            presentViewController(alert,
+//                animated: true,
+//                completion: nil)
+//        }
     }
+    //Final func save button
+    //
+    //
+    //
+    //
+    
     @IBAction func datePickerAppear(sender: AnyObject) {
         
         if(self.bottomCV.constant == 0){
