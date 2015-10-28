@@ -3,6 +3,11 @@
 import UIKit
 import CoreData
 
+protocol CreateItemVCDelegate {
+    func willComeBackFromCreateItemVC(fromSave: Bool)
+   // func saveItemVC(name: String, image: String, category: String)
+}
+
 class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
     
@@ -20,11 +25,53 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var selectedCategory:String = ""
     
-    var numberCategory: Int = 0
+    var numberCategory: Int = 1
+    
+    var delegate: CreateItemVCDelegate?
+    
+    var saveClicked: Bool!
+    
+//    override func willMoveToParentViewController(parent: UIViewController?) {
+//        super.willMoveToParentViewController(parent)
+//        if parent == nil && !saveClicked{
+//
+//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+//                        let alert = UIAlertController(title: "Take one option",
+//                            message: "Really want to go back?",
+//                            preferredStyle: .Alert)
+//            
+//                        let save = UIAlertAction(title: "Save modifications",
+//                            style: .Default) { (action: UIAlertAction!) -> Void in
+//                                
+//                                
+//                                self.saveButtonClicked()
+//                                
+//                        }
+//            
+//                        let cancel = UIAlertAction(title: "Discard",
+//                            style: .Default) { (action: UIAlertAction!) -> Void in
+//                                
+//                        }
+//            presentViewController(alert,
+//                animated: true,
+//                completion: nil)
+//            
+//            
+//                        alert.addAction(save)
+//                        alert.addAction(cancel)
+//            
+//        
+//        }
+//    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveClicked = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.nameTextField.delegate = self
         
         self.nameTextField.placeholder = NSLocalizedString("Nome do Item", comment: "")
@@ -42,7 +89,12 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         imageCategory.layer.masksToBounds = true
         imageCategory.layer.cornerRadius = imageCategory.frame.width/6
         imageCategory.layer.borderWidth = 1
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         
+        delegate?.willComeBackFromCreateItemVC(saveClicked)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -86,8 +138,9 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     }
     
     
-    @IBAction func saveButtonClicked(sender: UIBarButtonItem) {
-        
+    @IBAction func saveButtonClicked() {
+        saveClicked = true
+
         if nameTextField.text == ""{
             
             UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
@@ -106,11 +159,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
             })
         })
         
-        }else{
+        } else {
+            //colocar função para criar item no core Data
+            ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)", category: selectedCategory)
+                self.navigationController?.popViewControllerAnimated(true)
+            
+        }
     
-        //colocar função para criar item no core Data
-        ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)", category: selectedCategory)
-            }
+    }
     
-}
 }
