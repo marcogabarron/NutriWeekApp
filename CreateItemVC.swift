@@ -3,10 +3,10 @@
 import UIKit
 import CoreData
 
-protocol CreateItemVCDelegate {
-    func willComeBackFromCreateItemVC(fromSave: Bool)
-   // func saveItemVC(name: String, image: String, category: String)
-}
+//protocol CreateItemVCDelegate {
+//    func willComeBackFromCreateItemVC(fromSave: Bool)
+//   // func saveItemVC(name: String, image: String, category: String)
+//}
 
 class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -27,9 +27,9 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var numberCategory: Int = 1
     
-    var delegate: CreateItemVCDelegate?
+    //var delegate: CreateItemVCDelegate?
     
-    var saveClicked: Bool!
+    //var saveClicked: Bool!
     
 //    override func willMoveToParentViewController(parent: UIViewController?) {
 //        super.willMoveToParentViewController(parent)
@@ -66,7 +66,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
-        saveClicked = false
+        //saveClicked = false
     }
     
     override func viewDidLoad() {
@@ -94,7 +94,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        delegate?.willComeBackFromCreateItemVC(saveClicked)
+        //delegate?.willComeBackFromCreateItemVC(saveClicked)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -139,7 +139,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     
     @IBAction func saveButtonClicked() {
-        saveClicked = true
+        //saveClicked = true
 
         if nameTextField.text == ""{
             

@@ -36,40 +36,40 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     ///Relative to datePicker
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    var saveClicked: Bool!
+    var saveClicked: Bool! = false
     
-//    override func willMoveToParentViewController(parent: UIViewController?) {
-//        super.willMoveToParentViewController(parent)
-//        if parent == nil && !saveClicked{
-//            
-//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-//            let alert = UIAlertController(title: "Take one option",
-//                message: "Really want to go back?",
-//                preferredStyle: .Alert)
-//            
-//            let save = UIAlertAction(title: "Save modifications",
-//                style: .Default) { (action: UIAlertAction!) -> Void in
-//                    
-//                    
-//                    self.saveButtonClicked()
-//                    
-//            }
-//            
-//            let cancel = UIAlertAction(title: "Discard",
-//                style: .Default) { (action: UIAlertAction!) -> Void in
-//                    
-//            }
-//            presentViewController(alert,
-//                animated: true,
-//                completion: nil)
-//            
-//            
-//            alert.addAction(save)
-//            alert.addAction(cancel)
-//            
-//            
-//        }
-//    }
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        super.willMoveToParentViewController(parent)
+        if parent == nil && !saveClicked && self.editButton.enabled{
+            
+            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+            let alert = UIAlertController(title: "Take one option",
+                message: "Really want to go back?",
+                preferredStyle: .Alert)
+            
+            let save = UIAlertAction(title: "Save modifications",
+                style: .Default) { (action: UIAlertAction!) -> Void in
+                    
+                    
+                    self.save()
+                    
+            }
+            
+            let cancel = UIAlertAction(title: "Discard",
+                style: .Default) { (action: UIAlertAction!) -> Void in
+                    
+            }
+            presentViewController(alert,
+                animated: true,
+                completion: nil)
+            
+            
+            alert.addAction(save)
+            alert.addAction(cancel)
+            
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -232,7 +232,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         layer.removeAnimationForKey("shaking")
     }
     
-    @IBAction func save(sender: AnyObject) {
+    @IBAction func save() {
+        
+        self.saveClicked = true
 
     }
     @IBAction func datePickerAppear(sender: AnyObject) {
