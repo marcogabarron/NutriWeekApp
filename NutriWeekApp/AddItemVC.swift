@@ -32,7 +32,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     }
     
     override func viewWillAppear(animated: Bool) {
-        if(self.meal.foods.count > 1){
+        if(self.meal.foods.count >= 1){
             self.navigationController?.popViewControllerAnimated(true)
 
         }
