@@ -15,6 +15,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     @IBOutlet weak var notificationSwitch: UISwitch!
 
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     var colorImage = UIColor.blackColor().CGColor
     
     
@@ -49,10 +50,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             let save = UIAlertAction(title: "Save modifications",
                 style: .Default) { (action: UIAlertAction!) -> Void in
-                    
-                    
                     self.save()
-                    
             }
             
             let cancel = UIAlertAction(title: "Discard",
@@ -95,6 +93,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             self.editButton.enabled = true
 
         }
+        
+        self.tapGesture.enabled = false
         
         //Get Refeicao`s name and time
         self.name.text = self.meal.name
@@ -139,7 +139,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 cell.dellButton.hidden = false
                 cell.dellButton.addTarget(self, action: "deleteButton:", forControlEvents: UIControlEvents.TouchUpInside)
                 self.shakeIcons(cell.layer)
-
+                self.tapGesture.enabled = true
+                
             }else{
                 cell.dellButton.hidden = true
 
@@ -150,11 +151,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         cell.dellButton.layer.setValue(indexPath, forKey: "index")
         
-        
         return cell
         
     }
-    
+
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.row == self.itens.count){
             self.performSegueWithIdentifier("Add", sender: self)
@@ -174,7 +174,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     //MARK: Logic Functions
-    
+
     //Checks whether the item is selected
     func isSelected(itemNew: ItemCardapio)->Bool{
         var boolean : Bool = false
@@ -233,12 +233,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func stopShakingIcons(layer: CALayer) {
         layer.removeAnimationForKey("shaking")
     }
-    
-    //botão save clicked
-    //
-    //
-    //
-    //
     
     @IBAction func save() {
         
@@ -384,6 +378,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.editButton.enabled = true
     }
     
+    @IBAction func atopShaking(sender: AnyObject) {
+        self.dell = false
+        self.collectionView.reloadData()
+    }
     /** Get datePicker and returns a string formatted to save Refeicao **/
     func timePicker(sender: UIDatePicker) -> String{
         

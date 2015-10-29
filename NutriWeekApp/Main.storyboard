@@ -364,6 +364,7 @@
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="s5w-AR-wlP" firstAttribute="top" secondItem="mj6-DZ-Sgi" secondAttribute="bottom" constant="19" id="6Iq-qK-XR3"/>
                             <constraint firstItem="PHI-5M-ugB" firstAttribute="leading" secondItem="IRe-0O-Qyc" secondAttribute="leading" constant="3" id="6Yk-68-Krt"/>
@@ -410,11 +411,17 @@
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
                         <outlet property="notificationSwitch" destination="s5w-AR-wlP" id="ueu-vw-I1q"/>
                         <outlet property="refeicao" destination="5cy-DT-Eq6" id="b9c-LT-hRq"/>
+                        <outlet property="tapGesture" destination="aye-d7-YPy" id="kxE-tk-mrr"/>
                         <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="vUv-t4-hOd"/>
                         <segue destination="FoE-M3-xpS" kind="presentation" identifier="ChangeFood" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Fve-WF-Mtp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6h3-b7-k1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aye-d7-YPy">
+                    <connections>
+                        <action selector="atopShaking:" destination="oxc-Ih-3gp" id="e9d-eu-xmz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1589.5" y="-811.5"/>
         </scene>
@@ -587,7 +594,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXo-vG-7cN">
-                                <rect key="frame" x="137" y="577" width="100" height="56"/>
+                                <rect key="frame" x="-0.5" y="577" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="kf2-ry-Br8"/>
                                     <constraint firstAttribute="height" constant="56" id="pBU-66-vlB"/>
@@ -595,9 +602,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="kf2-ry-Br8"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wjk-RY-Vvb">
-                                <rect key="frame" x="0.0" y="194.5" width="375" height="188"/>
+                                <rect key="frame" x="0.0" y="194" width="375" height="188"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="DzK-R2-daG"/>
                                     <constraint firstAttribute="height" constant="188" id="JxA-Eb-zc9"/>
@@ -634,6 +646,7 @@
                             <constraint firstItem="yPt-Qe-9JQ" firstAttribute="top" secondItem="rNn-fU-SQx" secondAttribute="bottom" constant="54" id="bLT-Cx-9Qm"/>
                             <constraint firstItem="ngw-Zr-kD0" firstAttribute="top" secondItem="DIe-Ht-FYl" secondAttribute="bottom" constant="350" id="czs-MC-MJE"/>
                             <constraint firstItem="yPt-Qe-9JQ" firstAttribute="leading" secondItem="5XS-HU-2Vh" secondAttribute="leading" constant="33" id="nfl-uf-1hn"/>
+                            <constraint firstItem="AXo-vG-7cN" firstAttribute="width" secondItem="5XS-HU-2Vh" secondAttribute="width" id="oeo-SV-gs9"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="top" secondItem="yPt-Qe-9JQ" secondAttribute="bottom" constant="8" symbolic="YES" id="qOK-Fg-lQw"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="top" secondItem="yPt-Qe-9JQ" secondAttribute="bottom" constant="8" id="skF-3c-Dw4"/>
                             <constraint firstItem="Wjk-RY-Vvb" firstAttribute="top" secondItem="yPt-Qe-9JQ" secondAttribute="bottom" constant="16" id="uEw-aY-L83"/>
@@ -672,6 +685,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1RQ-zO-Owi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VUn-Ju-ap6">
+                    <connections>
+                        <action selector="onTapped:" destination="3oe-J8-4c6" id="eRQ-Wa-ioy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2975.5" y="-761.5"/>
         </scene>
@@ -1330,7 +1348,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="436" height="275"/>
+        <image name="1" width="276" height="183"/>
         <image name="Camera-50" width="32" height="32"/>
         <image name="Meal-50" width="30" height="30"/>
         <image name="Service Bell-50" width="32" height="32"/>
