@@ -108,7 +108,7 @@
 {
 "Nome": "Tomate",
 "Imagem": "tomato.jpg",
-"Category": "Fruta"
+"Category": "Vegetais"
 },
 {
 "Nome": "Arroz Branco",
@@ -123,7 +123,7 @@
 {
 "Nome": "Água",
 "Imagem": "water.jpg",
-"Category": "Água"
+"Category": "Agua"
 },
 {
 "Nome": "Banana",
@@ -233,7 +233,7 @@
 {
 "Nome" : "Espinafre",
 "Imagem": "spinach.jpg",
-"Category": "Carne Vermelha"
+"Category": "Vegetais"
 },
 {
 "Nome" : "Peito de Peru",

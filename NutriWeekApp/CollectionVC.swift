@@ -137,9 +137,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             if(dell == true){
                 cell.dellButton.hidden = false
-                
                 cell.dellButton.addTarget(self, action: "deleteButton:", forControlEvents: UIControlEvents.TouchUpInside)
-                
                 self.shakeIcons(cell.layer)
 
             }else{

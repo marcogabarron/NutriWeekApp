@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  NutriWeekApp
+
+  Created by Vítor Machado Rocha on 16/07/15.
+  Copyright (c) 2015 Gabarron. All rights reserved.
+*/
+"Dias da Semana" = "Dias da Semana";
+"Domingo" = "Domingo";
+"Segunda" = "Segunda";
+"Terça" = "Terça";
+"Quarta" = "Quarta";
+"Quinta" = "Quinta";
+"Sexta" = "Sexta";
+"Sábado" = "Sábado";
+"Repetir" = "Repetir";
+"Salvar" = "Salvar";
+"Editar" = "Editar";
+"Todos os dias" = "Todos os dias";
+"seg" = "seg";
+"ter" = "ter";
+"qua" = "qua";
+"qui" = "qui";
+"sex" = "sex";
+"sab" = "sab";
+"dom" = "dom";
+"Refeição" = "Refeição";
+"Alimentos" = "Alimentos";
+"Nome da Refeição" = "Nome da Refeição";
+"*Use outro nome" = "*Use outro nome";
+"Pães e Massas" = "Pães e Massas";
+"Frutas" = "Frutas";
+"Líquido" = "Líquido";
+"Leite" = "Leite";
+"Feijão" = "Feijão";
+"Ovo" = "Ovo";
+"Legume" = "Legume";
+"Grão" = "Grão";
+"Frios" = "Frios";
+"Carne Branca" = "Carne Branca";
+"Carne Vermelha" = "Carne Vermelha";
+"Vegetais" = "Vegetais";
+"Arroz" = "Arroz";
+"Água" = "Água";
+"Café" = "Café";
+"Farofa" = "Farofa";
+"Massa" = "Massa";
+"Soja" = "Soja";
+"Molho" = "Molho";
+"Nome do Item" = "Nome do Item";
+"Selecione uma categoria:" = "Selecione uma categoria:";

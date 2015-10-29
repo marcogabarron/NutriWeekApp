@@ -108,7 +108,7 @@
 {
 "Nome": "Tomato",
 "Imagem": "tomato.jpg",
-"Category": "Fruit"
+"Category": "Vegetable"
 },
 {
 "Nome" : "White Rice",
@@ -233,7 +233,7 @@
 {
 "Nome" : "Spinach",
 "Imagem": "spinach.jpg",
-"Category": "Red Meat"
+"Category": "Vegetable"
 },
 {
 "Nome" : "Turkey Breast",

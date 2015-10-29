@@ -264,7 +264,7 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yA7-WC-ffX">
-                                                            <rect key="frame" x="39" y="109" width="42" height="18"/>
+                                                            <rect key="frame" x="5" y="109" width="110" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="8Rm-Js-ovV"/>
                                                                 <constraint firstAttribute="width" constant="42" id="PPk-T7-JhY"/>
@@ -288,6 +288,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="yA7-WC-ffX" firstAttribute="width" secondItem="bHQ-Wq-7Ty" secondAttribute="width" id="3wX-8m-sBl"/>
                                                         <constraint firstItem="bHQ-Wq-7Ty" firstAttribute="top" secondItem="aIa-jl-SBM" secondAttribute="top" id="8I9-Il-UxI"/>
                                                         <constraint firstItem="4N9-To-yYL" firstAttribute="leading" secondItem="aIa-jl-SBM" secondAttribute="leading" id="GCw-Gf-FdL"/>
                                                         <constraint firstAttribute="bottom" secondItem="yA7-WC-ffX" secondAttribute="bottom" id="Kz6-Fp-U2V"/>
