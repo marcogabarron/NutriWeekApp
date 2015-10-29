@@ -834,8 +834,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEH-JP-9m1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="A8y-Gw-cR8">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ovN-vo-NoL">
-                                <rect key="frame" x="27.5" y="167" width="319" height="333.5"/>
+                                <rect key="frame" x="28" y="167" width="319" height="333.5"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="scrollIndicatorInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="KTk-2F-O1i">
@@ -870,7 +878,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="zuI-RI-3PI">
-                                                            <rect key="frame" x="58.5" y="0.0" width="26.5" height="26"/>
+                                                            <rect key="frame" x="58" y="0.0" width="26.5" height="26"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="zuI-RI-3PI" secondAttribute="height" multiplier="36:35" id="ysf-oV-gYD"/>
                                                             </constraints>
@@ -932,11 +940,15 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="0Uw-BK-Tk4" firstAttribute="top" secondItem="GEH-JP-9m1" secondAttribute="bottom" id="0qn-Vr-7mx"/>
                             <constraint firstItem="ovN-vo-NoL" firstAttribute="width" secondItem="hzk-O4-bWi" secondAttribute="width" multiplier="0.85" id="43E-pa-2nb"/>
+                            <constraint firstAttribute="trailing" secondItem="GEH-JP-9m1" secondAttribute="trailing" id="H3j-hY-hEZ"/>
                             <constraint firstItem="ovN-vo-NoL" firstAttribute="centerY" secondItem="hzk-O4-bWi" secondAttribute="centerY" id="LCJ-gc-evM"/>
                             <constraint firstItem="ovN-vo-NoL" firstAttribute="height" secondItem="hzk-O4-bWi" secondAttribute="height" multiplier="0.5" id="U99-X2-eDw"/>
+                            <constraint firstItem="GEH-JP-9m1" firstAttribute="leading" secondItem="hzk-O4-bWi" secondAttribute="leading" id="fDn-Fo-qjR"/>
+                            <constraint firstItem="GEH-JP-9m1" firstAttribute="top" secondItem="HmN-FN-bvh" secondAttribute="bottom" id="oyM-fl-Jxt"/>
                             <constraint firstItem="ovN-vo-NoL" firstAttribute="centerX" secondItem="hzk-O4-bWi" secondAttribute="centerX" id="vC3-4W-rya"/>
                         </constraints>
                     </view>

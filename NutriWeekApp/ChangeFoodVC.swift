@@ -29,15 +29,6 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.size.width / 2, height: self.view.frame.size.height / 2))
-        
-//        self.view.backgroundColor = UIColor.whiteColor()
-        self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.5)
-        
-        self.collectionView.layer.masksToBounds = true
-        self.collectionView.layer.cornerRadius = self.collectionView.frame.height/5
-        
-        
         let tap = UITapGestureRecognizer(target: self, action: "bringImageToFront:")
         tap.numberOfTapsRequired = 1
         tap.delegate = self
@@ -50,6 +41,10 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.view.frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.size.width / 2, height: self.view.frame.size.height / 2))
+        
+        self.collectionView.layer.masksToBounds = true
+        self.collectionView.layer.cornerRadius = self.collectionView.frame.height/5
         
         //allows multiple selections
         self.collectionView.allowsMultipleSelection = true
