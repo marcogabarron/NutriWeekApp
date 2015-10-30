@@ -10,41 +10,43 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
+    //important for translation
     @IBOutlet weak var refeicao: UINavigationItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
+    //datas saved before
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var hour: UIButton!
+    
+    //important for change when the date picker appear - animation
     @IBOutlet weak var bottomCV: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
-    var colorImage = UIColor.blackColor().CGColor
     
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     var notification = Notifications()
     
-    var dell: Bool = false
-    
-    ///Get the uuid of choosed Refeicao
+    //Get the uuid of choosed Refeicao
     var meal: Meal!
 
+    //booleans for logics
     var saveClicked: Bool! = false
+    var dell: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //when there is nothing to change - not appear
         self.editButton.title = NSLocalizedString("", comment: "")
-        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
         self.editButton.enabled = false
-        self.itens = self.meal.foods
         
-        let tap = UITapGestureRecognizer(target: self, action: "stopShaking:")
-        tap.numberOfTapsRequired = 1
-        tap.delegate = self
-        self.view.addGestureRecognizer(tap)
+        //translation
+        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
+        
+        //items received foods of meal
+        self.itens = self.meal.foods
         
     }
 
@@ -65,10 +67,19 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //Get Refeicao`s name and time
         self.name.text = self.meal.name
+    
+        //Get Time
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
         
         //allows multiple selections
         self.collectionView.allowsMultipleSelection = true
+        
+        
+        //tap to stop shaking - if there are shaking
+        let tap = UITapGestureRecognizer(target: self, action: "stopShaking:")
+        tap.numberOfTapsRequired = 1
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
         
         self.collectionView.reloadData()
         
