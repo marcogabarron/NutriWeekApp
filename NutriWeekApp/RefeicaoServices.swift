@@ -26,6 +26,13 @@ class RefeicaoServices
     /**edit datas from the Entity Refeicao - if different**/
     static func editRefeicao(refeicao: Refeicao, name: String, horario: String, diaSemana: String, items: [ItemCardapio])
     {
+        RefeicaoServices.editRefeicao(refeicao, name: name, horario: horario, diaSemana: diaSemana, items: items, uuid: refeicao.uuid)
+        
+    }
+    
+    /**edit datas from the Entity Refeicao - if different**/
+    static func editRefeicao(refeicao: Refeicao, name: String, horario: String, diaSemana: String, items: [ItemCardapio], uuid: String)
+    {
         if(refeicao.name != name){
             refeicao.name = name
         }
