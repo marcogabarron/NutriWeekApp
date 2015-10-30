@@ -337,7 +337,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
                                 <rect key="frame" x="310" y="83" width="51" height="31"/>
                                 <connections>
-                                    <action selector="switchNotificationChanged" destination="oxc-Ih-3gp" eventType="valueChanged" id="fEM-lc-A0j"/>
+                                    <action selector="switchNotificationChanged:" destination="oxc-Ih-3gp" eventType="valueChanged" id="3WL-0W-wAX"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-MK-TVd">
@@ -409,7 +409,6 @@
                         <outlet property="editButton" destination="h2s-Rh-B8Z" id="DcW-vK-Txj"/>
                         <outlet property="hour" destination="Akj-MK-TVd" id="qa4-KH-R7f"/>
                         <outlet property="name" destination="NLg-S9-Pih" id="I4N-mH-Pu8"/>
-                        <outlet property="notificationSwitch" destination="s5w-AR-wlP" id="ueu-vw-I1q"/>
                         <outlet property="refeicao" destination="5cy-DT-Eq6" id="b9c-LT-hRq"/>
                         <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="vUv-t4-hOd"/>
                         <segue destination="FoE-M3-xpS" kind="presentation" identifier="ChangeFood" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Fve-WF-Mtp"/>

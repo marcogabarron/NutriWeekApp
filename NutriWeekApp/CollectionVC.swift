@@ -12,58 +12,26 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     @IBOutlet weak var refeicao: UINavigationItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
-
-    @IBOutlet weak var notificationSwitch: UISwitch!
-
-    var colorImage = UIColor.blackColor().CGColor
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var hour: UIButton!
+    @IBOutlet weak var bottomCV: NSLayoutConstraint!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    var colorImage = UIColor.blackColor().CGColor
     
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
     var notification = Notifications()
+    
     var dell: Bool = false
     
     ///Get the uuid of choosed Refeicao
     var meal: Meal!
-    
-    //Relative to collection View
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var hour: UIButton!
-    @IBOutlet weak var bottomCV: NSLayoutConstraint!
-    
-    ///Relative to datePicker
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    var saveClicked: Bool! = false
-    
-    override func willMoveToParentViewController(parent: UIViewController?) {
-        super.willMoveToParentViewController(parent)
-        if parent == nil && !saveClicked && self.editButton.enabled{
-            
-            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-            let alert = UIAlertController(title: "Take one option",
-                message: "Really want to go back?",
-                preferredStyle: .Alert)
-            
-            let save = UIAlertAction(title: "Save modifications",
-                style: .Default) { (action: UIAlertAction!) -> Void in
-                    self.save()
-            }
-            
-            let cancel = UIAlertAction(title: "Discard",
-                style: .Default) { (action: UIAlertAction!) -> Void in
-                    
-            }
-            presentViewController(alert,
-                animated: true,
-                completion: nil)
 
-            alert.addAction(save)
-            alert.addAction(cancel)
-        }
-    }
+    var saveClicked: Bool! = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +72,33 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         self.collectionView.reloadData()
         
+    }
+    
+    override func willMoveToParentViewController(parent: UIViewController?) {
+        super.willMoveToParentViewController(parent)
+        if parent == nil && !saveClicked && self.editButton.enabled{
+            
+            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
+            let alert = UIAlertController(title: "Take one option",
+                message: "Really want to go back?",
+                preferredStyle: .Alert)
+            
+            let save = UIAlertAction(title: "Save modifications",
+                style: .Default) { (action: UIAlertAction!) -> Void in
+                    self.save()
+            }
+            
+            let cancel = UIAlertAction(title: "Discard",
+                style: .Default) { (action: UIAlertAction!) -> Void in
+                    
+            }
+            presentViewController(alert,
+                animated: true,
+                completion: nil)
+            
+            alert.addAction(save)
+            alert.addAction(cancel)
+        }
     }
     
     //MARK: CollectionView
@@ -165,78 +160,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         self.collectionView.reloadData()
     }
-    
-    //MARK: Logic Functions
 
-    //Checks whether the item is selected
-    func isSelected(itemNew: ItemCardapio)->Bool{
-        var boolean : Bool = false
-        for item in self.selectedItens{
-            if(itemNew == item){
-                boolean = true
-            }
-        }
-        return boolean
-    }
     
-    func longPressed(sender: UILongPressGestureRecognizer)
-    {
-        if(self.dell == false){
-            self.dell = true
-            
-            self.collectionView.reloadData()
-        }
-    }
-    
-    func stopShaking(gestureRecognizer: UITapGestureRecognizer){
-        if(self.dell == true){
-            self.dell = false
-            self.collectionView.reloadData()
-        }
-    }
-    
-    func deleteButton(sender:UIButton) {
-        
-        let i : Int = (sender.layer.valueForKey("index")!.row) as Int
-        self.meal.removeFood(i)
-        
-        self.dell = false
-        
-        self.itens = self.meal.foods
-        
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-        self.editButton.enabled = true
-        
-        var index: [NSIndexPath] = []
-        index.append(sender.layer.valueForKey("index") as! NSIndexPath)
-        
-        self.collectionView.deleteItemsAtIndexPaths(index)
-    }
-    
-    func shakeIcons(layer: CALayer) {
-        let shakeAnim = CABasicAnimation(keyPath: "transform.rotation")
-        shakeAnim.duration = 0.05
-        shakeAnim.repeatCount = 2
-        shakeAnim.autoreverses = true
-        let startAngle: Float = (-2) * 3.14159/180
-        let stopAngle = -startAngle
-        shakeAnim.fromValue = NSNumber(float: startAngle)
-        shakeAnim.toValue = NSNumber(float: 3 * stopAngle)
-        shakeAnim.autoreverses = true
-        shakeAnim.duration = 0.2
-        shakeAnim.repeatCount = 10000
-        shakeAnim.timeOffset = 290 * drand48()
-        
-        layer.addAnimation(shakeAnim, forKey:"shaking")
-    }
-    
-    // This function stop shaking the collection view cells
-    func stopShakingIcons(layer: CALayer) {
-        layer.removeAnimationForKey("shaking")
-    }
-    
-    //MARK: CollectionView
-
+    //MARK: Actions
     
     @IBAction func save() {
         
@@ -377,16 +303,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     }
     
-    @IBAction func changeSwitch(sender: AnyObject) {
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-        self.editButton.enabled = true
-    }
-
-    
-    @IBAction func switchNotificationChanged(){
+    @IBAction func switchNotificationChanged(sender: AnyObject){
         
         let notificationId: String = meal.id!
-        
+        let notificationSwitch = sender as! UISwitch
         if !notificationSwitch.on{
         let date = NSDate()
         let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
@@ -403,6 +323,76 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
 
         }
+    }
+    
+    
+    //MARK: Logic Functions
+    
+    //Checks whether the item is selected
+    func isSelected(itemNew: ItemCardapio)->Bool{
+        var boolean : Bool = false
+        for item in self.selectedItens{
+            if(itemNew == item){
+                boolean = true
+            }
+        }
+        return boolean
+    }
+    
+    func longPressed(sender: UILongPressGestureRecognizer)
+    {
+        if(self.dell == false){
+            self.dell = true
+            
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func stopShaking(gestureRecognizer: UITapGestureRecognizer){
+        if(self.dell == true){
+            self.dell = false
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func deleteButton(sender:UIButton) {
+        
+        let i : Int = (sender.layer.valueForKey("index")!.row) as Int
+        self.meal.removeFood(i)
+        
+        self.dell = false
+        
+        self.itens = self.meal.foods
+        
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.editButton.enabled = true
+        
+        var index: [NSIndexPath] = []
+        index.append(sender.layer.valueForKey("index") as! NSIndexPath)
+        
+        self.collectionView.deleteItemsAtIndexPaths(index)
+    }
+    
+    func shakeIcons(layer: CALayer) {
+        let shakeAnim = CABasicAnimation(keyPath: "transform.rotation")
+        shakeAnim.duration = 0.05
+        shakeAnim.repeatCount = 2
+        shakeAnim.autoreverses = true
+        let startAngle: Float = (-2) * 3.14159/180
+        let stopAngle = -startAngle
+        shakeAnim.fromValue = NSNumber(float: startAngle)
+        shakeAnim.toValue = NSNumber(float: 3 * stopAngle)
+        shakeAnim.autoreverses = true
+        shakeAnim.duration = 0.2
+        shakeAnim.repeatCount = 10000
+        shakeAnim.timeOffset = 290 * drand48()
+        
+        layer.addAnimation(shakeAnim, forKey:"shaking")
+    }
+    
+    // This function stop shaking the collection view cells
+    func stopShakingIcons(layer: CALayer) {
+        layer.removeAnimationForKey("shaking")
     }
     
     /** Get datePicker and returns a string formatted to save Refeicao **/
