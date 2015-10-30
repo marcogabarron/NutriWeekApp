@@ -82,6 +82,15 @@
 		C273B1FD1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C273B1FF1B610E2A0048936E /* AlimentosFr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosFr.txt; sourceTree = "<group>"; };
+		C27CACB71BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACB81BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACB91BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page3-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACBA1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page4-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACBB1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page5-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACBC1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page6-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACBD1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page7-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACBE1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C27CACBF1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C2895AF51B4DACA1004700EF /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		C29A78041B593CB700E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C29A78051B593CC400E055DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -372,7 +381,6 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 97EUAUR8F9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -390,6 +398,7 @@
 				en,
 				es,
 				fr,
+				pt,
 			);
 			mainGroup = DAD5A1581B3D7549003829BF;
 			productRefGroup = DAD5A1621B3D7549003829BF /* Products */;
@@ -498,6 +507,7 @@
 				DAC467731B6BC09B00F56E67 /* en */,
 				DAC467931B6BC35A00F56E67 /* es */,
 				DAC467951B6BC35B00F56E67 /* fr */,
+				C27CACB71BE275D8007AFB4C /* pt */,
 			);
 			name = "Page1-Tutorial.xib";
 			sourceTree = "<group>";
@@ -509,6 +519,7 @@
 				DAC467781B6BC14500F56E67 /* en */,
 				DAC467971B6BC37900F56E67 /* es */,
 				DAC467991B6BC37A00F56E67 /* fr */,
+				C27CACB81BE275D8007AFB4C /* pt */,
 			);
 			name = "Page2-Tutorial.xib";
 			sourceTree = "<group>";
@@ -520,6 +531,7 @@
 				DAC4677D1B6BC18800F56E67 /* en */,
 				DAC4679B1B6BC37E00F56E67 /* es */,
 				DAC4679D1B6BC37E00F56E67 /* fr */,
+				C27CACB91BE275D8007AFB4C /* pt */,
 			);
 			name = "Page3-Tutorial.xib";
 			sourceTree = "<group>";
@@ -531,6 +543,7 @@
 				DAC467821B6BC1AB00F56E67 /* en */,
 				DAC4679F1B6BC42A00F56E67 /* es */,
 				DAC467A11B6BC42B00F56E67 /* fr */,
+				C27CACBA1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page4-Tutorial.xib";
 			sourceTree = "<group>";
@@ -542,6 +555,7 @@
 				DAC467871B6BC20C00F56E67 /* en */,
 				DAC467A31B6BC44B00F56E67 /* es */,
 				DAC467A51B6BC44C00F56E67 /* fr */,
+				C27CACBB1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page5-Tutorial.xib";
 			sourceTree = "<group>";
@@ -553,6 +567,7 @@
 				DAC4678C1B6BC26A00F56E67 /* en */,
 				DAC467A71B6BC44F00F56E67 /* es */,
 				DAC467A91B6BC45000F56E67 /* fr */,
+				C27CACBC1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page6-Tutorial.xib";
 			sourceTree = "<group>";
@@ -564,6 +579,7 @@
 				DAC467911B6BC28A00F56E67 /* en */,
 				DAC467AB1B6BC45400F56E67 /* es */,
 				DAC467AD1B6BC45500F56E67 /* fr */,
+				C27CACBD1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page7-Tutorial.xib";
 			sourceTree = "<group>";
@@ -575,6 +591,7 @@
 				C29A78051B593CC400E055DF /* en */,
 				C2A5B1731B5F43A300C7EAB1 /* es */,
 				C273B1FD1B610DFF0048936E /* fr */,
+				C27CACBE1BE275D8007AFB4C /* pt */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -586,6 +603,7 @@
 				C29A78061B593D1F00E055DF /* Base */,
 				C23850BF1B5F445D00A21CD5 /* es */,
 				C273B1FE1B610DFF0048936E /* fr */,
+				C27CACBF1BE275D8007AFB4C /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
