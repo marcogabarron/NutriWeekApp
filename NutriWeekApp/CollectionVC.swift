@@ -8,14 +8,13 @@
 
 import UIKit
 
-class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var refeicao: UINavigationItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
 
     @IBOutlet weak var notificationSwitch: UISwitch!
 
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
     var colorImage = UIColor.blackColor().CGColor
     
     
@@ -60,12 +59,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             presentViewController(alert,
                 animated: true,
                 completion: nil)
-            
-            
+
             alert.addAction(save)
             alert.addAction(cancel)
-            
-            
         }
     }
 
@@ -76,6 +72,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
         self.editButton.enabled = false
         self.itens = self.meal.foods
+        
+        let tap = UITapGestureRecognizer(target: self, action: "stopShaking:")
+        tap.numberOfTapsRequired = 1
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
         
     }
 
@@ -93,8 +94,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             self.editButton.enabled = true
 
         }
-        
-        self.tapGesture.enabled = false
         
         //Get Refeicao`s name and time
         self.name.text = self.meal.name
@@ -139,8 +138,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 cell.dellButton.hidden = false
                 cell.dellButton.addTarget(self, action: "deleteButton:", forControlEvents: UIControlEvents.TouchUpInside)
                 self.shakeIcons(cell.layer)
-                self.tapGesture.enabled = true
-                
             }else{
                 cell.dellButton.hidden = true
 
@@ -160,11 +157,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             self.performSegueWithIdentifier("Add", sender: self)
         }
         else if self.dell {
-            let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
-            
             self.dell = false
-            
-            self.stopShakingIcons(cell.layer)
         }
         else {
             self.performSegueWithIdentifier("ChangeFood", sender: indexPath)
@@ -188,10 +181,18 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func longPressed(sender: UILongPressGestureRecognizer)
     {
-        self.dell = true
-        
-        self.collectionView.reloadData()
-        
+        if(self.dell == false){
+            self.dell = true
+            
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func stopShaking(gestureRecognizer: UITapGestureRecognizer){
+        if(self.dell == true){
+            self.dell = false
+            self.collectionView.reloadData()
+        }
     }
     
     func deleteButton(sender:UIButton) {
@@ -233,6 +234,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func stopShakingIcons(layer: CALayer) {
         layer.removeAnimationForKey("shaking")
     }
+    
+    //MARK: CollectionView
+
     
     @IBAction func save() {
         
@@ -377,11 +381,30 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
         self.editButton.enabled = true
     }
+
     
-    @IBAction func atopShaking(sender: AnyObject) {
-        self.dell = false
-        self.collectionView.reloadData()
+    @IBAction func switchNotificationChanged(){
+        
+        let notificationId: String = meal.id!
+        
+        if !notificationSwitch.on{
+        let date = NSDate()
+        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
+        TodoList.sharedInstance.removeItem(todoItem)
+            
+        }else {
+            
+            if notificationSwitch.on{
+                
+                let notification = Notifications()
+                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek[0], dateHour: meal.hour), title: meal.name, UUID: notificationId)
+                TodoList.sharedInstance.addItem(todoItem)
+                
+            }
+
+        }
     }
+    
     /** Get datePicker and returns a string formatted to save Refeicao **/
     func timePicker(sender: UIDatePicker) -> String{
         
@@ -408,26 +431,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    @IBAction func switchNotificationChanged(){
-        
-        let notificationId: String = meal.id!
-        
-        if !notificationSwitch.on{
-        let date = NSDate()
-        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
-        TodoList.sharedInstance.removeItem(todoItem)
-            
-        }else {
-            
-            if notificationSwitch.on{
-                
-                let notification = Notifications()
-                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek[0], dateHour: meal.hour), title: meal.name, UUID: notificationId)
-                TodoList.sharedInstance.addItem(todoItem)
-                
-            }
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if(self.dell == false){
+            return false
 
         }
+        return true
+
     }
     
     //MARK - Prepare for segue
