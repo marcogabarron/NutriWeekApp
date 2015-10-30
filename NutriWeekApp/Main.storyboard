@@ -334,10 +334,10 @@
                                     <outlet property="delegate" destination="oxc-Ih-3gp" id="blP-se-jSS"/>
                                 </connections>
                             </collectionView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
                                 <rect key="frame" x="310" y="83" width="51" height="31"/>
                                 <connections>
-                                    <action selector="switchNotificationChanged:" destination="oxc-Ih-3gp" eventType="valueChanged" id="3WL-0W-wAX"/>
+                                    <action selector="switchNotificationChanged" destination="oxc-Ih-3gp" eventType="valueChanged" id="Lvm-g4-Ni2"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-MK-TVd">
@@ -366,7 +366,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="s5w-AR-wlP" firstAttribute="top" secondItem="mj6-DZ-Sgi" secondAttribute="bottom" constant="63" id="6Iq-qK-XR3"/>
+                            <constraint firstItem="s5w-AR-wlP" firstAttribute="top" secondItem="mj6-DZ-Sgi" secondAttribute="bottom" constant="19" id="6Iq-qK-XR3"/>
                             <constraint firstItem="PHI-5M-ugB" firstAttribute="leading" secondItem="IRe-0O-Qyc" secondAttribute="leading" constant="3" id="6Yk-68-Krt"/>
                             <constraint firstItem="Kip-Bd-Szr" firstAttribute="top" secondItem="PHI-5M-ugB" secondAttribute="bottom" id="6fQ-qE-raf"/>
                             <constraint firstItem="Akj-MK-TVd" firstAttribute="top" secondItem="NLg-S9-Pih" secondAttribute="bottom" constant="0.5" id="8GX-oE-rc1"/>
