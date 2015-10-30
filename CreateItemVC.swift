@@ -27,7 +27,6 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     var numberCategory: Int = 1
     
-    //var delegate: CreateItemVCDelegate?
     
     //var saveClicked: Bool!
     
@@ -84,7 +83,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
         
-        categoryArray = ["Pães e Massas", "Frutas", "Líquido", "Leite", "Feijão", "Ovo", "Legume", "Grão", "Frios", "Carne Branca", "Vegetais", "Carne Vermelha", "Arroz", "Água", "Café", "Molho", "Farofa", "Massa", "Soja"]
+        categoryArray = ["Pães e Massa", "Frutas", "Líquido", "Leite", "Feijão", "Ovo", "Legume", "Grão", "Frios", "Carne Branca", "Vegetais", "Carne Vermelha", "Arroz", "Água", "Café", "Molho", "Farofa", "Massa", "Soja"]
         
         imageCategory.layer.masksToBounds = true
         imageCategory.layer.cornerRadius = imageCategory.frame.width/6
@@ -122,12 +121,14 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         
     }
     
+    /**Close keyboard when clicked return **/
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
-        
         nameTextField.resignFirstResponder()
-        
         return true
-        
+    }
+    
+    @IBAction func onTapped(sender: AnyObject) {
+        view.endEditing(true)
     }
     
     @IBAction func nameChanged(){
@@ -164,6 +165,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
             let show = NSLocalizedString(self.selectedCategory, comment: "")
             
             ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)" + ".jpg", category: show)
+            
                 self.navigationController?.popViewControllerAnimated(true)
             
         }

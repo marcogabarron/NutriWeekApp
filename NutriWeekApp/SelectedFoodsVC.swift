@@ -240,18 +240,4 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
         return boolean
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "New") {
-//            let destinationViewController = segue.destinationViewController as! CreateItemVC
-//            
-//            destinationViewController.delegate = self
-//        }
-//    }
-    
-//    func willComeBackFromCreateItemVC(fromSave: Bool) {
-//        if !fromSave {
-//            // exibir alert
-//        }
-//    }
-    
 }
