@@ -43,6 +43,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         self.tableView.reloadData()
         
+        self.navigationItem.title = "NutriWeek"
+        
     }
     
     
