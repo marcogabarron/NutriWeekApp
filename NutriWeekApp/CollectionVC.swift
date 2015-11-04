@@ -76,11 +76,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.collectionView.reloadData()
         
         if (meal.id != ""){
-        
-        self.notificationSwitch.on = true
-            
+            self.notificationSwitch.on = true
         }else{
-            
             self.notificationSwitch.on = false
         }
     }
