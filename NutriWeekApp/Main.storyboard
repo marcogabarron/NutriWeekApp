@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="147" y="1094"/>
         </scene>
-        <!--View Controller-->
+        <!--Test Controller-->
         <scene sceneID="GBY-Mv-Pmq">
             <objects>
-                <viewController id="wGE-OJ-beA" sceneMemberID="viewController">
+                <viewController id="wGE-OJ-beA" customClass="TestController" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a9h-ft-DYh"/>
                         <viewControllerLayoutGuide type="bottom" id="Qju-hB-srt"/>
@@ -95,6 +95,9 @@
                                     <constraint firstAttribute="width" secondItem="IsJ-gm-pe7" secondAttribute="height" multiplier="21:16" id="sdV-iJ-SqX"/>
                                 </constraints>
                                 <state key="normal" image="Camera-50"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="wGE-OJ-beA" eventType="touchUpInside" id="Lh2-oU-XP3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-eZ-RK1">
                                 <rect key="frame" x="97" y="67" width="220" height="21"/>
