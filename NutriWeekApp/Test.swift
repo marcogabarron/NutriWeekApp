@@ -76,7 +76,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imagePicker.showsCameraControls = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
-                self.newMedia = true
+               // self.newMedia = true
             }
         }))
         
@@ -91,7 +91,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imagePicker.allowsEditing = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
-                self.newMedia = false
+              //  self.newMedia = false
             }
         }
         ))
