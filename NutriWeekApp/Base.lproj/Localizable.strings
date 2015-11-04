@@ -16,7 +16,9 @@
 "Repetir" = "Repetir";
 "Salvar" = "Salvar";
 "Editar" = "Editar";
+"Cancelar" = "Cancelar";
 "Todos os dias" = "Todos os dias";
+"Seleção de Alimentos" = "Seleção de Alimentos";
 "seg" = "seg";
 "ter" = "ter";
 "qua" = "qua";
@@ -26,7 +28,9 @@
 "dom" = "dom";
 "Refeição" = "Refeição";
 "Alimentos" = "Alimentos";
+"Notificação" = "Notificação:";
 "Nome da Refeição" = "Nome da Refeição";
+"Novo Alimento" = "Novo Alimento";
 "*Use outro nome" = "*Use outro nome";
 "Pães e Massas" = "Pães e Massas";
 "Frutas" = "Frutas";
