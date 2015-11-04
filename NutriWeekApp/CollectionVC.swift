@@ -299,10 +299,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
 
     }
-    
-    
-    
-    
+
+    @IBAction func valueChange(sender: AnyObject) {
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.editButton.enabled = true
+    }
     //MARK: Logic Functions
     //Checks whether the item is selected
     func isSelected(itemNew: ItemCardapio)->Bool{
@@ -347,9 +348,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         let i : Int = (sender.layer.valueForKey("index")!.row) as Int
         self.meal.removeFood(i)
-        
-        self.dell = false
-        
+                
         self.itens = self.meal.foods
         
         self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")

@@ -91,7 +91,6 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         
         imageCategory.layer.masksToBounds = true
         imageCategory.layer.cornerRadius = imageCategory.frame.width/6
-        imageCategory.layer.borderWidth = 1
     }
     
     override func viewWillDisappear(animated: Bool) {
