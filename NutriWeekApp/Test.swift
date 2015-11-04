@@ -76,6 +76,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imagePicker.showsCameraControls = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
+                self.newMedia = true
             }
         }))
         
@@ -90,6 +91,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imagePicker.allowsEditing = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
+                self.newMedia = false
             }
         }
         ))
@@ -110,6 +112,33 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        let mediaType = info[UIImagePickerControllerMediaType] as! String
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if mediaType.isEqual(kUTTypeImage as String) {
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+            
+            mealImage.image = image
+            
+            
+//            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
+            // self.fileName is whatever the filename that you need to append to base directory here.
+//            let path = documentsDirectory.stringByAppendingPathComponent(self.mealImage)
+            
+            
+//            if (newMedia == true) {
+//                
+//                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
+//                
+//            } else if mediaType.isEqual(kUTTypeMovie as String) {
+//                // Code to support video here
+//            }
+            
+        }
+    }
     
     
     /*

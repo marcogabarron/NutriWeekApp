@@ -56,8 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                var item = TodoItem(deadline: notification.userInfo!["deadline"] as! NSDate, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
 //        
 //                println(notification.userInfo!["UUID"] as! String!)
-        let date = NSDate()
-        var item = TodoItem(deadline: date, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
+//        let date = NSDate()
+//        var item = TodoItem(deadline: date, title: notification.userInfo!["title"] as! String, UUID: notification.userInfo!["UUID"] as! String!)
         
         print(notification.userInfo!["UUID"] as! String!)
 
