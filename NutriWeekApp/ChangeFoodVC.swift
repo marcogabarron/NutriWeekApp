@@ -79,7 +79,6 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.meal.foods[self.selectedItemIndex] = self.itens[indexPath.row]
-//        self.navigationController?.popViewControllerAnimated(true)
         
         closeModal()
     }

@@ -44,12 +44,12 @@ class ReadJson {
             //Create Alimentos and pass to context
             for buildArray in feed {
                 
-                let alimento = Alimentos()
-                alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
-                alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
-                alimento.setValue(buildArray.objectForKey("Category"), forKeyPath: "categoriaAlimento")
+                let alimento = Food()
+                alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "name")
+                alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "image")
+                alimento.setValue(buildArray.objectForKey("Category"), forKeyPath: "category")
 
-                ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento, category: alimento.categoriaAlimento )
+                ItemCardapioServices.createItemCardapio(alimento.name, image: alimento.image, category: alimento.category )
                 
             }
             

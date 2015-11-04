@@ -6,27 +6,24 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
-    var diasSemana: [String]!
+    var diasSemana: [String]! = []
+    
+    //days for String for sections and go next page
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-    let ReuseIdentifier: String = "ReuseIdentifier"
     
     //Relative to models and CoreData
     var items: [Refeicao]!
     var json = ReadJson()
-    var alimento = Alimentos()
     var notification = Notifications()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //collor image Button
-        self.diasSemana = []
-        
         //translate the weekdays
         for dia in  self.diasPT{
             self.diasSemana.append(NSLocalizedString(dia, comment: ""))
         }
-      
+        
         //Load json in CoreData
         self.json.loadFeed()
         
@@ -40,11 +37,9 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.tableView.reloadData()
-        
         self.navigationItem.title = "NutriWeek"
-        
+
+        self.tableView.reloadData()
     }
     
     
@@ -134,12 +129,13 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     //MARK - Prepare for segue
-    /** Prepare for Segue to CollectionVC page -- pass the uuid information from cell clicked  **/
+    // Prepare for Segue to CollectionVC page -- pass the uuid information from cell clicked
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             
-            //let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
             var refeicao:[Refeicao] = []
+            
+            //find the section selected
             let c = self.tableView.indexPathsForSelectedRows!.last?.section
             if(c==0){
                 refeicao = RefeicaoServices.findByWeek("Domingo")
@@ -163,12 +159,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 refeicao = RefeicaoServices.findByWeek("Sábado")
             }
             var meal: Meal = Meal(week: [], time: "", name: "")
+            
+            //find the reference of meal
             for ref in refeicao {
                 if(ref.name == (sender!.textLabel!!.text!)){
                     meal = Meal(id: ref.uuid, week: [ref.diaSemana], time: ref.horario, name: ref.name, foods: ref.getItemsObject())
                 }
             }
             let destinationViewController = segue.destinationViewController as! CollectionVC
+            //pass the meal
             destinationViewController.meal = meal
             
         }
