@@ -23,7 +23,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         for dia in  self.diasPT{
             self.diasSemana.append(NSLocalizedString(dia, comment: ""))
         }
-      
+        
         //Load json in CoreData
         self.json.loadFeed()
         
@@ -37,7 +37,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationItem.title = "NutriWeek"
+
         self.tableView.reloadData()
     }
     

@@ -11,9 +11,9 @@ import UIKit
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     //important for translation
-    @IBOutlet weak var refeicao: UINavigationItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var notificationLabel: UILabel!
 
     var colorImage = UIColor.blackColor().CGColor
     
@@ -34,8 +34,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //Get the uuid of choosed Refeicao
     var meal: Meal!
 
-    //booleans for logics
-    var saveClicked: Bool! = false
+    //var saveClicked: Bool! = false
     var dell: Bool = false
 
     override func viewDidLoad() {
@@ -44,9 +43,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         //when there is nothing to change - not appear
         self.editButton.title = NSLocalizedString("", comment: "")
         self.editButton.enabled = false
-        
-        //translation
-        self.refeicao.title = NSLocalizedString("Refeição", comment: "Editar")
         
         //items received foods of meal
         self.itens = self.meal.foods
@@ -60,8 +56,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationController!.navigationBar.topItem!.title = "Cancel"
-        self.navigationItem.title = NSLocalizedString("Refeição", comment: "Editar")
+        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
+        
+        self.navigationItem.title = NSLocalizedString("Refeição", comment: "Refeição")
+        self.notificationLabel.text = NSLocalizedString("Notificação", comment: "Notification")
 
         if(self.itens != self.meal.foods){
             //Get the Cardapio itens with the choosed Refeicao uuid
@@ -90,41 +88,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.collectionView.reloadData()
         
         if (meal.id != ""){
-        
-        self.notificationSwitch.on = true
-            
+            self.notificationSwitch.on = true
         }else{
-            
             self.notificationSwitch.on = false
         }
     }
-    
-//    override func willMoveToParentViewController(parent: UIViewController?) {
-//        super.willMoveToParentViewController(parent)
-//        if parent == nil && !saveClicked && self.editButton.enabled{
-//            
-//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-//            let alert = UIAlertController(title: "Take one option",
-//                message: "Really want to go back?",
-//                preferredStyle: .Alert)
-//            
-//            let save = UIAlertAction(title: "Save modifications",
-//                style: .Default) { (action: UIAlertAction!) -> Void in
-//                    self.save()
-//            }
-//            
-//            let cancel = UIAlertAction(title: "Discard",
-//                style: .Default) { (action: UIAlertAction!) -> Void in
-//                    
-//            }
-//            presentViewController(alert,
-//                animated: true,
-//                completion: nil)
-//            
-//            alert.addAction(save)
-//            alert.addAction(cancel)
-//        }
-//    }
     
     //MARK: CollectionView
     // show the items save in the Core Data
@@ -185,67 +153,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         self.collectionView.reloadData()
     }
-    //MARK: Logic Functions
-    
-    //Checks whether the item is selected
-    func isSelected(itemNew: ItemCardapio)->Bool{
-        var boolean : Bool = false
-        for item in self.meal.foods{
-            if(itemNew == item){
-                boolean = true
-            }
-        }
-        return boolean
-    }
-    
-//    func longPressed(sender: UILongPressGestureRecognizer)
-//    {
-//        self.dell = true
-//        
-//        self.collectionView.reloadData()
-//        
-//    }
-    
-//    func deleteButton(sender:UIButton) {
-//        
-//        let i : Int = (sender.layer.valueForKey("index")!.row) as Int
-//        self.meal.removeFood(i)
-//        
-//        self.dell = false
-//        
-//        self.itens = self.meal.foods
-//        
-//        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-//        self.editButton.enabled = true
-//        
-//        var index: [NSIndexPath] = []
-//        index.append(sender.layer.valueForKey("index") as! NSIndexPath)
-//        
-//        self.collectionView.deleteItemsAtIndexPaths(index)
-//    }
-    
-//    func shakeIcons(layer: CALayer) {
-//        let shakeAnim = CABasicAnimation(keyPath: "transform.rotation")
-//        shakeAnim.duration = 0.05
-//        shakeAnim.repeatCount = 2
-//        shakeAnim.autoreverses = true
-//        let startAngle: Float = (-2) * 3.14159/180
-//        let stopAngle = -startAngle
-//        shakeAnim.fromValue = NSNumber(float: startAngle)
-//        shakeAnim.toValue = NSNumber(float: 3 * stopAngle)
-//        shakeAnim.autoreverses = true
-//        shakeAnim.duration = 0.2
-//        shakeAnim.repeatCount = 10000
-//        shakeAnim.timeOffset = 290 * drand48()
-//        
-//        layer.addAnimation(shakeAnim, forKey:"shaking")
-//    }
-    
-    // This function stop shaking the collection view cells
-    func stopShakingIcons(layer: CALayer) {
-        layer.removeAnimationForKey("shaking")
-    }
-    
+
+    //MARK: Actions
+
     @IBAction func save(sender: AnyObject) {
         
         let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
@@ -386,41 +296,25 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     }
     
-//    @IBAction func switchNotificationChanged(sender: AnyObject){
-//        
-//        let notificationId: String = meal.id!
-//        let notificationSwitch = sender as! UISwitch
-//        if !notificationSwitch.on{
-//        let date = NSDate()
-//        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
-//        TodoList.sharedInstance.removeItem(todoItem)
-//            
-//        }else {
-//            
-//            if notificationSwitch.on{
-//                
-//                let notification = Notifications()
-//                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek[0], dateHour: meal.hour), title: meal.name, UUID: notificationId)
-//                TodoList.sharedInstance.addItem(todoItem)
-//                
-//            }
-//
-//        }
-//    }
+    
     
     
     //MARK: Logic Functions
-    
     //Checks whether the item is selected
-//    func isSelected(itemNew: ItemCardapio)->Bool{
-//        var boolean : Bool = false
-//        for item in self.selectedItens{
-//            if(itemNew == item){
-//                boolean = true
-//            }
-//        }
-//        return boolean
-//    }
+    func isSelected(itemNew: ItemCardapio)->Bool{
+        var boolean : Bool = false
+        for item in self.meal.foods{
+            if(itemNew == item){
+                boolean = true
+            }
+        }
+        return boolean
+    }
+    
+    // This function stop shaking the collection view cells
+    func stopShakingIcons(layer: CALayer) {
+        layer.removeAnimationForKey("shaking")
+    }
     
     func longPressed(sender: UILongPressGestureRecognizer)
     {
@@ -432,6 +326,14 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func stopShaking(gestureRecognizer: UITapGestureRecognizer){
+        
+        if(self.bottomCV.constant != 0){
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1, animations: {
+                self.bottomCV.constant = 0
+                self.view.layoutIfNeeded()
+            })
+        }
         if(self.dell == true){
             self.dell = false
             self.collectionView.reloadData()
@@ -498,34 +400,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     
-    @IBAction func switchNotificationChanged(){
-        
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-        self.editButton.enabled = true
-        let notificationId: String = meal.id!
-        
-        if !notificationSwitch.on{
-        let date = NSDate()
-        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: notificationId)
-        TodoList.sharedInstance.removeItem(todoItem)
-            
-            
-            
-        }else {
-            
-            if notificationSwitch.on{
-                
-                let notification = Notifications()
-                let todoItem = TodoItem(deadline: notification.scheduleNotifications(meal.dayOfWeek[0], dateHour: meal.hour), title: meal.name, UUID: notificationId)
-                TodoList.sharedInstance.addItem(todoItem)
-                
-            }
-        }
-    
-    }
-    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        if(self.dell == false){
+        if(self.dell == false && self.bottomCV.constant == 0){
             return false
 
         }
@@ -560,7 +436,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func changeFoodDismiss() {
-        self.itens = self.meal.foods
+        if(self.itens != self.meal.foods){
+            //Get the Cardapio itens with the choosed Refeicao uuid
+            self.itens = self.meal.foods
+            self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+            self.editButton.enabled = true
+            
+        }
         self.collectionView.reloadData()
         
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "ChangeFoodDismiss", object: nil)

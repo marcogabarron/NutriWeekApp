@@ -17,6 +17,8 @@ class SelectedFoodsAdd: SelectedFoodsVC {
         //initial empty serach bar text
         self.searchBar.text = ""
         
+        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
+        
         self.collectionView.allowsMultipleSelection = true
         
         self.selectedItens = self.meal.foods

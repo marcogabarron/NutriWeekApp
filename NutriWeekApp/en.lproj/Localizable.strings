@@ -17,6 +17,9 @@
 "Repetir" = "Repeat";
 "Salvar" = "Save";
 "Editar" = "Edit";
+"Cancelar" = "Cancel";
+"Informações" = "Informations";
+"Seleção de Alimentos" = "Selected Foods";
 "Todos os dias" = "Every day";
 "seg" = "mon";
 "ter" = "tue";
@@ -26,8 +29,10 @@
 "sab" = "sat";
 "dom" = "sun";
 "Refeição" = "Meal";
+"Notificação" = "Notification:";
 "Alimentos" = "AlimentosEn";
 "Nome da Refeição" = "Meal Name";
+"Novo Alimento" = "New Item";
 "*Use outro nome" = "Don`t repeat name";
 "Pães e Massas" = "Breads and Pasta";
 "Frutas" = "Fruit";

@@ -38,6 +38,9 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
 
     }
     override func viewWillAppear(animated: Bool) {
+        self.navigationItem.title = NSLocalizedString("Seleção de Alimentos", comment: "Food")
+        
+        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
         
         //Show all itens, ascending by name
         self.itens = ItemCardapioServices.allItemCardapios()

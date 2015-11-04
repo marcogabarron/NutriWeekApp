@@ -19,6 +19,8 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     ///Relative to repeat/week
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var save: UIBarButtonItem!
+    
     ///array Weeks with the week - init with all
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
@@ -36,6 +38,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
             self.navigationController?.popViewControllerAnimated(true)
 
         }
+        self.navigationItem.title = NSLocalizedString("Informações", comment: "")
+        self.save.title = NSLocalizedString("Salvar", comment: "")
+
         
         self.tableView.reloadData()
         

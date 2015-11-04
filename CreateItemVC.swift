@@ -21,6 +21,8 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     @IBOutlet weak var simpleLabel: UILabel!
     
+    @IBOutlet weak var save: UIBarButtonItem!
+    
     var categoryArray:[String] = [String]()
     
     var selectedCategory:String = ""
@@ -66,6 +68,8 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
         //saveClicked = false
+        self.navigationItem.title = NSLocalizedString("Novo Alimento", comment: "")
+        self.save.title = NSLocalizedString("Salvar", comment: "")
     }
     
     override func viewDidLoad() {
