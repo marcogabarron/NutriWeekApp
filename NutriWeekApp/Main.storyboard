@@ -25,11 +25,27 @@
                     </tabBar>
                     <connections>
                         <segue destination="Uy7-UN-XTR" kind="relationship" relationship="viewControllers" id="TYR-5F-PgI"/>
+                        <segue destination="1iD-Ak-XWc" kind="relationship" relationship="viewControllers" id="0CJ-XP-DtT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vi-KD-GK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-263" y="-543"/>
+        </scene>
+        <!--Diary-->
+        <scene sceneID="oSu-61-CVS">
+            <objects>
+                <navigationController id="1iD-Ak-XWc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Diary" image="diary-50" id="bQE-Yc-VbY"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Csk-fS-YLI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xqN-Ev-Zdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303" y="314"/>
         </scene>
         <!--Refeições-->
         <scene sceneID="Nj9-1t-bSa">
@@ -1303,6 +1319,7 @@
         <image name="Meal-50" width="30" height="30"/>
         <image name="Service Bell-50" width="32" height="32"/>
         <image name="dell" width="100" height="100"/>
+        <image name="diary-50" width="35" height="35"/>
         <image name="logo" width="510" height="510"/>
     </resources>
     <inferredMetricsTieBreakers>
