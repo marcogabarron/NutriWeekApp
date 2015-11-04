@@ -55,7 +55,7 @@ class ItemCardapioDAO
         request.sortDescriptors = [sortDescriptor]
         
         // Perform search
-        var error: NSErrorPointer = nil
+        //var error: NSErrorPointer = nil
         let results: [ItemCardapio] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [ItemCardapio]
         return results
     }
@@ -73,7 +73,7 @@ class ItemCardapioDAO
         //request.sortDescriptors = [NSSortDescriptor(key: "horarioInicio", ascending:true)]
         
         // Perform search
-        var error: NSErrorPointer = nil
+        //var error: NSErrorPointer = nil
         let results: [ItemCardapio] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [ItemCardapio]
         
         return results
@@ -89,7 +89,23 @@ class ItemCardapioDAO
         request.predicate = NSPredicate(format: "name CONTAINS[c] %@ OR image CONTAINS[c] %@", name, image)
         
         // Perform search
-        var error: NSErrorPointer = nil
+       // var error: NSErrorPointer = nil
+        let results: [ItemCardapio] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [ItemCardapio]
+        
+        return results
+    }
+    
+    /** find the food with name used to predicate **/
+    static func findByCategory(category: String) -> [ItemCardapio]
+    {
+        /// Creating fetch request
+        let request = NSFetchRequest(entityName: "ItemCardapio")
+        
+        // Assign predicate
+        request.predicate = NSPredicate(format: "categoria CONTAINS[c] %@", category)
+        
+        // Perform search
+        // var error: NSErrorPointer = nil
         let results: [ItemCardapio] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [ItemCardapio]
         
         return results

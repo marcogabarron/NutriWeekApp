@@ -13,5 +13,6 @@ class Alimentos: NSObject {
     ///used to build objects (food) in entity "ItemCardapio" in ReadJson
     var nomeAlimento: String!
     var imagemAlimento: String!
+    var categoriaAlimento: String!
     
 }

@@ -4,9 +4,6 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    @IBOutlet weak var diasDaSemana: UILabel!
-    @IBOutlet weak var newMeal: UIButton!
-    
     //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
     var diasSemana: [String]!
@@ -22,22 +19,17 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
-        
         //collor image Button
-        self.newMeal.imageView!.tintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 0.89)
         self.diasSemana = []
         
         //translate the weekdays
         for dia in  self.diasPT{
             self.diasSemana.append(NSLocalizedString(dia, comment: ""))
         }
-        
-        //translate the label
-        self.diasDaSemana.text = NSLocalizedString("Dias da Semana", comment: "")
-        
+      
         //Load json in CoreData
         self.json.loadFeed()
+        
 
     }
     
@@ -50,6 +42,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         
         self.tableView.reloadData()
+        
     }
     
     
@@ -97,7 +90,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
+        headerView.backgroundColor = UIColor(red: 51/255, green: 153/255, blue: 102/255, alpha: 1)
         
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
         label.autoresizesSubviews = true
@@ -105,7 +98,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         label.textColor = UIColor.whiteColor()
         label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.diasSemana[section], comment: "")
-        label.font = UIFont(name:"AmericanTypewriter-Bold", size: 22)
+        label.font = UIFont(name:"Helvetica-SemiBold", size: 22)
         headerView.addSubview(label)
         
         self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
@@ -122,7 +115,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             //Read the sections and all refeicao inside
             self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
-            
             
             //Delete Refeicao
             RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
@@ -146,7 +138,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             //let refeicao: Refeicao = RefeicaoServices.findByName(sender!.textLabel!!.text!)
             var refeicao:[Refeicao] = []
-            var refID: String = ""
             let c = self.tableView.indexPathsForSelectedRows!.last?.section
             if(c==0){
                 refeicao = RefeicaoServices.findByWeek("Domingo")
@@ -169,15 +160,14 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             if(c==6){
                 refeicao = RefeicaoServices.findByWeek("Sábado")
             }
-            
+            var meal: Meal = Meal(week: [], time: "", name: "")
             for ref in refeicao {
                 if(ref.name == (sender!.textLabel!!.text!)){
-                    refID = ref.uuid
+                    meal = Meal(id: ref.uuid, week: [ref.diaSemana], time: ref.horario, name: ref.name, foods: ref.getItemsObject())
                 }
             }
-            print(refID)
             let destinationViewController = segue.destinationViewController as! CollectionVC
-            destinationViewController.refeicaoID = refID
+            destinationViewController.meal = meal
             
         }
     }

@@ -2,8 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "boiledpotato.JPG"
+      "filename" : "boiledpotato.jpeg",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",

@@ -17,12 +17,12 @@ class ReadJson {
         ///Read JSON
         let nameDoc = NSLocalizedString("Alimentos", comment: "Alimento")
         let path = NSBundle.mainBundle().pathForResource(nameDoc, ofType: "txt")
-        var error: NSError?
+        //var error: NSError?
         let jsonData: NSData?
         do {
             jsonData = try NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe)
-        } catch let error1 as NSError {
-            error = error1
+        } catch {//let error1 as NSError {
+            //error = error1
             jsonData = nil
         }
         let jsonResult: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)) as! NSDictionary
@@ -47,8 +47,9 @@ class ReadJson {
                 let alimento = Alimentos()
                 alimento.setValue(buildArray.objectForKey("Nome"), forKeyPath: "nomeAlimento")
                 alimento.setValue(buildArray.objectForKey("Imagem"), forKeyPath: "imagemAlimento")
-                
-                ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento)
+                alimento.setValue(buildArray.objectForKey("Category"), forKeyPath: "categoriaAlimento")
+
+                ItemCardapioServices.createItemCardapio(alimento.nomeAlimento, image: alimento.imagemAlimento, category: alimento.categoriaAlimento )
                 
             }
             

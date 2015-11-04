@@ -11,8 +11,7 @@ import CoreData
 
 class ItemCardapio: NSManagedObject {
 
-    @NSManaged var horarioFim: NSDate
-    @NSManaged var horarioInicio: NSDate
+    @NSManaged var categoria: String
     @NSManaged var image: String
     @NSManaged var name: String
     @NSManaged var cardapio: NSSet

@@ -8,22 +8,10 @@
 
 import UIKit
 
-class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UITextFieldDelegate{
-    
-    ///Save Button
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    ///Relative to collection view
-    @IBOutlet var collectionView: UICollectionView!
+class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
     
     ///Relative to Refeicao`s name
     @IBOutlet weak var nameTextField: UITextField!
-    
-    ///Relative to search
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    ///variable assist the search bar
-    var searchActive: Bool = false
     
     ///Relative to datePicker
     @IBOutlet weak var horario: UIDatePicker!
@@ -31,197 +19,29 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     ///Relative to repeat/week
     @IBOutlet weak var tableView: UITableView!
     
-    ///Relative to models and CoreData
-    var itens = [ItemCardapio]()
-    
-    ///Array ItemCardapio with selected items
-    var selectedItens = [ItemCardapio]()
-    
     ///array Weeks with the week - init with all
     var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
-    
+    var meal: Meal = Meal(week: [], time: "", name: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.title = NSLocalizedString ("Salvar", comment: "")
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
-        self.nameTextField.delegate = self;
-        
         
     }
     
     override func viewWillAppear(animated: Bool) {
-        
-        //Show all itens, ascending by name
-        self.itens = ItemCardapioServices.allItemCardapios()
-        
-        //initial empty serach bar text
-        self.searchBar.text = ""
-        
-        self.collectionView.allowsMultipleSelection = true
-        
-        self.collectionView.reloadData()
-        self.tableView.reloadData()
-    }
-    
-    //MARK: SearchBar
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        self.searchActive = true;
-        //var barTintColor: UIColor
-        self.searchBar.barTintColor = UIColor.clearColor()
-        self.searchBar.showsCancelButton = true
-    }
-    
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        self.searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.searchActive = false;
-        self.searchBar.showsCancelButton = false
-        self.searchBar.barTintColor = UIColor(red: 40/255, green: 150/255, blue: 120/255, alpha: 1)
-        self.searchBar.resignFirstResponder()
-        
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        self.searchActive = false;
-    }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-    
-        //Active or inactive the search, depending of searchbar text
-        if(searchBar.text == ""){
-            self.searchActive = false;
-            self.itens = ItemCardapioServices.allItemCardapios()
-            
-        } else {
-            self.searchActive = true;
-            self.itens = ItemCardapioServices.findItemCardapio(searchBar.text!, image: "\(searchBar.text)")
-        }
-        self.collectionView.reloadData()
-    }
-    
-    //MARK: CollectionView
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return self.itens.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
-        
-        
-        cell.textLabel.text = NSLocalizedString(itens[indexPath.row].name, comment: "")
-        cell.textLabel.autoresizesSubviews = true
-        
-        cell.image.image = UIImage(named:itens[indexPath.row].image)
-        cell.image.layer.masksToBounds = true
-        cell.image.layer.cornerRadius = cell.image.frame.width/3
-        
-        
-        //change the label color when it is already selected - It is within the selected array
-        if(self.find(self.itens[indexPath.row])){
-            cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-        }else{
-            cell.textLabel.textColor = UIColor.blackColor()
-        }
-        
-        return cell
-        
-    }
-    
-    
-    /** Select cell **/
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
-        //Selected: Change text to green
-        
-        
-        //verify the collor text label because it is the way for verify if the object already selected
-        if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
-            
-            //go to deselected
-            self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
-            
-        }else{
-            
-            
-            //Animation to grow and back to normal size when selected or deselected
-            UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
-                
-                cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-                
-                }, completion: {(result) -> Void in
-                    
-                    UIView.animateWithDuration(0.3, animations: {() -> Void in
-                        
-                        cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                        
-                    })
-                    
-            })
-            
-            
-            
-            cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-            
-            //Set it is selected
-            self.selectedItens.append(self.itens[indexPath.row])
-        }
-        
-        
-        
-    }
-    
-    /** DeSelect cell **/
-    func collectionView(collectionView: UICollectionView,
-        didDeselectItemAtIndexPath indexPath: NSIndexPath){
-            
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
-            
-            //verify the collor text label because it is the way for verify if the object already deselected
-            if(cell.textLabel.textColor == UIColor.blackColor()){
-                //go to selected
-                self.collectionView(self.collectionView, didSelectItemAtIndexPath: indexPath)
-            }else{
-                //Animation to grow and back to normal size when selected or deselected
-                UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
-                    
-                    cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
-                    
-                    }, completion: {(result) -> Void in
-                        
-                        UIView.animateWithDuration(0.3, animations: {() -> Void in
-                            
-                            cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                            
-                        })
-                        
-                })
-                
-                
-                //Deselect: Change text to black
-                cell.textLabel.textColor = UIColor.blackColor()
-                
-                //Set it is desselected
-                var index = 0
-                for item in self.selectedItens{
-                    if(self.itens[indexPath.row] == item){
-                        self.selectedItens.removeAtIndex(index)
-                    }
-                    index++
-                }
-            }
-            
-    }
+        if(self.meal.foods.count >= 1){
+            self.navigationController?.popViewControllerAnimated(true)
 
+        }
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    
     
     //MARK: TableView
     //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
@@ -270,7 +90,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                 case "Domingo":
                     text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
                 default:
-                    text.stringByAppendingString("Nunca")
+                    text = text.stringByAppendingString(NSLocalizedString("Nunca", comment: ""))
                 }
             }
             cell.detailTextLabel?.text = text
@@ -292,24 +112,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.nameTextField.text != ""){
             
-            if(self.selectedItens.count == 0){
-                //Animation to show there are no selected food
-                UIView.animateWithDuration(0.5, delay: 0.0, options: [], animations: {() -> Void in
-                    
-                    self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
-                    
-                    }, completion: {(result) -> Void in
-                        
-                        UIView.animateWithDuration(0.3, animations: {() -> Void in
-                            
-                            self.collectionView.backgroundColor = UIColor.whiteColor()
-                            
-                        })
-                        
-                })
-                
             
-            }else{
                 //Animation to show there are name already existing in the database
                 if(RefeicaoServices.findByNameBool(self.nameTextField.text!) == true){
                     UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
@@ -329,25 +132,9 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
                             })
                     })
                 }else{
-                
-                //Save Refeicao and notification
-                for diaSemana in self.daysOfWeekString.getArrayString(){
-                    
-                    // Add notification
-                    let notification = Notifications()
-                    let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: NSUUID().UUIDString)
-                    TodoList.sharedInstance.addItem(todoItem)
-                    print(diaSemana, terminator: "")
-                    
-                    //Add Refeicao
-                    RefeicaoServices.createRefeicao(self.nameTextField.text!, horario: TimePicker(self.horario), diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
-                    
+            self.performSegueWithIdentifier("Next", sender: self)
+
                 }
-                self.nameTextField.text = ""
-                    
-                
-                }
-            }
         }else{
             //Animation to show there are no name food
             UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
@@ -366,6 +153,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             })
             
         }
+        
     }
     
     
@@ -393,18 +181,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
         return strdate
         
     }
-    
-    /**Checks whether the item is selected**/
-    func find(itemNew: ItemCardapio)->Bool{
-        var boolean : Bool = false
-        for item in self.selectedItens{
-            if(itemNew == item){
-                boolean = true
-            }
-        }
-        return boolean
-    }
-    
+        
     /**Close keyboard when clicked return **/
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
@@ -418,7 +195,13 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollect
             let destinationViewController = segue.destinationViewController as! WeeksTVC
             destinationViewController.week = self.daysOfWeekString
         }else{
-            
+            if (segue.identifier == "Next") {
+                let destination = segue.destinationViewController as! SelectedFoodsVC
+               
+
+                self.meal.setDatas(self.daysOfWeekString.getArrayString(), time: self.TimePicker(self.horario), name: self.nameTextField.text!)
+                destination.meal = meal
+            }
         }
     }
     
