@@ -11,6 +11,10 @@ import MobileCoreServices
 
 class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var mealImage: UIImageView!
+    @IBOutlet weak var simpleDraw: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,6 +23,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     override func viewDidAppear(animated: Bool) {
+        
 //        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
 //            
 //            let imagePicker = UIImagePickerController()
@@ -34,6 +39,17 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
 //            self.presentViewController(imagePicker, animated: true, completion: nil)
 //        }
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.mealImage.layer.masksToBounds = true
+        self.simpleDraw.layer.masksToBounds = true
+        self.simpleDraw.layer.borderWidth = 1
+        self.simpleDraw.layer.cornerRadius = self.simpleDraw.frame.height/8
+        
+        self.simpleDraw.layer.borderColor = UIColor.grayColor().CGColor
     }
     
     override func didReceiveMemoryWarning() {
