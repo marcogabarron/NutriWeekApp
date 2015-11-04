@@ -48,6 +48,8 @@ class RefeicaoDAO
         // Creating fetch request
         let request = NSFetchRequest(entityName: "Refeicao")
         
+        request.sortDescriptors = [NSSortDescriptor(key: "diaSemana", ascending: true)]
+        
         // Perform search
        // var error: NSErrorPointer = nil
         let results = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Refeicao]

@@ -95,6 +95,11 @@ class RefeicaoServices
     }
     
     /** find all Meals with weekday passed **/
+    static func findAll() -> [Refeicao]{
+        return RefeicaoDAO.findAll()
+    }
+    
+    /** find all Meals with weekday passed **/
     static func findByWeek(str: String) -> [Refeicao]{
         return RefeicaoDAO.findByWeek(str)
     }
