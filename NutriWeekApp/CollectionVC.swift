@@ -228,9 +228,13 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                             self.navigationController?.popViewControllerAnimated(true)
                             }
         
+                let cancel = UIAlertAction(title: "Cancel",
+                    style: .Default) { (action: UIAlertAction!) -> Void in
+        }
                     if quantityVerify == true {
                         alert.addAction(allDaysAction)
                         alert.addAction(saveOnlyAction)
+                        alert.addAction(cancel)
                     }else{
                         
                         let date = NSDate()
