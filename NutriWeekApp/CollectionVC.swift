@@ -304,6 +304,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
         self.editButton.enabled = true
     }
+    
     //MARK: Logic Functions
     //Checks whether the item is selected
     func isSelected(itemNew: ItemCardapio)->Bool{
