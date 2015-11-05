@@ -72,8 +72,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
         //verify if there is any item in this weekday
         if(self.items.count > 0){
-            cell.textLabel!.text = notification.formatStringTime(self.items[indexPath.row].horario) 
-            cell.detailTextLabel?.text = self.items[indexPath.row].name
+            cell.textLabel!.text = self.items[indexPath.row].name
+            cell.detailTextLabel?.text = notification.formatStringTime(self.items[indexPath.row].horario)
             
         }
 
