@@ -32,6 +32,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewDidAppear(animated: Bool) {
         
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -66,9 +67,16 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func cameraButton(sender: AnyObject) {
         
-        let refreshAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        //Faz o alert que vai dar as opções de câmera e de galeria
+        let alertCamera = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        refreshAlert.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
+        alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            //Verifica a permissão da câmera
+            if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
+            {
+
+            //Chamar câmera
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
                 
                 let imagePicker = UIImagePickerController()
@@ -151,9 +159,14 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         alertCamera.addAction(cancelAction)
         
-        refreshAlert.addAction(cancelAction)
+        presentViewController(alertCamera, animated: true, completion: nil)
+
+    }
+    
+    
+    @IBAction func saveButton(sender: AnyObject) {
         
-        presentViewController(refreshAlert, animated: true, completion: nil)
+//        presentViewController(refreshAlert, animated: true, completion: nil)
 
 
     }
@@ -262,37 +275,21 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         return true
     }
     
-    
-    @IBAction func saveButton(sender: AnyObject) {
-        
-//        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
-        // self.fileName is whatever the filename that you need to append to base directory here.
-        //        let path = documentsDirectory.stringByAppendingPathComponent(descriptionText.text)
-        //
-        //        let success = data.writeToFile(path, atomically: true)
-//        if !success { // handle error }
-//        }
-        
-    }
-    
-    
-    /** Faz o controle das ações já realizadas pela câmera. Nesse caso, salva a fotografia no Imave View, considerando a edição da fotografia, caso aconteça **/
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         var originalImage:UIImage?, editedImage:UIImage?, imageToSave:UIImage?
         
         
-        if mediaType.isEqual(kUTTypeImage as String) {
-            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let compResult:CFComparisonResult = CFStringCompare(mediaType as NSString!, kUTTypeImage, CFStringCompareFlags.CompareCaseInsensitive)
+        if ( compResult == CFComparisonResult.CompareEqualTo ) {
             
             self.mealImage.hidden = false
-            self.mealImage.image = image
             self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
-
             
             editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
             originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
+
             
             if ( editedImage != nil ) {
                 imageToSave = editedImage
