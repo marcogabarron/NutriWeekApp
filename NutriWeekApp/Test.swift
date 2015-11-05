@@ -11,12 +11,9 @@ import MobileCoreServices
 
 class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!
-    
-    var newMedia: Bool?
-    
-//    let fileManager = NSFileManager.defaultManager()
-//    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    @IBOutlet weak var simpleDraw: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +24,32 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewDidAppear(animated: Bool) {
         
+//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+//            
+//            let imagePicker = UIImagePickerController()
+//            
+//            imagePicker.delegate = self
+//            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+//            imagePicker.mediaTypes = [kUTTypeImage as String]
+//            imagePicker.allowsEditing = true
+//            imagePicker.showsCameraControls = true
+//            
+//            
+//            
+//            self.presentViewController(imagePicker, animated: true, completion: nil)
+//        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.mealImage.layer.masksToBounds = true
+        self.simpleDraw.layer.masksToBounds = true
+        self.simpleDraw.layer.borderWidth = 1
+        self.simpleDraw.layer.cornerRadius = self.simpleDraw.frame.height/8
+        
+        self.simpleDraw.layer.borderColor = UIColor.grayColor().CGColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +76,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imagePicker.showsCameraControls = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
-                self.newMedia = true
+               // self.newMedia = true
             }
         }))
         
@@ -68,7 +91,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imagePicker.allowsEditing = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
-                self.newMedia = false
+              //  self.newMedia = false
             }
         }
         ))
