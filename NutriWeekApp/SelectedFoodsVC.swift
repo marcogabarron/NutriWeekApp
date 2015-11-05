@@ -47,7 +47,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
         
         //initial empty serach bar text
         self.searchBar.text = ""
-        
+                
         self.collectionView.allowsMultipleSelection = true
         
         self.collectionView.reloadData()
