@@ -26,7 +26,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Uy7-UN-XTR" kind="relationship" relationship="viewControllers" id="TYR-5F-PgI"/>
-                        <segue destination="kOa-rp-zoh" kind="relationship" relationship="viewControllers" id="61N-aJ-QMH"/>
                         <segue destination="1iD-Ak-XWc" kind="relationship" relationship="viewControllers" id="gw0-u6-rEA"/>
                     </connections>
                 </tabBarController>
@@ -50,39 +49,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="qyA-Qq-yrg" kind="relationship" relationship="rootViewController" id="flI-yK-p42"/>
+                        <segue destination="kOa-rp-zoh" kind="relationship" relationship="rootViewController" id="uer-QC-qvg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xqN-Ev-Zdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-303" y="314"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="GFr-sq-kCx">
-            <objects>
-                <viewController id="qyA-Qq-yrg" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vfW-HN-ywc"/>
-                        <viewControllerLayoutGuide type="bottom" id="jdZ-ui-9r2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dsn-E9-dzB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="hEB-P0-Tlq">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="9Sq-LS-qAf">
-                            <color key="tintColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="wGE-OJ-beA" kind="show" id="CqC-bW-hcN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lIG-Ri-Hvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="147" y="1094"/>
         </scene>
         <!--Test Controller-->
         <scene sceneID="GBY-Mv-Pmq">
@@ -93,7 +65,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Qju-hB-srt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="otl-aP-WwG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-eZ-RK1">
@@ -115,14 +87,14 @@
                                     <action selector="datePickerAppear:" destination="wGE-OJ-beA" eventType="touchUpInside" id="Wql-3J-liC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seguiu a dieta: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWy-jS-wjY">
-                                <rect key="frame" x="317" y="64" width="77" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seguiu a dieta: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWy-jS-wjY">
+                                <rect key="frame" x="503" y="64" width="77" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXX-qS-ueY">
-                                <rect key="frame" x="330" y="112" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXX-qS-ueY">
+                                <rect key="frame" x="516" y="112" width="51" height="31"/>
                                 <animations/>
                                 <connections>
                                     <action selector="fletChange:" destination="wGE-OJ-beA" eventType="valueChanged" id="KTP-t2-s1z"/>
@@ -272,12 +244,12 @@
                                 <exclude reference="vjV-Va-ixE"/>
                                 <exclude reference="KzT-0r-pbG"/>
                                 <exclude reference="fDB-lX-JzT"/>
+                                <exclude reference="Cmf-nN-hDC"/>
                                 <exclude reference="MdZ-ce-EjJ"/>
                                 <exclude reference="cms-4e-83k"/>
                                 <exclude reference="lef-4I-SAq"/>
                                 <exclude reference="ntL-Vq-hGo"/>
                                 <exclude reference="sFt-E6-GAg"/>
-                                <exclude reference="Cmf-nN-hDC"/>
                             </mask>
                         </variation>
                     </view>
@@ -513,6 +485,45 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
+                                <rect key="frame" x="310" y="90" width="51" height="31"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="valueChange:" destination="oxc-Ih-3gp" eventType="valueChanged" id="OWx-Qj-Qac"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-MK-TVd">
+                                <rect key="frame" x="64" y="102" width="246" height="33"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="datePickerAppear:" destination="oxc-Ih-3gp" eventType="touchUpInside" id="Kdp-fU-qhW"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RzB-Z0-gB5">
+                                <rect key="frame" x="3" y="618" width="366" height="216"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="YAj-IG-NU8"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="467651480.59770602">
+                                    <!--2015-10-27 15:11:20 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="UpdateTimerPicker:" destination="oxc-Ih-3gp" eventType="valueChanged" id="HMH-kF-BHi"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificação:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmj-Zu-2vu">
+                                <rect key="frame" x="290" y="69" width="83" height="18"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PHI-5M-ugB">
                                 <rect key="frame" x="3" y="134" width="366" height="484"/>
                                 <animations/>
@@ -626,45 +637,6 @@
                                     <outlet property="delegate" destination="oxc-Ih-3gp" id="blP-se-jSS"/>
                                 </connections>
                             </collectionView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
-                                <rect key="frame" x="310" y="90" width="51" height="31"/>
-                                <animations/>
-                                <connections>
-                                    <action selector="valueChange:" destination="oxc-Ih-3gp" eventType="valueChanged" id="OWx-Qj-Qac"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Akj-MK-TVd">
-                                <rect key="frame" x="64" y="102" width="246" height="33"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="datePickerAppear:" destination="oxc-Ih-3gp" eventType="touchUpInside" id="Kdp-fU-qhW"/>
-                                </connections>
-                            </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RzB-Z0-gB5">
-                                <rect key="frame" x="3" y="618" width="366" height="216"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="YAj-IG-NU8"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="467651480.59770602">
-                                    <!--2015-10-27 15:11:20 +0000-->
-                                </date>
-                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
-                                    <!--2037-12-31 11:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="UpdateTimerPicker:" destination="oxc-Ih-3gp" eventType="valueChanged" id="HMH-kF-BHi"/>
-                                </connections>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notificação:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmj-Zu-2vu">
-                                <rect key="frame" x="290" y="69" width="83" height="18"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1341,7 +1313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WUd-Cw-IOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2080.5" y="-1537.5"/>
+            <point key="canvasLocation" x="2239.5" y="-1548.5"/>
         </scene>
         <!--Edit ItemVC-->
         <scene sceneID="vkn-ak-RLv">
@@ -1662,7 +1634,7 @@
             </objects>
             <point key="canvasLocation" x="2528.5" y="280.5"/>
         </scene>
-        <!--Item-->
+        <!--Diary-->
         <scene sceneID="1mI-hr-9MF">
             <objects>
                 <viewController id="kOa-rp-zoh" customClass="DiaryVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -1671,21 +1643,24 @@
                         <viewControllerLayoutGuide type="bottom" id="eGa-Oi-J5T"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VyE-nS-LIG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LvF-AG-4uy">
-                                <rect key="frame" x="3" y="81" width="369" height="505"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LvF-AG-4uy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="554" id="EzV-Ed-kAR"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Vd0-6k-qTz">
                                     <size key="itemSize" width="120" height="140"/>
-                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="50" height="30"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SelectedCollectionViewCell" reuseIdentifier="SelectedCollectionViewCell" id="f3i-Ir-n3r" customClass="SelectedCollectionViewCell" customModule="NutriWeekApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="120" height="140"/>
+                                        <rect key="frame" x="0.0" y="30" width="120" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
@@ -1708,23 +1683,14 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="3aa-dn-Mah">
-                                                            <rect key="frame" x="78" y="0.0" width="37" height="36"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="3aa-dn-Mah" secondAttribute="height" multiplier="36:35" id="zoA-gh-eXw"/>
-                                                            </constraints>
-                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="BVN-hm-29R" secondAttribute="bottom" id="5Wc-gM-i0X"/>
                                                         <constraint firstItem="BVN-hm-29R" firstAttribute="leading" secondItem="fVQ-0M-34m" secondAttribute="leading" constant="10" id="7yB-br-6dD"/>
                                                         <constraint firstItem="3Z5-9y-AnE" firstAttribute="leading" secondItem="fVQ-0M-34m" secondAttribute="leading" constant="5" id="Awd-Ia-OQn"/>
-                                                        <constraint firstItem="3aa-dn-Mah" firstAttribute="top" secondItem="3Z5-9y-AnE" secondAttribute="top" id="EhP-2x-9OI"/>
-                                                        <constraint firstAttribute="trailing" secondItem="3aa-dn-Mah" secondAttribute="trailing" constant="5" id="IoX-rP-x8g"/>
                                                         <constraint firstItem="3Z5-9y-AnE" firstAttribute="top" secondItem="fVQ-0M-34m" secondAttribute="top" id="LFZ-vX-uU7"/>
                                                         <constraint firstItem="BVN-hm-29R" firstAttribute="top" secondItem="3Z5-9y-AnE" secondAttribute="bottom" id="WBB-z2-t1o"/>
                                                         <constraint firstAttribute="centerX" secondItem="BVN-hm-29R" secondAttribute="centerX" id="ZSQ-QU-1Np"/>
-                                                        <constraint firstItem="3aa-dn-Mah" firstAttribute="width" secondItem="3Z5-9y-AnE" secondAttribute="width" multiplier="1/3" id="bDa-wt-2CT"/>
                                                         <constraint firstAttribute="bottom" secondItem="3Z5-9y-AnE" secondAttribute="bottom" constant="5" id="gba-TT-Ljq"/>
                                                         <constraint firstItem="BVN-hm-29R" firstAttribute="width" secondItem="fVQ-0M-34m" secondAttribute="width" id="hFP-Ae-YWG"/>
                                                         <constraint firstItem="3Z5-9y-AnE" firstAttribute="centerX" secondItem="BVN-hm-29R" secondAttribute="centerX" id="rhc-sW-PcG"/>
@@ -1749,37 +1715,60 @@
                                             <constraint firstItem="fVQ-0M-34m" firstAttribute="top" secondItem="f3i-Ir-n3r" secondAttribute="top" id="cXF-dl-LzZ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="fVQ-0M-34m" secondAttribute="bottom" id="jVP-8M-BrR"/>
                                             <constraint firstAttribute="trailing" secondItem="fVQ-0M-34m" secondAttribute="trailing" id="v3y-tm-OaF"/>
+                                            <constraint firstItem="fVQ-0M-34m" firstAttribute="bottom" secondItem="f3i-Ir-n3r" secondAttribute="bottomMargin" id="wpt-rw-Hhf"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="jVP-8M-BrR"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
-                                            <outlet property="checkImage" destination="3aa-dn-Mah" id="STo-FN-waG"/>
                                             <outlet property="image" destination="3Z5-9y-AnE" id="Hgi-Cy-FkZ"/>
                                             <outlet property="textLabel" destination="BVN-hm-29R" id="JgF-T3-zrL"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="Ofm-Fz-ub3" customClass="CollectionDiaryClass" customModule="NutriWeekApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="369" height="50"/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerView" id="tUC-cV-sCb" customClass="CollectionDiaryClass" customModule="NutriWeekApp" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diary VC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe9-v4-Dnr">
-                                            <rect key="frame" x="54" y="14" width="260" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-Cc-huH">
+                                            <rect key="frame" x="0.0" y="4" width="375" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="260" id="8ZQ-cX-pNk"/>
-                                                <constraint firstAttribute="height" constant="21" id="JyH-b5-aaY"/>
+                                                <constraint firstAttribute="height" constant="21" id="eHu-lg-606"/>
+                                                <constraint firstAttribute="width" constant="250" id="eQe-S1-cVR"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="eQe-S1-cVR"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.21176470588235294" green="0.56862745098039214" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="fe9-v4-Dnr" firstAttribute="top" secondItem="Ofm-Fz-ub3" secondAttribute="topMargin" constant="6" id="Hhp-Y6-w5l"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="fe9-v4-Dnr" secondAttribute="trailing" constant="47" id="bo7-dC-Fcq"/>
+                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="centerX" secondItem="tUC-cV-sCb" secondAttribute="centerX" id="Jdc-n9-s7u"/>
+                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="centerY" secondItem="tUC-cV-sCb" secondAttribute="centerY" id="O79-6e-Mrx"/>
+                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" id="em0-C7-D0Y"/>
+                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" id="x8L-JA-aQT"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="x8L-JA-aQT"/>
+                                        </mask>
+                                    </variation>
                                     <connections>
-                                        <outlet property="headerViewLabel" destination="fe9-v4-Dnr" id="Bo6-GI-Lad"/>
+                                        <outlet property="headerViewLabel" destination="nFo-Cc-huH" id="epB-Cd-dlg"/>
                                     </connections>
                                 </collectionReusableView>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EzV-Ed-kAR"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="kOa-rp-zoh" id="q8i-Os-Qif"/>
                                     <outlet property="delegate" destination="kOa-rp-zoh" id="Y7S-hT-cMa"/>
@@ -1787,8 +1776,24 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LvF-AG-4uy" firstAttribute="height" secondItem="VyE-nS-LIG" secondAttribute="height" id="Wc3-4G-aJq"/>
+                            <constraint firstItem="LvF-AG-4uy" firstAttribute="centerX" secondItem="VyE-nS-LIG" secondAttribute="centerX" id="Wmo-0g-q2b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LvF-AG-4uy" secondAttribute="trailing" constant="-17" id="aBt-dQ-puC"/>
+                            <constraint firstItem="LvF-AG-4uy" firstAttribute="width" secondItem="VyE-nS-LIG" secondAttribute="width" id="enM-dI-wbZ"/>
+                            <constraint firstItem="LvF-AG-4uy" firstAttribute="top" secondItem="tjO-2a-ryl" secondAttribute="bottom" id="sAQ-ej-M0D"/>
+                            <constraint firstItem="LvF-AG-4uy" firstAttribute="height" secondItem="VyE-nS-LIG" secondAttribute="height" constant="64" id="yBi-Mm-GFd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Wc3-4G-aJq"/>
+                                <exclude reference="aBt-dQ-puC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Item" id="xuf-Tq-woe"/>
+                    <navigationItem key="navigationItem" title="Diary" id="MRz-fd-Brf"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="diaryCollection" destination="LvF-AG-4uy" id="J2R-7L-nrB"/>
@@ -1796,7 +1801,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiE-zf-0v6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203.5" y="239.5"/>
+            <point key="canvasLocation" x="203.5" y="849.5"/>
         </scene>
     </scenes>
     <resources>
@@ -1809,7 +1814,7 @@
         <image name="logo" width="510" height="510"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0MD-79-vIg"/>
+        <segue reference="tEw-8l-R7X"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
