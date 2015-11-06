@@ -426,7 +426,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeFoodDismiss", name: "ChangeFoodDismiss", object: nil)
             
-            destinationViewController.view.frame = CGRectInset(destinationViewController.view.frame, 100, 50);
+            destinationViewController.view.frame = CGRectInset(destinationViewController.view.frame, 100, 50)
             
             
             let indexPath = sender as! NSIndexPath

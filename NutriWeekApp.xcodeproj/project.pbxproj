@@ -222,7 +222,6 @@
 				FFD1A2A51B53F34D004A5EED /* Notifications.swift */,
 				C246E4161BD950990068ED68 /* Meal.swift */,
 				C246E4181BD951A60068ED68 /* Food.swift */,
-				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -335,6 +334,7 @@
 				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
+				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -391,7 +391,6 @@
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 97EUAUR8F9;
-
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;

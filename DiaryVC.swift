@@ -11,23 +11,31 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
 
-    var meals: [Refeicao]!
+    var meals = [[Refeicao]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for var i = 0; i < self.diasPT.count; i++ {
+            
+            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+            
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.diaryCollection.reloadData()
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
+
         
-        if(Int(indexPath.row) == self.meals.count){
+        if(Int(indexPath.row) == self.meals[indexPath.section].count){
             cell.textLabel.text = ""
             
             cell.image.image = UIImage(named: "add")
@@ -36,11 +44,10 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             
         }else{
-            cell.textLabel.text = meals[indexPath.row].name
+            cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
-            
-//            cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
-            cell.image.image = UIImage(named: "grape")
+            //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
+            cell.image.image = UIImage(named: "water")
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
         }
@@ -53,8 +60,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.meals = RefeicaoServices.findByWeek(self.diasPT[section])
-        return meals.count
+        return meals[section].count+1
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
