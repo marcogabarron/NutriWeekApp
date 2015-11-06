@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Automatic">
+    <entity name="Daily" representedClassName=".Daily" syncable="YES">
+        <attribute name="date" attributeType="Date" syncable="YES"/>
+        <attribute name="descriptionStr" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hasImage" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
     <entity name="ItemCardapio" representedClassName="NutriWeekApp.ItemCardapio" syncable="YES">
         <attribute name="categoria" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,5 +22,6 @@
     <elements>
         <element name="ItemCardapio" positionX="-63" positionY="-9" width="128" height="103"/>
         <element name="Refeicao" positionX="207" positionY="-4" width="128" height="120"/>
+        <element name="Daily" positionX="72" positionY="36" width="128" height="105"/>
     </elements>
 </model>

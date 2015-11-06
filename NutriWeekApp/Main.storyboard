@@ -40,7 +40,7 @@
                 <navigationController id="1iD-Ak-XWc" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Diary" image="diary-50" id="bQE-Yc-VbY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Csk-fS-YLI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Csk-fS-YLI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,6 +124,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXX-qS-ueY">
                                 <rect key="frame" x="330" y="112" width="51" height="31"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="fletChange:" destination="wGE-OJ-beA" eventType="valueChanged" id="KTP-t2-s1z"/>
+                                </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYR-eA-vfd">
                                 <rect key="frame" x="20" y="158" width="384" height="387"/>
@@ -141,7 +144,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="Rmt-jx-4mb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rmt-jx-4mb">
                                 <rect key="frame" x="25" y="282" width="364" height="229"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsJ-gm-pe7">
@@ -278,14 +281,23 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="VRP-8F-omX" propertyAccessControl="none"/>
+                    <navigationItem key="navigationItem" id="VRP-8F-omX" propertyAccessControl="none">
+                        <barButtonItem key="rightBarButtonItem" title="Salvar" id="rBf-Ga-XhO">
+                            <connections>
+                                <action selector="saveButton:" destination="wGE-OJ-beA" id="K0j-Gu-Ge0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomDP" destination="Vvx-Ur-2wK" id="3Mx-Er-7dd"/>
+                        <outlet property="dateLabel" destination="dlp-eZ-RK1" id="R8w-5l-B2I"/>
                         <outlet property="datePicker" destination="3Z9-Zp-K5L" id="0Hp-8f-auJ"/>
                         <outlet property="descriptionText" destination="Z07-WU-8mZ" id="NI3-fb-PJd"/>
                         <outlet property="hour" destination="jd9-Z6-t8y" id="fA0-rN-vLT"/>
                         <outlet property="mealImage" destination="Rmt-jx-4mb" id="hlp-i4-Zaj"/>
+                        <outlet property="saveButton" destination="rBf-Ga-XhO" id="cZF-Y3-YD8"/>
                         <outlet property="simpleDraw" destination="cYR-eA-vfd" id="G42-wL-Fla"/>
+                        <outlet property="switchDiet" destination="nXX-qS-ueY" id="GMt-QU-jR8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1F-GK-yli" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,6 +316,9 @@
                         <animations/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <color key="barTintColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="sb4-91-aw0"/>
@@ -1792,7 +1807,6 @@
         <image name="dell" width="100" height="100"/>
         <image name="diary-50" width="35" height="35"/>
         <image name="logo" width="510" height="510"/>
-        <image name="noImage" width="400" height="266"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0MD-79-vIg"/>

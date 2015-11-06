@@ -19,6 +19,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var bottomDP: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var hour: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var switchDiet: UISwitch!
     
     var date: NSDate = NSDate()
     
@@ -27,6 +30,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         // Do any additional setup after loading the view.
         self.mealImage.hidden = true
+        
+        self.saveButton.title = NSLocalizedString("", comment: "")
+        self.saveButton.enabled = false
 
     }
     
@@ -38,6 +44,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.datePicker.date = date
+        
+        let timer = NSDateFormatter()
+        timer.dateFormat = "dd/MM/yyyy"
+        
+        let strdate = timer.stringFromDate(self.datePicker.date)
+        
+        self.dateLabel.text = strdate
         
         self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
         
@@ -64,6 +77,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     
+    //MARK - Actions
     
     @IBAction func cameraButton(sender: AnyObject) {
         
@@ -165,6 +179,11 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func saveButton(sender: AnyObject) {
+        if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
+            self.descriptionText.text = ""
+        }
+        DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
+        print(DailyServices.allDaily())
         
 //        presentViewController(refreshAlert, animated: true, completion: nil)
 
@@ -192,8 +211,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
-            self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
+        self.addSaveButton()
         
+        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
+    }
+    
+    @IBAction func fletChange(sender: AnyObject) {
+        self.addSaveButton()
     }
     
     func closeDatePicker(){
@@ -205,8 +229,11 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             })
         }
     }
+
     
+    //MARK - logical functions associated to Datepicker
     
+    //gesture tap to close datepicker
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         if(self.bottomDP.constant == -216){
             return false
@@ -216,7 +243,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    /** Get datePicker and returns a string formatted to save Refeicao **/
+    //Get datePicker and returns a string formatted to save Refeicao
     func timePicker(sender: UIDatePicker) -> String{
         
         let timer = NSDateFormatter()
@@ -228,7 +255,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    /** Convert stringDate to Date **/
+    // Convert stringDate to Date
     func formatTime(dataString: String) -> NSDate{
         
         let dateFormatter = NSDateFormatter()
@@ -242,6 +269,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
+    //MARK - logical functions associated to TextView
+    
     override func becomeFirstResponder() -> Bool {
         self.descriptionText.text = "Escreva uma descrição ou comentário"
         self.descriptionText.textColor = UIColor.lightGrayColor()
@@ -253,6 +282,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if (descriptionText?.text == "Escreva uma descrição ou comentário")
             
         {
+            self.addSaveButton()
             descriptionText!.text = nil
             descriptionText!.textColor = UIColor.blackColor()
         }
@@ -275,6 +305,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         return true
     }
     
+    //MARK - logical functions associated to Image and save button
+    
+    func addSaveButton(){
+        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.enabled = true
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
@@ -283,7 +320,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         let compResult:CFComparisonResult = CFStringCompare(mediaType as NSString!, kUTTypeImage, CFStringCompareFlags.CompareCaseInsensitive)
         if ( compResult == CFComparisonResult.CompareEqualTo ) {
-            
+            self.addSaveButton()
             self.mealImage.hidden = false
             self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
             
