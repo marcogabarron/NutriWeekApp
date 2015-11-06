@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 import MobileCoreServices
+import AVFoundation
+import AssetsLibrary
 
 class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var simpleDraw: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,20 +27,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewDidAppear(animated: Bool) {
         
-//        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-//            
-//            let imagePicker = UIImagePickerController()
-//            
-//            imagePicker.delegate = self
-//            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-//            imagePicker.mediaTypes = [kUTTypeImage as String]
-//            imagePicker.allowsEditing = true
-//            imagePicker.showsCameraControls = true
-//            
-//            
-//            
-//            self.presentViewController(imagePicker, animated: true, completion: nil)
-//        }
         
     }
     
@@ -61,10 +50,16 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func cameraButton(sender: AnyObject) {
         
+        //Faz o alert que vai dar as opções de câmera e de galeria
+        let alertCamera = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        let refreshAlert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
+        alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            //Verifica a permissão da câmera
+            if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
+            {
+
+            //Chamar câmera
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
                 
                 let imagePicker = UIImagePickerController()
@@ -78,9 +73,34 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 self.presentViewController(imagePicker, animated: true, completion: nil)
                // self.newMedia = true
             }
+                //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
+            }
+            else
+            {
+                
+                let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
+                
+                alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
+                    //Direcionar para ajustes
+                    
+                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+                    if let url = settingsUrl {
+                        UIApplication.sharedApplication().openURL(url)
+                    }
+                    
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
         }))
         
-        refreshAlert.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
+        alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            
+            //Chamar galeria
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                 
                 let imagePicker = UIImagePickerController()
@@ -93,51 +113,98 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 self.presentViewController(imagePicker, animated: true, completion: nil)
               //  self.newMedia = false
             }
-        }
-        ))
+            
+                //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
+            else {
+                
+                let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
+                
+                alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
+                   //Direcionar para ajustes
+                    
+                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+                    if let url = settingsUrl {
+                        UIApplication.sharedApplication().openURL(url)
+                    }
+                    
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+        }))
         
         let cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
-            
         }
+        alertCamera.addAction(cancelAction)
         
-        refreshAlert.addAction(cancelAction)
-        
-        presentViewController(refreshAlert, animated: true, completion: nil)
-        
-        
-        
-        
-
+        presentViewController(alertCamera, animated: true, completion: nil)
 
     }
     
+    
+    @IBAction func saveButton(sender: AnyObject) {
+        
+//        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
+        // self.fileName is whatever the filename that you need to append to base directory here.
+        //        let path = documentsDirectory.stringByAppendingPathComponent(descriptionText.text)
+        //
+        //        let success = data.writeToFile(path, atomically: true)
+//        if !success { // handle error }
+//        }
+        
+    }
+    
+    
+    /** Faz o controle das ações já realizadas pela câmera. Nesse caso, salva a fotografia no Imave View, considerando a edição da fotografia, caso aconteça **/
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
+        var originalImage:UIImage?, editedImage:UIImage?, imageToSave:UIImage?
         
-        self.dismissViewControllerAnimated(true, completion: nil)
         
-        if mediaType.isEqual(kUTTypeImage as String) {
-            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let compResult:CFComparisonResult = CFStringCompare(mediaType as NSString!, kUTTypeImage, CFStringCompareFlags.CompareCaseInsensitive)
+        if ( compResult == CFComparisonResult.CompareEqualTo ) {
             
-            mealImage.image = image
+            editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
+            originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
             
-            
-//            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
-            // self.fileName is whatever the filename that you need to append to base directory here.
-//            let path = documentsDirectory.stringByAppendingPathComponent(self.mealImage)
-            
-            
-//            if (newMedia == true) {
-//                
-//                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
-//                
-//            } else if mediaType.isEqual(kUTTypeMovie as String) {
-//                // Code to support video here
-//            }
+            if ( editedImage != nil ) {
+                imageToSave = editedImage
+            } else {
+                imageToSave = originalImage
+            }
+            mealImage.image = imageToSave
+            mealImage.reloadInputViews()
             
         }
+        
+         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        
+//        if mediaType.isEqual(kUTTypeImage as String) {
+//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+//            
+//            mealImage.image = image
+//            
+//            
+////            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
+//            // self.fileName is whatever the filename that you need to append to base directory here.
+////            let path = documentsDirectory.stringByAppendingPathComponent(self.mealImage)
+//            
+//            
+////            if (newMedia == true) {
+////                
+////                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
+////                
+////            } else if mediaType.isEqual(kUTTypeMovie as String) {
+////                // Code to support video here
+////            }
+//            
+//        }
     }
     
     
