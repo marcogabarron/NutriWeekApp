@@ -334,7 +334,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             if (newMedia == true) {
                 
-                UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
+                //UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
             }
             
             mealImage.image = imageToSave
