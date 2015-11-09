@@ -30,7 +30,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
         super.viewDidLoad()
         
         self.nameTextField.placeholder = NSLocalizedString("Nome da Refeição", comment: "")
-        
+        self.nameTextField.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -25,6 +25,9 @@
 		C2A0F6491BE12602007EA3AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A0F6481BE12602007EA3AD /* Images.xcassets */; };
 		C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */; };
 		C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F175361BD555E5000B2A3E /* ItemCardapio.swift */; };
+		C2FE6C6D1BED0CF40044B39B /* DailyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE6C6C1BED0CF40044B39B /* DailyDAO.swift */; };
+		C2FE6C6F1BED16970044B39B /* DailyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE6C6E1BED16970044B39B /* DailyServices.swift */; };
+		C2FE6C731BED1E420044B39B /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE6C721BED1E420044B39B /* Daily.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
 		DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */; };
 		DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */; };
@@ -103,6 +106,9 @@
 		C2A5B1731B5F43A300C7EAB1 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2F175361BD555E5000B2A3E /* ItemCardapio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapio.swift; path = ../../ItemCardapio.swift; sourceTree = "<group>"; };
+		C2FE6C6C1BED0CF40044B39B /* DailyDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDAO.swift; sourceTree = "<group>"; };
+		C2FE6C6E1BED16970044B39B /* DailyServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyServices.swift; sourceTree = "<group>"; };
+		C2FE6C721BED1E420044B39B /* Daily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Daily.swift; path = ../../../Daily.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
 		DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioServices.swift; path = ../ItemCardapioServices.swift; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 			children = (
 				DAD5A18A1B3D76AA003829BF /* RefeicaoDAO.swift */,
 				DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */,
+				C2FE6C6C1BED0CF40044B39B /* DailyDAO.swift */,
 				DAD5A18B1B3D76AA003829BF /* DatabaseManager.swift */,
 			);
 			name = DAO;
@@ -222,7 +229,6 @@
 				FFD1A2A51B53F34D004A5EED /* Notifications.swift */,
 				C246E4161BD950990068ED68 /* Meal.swift */,
 				C246E4181BD951A60068ED68 /* Food.swift */,
-				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -312,6 +318,7 @@
 		DAD5A18C1B3D76AA003829BF /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				C2FE6C721BED1E420044B39B /* Daily.swift */,
 				C2F175361BD555E5000B2A3E /* ItemCardapio.swift */,
 				C25856361B53EFF100244735 /* Refeicao.swift */,
 			);
@@ -323,6 +330,7 @@
 			children = (
 				DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */,
 				DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */,
+				C2FE6C6E1BED16970044B39B /* DailyServices.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -335,6 +343,7 @@
 				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
+				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -390,7 +399,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = MERJVB67M9;
+						DevelopmentTeam = 97EUAUR8F9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -464,7 +473,9 @@
 				DA8784FF1BE93428008838E9 /* DiaryVC.swift in Sources */,
 				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
+				C2FE6C6D1BED0CF40044B39B /* DailyDAO.swift in Sources */,
 				C246E4171BD950990068ED68 /* Meal.swift in Sources */,
+				C2FE6C6F1BED16970044B39B /* DailyServices.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
 				FF3929251BEA71FB0051E7DF /* Test.swift in Sources */,
@@ -487,6 +498,7 @@
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
 				DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */,
 				DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */,
+				C2FE6C731BED1E420044B39B /* Daily.swift in Sources */,
 				C246E41F1BD9DA800068ED68 /* SelectedFoodsAdd.swift in Sources */,
 				C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */,
 				C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */,
