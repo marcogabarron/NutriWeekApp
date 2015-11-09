@@ -18,6 +18,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var simpleDraw: UIImageView!
 
     
+    let fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -148,13 +151,26 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func saveButton(sender: AnyObject) {
         
-//        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
-        // self.fileName is whatever the filename that you need to append to base directory here.
-        //        let path = documentsDirectory.stringByAppendingPathComponent(descriptionText.text)
-        //
-        //        let success = data.writeToFile(path, atomically: true)
-//        if !success { // handle error }
-//        }
+        let selectedImage = mealImage.image
+        let filePathToWrite = "\(paths)\(descriptionText.text).png"
+        let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
+        
+        fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+        
+//        let nsDocumentDirectory = NSSearchPathDirectory.DocumentDirectory
+//        let nsUserDomainMask    = NSSearchPathDomainMask.UserDomainMask
+//        let paths            = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+//        
+//            if paths.count > 0
+//            {
+//                if let dirPath = paths[0] as String!
+//                {
+//                    let readPath = NSURL(fileURLWithPath: dirPath).URLByAppendingPathComponent(descriptionText.text) //dirPath.stringByAppendingPathComponent(descriptionText.text)
+//                    let image    = UIImage(contentsOfFile: "\(readPath)")
+//                    // Do whatever you want with the image
+//                }
+//            }
+        
         
     }
     
@@ -177,6 +193,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             } else {
                 imageToSave = originalImage
             }
+            
+            UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
+            
             mealImage.image = imageToSave
             mealImage.reloadInputViews()
             
@@ -185,26 +204,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
          self.dismissViewControllerAnimated(true, completion: nil)
         
         
-//        if mediaType.isEqual(kUTTypeImage as String) {
-//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//            
-//            mealImage.image = image
-//            
-//            
-////            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
-//            // self.fileName is whatever the filename that you need to append to base directory here.
-////            let path = documentsDirectory.stringByAppendingPathComponent(self.mealImage)
-//            
-//            
-////            if (newMedia == true) {
-////                
-////                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
-////                
-////            } else if mediaType.isEqual(kUTTypeMovie as String) {
-////                // Code to support video here
-////            }
-//            
-//        }
     }
     
     
