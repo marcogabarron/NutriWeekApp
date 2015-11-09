@@ -65,5 +65,16 @@ class DailyDAO
         let results: [Daily] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Daily]
         return results
     }
+    
+    /** Edit element into context and Save context **/
+    static func edit(objectToBeInserted: Daily)
+    {
+        // Save context
+        do {
+            try DatabaseManager.sharedInstance.managedObjectContext?.save()
+        } catch {
+            print("\(error)")
+        }
+    }
 
 }

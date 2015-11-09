@@ -12,15 +12,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
 
     var meals = [[Refeicao]]()
+        
+    var allDaily = [Daily]()
+    
+    let fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for var i = 0; i < self.diasPT.count; i++ {
-            
-            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
-            
-        }
-        
+
 //        var date = NSDate()
 //        var date2 = date.timeIntervalSince1970 + (60*60*24*7)
 //        print(NSDate(timeIntervalSince1970: date2))
@@ -30,6 +31,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        for var i = 0; i < self.diasPT.count; i++ {
+            
+            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+            
+        }
+        self.allDaily = DailyServices.allDaily()
+
         self.diaryCollection.reloadData()
         
     }
@@ -51,16 +59,40 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
             //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
-            cell.image.image = UIImage(named: "water")
+            cell.image.image = UIImage(named: "logo")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
+            
+            
+            if(allDaily.count != 0){
+//                let getImagePath = paths.URLByAppendingPathComponent("image\(indexPath.row).png")
+//                
+//                if (fileManager.fileExistsAtPath(getImagePath)){
+//                    
+//                    let selectedImage: UIImage = UIImage(contentsOfFile: getImagePath)!
+//                    let data: NSData = UIImagePNGRepresentation(selectedImage)!
+//                    cell.imageCell.image = selectedImage
+//                    
+//                }else{
+//                    print("FILE NOT AVAILABLE");
+//                }
+                if(allDaily.count > indexPath.section){
+                    cell.image.image = UIImage(named: allDaily[indexPath.section].nameImage!)
+
+                }
+            }
+
+            
+            
         }
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
+       
+        self.performSegueWithIdentifier("daily", sender: indexPath)
+      
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

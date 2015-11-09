@@ -101,7 +101,7 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cYR-eA-vfd">
-                                <rect key="frame" x="16" y="158" width="353" height="352.5"/>
+                                <rect key="frame" x="16" y="158" width="353" height="353"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z07-WU-8mZ">
                                 <rect key="frame" x="26" y="168" width="333" height="309"/>
@@ -1801,15 +1801,12 @@
                     <tabBarItem key="tabBarItem" title="Item" id="xuf-Tq-woe"/>
                     <navigationItem key="navigationItem" title="Diary" id="MRz-fd-Brf">
                         <barButtonItem key="leftBarButtonItem" title="Before" id="g7G-b9-6se"/>
-                        <barButtonItem key="rightBarButtonItem" title="After" id="qdp-Cb-Pwc">
-                            <connections>
-                                <segue destination="wGE-OJ-beA" kind="show" id="V2c-f7-TRV"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="After" id="qdp-Cb-Pwc"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="diaryCollection" destination="LvF-AG-4uy" id="J2R-7L-nrB"/>
+                        <segue destination="wGE-OJ-beA" kind="show" identifier="daily" id="ex5-TA-Azw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiE-zf-0v6" userLabel="First Responder" sceneMemberID="firstResponder"/>

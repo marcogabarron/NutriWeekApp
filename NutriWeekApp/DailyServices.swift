@@ -4,7 +4,7 @@ import Foundation
 class DailyServices {
     
     /**create the Entity ItemCardapio that represent the Food**/
-    static func createDaily(date: NSDate, fled: Bool, description: String, hasImage: Bool)
+    static func createDaily(date: NSDate, fled: Bool, description: String, hasImage: Bool) -> Daily
     {
         
         let daily: Daily = Daily()
@@ -14,11 +14,19 @@ class DailyServices {
         daily.hasImage = hasImage
         
         DailyDAO.insert(daily)
+        
+        return daily
+
     }
     
-    /** find all ItemCardapio **/
+    /** find all Daily **/
     static func allDaily() -> [Daily] {
         return DailyDAO.findAll()
     }
-
+    
+    static func editDaily(daily: Daily){
+        
+        DailyDAO.edit(daily)
+    }
+    
 }
