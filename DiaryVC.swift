@@ -8,10 +8,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     @IBOutlet weak var diaryCollection: UICollectionView!
     
-    
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-
     var meals = [[Refeicao]]()
+    let date = NSDate()
+    var date2 = NSDate()
+    let dateFormatter = NSDateFormatter()
+    var teste = String()
+    var teste2 = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +24,18 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
         }
         
-//        var date = NSDate()
-//        var date2 = date.timeIntervalSince1970 + (60*60*24*7)
-//        print(NSDate(timeIntervalSince1970: date2))
+        self.date2 = self.date
         
+        self.dateFormatter.dateFormat = "dd-MM-yyyy"
+        for(var i = 0; i < 7; i++){
+        self.teste2.append(dateFormatter.stringFromDate(date2))
+        self.date2 = (date2.dateByAddingTimeInterval(60*60*24))
+        //teste = dateFormatter.stringFromDate(date2)
+        
+        
+            
+        }
+    print(self.teste2)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -48,12 +59,14 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             
         }else{
+            
             cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
             //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
             cell.image.image = UIImage(named: "water")
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
+            
         }
         
         return cell
@@ -85,6 +98,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     forIndexPath: indexPath)
                     as! CollectionDiaryClass
                 headerViewLabel.headerViewLabel.text = diasPT[indexPath.section]
+                headerViewLabel.labelMonthDay.text = teste2[indexPath.section]
                 return headerViewLabel
             default:
                 //4
