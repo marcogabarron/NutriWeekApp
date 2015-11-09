@@ -23,6 +23,10 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var switchDiet: UISwitch!
     
+    var newMedia: Bool?
+    let fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    
     var date: NSDate = NSDate()
     
     override func viewDidLoad() {
@@ -89,27 +93,23 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             //Verifica a permissão da câmera
             if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
             {
-
-            //Chamar câmera
-            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+                //Chamar câmera
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
                 
-                let imagePicker = UIImagePickerController()
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                    imagePicker.mediaTypes = [kUTTypeImage as String]
+                    imagePicker.allowsEditing = true
+                    imagePicker.showsCameraControls = true
                 
-                imagePicker.delegate = self
-                imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                imagePicker.mediaTypes = [kUTTypeImage as String]
-                imagePicker.allowsEditing = true
-                imagePicker.showsCameraControls = true
-                
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-               // self.newMedia = true
-                
+                    self.presentViewController(imagePicker, animated: true, completion: nil)
+                    self.newMedia = true
+                }
             }
-                //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
-            }
-            else
+            else //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-                
+            
                 let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
@@ -123,37 +123,32 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                
                 self.presentViewController(alert, animated: true, completion: nil)
-                
             }
         }))
         
         alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
             
-            
             //Chamar galeria
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                 
                 let imagePicker = UIImagePickerController()
-                
                 imagePicker.delegate = self
                 imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
                 imagePicker.mediaTypes = [kUTTypeImage as String]
                 imagePicker.allowsEditing = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
-              //  self.newMedia = false
+                self.newMedia = false
             }
             
                 //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
             else {
                 
                 let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                   //Direcionar para ajustes
-                    
+                   
+                    //Direcionar para ajustes
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
                         UIApplication.sharedApplication().openURL(url)
@@ -162,7 +157,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                
                 self.presentViewController(alert, animated: true, completion: nil)
                 
             }
@@ -185,8 +179,14 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
         print(DailyServices.allDaily())
         
-//        presentViewController(refreshAlert, animated: true, completion: nil)
-
+        //        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+        let selectedImage = mealImage.image
+        let filePathToWrite = "\(paths)/image.png"
+        let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
+        
+        fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+        
 
     }
     
@@ -333,6 +333,12 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             } else {
                 imageToSave = originalImage
             }
+            
+            if (newMedia == true) {
+                
+                UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
+            }
+            
             mealImage.image = imageToSave
             mealImage.reloadInputViews()
             
