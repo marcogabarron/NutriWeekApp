@@ -21,6 +21,15 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
         }
         
+        var cal = NSCalendar.currentCalendar()
+        var d:NSDate
+       // d = cal.c
+        
+        
+//        var date = NSDate()
+//        var date2 = date.timeIntervalSince1970 + (60*60*24*7)
+//        print(NSDate(timeIntervalSince1970: date2))
+        
     }
     
     override func viewWillAppear(animated: Bool) {
