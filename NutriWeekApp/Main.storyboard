@@ -244,12 +244,12 @@
                                 <exclude reference="vjV-Va-ixE"/>
                                 <exclude reference="KzT-0r-pbG"/>
                                 <exclude reference="fDB-lX-JzT"/>
-                                <exclude reference="Cmf-nN-hDC"/>
                                 <exclude reference="MdZ-ce-EjJ"/>
                                 <exclude reference="cms-4e-83k"/>
                                 <exclude reference="lef-4I-SAq"/>
                                 <exclude reference="ntL-Vq-hGo"/>
                                 <exclude reference="sFt-E6-GAg"/>
+                                <exclude reference="Cmf-nN-hDC"/>
                             </mask>
                         </variation>
                     </view>
