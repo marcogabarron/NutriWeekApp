@@ -17,6 +17,7 @@ class Daily : NSManagedObject{
     @NSManaged var date: NSDate?
     @NSManaged var fled: NSNumber?
     @NSManaged var descriptionStr: String?
+    @NSManaged var nameImage: String?
     @NSManaged var hasImage: NSNumber?
 
     /** The designated initializer **/
