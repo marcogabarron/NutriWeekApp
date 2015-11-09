@@ -11,34 +11,67 @@ import MobileCoreServices
 import AVFoundation
 import AssetsLibrary
 
-class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var simpleDraw: UIImageView!
-
+    @IBOutlet weak var bottomDP: NSLayoutConstraint!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var hour: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var switchDiet: UISwitch!
+    
+    var newMedia: Bool?
+    let fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+    
+    var date: NSDate = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.mealImage.hidden = true
         
+        self.saveButton.title = NSLocalizedString("", comment: "")
+        self.saveButton.enabled = false
+
     }
     
     override func viewDidAppear(animated: Bool) {
-        
         
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        self.datePicker.date = date
         
-        self.mealImage.layer.masksToBounds = true
+        let timer = NSDateFormatter()
+        timer.dateFormat = "dd/MM/yyyy"
+        
+        let strdate = timer.stringFromDate(self.datePicker.date)
+        
+        self.dateLabel.text = strdate
+        
+        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
+        
         self.simpleDraw.layer.masksToBounds = true
         self.simpleDraw.layer.borderWidth = 1
-        self.simpleDraw.layer.cornerRadius = self.simpleDraw.frame.height/8
-        
+        self.simpleDraw.layer.cornerRadius = self.simpleDraw.frame.height*0.05
         self.simpleDraw.layer.borderColor = UIColor.grayColor().CGColor
+        
+        
+        descriptionText.delegate = self
+        descriptionText!.autocorrectionType = UITextAutocorrectionType.No
+        
+        //tap to close keyboard and close date picker
+        let tap = UITapGestureRecognizer(target: self, action: "closeDatePicker:")
+        tap.numberOfTapsRequired = 1
+        tap.delegate = self
+        self.view.addGestureRecognizer(tap)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +80,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     
+    //MARK - Actions
     
     @IBAction func cameraButton(sender: AnyObject) {
         
@@ -58,26 +92,23 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             //Verifica a permissão da câmera
             if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
             {
-
-            //Chamar câmera
-            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+                //Chamar câmera
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
                 
-                let imagePicker = UIImagePickerController()
+                    let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
+                    imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                    imagePicker.mediaTypes = [kUTTypeImage as String]
+                    imagePicker.allowsEditing = true
+                    imagePicker.showsCameraControls = true
                 
-                imagePicker.delegate = self
-                imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                imagePicker.mediaTypes = [kUTTypeImage as String]
-                imagePicker.allowsEditing = true
-                imagePicker.showsCameraControls = true
-                
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-               // self.newMedia = true
+                    self.presentViewController(imagePicker, animated: true, completion: nil)
+                    self.newMedia = true
+                }
             }
-                //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
-            }
-            else
+            else //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-                
+            
                 let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
@@ -87,41 +118,35 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                     if let url = settingsUrl {
                         UIApplication.sharedApplication().openURL(url)
                     }
-                    
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                
                 self.presentViewController(alert, animated: true, completion: nil)
-                
             }
         }))
         
         alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
             
-            
             //Chamar galeria
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                 
                 let imagePicker = UIImagePickerController()
-                
                 imagePicker.delegate = self
                 imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
                 imagePicker.mediaTypes = [kUTTypeImage as String]
                 imagePicker.allowsEditing = true
                 
                 self.presentViewController(imagePicker, animated: true, completion: nil)
-              //  self.newMedia = false
+                self.newMedia = false
             }
             
                 //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
             else {
                 
                 let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                   //Direcionar para ajustes
-                    
+                   
+                    //Direcionar para ajustes
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
                         UIApplication.sharedApplication().openURL(url)
@@ -130,7 +155,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                
                 self.presentViewController(alert, animated: true, completion: nil)
                 
             }
@@ -147,19 +171,145 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func saveButton(sender: AnyObject) {
+        if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
+            self.descriptionText.text = ""
+        }
+        DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
+        print(DailyServices.allDaily())
         
-//        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
-        // self.fileName is whatever the filename that you need to append to base directory here.
-        //        let path = documentsDirectory.stringByAppendingPathComponent(descriptionText.text)
-        //
-        //        let success = data.writeToFile(path, atomically: true)
-//        if !success { // handle error }
-//        }
+        //        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+        let selectedImage = mealImage.image
+        let filePathToWrite = "\(paths)/image.png"
+        let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
+        
+        fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+        
+
+    }
+    
+    @IBAction func datePickerAppear(sender: AnyObject) {
+        self.datePicker.date = self.formatTime((self.hour.titleLabel?.text)!)
+        
+        if(self.bottomDP.constant == -216){
+            
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1, animations: {
+                self.bottomDP.constant = 0
+                self.view.layoutIfNeeded()
+            })
+            
+        }else{
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1, animations: {
+                self.bottomDP.constant = -216
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    @IBAction func UpdateTimerPicker(sender: AnyObject) {
+        self.addSaveButton()
+        
+        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
+    }
+    
+    @IBAction func fletChange(sender: AnyObject) {
+        self.addSaveButton()
+    }
+    
+    func closeDatePicker(){
+        if(self.bottomDP.constant != -216){
+            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1, animations: {
+                self.bottomDP.constant = -216
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+
+    
+    //MARK - logical functions associated to Datepicker
+    
+    //gesture tap to close datepicker
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if(self.bottomDP.constant == -216){
+            return false
+            
+        }
+        return true
         
     }
     
+    //Get datePicker and returns a string formatted to save Refeicao
+    func timePicker(sender: UIDatePicker) -> String{
+        
+        let timer = NSDateFormatter()
+        timer.dateFormat = "HH:mm"
+        
+        let strdate = timer.stringFromDate(sender.date)
+        
+        return strdate
+        
+    }
     
-    /** Faz o controle das ações já realizadas pela câmera. Nesse caso, salva a fotografia no Imave View, considerando a edição da fotografia, caso aconteça **/
+    // Convert stringDate to Date
+    func formatTime(dataString: String) -> NSDate{
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        return dateValue!
+        
+    }
+    
+    //MARK - logical functions associated to TextView
+    
+    override func becomeFirstResponder() -> Bool {
+        self.descriptionText.text = "Escreva uma descrição ou comentário"
+        self.descriptionText.textColor = UIColor.lightGrayColor()
+        
+        return true
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if (descriptionText?.text == "Escreva uma descrição ou comentário")
+            
+        {
+            self.addSaveButton()
+            descriptionText!.text = nil
+            descriptionText!.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if descriptionText!.text.isEmpty
+        {
+            descriptionText!.text = "Escreva uma descrição ou comentário"
+            descriptionText!.textColor = UIColor.lightGrayColor()
+        }
+        textView.resignFirstResponder()
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    //MARK - logical functions associated to Image and save button
+    
+    func addSaveButton(){
+        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.enabled = true
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         let mediaType = info[UIImagePickerControllerMediaType] as! String
@@ -168,15 +318,25 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         let compResult:CFComparisonResult = CFStringCompare(mediaType as NSString!, kUTTypeImage, CFStringCompareFlags.CompareCaseInsensitive)
         if ( compResult == CFComparisonResult.CompareEqualTo ) {
+            self.addSaveButton()
+            self.mealImage.hidden = false
+            self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
             
             editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
             originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
+
             
             if ( editedImage != nil ) {
                 imageToSave = editedImage
             } else {
                 imageToSave = originalImage
             }
+            
+            if (newMedia == true) {
+                
+                //UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
+            }
+            
             mealImage.image = imageToSave
             mealImage.reloadInputViews()
             
@@ -184,27 +344,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
          self.dismissViewControllerAnimated(true, completion: nil)
         
-        
-//        if mediaType.isEqual(kUTTypeImage as String) {
-//            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//            
-//            mealImage.image = image
-//            
-//            
-////            let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as String!
-//            // self.fileName is whatever the filename that you need to append to base directory here.
-////            let path = documentsDirectory.stringByAppendingPathComponent(self.mealImage)
-//            
-//            
-////            if (newMedia == true) {
-////                
-////                UIImageWriteToSavedPhotosAlbum(image, self,"image:didFinishSavingWithError:contextInfo:", nil)
-////                
-////            } else if mediaType.isEqual(kUTTypeMovie as String) {
-////                // Code to support video here
-////            }
-//            
-//        }
+
     }
     
     
