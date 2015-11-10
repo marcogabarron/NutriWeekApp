@@ -3,6 +3,7 @@
 
 import UIKit
 
+
 class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
     
@@ -36,8 +37,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         //teste = dateFormatter.stringFromDate(date2)
         
         }
+    }
 
-    func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         for var i = 0; i < self.diasPT.count; i++ {
