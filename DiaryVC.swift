@@ -13,8 +13,11 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let date = NSDate()
     var date2 = NSDate()
     let dateFormatter = NSDateFormatter()
-    var teste = String()
-    var teste2 = [String]()
+    var teste = [String]()
+    var allDaily = [Daily]()
+    
+    let fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,19 +31,22 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.dateFormatter.dateFormat = "dd-MM-yyyy"
         for(var i = 0; i < 7; i++){
-        self.teste2.append(dateFormatter.stringFromDate(date2))
+        self.teste.append(dateFormatter.stringFromDate(date2))
         self.date2 = (date2.dateByAddingTimeInterval(60*60*24))
         //teste = dateFormatter.stringFromDate(date2)
         
-        
-            
         }
-    print(self.teste2)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
+
+    func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        for var i = 0; i < self.diasPT.count; i++ {
+            
+            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+            
+        }
+        self.allDaily = DailyServices.allDaily()
+
         self.diaryCollection.reloadData()
         
     }
@@ -63,9 +69,28 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
             //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
-            cell.image.image = UIImage(named: "water")
+            cell.image.image = UIImage(named: "logo")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
+            
+            
+            if(allDaily.count != 0){
+//                let getImagePath = paths.URLByAppendingPathComponent("image\(indexPath.row).png")
+//                
+//                if (fileManager.fileExistsAtPath(getImagePath)){
+//                    
+//                    let selectedImage: UIImage = UIImage(contentsOfFile: getImagePath)!
+//                    let data: NSData = UIImagePNGRepresentation(selectedImage)!
+//                    cell.imageCell.image = selectedImage
+//                    
+//                }else{
+//                    print("FILE NOT AVAILABLE");
+//                }
+                if(allDaily.count > indexPath.section){
+                    cell.image.image = UIImage(named: allDaily[indexPath.section].nameImage!)
+
+                }
+            }
             
         }
         
@@ -73,7 +98,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
+       
+        self.performSegueWithIdentifier("daily", sender: indexPath)
+      
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,7 +125,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     forIndexPath: indexPath)
                     as! CollectionDiaryClass
                 headerViewLabel.headerViewLabel.text = diasPT[indexPath.section]
-                headerViewLabel.labelMonthDay.text = teste2[indexPath.section]
+                headerViewLabel.labelMonthDay.text = teste[indexPath.section]
                 return headerViewLabel
             default:
                 //4
@@ -106,4 +133,4 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             }
     }
 
-}
+    }

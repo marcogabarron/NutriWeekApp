@@ -174,16 +174,26 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
             self.descriptionText.text = ""
         }
-        DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
-        print(DailyServices.allDaily())
+        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
+        
+        if(daily.hasImage == true){
+            let id = String(daily.date)
+            
+            let selectedImage = mealImage.image
+            let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
+            let filePathToWrite = "\(paths)/\(id).png"
+            
+            daily.nameImage = ("\(paths)/\(id).png")
+            
+           DailyServices.editDaily(daily)
+            
+            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+            
+            self.mealImage.image = UIImage(named: filePathToWrite)
+        }
         
         //        presentViewController(refreshAlert, animated: true, completion: nil)
-        
-        let selectedImage = mealImage.image
-        let filePathToWrite = "\(paths)/image.png"
-        let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
-        
-        fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+
         
 
     }
