@@ -223,6 +223,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     text = text.stringByAppendingString(", ")
                 }
                 switch str {
+                case "Domingo":
+                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
                 case "Segunda":
                     text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
                 case "Terça":
@@ -235,8 +237,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
                 case "Sábado":
                     text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
-                case "Domingo":
-                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
                 default:
                     text = text.stringByAppendingString(NSLocalizedString("Nunca", comment: ""))
                 }
