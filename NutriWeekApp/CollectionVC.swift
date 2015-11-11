@@ -259,153 +259,66 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBAction func save(sender: AnyObject) {
         
         let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
-//        var quantityVerify: Bool = false
         
-//        if allRefWithSameName.count > 1{
-//            quantityVerify = true
-//        }
-        
-//        //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-//        let alert = UIAlertController(title: "Take one option",
-//            message: "This is a repeating event",
-//            preferredStyle: .Alert)
-//                    
-//                    let allDaysAction = UIAlertAction(title: "Save for all days",
-//                        style: .Default) { (action: UIAlertAction!) -> Void in
-        
-                            var weeks: [String] = []
-                            
-                            //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                            //delete notifications that refer a meal
-                            //edit meal with same name
-                            for ref in allRefWithSameName{
-                                weeks.append(ref.diaSemana)
-                                
-                                let date = NSDate()
-                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-                                TodoList.sharedInstance.removeItem(todoItem)
-                                
-                                //Switch notification off: remove uuid from meal
-                                if !self.notificationSwitch.on {
-                                    ref.uuid = ""
-                                    self.meal.id = ""
-                                }else{
-                                //Switch notification on and meal.id empty: genrate uuid
-                                  
-                                    ref.uuid = NSUUID().UUIDString
-                                    
-                                    let notification = Notifications()
-                                    let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
-                                    TodoList.sharedInstance.addItem(todoItem2)
-                                }
-                                
-                                RefeicaoServices.editRefeicao(ref, name: self.meal.name, horario: self.meal.hour, diaSemana: ref.diaSemana, items: self.meal.foods, uuid: ref.uuid)
-                                
-                            }
-                            let tempWeek = weeks
-                            //if the comparison between the old with the new from weeks is false, need to delete the difference
-                            if(self.daysOfWeekString.compareArray(weeks) == false){
-                                var i : Int = 0
-                                for dayOfWeek in tempWeek {
-                                    if(self.daysOfWeekString.isSelected(dayOfWeek) == false){
-                                        weeks.removeAtIndex(i)
-                                        RefeicaoServices.deleteMeal(allRefWithSameName[i])
-                                    }
-                                    i++
-                                }
-                            }
-                            
-                            if(self.daysOfWeekString.getArrayString().count != weeks.count){
-                                let new = self.daysOfWeekString.getArrayString()
-                                var find: Bool = true
-                                for dayNew in new {
-                                    for dayOld in weeks {
-                                        if(dayOld == dayNew){
-                                            find = true
-                                            break
-                                        }else{
-                                            find = false
-                                        }
-                                    }
-                                    if(find == false){
-                                        RefeicaoServices.createRefeicao(self.meal.name, horario: self.meal.hour, diaSemana: dayNew, items: self.meal.foods, uuid: self.meal.id!)
-                                    }
-                                }
-                            }
-        
-        let all: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
-        print(all.count)
-        
-                            self.navigationController?.popViewControllerAnimated(true)
-                            
-//                    }
-//
-//                    let saveOnlyAction = UIAlertAction(title: "Save only the selected days",
-//                        style: .Default) { (action: UIAlertAction!) -> Void in
-//                            
-//                            let date = NSDate()
-//                            let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id!)
-//                            TodoList.sharedInstance.removeItem(todoItem)
-//                            
-//                            //Switch notification off: remove uuid from meal
-//                            if !self.notificationSwitch.on {
-//                                self.meal.id = ""
-//                            }
-//                            //Switch notification on and meal.id empty: genrate uuid
-//                            if  self.notificationSwitch.on {
-//                                self.meal.id = NSUUID().UUIDString
-//                                
-//                                let notification = Notifications()
-//                                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.meal.dayOfWeek[0], dateHour: self.meal.hour), title: self.meal.name, UUID: self.meal.id!)
-//                                TodoList.sharedInstance.addItem(todoItem2)
-//                            }
-//                            
-//                         
-//                            RefeicaoServices.editRefeicao(RefeicaoServices.findByName(self.meal.name), name: self.meal.name, horario: self.meal.hour, diaSemana: self.meal.dayOfWeek[0], items: self.meal.foods, uuid: self.meal.id!)
-//                            
-//                            self.navigationController?.popViewControllerAnimated(true)
-//                            }
-//        
-//                let cancel = UIAlertAction(title: "Cancel",
-//                    style: .Default) { (action: UIAlertAction!) -> Void in
-//        }
-//                    if quantityVerify == true {
-//                        alert.addAction(allDaysAction)
-//                        alert.addAction(saveOnlyAction)
-//                        alert.addAction(cancel)
-//                    }else{
-//                        
-//                        let date = NSDate()
-//                        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id!)
-//                        TodoList.sharedInstance.removeItem(todoItem)
-//                        
-//                        //Switch notification off: remove uuid from meal
-//                        if !self.notificationSwitch.on {
-//                            self.meal.id = ""
-//                        }
-//                        //Switch notification on and meal.id empty: genrate uuid
-//                        if  self.notificationSwitch.on {
-//                            self.meal.id = NSUUID().UUIDString
-//                            
-//                            let notification = Notifications()
-//                            let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.meal.dayOfWeek[0], dateHour: self.meal.hour), title: self.meal.name, UUID: self.meal.id!)
-//                            TodoList.sharedInstance.addItem(todoItem2)
-//                        }
-//                        
-//                        //edit MEAL
-//                        RefeicaoServices.editRefeicao(RefeicaoServices.findByName(self.meal.name), name: self.meal.name, horario: self.meal.hour, diaSemana: self.meal.dayOfWeek[0], items: self.meal.foods, uuid: self.meal.id!)
-//                        
-//                        
-//                        
-//                        self.navigationController?.popViewControllerAnimated(true)
-//                        
-//                    }
+        var weeks: [String] = []
 
-//        if quantityVerify == true {
-//            presentViewController(alert,
-//                animated: true,
-//                completion: nil)
-//        }
+         for ref in allRefWithSameName{
+            weeks.append(ref.diaSemana)
+                                
+            let date = NSDate()
+            let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+            TodoList.sharedInstance.removeItem(todoItem)
+                                
+            //Switch notification off: remove uuid from meal
+            if !self.notificationSwitch.on {
+                ref.uuid = ""
+                self.meal.id = ""
+            }else{
+                //Switch notification on and meal.id empty: genrate uuid
+                                  
+                ref.uuid = NSUUID().UUIDString
+                meal.id = ref.uuid
+                                    
+                let notification = Notifications()
+                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
+                TodoList.sharedInstance.addItem(todoItem2)
+           }
+                                
+           RefeicaoServices.editRefeicao(ref, name: self.meal.name, horario: self.meal.hour, diaSemana: ref.diaSemana, items: self.meal.foods, uuid: ref.uuid)
+                                
+        }
+        let tempWeek = weeks
+         //if the comparison between the old with the new from weeks is false, need to delete the difference
+        if(self.daysOfWeekString.compareArray(weeks) == false){
+            var i : Int = 0
+            for dayOfWeek in tempWeek {
+                if(self.daysOfWeekString.isSelected(dayOfWeek) == false){
+                    weeks.removeAtIndex(i)
+                    RefeicaoServices.deleteMeal(allRefWithSameName[i])
+                }
+                i++
+            }
+        }
+                            
+        if(self.daysOfWeekString.getArrayString().count != weeks.count){
+            let new = self.daysOfWeekString.getArrayString()
+            var find: Bool = true
+            for dayNew in new {
+                for dayOld in weeks {
+                    if(dayOld == dayNew){
+                        find = true
+                        break
+                    }else{
+                        find = false
+                    }
+                }
+                if(find == false){
+                    RefeicaoServices.createRefeicao(self.meal.name, horario: self.meal.hour, diaSemana: dayNew, items: self.meal.foods, uuid: self.meal.id!)
+                }
+            }
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     @IBAction func datePickerAppear(sender: AnyObject) {
