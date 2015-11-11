@@ -3,31 +3,42 @@
 
 import UIKit
 
+
 class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
     
     @IBOutlet weak var diaryCollection: UICollectionView!
     
-    
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-
     var meals = [[Refeicao]]()
-        
+    let date = NSDate()
+    var date2 = NSDate()
+    let dateFormatter = NSDateFormatter()
+    var teste = [String]()
     var allDaily = [Daily]()
     
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        var date = NSDate()
-//        var date2 = date.timeIntervalSince1970 + (60*60*24*7)
-//        print(NSDate(timeIntervalSince1970: date2))
+        for var i = 0; i < self.diasPT.count; i++ {
+            
+            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+            
+        }
         
+        self.date2 = self.date
+        
+        self.dateFormatter.dateFormat = "dd-MM-yyyy"
+        for(var i = 0; i < 7; i++){
+        self.teste.append(dateFormatter.stringFromDate(date2))
+        self.date2 = (date2.dateByAddingTimeInterval(60*60*24))
+        //teste = dateFormatter.stringFromDate(date2)
+        
+        }
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -56,6 +67,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             
         }else{
+            
             cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
             //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
@@ -81,8 +93,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
 
                 }
             }
-
-            
             
         }
         
@@ -117,6 +127,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     forIndexPath: indexPath)
                     as! CollectionDiaryClass
                 headerViewLabel.headerViewLabel.text = diasPT[indexPath.section]
+                headerViewLabel.labelMonthDay.text = teste[indexPath.section]
                 return headerViewLabel
             default:
                 //4
@@ -124,4 +135,4 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             }
     }
 
-}
+    }

@@ -117,10 +117,10 @@
                                 </variation>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rmt-jx-4mb">
-                                <rect key="frame" x="21" y="270.5" width="333" height="206"/>
+                                <rect key="frame" x="21" y="271" width="333" height="206"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsJ-gm-pe7">
-                                <rect key="frame" x="287" y="478.5" width="42" height="32"/>
+                                <rect key="frame" x="287" y="479" width="42" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="BwX-qz-1bq"/>
                                     <constraint firstAttribute="width" secondItem="IsJ-gm-pe7" secondAttribute="height" multiplier="21:16" id="sdV-iJ-SqX"/>
@@ -1794,8 +1794,8 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dia mês" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QQ-63-d0R">
-                                            <rect key="frame" x="282" y="4" width="62" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dia mês" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QQ-63-d0R">
+                                            <rect key="frame" x="231" y="4" width="136" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -1815,6 +1815,7 @@
                                     </variation>
                                     <connections>
                                         <outlet property="headerViewLabel" destination="nFo-Cc-huH" id="epB-Cd-dlg"/>
+                                        <outlet property="labelMonthDay" destination="6QQ-63-d0R" id="pbI-b9-Jas"/>
                                     </connections>
                                 </collectionReusableView>
                                 <variation key="default">
