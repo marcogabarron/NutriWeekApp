@@ -24,7 +24,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var switchDiet: UISwitch!
     
     var newMedia: Bool?
-    let fileManager = NSFileManager.defaultManager()
+    var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
     var date: NSDate = NSDate()
@@ -71,6 +71,10 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         tap.numberOfTapsRequired = 1
         tap.delegate = self
         self.view.addGestureRecognizer(tap)
+        
+        if(DailyServices.allDaily().count > 0){
+            fileManager.fileExistsAtPath(paths)
+        }
 
     }
     

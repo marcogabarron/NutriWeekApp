@@ -12,6 +12,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     //important for translation
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var notificationLabel: UILabel!
 
@@ -26,15 +27,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var bottomCV: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
-//    var selectedItens = [ItemCardapio]()
     var notification = Notifications()
     
     //Get the uuid of choosed Refeicao
     var meal: Meal!
 
-    //var saveClicked: Bool! = false
     var dell: Bool = false
 
     override func viewDidLoad() {
@@ -46,6 +47,14 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //items received foods of meal
         self.itens = self.meal.foods
+        let w: Weeks = Weeks(arrayString: [])
+
+        let mealsWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
+        for m in mealsWithSameName {
+            w.append(m.diaSemana)
+        }
+        self.daysOfWeekString = w
+        self.daysOfWeekString.change = false
         
     }
 
@@ -56,21 +65,22 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     override func viewWillAppear(animated: Bool) {
         
-        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
-        
         self.navigationItem.title = NSLocalizedString("Refeição", comment: "Refeição")
         self.notificationLabel.text = NSLocalizedString("Notificação", comment: "Notification")
 
         if(self.itens != self.meal.foods){
             //Get the Cardapio itens with the choosed Refeicao uuid
             self.itens = self.meal.foods
-            self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-            self.editButton.enabled = true
+            self.modeSave()
             
         }
         
+        if(self.daysOfWeekString.change){
+            self.modeSave()
+        }
+        
         //Get Refeicao`s name and time
-        self.name.text = self.meal.name
+        self.navigationItem.title = self.meal.name
     
         //Get Time
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
@@ -92,6 +102,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }else{
             self.notificationSwitch.on = false
         }
+        
+        self.tableView.reloadData()
     }
     
     //MARK: CollectionView
@@ -99,6 +111,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itens.count+1
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -139,6 +155,27 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return cell
         
     }
+    
+    func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+            //1
+            switch kind {
+                //2
+            case UICollectionElementKindSectionHeader:
+                //3
+                let headerViewLabel =
+                collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: "headerView",
+                    forIndexPath: indexPath)
+                    as! CollectionDiaryClass
+                headerViewLabel.headerViewLabel.text = "Planejamenti"
+                return headerViewLabel
+            default:
+                //4
+                assert(false, "Unexpected element kind")
+            }
+    }
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.row == self.itens.count){
@@ -154,120 +191,134 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.collectionView.reloadData()
     }
 
+    //MARK: TableView
+    //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        
+        return 1
+        
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("simpleCell", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = NSLocalizedString("Repetir", comment: "")
+        
+        if(self.daysOfWeekString.getArrayString().count == 7){
+            cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
+        }else{
+            cell.detailTextLabel?.text = ""
+            var text: String = " "
+            
+            //Write in the edited cell in weeks - part to make intuitive
+            for str : String in self.daysOfWeekString.getArrayString(){
+                if(text != " "){
+                    text = text.stringByAppendingString(", ")
+                }
+                switch str {
+                case "Domingo":
+                    text = text.stringByAppendingString(NSLocalizedString("dom", comment: ""))
+                case "Segunda":
+                    text = text.stringByAppendingString(NSLocalizedString("seg", comment: ""))
+                case "Terça":
+                    text = text.stringByAppendingString(NSLocalizedString("ter", comment: ""))
+                case "Quarta":
+                    text = text.stringByAppendingString(NSLocalizedString("qua", comment: ""))
+                case "Quinta":
+                    text = text.stringByAppendingString(NSLocalizedString("qui", comment: ""))
+                case "Sexta":
+                    text = text.stringByAppendingString(NSLocalizedString("sex", comment: ""))
+                case "Sábado":
+                    text = text.stringByAppendingString(NSLocalizedString("sab", comment: ""))
+                default:
+                    text = text.stringByAppendingString(NSLocalizedString("Nunca", comment: ""))
+                }
+            }
+            cell.detailTextLabel?.text = text
+        }
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell!.selected = false
+        
+    }
+
     //MARK: Actions
 
     @IBAction func save(sender: AnyObject) {
         
         let allRefWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
-        var quantityVerify: Bool = false
         
-        if allRefWithSameName.count > 1{
-            quantityVerify = true
-        }
-        
-        //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-        let alert = UIAlertController(title: "Take one option",
-            message: "This is a repeating event",
-            preferredStyle: .Alert)
-                    
-                    let allDaysAction = UIAlertAction(title: "Save for all days",
-                        style: .Default) { (action: UIAlertAction!) -> Void in
-                            
-                            //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid
-                            //delete notifications that refer a meal
-                            for ref in allRefWithSameName{
-                                let date = NSDate()
-                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-                                TodoList.sharedInstance.removeItem(todoItem)
-                                
-                                //Switch notification off: remove uuid from meal
-                                if !self.notificationSwitch.on {
-                                    ref.uuid = ""
-                                }
-                                //Switch notification on and meal.id empty: genrate uuid
-                                if  self.notificationSwitch.on {
-                                    ref.uuid = NSUUID().UUIDString
-                                    
-                                    let notification = Notifications()
-                                    let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
-                                    TodoList.sharedInstance.addItem(todoItem2)
-                                }
-                                
-                                
-                                RefeicaoServices.editRefeicao(ref, name: self.meal.name, horario: self.meal.hour, diaSemana: ref.diaSemana, items: self.meal.foods, uuid: ref.uuid)
-                                
-                                
-                            }
-                            self.navigationController?.popViewControllerAnimated(true)
-                            
-                    }
-        
-                    let saveOnlyAction = UIAlertAction(title: "Save only the selected days",
-                        style: .Default) { (action: UIAlertAction!) -> Void in
-                            
-                            let date = NSDate()
-                            let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id!)
-                            TodoList.sharedInstance.removeItem(todoItem)
-                            
-                            //Switch notification off: remove uuid from meal
-                            if !self.notificationSwitch.on {
-                                self.meal.id = ""
-                            }
-                            //Switch notification on and meal.id empty: genrate uuid
-                            if  self.notificationSwitch.on {
-                                self.meal.id = NSUUID().UUIDString
-                                
-                                let notification = Notifications()
-                                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.meal.dayOfWeek[0], dateHour: self.meal.hour), title: self.meal.name, UUID: self.meal.id!)
-                                TodoList.sharedInstance.addItem(todoItem2)
-                            }
-                            
-                         
-                            RefeicaoServices.editRefeicao(RefeicaoServices.findByName(self.meal.name), name: self.meal.name, horario: self.meal.hour, diaSemana: self.meal.dayOfWeek[0], items: self.meal.foods, uuid: self.meal.id!)
-                            
-                            self.navigationController?.popViewControllerAnimated(true)
-                            }
-        
-                let cancel = UIAlertAction(title: "Cancel",
-                    style: .Default) { (action: UIAlertAction!) -> Void in
-        }
-                    if quantityVerify == true {
-                        alert.addAction(allDaysAction)
-                        alert.addAction(saveOnlyAction)
-                        alert.addAction(cancel)
-                    }else{
-                        
-                        let date = NSDate()
-                        let todoItem = TodoItem(deadline: date, title: self.meal.name , UUID: self.meal.id!)
-                        TodoList.sharedInstance.removeItem(todoItem)
-                        
-                        //Switch notification off: remove uuid from meal
-                        if !self.notificationSwitch.on {
-                            self.meal.id = ""
-                        }
-                        //Switch notification on and meal.id empty: genrate uuid
-                        if  self.notificationSwitch.on {
-                            self.meal.id = NSUUID().UUIDString
-                            
-                            let notification = Notifications()
-                            let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.meal.dayOfWeek[0], dateHour: self.meal.hour), title: self.meal.name, UUID: self.meal.id!)
-                            TodoList.sharedInstance.addItem(todoItem2)
-                        }
-                        
-                        //edit MEAL
-                        RefeicaoServices.editRefeicao(RefeicaoServices.findByName(self.meal.name), name: self.meal.name, horario: self.meal.hour, diaSemana: self.meal.dayOfWeek[0], items: self.meal.foods, uuid: self.meal.id!)
-                        
-                        
-                        
-                        self.navigationController?.popViewControllerAnimated(true)
-                        
-                    }
+        var weeks: [String] = []
 
-        if quantityVerify == true {
-            presentViewController(alert,
-                animated: true,
-                completion: nil)
+         for ref in allRefWithSameName{
+            weeks.append(ref.diaSemana)
+                                
+            let date = NSDate()
+            let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
+            TodoList.sharedInstance.removeItem(todoItem)
+                                
+            //Switch notification off: remove uuid from meal
+            if !self.notificationSwitch.on {
+                ref.uuid = ""
+                self.meal.id = ""
+            }else{
+                //Switch notification on and meal.id empty: genrate uuid
+                                  
+                ref.uuid = NSUUID().UUIDString
+                meal.id = ref.uuid
+                                    
+                let notification = Notifications()
+                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
+                TodoList.sharedInstance.addItem(todoItem2)
+           }
+                                
+           RefeicaoServices.editRefeicao(ref, name: self.meal.name, horario: self.meal.hour, diaSemana: ref.diaSemana, items: self.meal.foods, uuid: ref.uuid)
+                                
         }
+        let tempWeek = weeks
+         //if the comparison between the old with the new from weeks is false, need to delete the difference
+        if(self.daysOfWeekString.compareArray(weeks) == false){
+            var i : Int = 0
+            for dayOfWeek in tempWeek {
+                if(self.daysOfWeekString.isSelected(dayOfWeek) == false){
+                    weeks.removeAtIndex(i)
+                    RefeicaoServices.deleteMeal(allRefWithSameName[i])
+                }
+                i++
+            }
+        }
+                            
+        if(self.daysOfWeekString.getArrayString().count != weeks.count){
+            let new = self.daysOfWeekString.getArrayString()
+            var find: Bool = true
+            for dayNew in new {
+                for dayOld in weeks {
+                    if(dayOld == dayNew){
+                        find = true
+                        break
+                    }else{
+                        find = false
+                    }
+                }
+                if(find == false){
+                    RefeicaoServices.createRefeicao(self.meal.name, horario: self.meal.hour, diaSemana: dayNew, items: self.meal.foods, uuid: self.meal.id!)
+                }
+            }
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     @IBAction func datePickerAppear(sender: AnyObject) {
@@ -292,8 +343,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-        self.editButton.enabled = true
+       self.modeSave()
+
 
         self.meal.hour = timePicker(self.datePicker)
         self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
@@ -301,8 +352,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
 
     @IBAction func valueChange(sender: AnyObject) {
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-        self.editButton.enabled = true
+        self.modeSave()
+
     }
     
     //MARK: Logic Functions
@@ -352,13 +403,19 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
         self.itens = self.meal.foods
         
-        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-        self.editButton.enabled = true
-        
+        self.modeSave()
+
+    
         var index: [NSIndexPath] = []
         index.append(sender.layer.valueForKey("index") as! NSIndexPath)
         
         self.collectionView.deleteItemsAtIndexPaths(index)
+    }
+    
+    func modeSave(){
+        self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.editButton.enabled = true
+        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
     }
     
     func shakeIcons(layer: CALayer) {
@@ -436,15 +493,17 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             destinationViewController.itens = ItemCardapioServices.findItemCardapioByCategory(foodSelected.categoria)
             destinationViewController.selectedItemIndex = indexPath.row
             destinationViewController.meal = self.meal
-        }
+        }else if (segue.identifier == "Week") {
+                let destinationViewController = segue.destinationViewController as! WeeksTVC
+                destinationViewController.week = self.daysOfWeekString
+            }
     }
     
     func changeFoodDismiss() {
         if(self.itens != self.meal.foods){
             //Get the Cardapio itens with the choosed Refeicao uuid
             self.itens = self.meal.foods
-            self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
-            self.editButton.enabled = true
+            self.modeSave()
             
         }
         self.collectionView.reloadData()

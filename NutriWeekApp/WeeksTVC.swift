@@ -16,7 +16,7 @@ class WeeksTVC: UITableViewController {
     ///Interact with Weeks model
     var week:Weeks!
     
-    var arrayFix: [String] = (["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    var arrayFix: [String] = ([ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"])
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -94,6 +94,23 @@ class RefeicaoServices
         auxiliarQueue.addOperation(deleteOperation)
     }
     
+    /** delete Refeicao (Meal) By Uuid **/
+    static func deleteMeal(meal: Refeicao)
+    {
+        // create queue
+        let auxiliarQueue:NSOperationQueue = NSOperationQueue()
+        
+        // create operation
+        let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
+
+                // delete ref
+                RefeicaoDAO.delete(meal)
+        })
+        
+        // execute operation
+        auxiliarQueue.addOperation(deleteOperation)
+    }
+    
     /** find all Meals with weekday passed **/
     static func findAll() -> [Refeicao]{
         return RefeicaoDAO.findAll()

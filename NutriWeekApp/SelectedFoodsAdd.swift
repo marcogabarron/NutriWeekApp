@@ -11,19 +11,24 @@ import UIKit
 class SelectedFoodsAdd: SelectedFoodsVC {
     
     override func viewWillAppear(animated: Bool) {
+        saveButton.title = NSLocalizedString ("", comment: "")
+        saveButton.enabled = false
+
         //Show all itens, ascending by name
         self.itens = ItemCardapioServices.allItemCardapios()
         
         //initial empty serach bar text
         self.searchBar.text = ""
-        
-        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
-        
+                
         self.collectionView.allowsMultipleSelection = true
         
         self.selectedItens = self.meal.foods
         
         self.collectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.meal.setItems(self.selectedItens)
     }
     
     /**save action**/
