@@ -19,6 +19,7 @@
 		C246E41F1BD9DA800068ED68 /* SelectedFoodsAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */; };
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */ = {isa = PBXBuildFile; fileRef = C273B1FF1B610E2A0048936E /* AlimentosFr.txt */; };
+		C275F1ED1BF5054600FAA532 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F1EC1BF5054600FAA532 /* DailyModel.swift */; };
 		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
 		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
@@ -87,6 +88,7 @@
 		C273B1FD1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C273B1FF1B610E2A0048936E /* AlimentosFr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosFr.txt; sourceTree = "<group>"; };
+		C275F1EC1BF5054600FAA532 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
 		C27CACB71BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
 		C27CACB81BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
 		C27CACB91BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page3-Tutorial.strings"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				FFD1A2A51B53F34D004A5EED /* Notifications.swift */,
 				C246E4161BD950990068ED68 /* Meal.swift */,
 				C246E4181BD951A60068ED68 /* Food.swift */,
+				C275F1EC1BF5054600FAA532 /* DailyModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C275F1ED1BF5054600FAA532 /* DailyModel.swift in Sources */,
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
 				FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */,

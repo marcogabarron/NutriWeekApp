@@ -19,6 +19,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var weekDate = [NSDate]()
     var weekDay = [String]()
     var allDaily = [[Daily]]()
+    let day: DailyModel = DailyModel()
+
     
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -53,6 +55,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.meals.removeAll()
         self.allDaily.removeAll()
+        print(day.indexPath)
 
         for var i = 0; i < self.diasPT.count; i++ {
             var day: [Daily] = []
@@ -80,6 +83,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
         }
 
+        if(day.indexPath != NSIndexPath( index: 99999)){
+            self.allDaily[day.indexPath.section][day.indexPath.row] = day.day!
+        }
         self.diaryCollection.reloadData()
         
     }
@@ -211,7 +217,10 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         if (segue.identifier == "daily") {
             let destinationViewController = segue.destinationViewController as! TestController
             let indexPath = sender as! NSIndexPath
-            destinationViewController.daily = self.allDaily[indexPath.section][indexPath.row]
+            day.day = self.allDaily[indexPath.section][indexPath.row]
+            day.indexPath = indexPath
+            destinationViewController.daily = day
+
         }
     }
     
