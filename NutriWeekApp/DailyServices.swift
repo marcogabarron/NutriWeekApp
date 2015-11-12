@@ -42,7 +42,12 @@ class DailyServices {
     }
     
     static func findByDate(date: NSDate) -> Bool{
-        return false
+        return DailyDAO.findByDateBool(date)
     }
+    
+    static func findByDateDaily(date: NSDate) -> Daily{
+        return DailyDAO.findByDate(date)
+    }
+    
     
 }

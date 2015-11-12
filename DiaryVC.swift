@@ -74,6 +74,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     if(meals[i] != [] && DailyServices.findByDate(finalDate!) == false){
                         let d = DailyServices.createDaily(finalDate!)
                         day.append(d)
+                    }else{
+                        day.append(DailyServices.findByDateDaily(finalDate!))
                     }
                     
 //                    DailyServices.createDaily(weekDate[i])

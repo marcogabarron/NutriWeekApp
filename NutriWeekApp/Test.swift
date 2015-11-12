@@ -25,6 +25,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     var daily:DailyModel!
     
+    let dateFormatter = NSDateFormatter()
+
+    
     var newMedia: Bool?
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -189,10 +192,19 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func saveButton(sender: AnyObject) {
+        let date: NSDate = NSDate()
+        
         if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
             self.descriptionText.text = ""
         }
-        daily.day!.date = self.datePicker.date
+        
+        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
+        let dateDate = dateFormatter.dateFromString(finalDate)
+        
+        
+        daily.day!.date = dateDate
         daily.day!.fled = self.switchDiet.on
         daily.day!.descriptionStr = self.descriptionText.text
         daily.day!.hasImage = !self.mealImage.hidden
@@ -201,7 +213,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
 //        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
         
         if(daily.day!.hasImage == true){
-            let id = String(daily.day!.date)
+            let id = String(date)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
