@@ -30,7 +30,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.date2 = self.date
         
-        self.dateFormatter.dateFormat = "dd-MM-yyyy"
+        self.dateFormatter.dateFormat = "dd/MM/yyyy"
         for(var i = 0; i < 7; i++){
         self.teste.append(dateFormatter.stringFromDate(date2))
         self.date2 = (date2.dateByAddingTimeInterval(60*60*24))

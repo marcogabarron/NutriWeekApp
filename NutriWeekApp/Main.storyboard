@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Lj-4B-1Df">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Lj-4B-1Df">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -718,10 +718,10 @@
                             <mask key="constraints">
                                 <exclude reference="MJ7-3w-dED"/>
                                 <exclude reference="OSk-EM-kv3"/>
+                                <exclude reference="Xcq-cB-ACc"/>
                                 <exclude reference="WrE-lQ-rxE"/>
                                 <exclude reference="otP-bV-lHb"/>
                                 <exclude reference="tJd-8Q-wMF"/>
-                                <exclude reference="Xcq-cB-ACc"/>
                                 <exclude reference="145-0c-2CS"/>
                                 <exclude reference="MHE-HL-adH"/>
                                 <exclude reference="iKW-s6-2RH"/>
@@ -1681,7 +1681,7 @@
             </objects>
             <point key="canvasLocation" x="2528.5" y="280.5"/>
         </scene>
-        <!--Diary-->
+        <!--Diario-->
         <scene sceneID="1mI-hr-9MF">
             <objects>
                 <viewController id="kOa-rp-zoh" customClass="DiaryVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -1700,30 +1700,30 @@
                                     <constraint firstAttribute="height" constant="554" id="EzV-Ed-kAR"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Vd0-6k-qTz">
-                                    <size key="itemSize" width="120" height="140"/>
+                                    <size key="itemSize" width="84" height="98"/>
                                     <size key="headerReferenceSize" width="50" height="30"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SelectedCollectionViewCell" reuseIdentifier="SelectedCollectionViewCell" id="f3i-Ir-n3r" customClass="SelectedCollectionViewCell" customModule="NutriWeekApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30" width="120" height="140"/>
+                                        <rect key="frame" x="0.0" y="30" width="84" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="84" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVQ-0M-34m">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="132"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Z5-9y-AnE">
-                                                            <rect key="frame" x="5" y="0.0" width="110" height="110"/>
+                                                            <rect key="frame" x="5" y="0.0" width="74" height="74"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="3Z5-9y-AnE" secondAttribute="height" multiplier="1:1" id="OX9-pP-cik"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-hm-29R">
-                                                            <rect key="frame" x="0.0" y="114" width="120" height="18"/>
+                                                            <rect key="frame" x="0.0" y="72" width="84" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="tu7-nI-tzL"/>
                                                             </constraints>
@@ -1779,8 +1779,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-Cc-huH">
-                                            <rect key="frame" x="0.0" y="4" width="375" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-Cc-huH">
+                                            <rect key="frame" x="37.5" y="4" width="300" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="eHu-lg-606"/>
                                                 <constraint firstAttribute="width" constant="250" id="eQe-S1-cVR"/>
@@ -1797,7 +1797,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dia mês" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QQ-63-d0R">
                                             <rect key="frame" x="231" y="4" width="136" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -1805,7 +1805,7 @@
                                     <constraints>
                                         <constraint firstItem="nFo-Cc-huH" firstAttribute="centerX" secondItem="tUC-cV-sCb" secondAttribute="centerX" id="Jdc-n9-s7u"/>
                                         <constraint firstItem="nFo-Cc-huH" firstAttribute="centerY" secondItem="tUC-cV-sCb" secondAttribute="centerY" id="O79-6e-Mrx"/>
-                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" id="em0-C7-D0Y"/>
+                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" multiplier="0.8" id="em0-C7-D0Y"/>
                                         <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" id="x8L-JA-aQT"/>
                                     </constraints>
                                     <variation key="default">
@@ -1847,7 +1847,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Item" id="xuf-Tq-woe"/>
-                    <navigationItem key="navigationItem" title="Diary" id="MRz-fd-Brf">
+                    <navigationItem key="navigationItem" title="Diario" id="MRz-fd-Brf">
                         <barButtonItem key="leftBarButtonItem" title="Before" id="g7G-b9-6se"/>
                         <barButtonItem key="rightBarButtonItem" title="After" id="qdp-Cb-Pwc"/>
                     </navigationItem>
