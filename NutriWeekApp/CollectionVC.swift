@@ -37,6 +37,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var meal: Meal!
 
     var dell: Bool = false
+    
+    let transitionManager = TransitionManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -481,6 +483,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         else if (segue.identifier == "ChangeFood") {
             let destinationViewController = segue.destinationViewController as! ChangeFoodVC
             
+            destinationViewController.transitioningDelegate = self.transitionManager
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeFoodDismiss", name: "ChangeFoodDismiss", object: nil)
             
