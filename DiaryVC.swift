@@ -42,6 +42,12 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        let weekday = getDayOfWeek(date)
+        date2 = settingWeekDay(weekday, today: date)
+        
+        self.meals.removeAll()
+        
         for var i = 0; i < self.diasPT.count; i++ {
             
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
@@ -88,10 +94,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
 //                }else{
 //                    print("FILE NOT AVAILABLE");
 //                }
+                
                 if(allDaily.count > indexPath.section){
-                    cell.image.image = UIImage(named: allDaily[indexPath.section].nameImage!)
+                    
+                cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
 
                 }
+                
             }
             
         }
@@ -134,5 +143,52 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                 assert(false, "Unexpected element kind")
             }
     }
-
+    
+    func getDayOfWeek(today:NSDate)->Int {
+        
+        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let myComponents = myCalendar.components(.Weekday, fromDate: today)
+        let weekDay = myComponents.weekday
+        
+        return weekDay
     }
+    
+    func settingWeekDay(var sender: Int, var today: NSDate) -> NSDate{
+        
+        self.dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        if sender != 1{
+            
+            while (sender != 1) {
+                
+               today = (today.dateByAddingTimeInterval(-60*60*24))
+               sender =  getDayOfWeek(today)
+                
+            }
+        }
+         self.date2 = today
+        for(var i = 0; i < 7; i++){
+            self.teste.append(dateFormatter.stringFromDate(today))
+            today = (today.dateByAddingTimeInterval(60*60*24))
+            //teste = dateFormatter.stringFromDate(date2)
+        }
+        
+        return date2
+        
+        }
+    
+    @IBAction func beforeButton(sender: UIBarButtonItem) {
+        
+        self.teste.removeAll()
+        date2 = (date2.dateByAddingTimeInterval(-60*60*24*7))
+        
+        let weekday = getDayOfWeek(date2)
+        settingWeekDay(weekday, today: date2)
+        self.diaryCollection.reloadData()
+        
+    }
+    
+    
+    }
+
+    
