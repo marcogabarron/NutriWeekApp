@@ -8,13 +8,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     
     @IBOutlet weak var diaryCollection: UICollectionView!
+    @IBOutlet weak var afterButton: UIBarButtonItem!
+    @IBOutlet weak var beforeButton: UIBarButtonItem!
     
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     var meals = [[Refeicao]]()
     let date = NSDate()
     var date2 = NSDate()
     let dateFormatter = NSDateFormatter()
-    var teste = [String]()
+    var weekDate = [NSDate]()
+    var weekDay = [String]()
     var allDaily = [Daily]()
     
     let fileManager = NSFileManager.defaultManager()
@@ -22,26 +25,44 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for var i = 0; i < self.diasPT.count; i++ {
-            
-            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
-            
+        
+        self.date2 = self.date
+        
+        let weekday = getDayOfWeek(date)
+        date2 = settingWeekDay(weekday, today: date)
+        
+        self.dateFormatter.dateFormat = "dd/MM/yyyy"
+        for(var i = 0; i < 7; i++){
+            self.weekDay.append(dateFormatter.stringFromDate(date2))
+            self.weekDate.append(date2)
+            self.date2 = (date2.dateByAddingTimeInterval(60*60*24))
+            //teste = dateFormatter.stringFromDate(date2)
         }
+        
         
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        let weekday = getDayOfWeek(date)
-        date2 = settingWeekDay(weekday, today: date)
+        var hasNotDaily: Bool = false
+
+        if(DailyServices.findByDate(date2) == false){
+            hasNotDaily = true
+        }
         
         self.meals.removeAll()
         
         for var i = 0; i < self.diasPT.count; i++ {
             
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+            if(hasNotDaily){
+                for m in meals[i] {
+                    print(weekDate[i])
+                    print(m.horario)
+//                    DailyServices.createDaily(weekDate[i])
+                }
+            }
             
         }
         self.allDaily = DailyServices.allDaily()
@@ -88,7 +109,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                 
                 if(allDaily.count > indexPath.section){
                     
-                cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
+                    cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
 
                 }
                 
@@ -127,7 +148,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     forIndexPath: indexPath)
                     as! CollectionDiaryClass
                 headerViewLabel.headerViewLabel.text = diasPT[indexPath.section]
-                headerViewLabel.labelMonthDay.text = teste[indexPath.section]
+                headerViewLabel.labelMonthDay.text = weekDay[indexPath.section]
                 return headerViewLabel
             default:
                 //4
@@ -140,13 +161,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.Weekday, fromDate: today)
         let weekDay = myComponents.weekday
-        
+        print(weekDay)
         return weekDay
     }
     
     func settingWeekDay(var sender: Int, var today: NSDate) -> NSDate{
         
-        self.dateFormatter.dateFormat = "dd-MM-yyyy"
+        self.dateFormatter.dateFormat = "dd/MM/yyyy"
         
         if sender != 1{
             
@@ -159,7 +180,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
          self.date2 = today
         for(var i = 0; i < 7; i++){
-            self.teste.append(dateFormatter.stringFromDate(today))
+            self.weekDay.append(dateFormatter.stringFromDate(today))
             today = (today.dateByAddingTimeInterval(60*60*24))
             //teste = dateFormatter.stringFromDate(date2)
         }
@@ -170,7 +191,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     @IBAction func beforeButton(sender: UIBarButtonItem) {
         
-        self.teste.removeAll()
+        self.weekDay.removeAll()
         date2 = (date2.dateByAddingTimeInterval(-60*60*24*7))
         
         let weekday = getDayOfWeek(date2)
