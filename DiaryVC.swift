@@ -58,8 +58,17 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
             if(hasNotDaily){
                 for m in meals[i] {
-                    print(weekDate[i])
-                    print(m.horario)
+                    
+//                    print(weekDate[i])
+//                    print(m.horario)
+                    
+                    self.dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let dateDay = dateFormatter.stringFromDate(weekDate[i])
+                
+                    let dateString = dateDay + " " + m.horario + ":00"
+                    print(dateString)
+                    
+                    
 //                    DailyServices.createDaily(weekDate[i])
                 }
             }
