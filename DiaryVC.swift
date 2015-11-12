@@ -62,10 +62,15 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
             if(hasNotDaily){
                 for m in meals[i] {
+                    
+                    self.dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let dateDay = dateFormatter.stringFromDate(weekDate[i])
+                
+                    let dateString = dateDay + " " + m.horario + ":00"
+                    print(dateString)
+                    
                     var day: [Daily] = []
                     if(meals[i] != []){
-                        print(weekDate[i])
-                        print(m.horario)
                         let d = DailyServices.createDaily(weekDate[i])
                         day.append(d)
                     }
@@ -85,15 +90,15 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
 
-//        if(meals[indexPath.section].count == 0){
-//            cell.textLabel.text = ""
-//            
-//            cell.image.image = UIImage(named: "add")
-//            cell.image.layer.masksToBounds = true
-//            cell.image.layer.cornerRadius = cell.frame.width/3
-//        }else{
-//        
-        if(Int(indexPath.row) == self.allDaily[indexPath.section].count){
+        if(meals[indexPath.section].count == 0){
+            cell.textLabel.text = ""
+            
+            cell.image.image = UIImage(named: "add")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/3
+        }else{
+
+        if(Int(indexPath.row) == self.allDaily[indexPath.section].count ){
             cell.textLabel.text = ""
             
             cell.image.image = UIImage(named: "add")
@@ -115,6 +120,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
         }
         
+        }
         
         return cell
     }
@@ -163,7 +169,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.Weekday, fromDate: today)
         let weekDay = myComponents.weekday
-        print(weekDay)
         return weekDay
     }
     
