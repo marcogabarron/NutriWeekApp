@@ -18,7 +18,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let dateFormatter = NSDateFormatter()
     var weekDate = [NSDate]()
     var weekDay = [String]()
-    var allDaily = [Daily]()
+    var allDaily = [[Daily]]()
+    let day: DailyModel = DailyModel()
+
     
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -39,47 +41,51 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             //teste = dateFormatter.stringFromDate(date2)
         }
         
+        self.afterButton.title = NSLocalizedString("", comment: "")
+        self.afterButton.enabled = false
+        
+        self.beforeButton.title = NSLocalizedString("", comment: "")
+        self.beforeButton.enabled = false
+        
         
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var hasNotDaily: Bool = false
-
-        if(DailyServices.findByDate(date2) == false){
-            hasNotDaily = true
-        }
-        
         self.meals.removeAll()
-        
+        self.allDaily.removeAll()
+        print(day.indexPath)
+
         for var i = 0; i < self.diasPT.count; i++ {
-            
+            var day: [Daily] = []
+
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
-            if(hasNotDaily){
                 for m in meals[i] {
-                    
-//                    print(weekDate[i])
-//                    print(m.horario)
                     
                     self.dateFormatter.dateFormat = "yyyy-MM-dd"
                     let dateDay = dateFormatter.stringFromDate(weekDate[i])
                 
                     let dateString = dateDay + " " + m.horario + ":00"
-                    print(dateString)
-                    
                     self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     dateFormatter.timeZone = NSTimeZone.localTimeZone()
                     let finalDate = dateFormatter.dateFromString(dateString)
                     
+                    if(meals[i] != [] && DailyServices.findByDate(finalDate!) == false){
+                        let d = DailyServices.createDaily(finalDate!)
+                        day.append(d)
+                    }
                     
 //                    DailyServices.createDaily(weekDate[i])
                 }
-            }
+            allDaily.append(day)
+
             
         }
-        self.allDaily = DailyServices.allDaily()
 
+        if(day.indexPath != NSIndexPath( index: 99999)){
+            self.allDaily[day.indexPath.section][day.indexPath.row] = day.day!
+        }
         self.diaryCollection.reloadData()
         
     }
@@ -88,8 +94,15 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
 
-        
-        if(Int(indexPath.row) == self.meals[indexPath.section].count){
+        if(meals[indexPath.section].count == 0){
+            cell.textLabel.text = ""
+            
+            cell.image.image = UIImage(named: "add")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/3
+        }else{
+
+        if(Int(indexPath.row) == self.allDaily[indexPath.section].count ){
             cell.textLabel.text = ""
             
             cell.image.image = UIImage(named: "add")
@@ -101,33 +114,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
-            //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
-            cell.image.image = UIImage(named: "logo")
+            if((self.allDaily[indexPath.section][indexPath.row].hasImage) == true){
+                cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
+            }else{
+                cell.image.image = UIImage(named: "logo")
+            }
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/5
             
-            
-            if(allDaily.count != 0){
-//                let getImagePath = paths.URLByAppendingPathComponent("image\(indexPath.row).png")
-//                
-//                if (fileManager.fileExistsAtPath(getImagePath)){
-//                    
-//                    let selectedImage: UIImage = UIImage(contentsOfFile: getImagePath)!
-//                    let data: NSData = UIImagePNGRepresentation(selectedImage)!
-//                    cell.imageCell.image = selectedImage
-//                    
-//                }else{
-//                    print("FILE NOT AVAILABLE");
-//                }
-                
-                if(allDaily.count > indexPath.section){
-                    
-                    cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
-
-                }
-                
-            }
-            
+        }
+        
         }
         
         return cell
@@ -140,7 +136,10 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return meals[section].count+1
+        if(meals[section].count == 0){
+            return meals[section].count+1
+        }
+        return allDaily[section].count+1
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -174,7 +173,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.Weekday, fromDate: today)
         let weekDay = myComponents.weekday
-        print(weekDay)
         return weekDay
     }
     
@@ -211,6 +209,19 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         settingWeekDay(weekday, today: date2)
         self.diaryCollection.reloadData()
         
+    }
+    
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Week page -- pass the information from Weeks() **/
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "daily") {
+            let destinationViewController = segue.destinationViewController as! TestController
+            let indexPath = sender as! NSIndexPath
+            day.day = self.allDaily[indexPath.section][indexPath.row]
+            day.indexPath = indexPath
+            destinationViewController.daily = day
+
+        }
     }
     
     

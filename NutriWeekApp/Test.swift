@@ -23,6 +23,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var switchDiet: UISwitch!
     
+    var daily:DailyModel!
+    
     var newMedia: Bool?
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -44,9 +46,15 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.datePicker.date = date
+        self.datePicker.date = daily.day!.date!
+        
         
         let timer = NSDateFormatter()
         timer.dateFormat = "dd/MM/yyyy"
@@ -75,6 +83,12 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if(DailyServices.allDaily().count > 0){
             fileManager.fileExistsAtPath(paths)
         }
+        
+        if(daily.day!.hasImage == true){
+            self.mealImage.image = UIImage(named: self.daily.day!.nameImage!)
+        }
+//        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
+
 
     }
     
@@ -178,23 +192,29 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
             self.descriptionText.text = ""
         }
-        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
+        daily.day!.date = self.datePicker.date
+        daily.day!.fled = self.switchDiet.on
+        daily.day!.descriptionStr = self.descriptionText.text
+        daily.day!.hasImage = !self.mealImage.hidden
         
-        if(daily.hasImage == true){
-            let id = String(daily.date)
+        
+//        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
+        
+        if(daily.day!.hasImage == true){
+            let id = String(daily.day!.date)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
             let filePathToWrite = "\(paths)/\(id).png"
             
-            daily.nameImage = ("\(paths)/\(id).png")
+            daily.day!.nameImage = ("\(paths)/\(id).png")
             
-           DailyServices.editDaily(daily)
             
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
             
             self.mealImage.image = UIImage(named: filePathToWrite)
         }
+        DailyServices.editDaily(daily.day!)
         
         //        presentViewController(refreshAlert, animated: true, completion: nil)
 
