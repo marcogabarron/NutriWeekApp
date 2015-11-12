@@ -189,6 +189,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func saveButton(sender: AnyObject) {
+        let date: NSDate = NSDate()
+        
         if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
             self.descriptionText.text = ""
         }
@@ -201,7 +203,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
 //        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
         
         if(daily.day!.hasImage == true){
-            let id = String(daily.day!.date)
+            let id = String(date)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
