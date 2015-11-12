@@ -483,7 +483,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         else if (segue.identifier == "ChangeFood") {
             let destinationViewController = segue.destinationViewController as! ChangeFoodVC
             
-            destinationViewController.transitioningDelegate = self.transitionManager
+//            destinationViewController.transitioningDelegate = self.transitionManager
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeFoodDismiss", name: "ChangeFoodDismiss", object: nil)
             
