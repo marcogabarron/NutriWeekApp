@@ -23,7 +23,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var switchDiet: UISwitch!
     
-    var dayli:Daily!
+    var daily:Daily!
 
     
     var newMedia: Bool?
@@ -49,9 +49,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.datePicker.date = date
+        self.datePicker.date = daily.date!
         
-        print(dayli.hasImage)
         
         let timer = NSDateFormatter()
         timer.dateFormat = "dd/MM/yyyy"
@@ -80,6 +79,12 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if(DailyServices.allDaily().count > 0){
             fileManager.fileExistsAtPath(paths)
         }
+        
+        if(daily.hasImage == true){
+            self.mealImage.image = UIImage(named: self.daily.nameImage!)
+        }
+//        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
+
 
     }
     
@@ -183,7 +188,11 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
             self.descriptionText.text = ""
         }
-        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
+        daily.date = self.datePicker.date
+        daily.fled = self.switchDiet.on
+        daily.descriptionStr = self.descriptionText.text
+        daily.hasImage = !self.mealImage.hidden
+//        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
         
         if(daily.hasImage == true){
             let id = String(daily.date)
@@ -194,12 +203,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             
             daily.nameImage = ("\(paths)/\(id).png")
             
-           DailyServices.editDaily(daily)
             
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
             
             self.mealImage.image = UIImage(named: filePathToWrite)
         }
+        DailyServices.editDaily(daily)
+
         
         //        presentViewController(refreshAlert, animated: true, completion: nil)
 

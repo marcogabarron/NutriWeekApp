@@ -51,34 +51,32 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        var hasNotDaily: Bool = false
+        self.meals.removeAll()
+        self.allDaily.removeAll()
 
-        if(DailyServices.findByDate(date2) == false){
-            hasNotDaily = true
-        }
-        
         for var i = 0; i < self.diasPT.count; i++ {
-            
+            var day: [Daily] = []
+
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
-            if(hasNotDaily){
                 for m in meals[i] {
                     
                     self.dateFormatter.dateFormat = "yyyy-MM-dd"
                     let dateDay = dateFormatter.stringFromDate(weekDate[i])
                 
                     let dateString = dateDay + " " + m.horario + ":00"
-                    print(dateString)
+                    self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                    let finalDate = dateFormatter.dateFromString(dateString)
                     
-                    var day: [Daily] = []
-                    if(meals[i] != []){
-                        let d = DailyServices.createDaily(weekDate[i])
+                    if(meals[i] != [] && DailyServices.findByDate(finalDate!) == false){
+                        let d = DailyServices.createDaily(finalDate!)
                         day.append(d)
                     }
-                    allDaily.append(day)
+                    
+//                    DailyServices.createDaily(weekDate[i])
                 }
-            }else{
-                
-            }
+            allDaily.append(day)
+
             
         }
 
@@ -213,7 +211,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         if (segue.identifier == "daily") {
             let destinationViewController = segue.destinationViewController as! TestController
             let indexPath = sender as! NSIndexPath
-            destinationViewController.dayli = self.allDaily[indexPath.section][indexPath.row]
+            destinationViewController.daily = self.allDaily[indexPath.section][indexPath.row]
         }
     }
     
