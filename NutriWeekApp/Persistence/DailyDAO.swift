@@ -76,5 +76,21 @@ class DailyDAO
             print("\(error)")
         }
     }
+    
+    /** find the first meal and return true or no find and return false **/
+    static func findByDateBool(date: NSDate) -> Bool
+    {
+        let daily : [Daily] = self.findAll()
+        var answer : Bool = false
+        
+        for day in daily{
+            if(day.date == date){
+                answer = true
+            }
+        }
+        
+        
+        return answer
+    }
 
 }

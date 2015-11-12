@@ -3,6 +3,14 @@ import Foundation
 
 class DailyServices {
     
+    
+    static func createDaily(date: NSDate){
+        let daily: Daily = Daily()
+        daily.date = date
+        
+        DailyDAO.insert(daily)
+    }
+    
     /**create the Entity ItemCardapio that represent the Food**/
     static func createDaily(date: NSDate, fled: Bool, description: String, hasImage: Bool) -> Daily
     {
@@ -27,6 +35,10 @@ class DailyServices {
     static func editDaily(daily: Daily){
         
         DailyDAO.edit(daily)
+    }
+    
+    static func findByDate(date: NSDate) -> Bool{
+        return false
     }
     
 }
