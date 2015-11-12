@@ -68,6 +68,10 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     let dateString = dateDay + " " + m.horario + ":00"
                     print(dateString)
                     
+                    self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                    let finalDate = dateFormatter.dateFromString(dateString)
+                    
                     
 //                    DailyServices.createDaily(weekDate[i])
                 }
