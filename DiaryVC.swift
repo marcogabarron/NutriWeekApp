@@ -18,7 +18,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let dateFormatter = NSDateFormatter()
     var weekDate = [NSDate]()
     var weekDay = [String]()
-    var allDaily = [Daily]()
+    var allDaily = [[Daily]]()
     
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -39,6 +39,12 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             //teste = dateFormatter.stringFromDate(date2)
         }
         
+        self.afterButton.title = NSLocalizedString("", comment: "")
+        self.afterButton.enabled = false
+        
+        self.beforeButton.title = NSLocalizedString("", comment: "")
+        self.beforeButton.enabled = false
+        
         
     }
 
@@ -51,21 +57,25 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             hasNotDaily = true
         }
         
-        self.meals.removeAll()
-        
         for var i = 0; i < self.diasPT.count; i++ {
             
             self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
             if(hasNotDaily){
                 for m in meals[i] {
-                    print(weekDate[i])
-                    print(m.horario)
-//                    DailyServices.createDaily(weekDate[i])
+                    var day: [Daily] = []
+                    if(meals[i] != []){
+                        print(weekDate[i])
+                        print(m.horario)
+                        let d = DailyServices.createDaily(weekDate[i])
+                        day.append(d)
+                    }
+                    allDaily.append(day)
                 }
+            }else{
+                
             }
             
         }
-        self.allDaily = DailyServices.allDaily()
 
         self.diaryCollection.reloadData()
         
@@ -75,8 +85,15 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
 
-        
-        if(Int(indexPath.row) == self.meals[indexPath.section].count){
+//        if(meals[indexPath.section].count == 0){
+//            cell.textLabel.text = ""
+//            
+//            cell.image.image = UIImage(named: "add")
+//            cell.image.layer.masksToBounds = true
+//            cell.image.layer.cornerRadius = cell.frame.width/3
+//        }else{
+//        
+        if(Int(indexPath.row) == self.allDaily[indexPath.section].count){
             cell.textLabel.text = ""
             
             cell.image.image = UIImage(named: "add")
@@ -88,34 +105,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             cell.textLabel.text = self.meals[indexPath.section][indexPath.row].name
             cell.textLabel.autoresizesSubviews = true
-            //cell.image.image = UIImage(named: "\(meals[indexPath.row].image)")
-            cell.image.image = UIImage(named: "logo")
+            if((self.allDaily[indexPath.section][indexPath.row].hasImage) == true){
+                cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
+            }else{
+                cell.image.image = UIImage(named: "logo")
+            }
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/5
             
-            
-            if(allDaily.count != 0){
-//                let getImagePath = paths.URLByAppendingPathComponent("image\(indexPath.row).png")
-//                
-//                if (fileManager.fileExistsAtPath(getImagePath)){
-//                    
-//                    let selectedImage: UIImage = UIImage(contentsOfFile: getImagePath)!
-//                    let data: NSData = UIImagePNGRepresentation(selectedImage)!
-//                    cell.imageCell.image = selectedImage
-//                    
-//                }else{
-//                    print("FILE NOT AVAILABLE");
-//                }
-                
-                if(allDaily.count > indexPath.section){
-                    
-                    cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
-
-                }
-                
-            }
-            
         }
+        
         
         return cell
     }
@@ -127,7 +126,10 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return meals[section].count+1
+        if(meals[section].count == 0){
+            return meals[section].count+1
+        }
+        return allDaily[section].count+1
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -198,6 +200,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         settingWeekDay(weekday, today: date2)
         self.diaryCollection.reloadData()
         
+    }
+    
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Week page -- pass the information from Weeks() **/
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "daily") {
+            let destinationViewController = segue.destinationViewController as! TestController
+            let indexPath = sender as! NSIndexPath
+            destinationViewController.dayli = self.allDaily[indexPath.section][indexPath.row]
+        }
     }
     
     

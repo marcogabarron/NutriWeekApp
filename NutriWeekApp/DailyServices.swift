@@ -4,11 +4,15 @@ import Foundation
 class DailyServices {
     
     
-    static func createDaily(date: NSDate){
+    static func createDaily(date: NSDate)->Daily{
         let daily: Daily = Daily()
         daily.date = date
+        daily.hasImage = false
+        
         
         DailyDAO.insert(daily)
+        return daily
+
     }
     
     /**create the Entity ItemCardapio that represent the Food**/

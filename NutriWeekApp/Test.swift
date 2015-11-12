@@ -23,6 +23,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var switchDiet: UISwitch!
     
+    var dayli:Daily!
+
+    
     var newMedia: Bool?
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -47,6 +50,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.datePicker.date = date
+        
+        print(dayli.hasImage)
         
         let timer = NSDateFormatter()
         timer.dateFormat = "dd/MM/yyyy"
