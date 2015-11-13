@@ -85,9 +85,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
         }
 
-        if(day.indexPath != NSIndexPath( index: 99999)){
-            self.allDaily[day.indexPath.section][day.indexPath.row] = day.day!
-        }
+//        if(day.indexPath != NSIndexPath( index: 99999)){
+//            self.allDaily[day.indexPath.section][day.indexPath.row] = day.day!
+//        }
         self.diaryCollection.reloadData()
         
     }

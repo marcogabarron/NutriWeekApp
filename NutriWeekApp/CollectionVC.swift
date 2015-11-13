@@ -415,7 +415,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func modeSave(){
         self.editButton.title = NSLocalizedString("Salvar", comment: "Salvar")
         self.editButton.enabled = true
-        self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
     }
     
     func shakeIcons(layer: CALayer) {

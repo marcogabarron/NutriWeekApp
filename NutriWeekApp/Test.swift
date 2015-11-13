@@ -42,6 +42,11 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         self.saveButton.title = NSLocalizedString("", comment: "")
         self.saveButton.enabled = false
+        
+        if(daily.day!.hasImage == true){
+            self.mealImage.hidden = false
+            self.mealImage.image = UIImage(named: self.daily.day!.nameImage!)
+        }
 
     }
     
@@ -87,9 +92,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             fileManager.fileExistsAtPath(paths)
         }
         
-        if(daily.day!.hasImage == true){
-            self.mealImage.image = UIImage(named: self.daily.day!.nameImage!)
-        }
 //        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
 
 
