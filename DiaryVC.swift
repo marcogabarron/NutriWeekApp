@@ -20,6 +20,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var weekDay = [String]()
     var allDaily = [[Daily]]()
     let day: DailyModel = DailyModel()
+    var indexToRemove = [6]
+    var takingPhoto: Bool = false
+    var photoControl = 0
 
     
     let fileManager = NSFileManager.defaultManager()
@@ -29,9 +32,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewDidLoad()
         
         self.date2 = self.date
-        
         let weekday = getDayOfWeek(date)
         date2 = settingWeekDay(weekday, today: date)
+        
         
         self.dateFormatter.dateFormat = "dd/MM/yyyy"
         for(var i = 0; i < 7; i++){
@@ -53,19 +56,92 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.meals.removeAll()
-        self.allDaily.removeAll()
-        print(day.indexPath)
+        print(takingPhoto)
+        
+        let weekDayToday = getDayOfWeek(date)
+        
+        //Determines the dialy needs to be removed according with the day of week. When a day of week has passed, it doesnt suffer changes with meal changes
+        switch weekDayToday {
+            
+            case 1: indexToRemove = [0, 1, 2, 3, 4, 5, 6]
+            case 2: indexToRemove = [1, 2, 3, 4, 5, 6]
+            case 3: indexToRemove = [2, 3, 4, 5, 6]
+            case 4: indexToRemove = [3, 4, 5, 6]
+            case 5: indexToRemove = [4, 5, 6]
+            case 6: indexToRemove = [5, 6]
+            case 7: indexToRemove = [6]
+            default: print("This day doesnt exist")
+            
+        }
+        
+        if takingPhoto && day.indexPath.row < indexToRemove.first!{
+            photoControl = 1
+            
+            indexToRemove.insert(day.indexPath.row, atIndex: 0)
+            print (indexToRemove)
+        
+            takingPhoto = false
+        }
+        
+        if self.meals == [] {
+        
+            self.meals.removeAll()
+            self.allDaily.removeAll()
+            print(day.indexPath)
 
-        for var i = 0; i < self.diasPT.count; i++ {
-            var day: [Daily] = []
+            for var i = 0; i < self.diasPT.count; i++ {
+            
+                var day: [Daily] = []
 
-            self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+                self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
+                    for m in meals[i] {
+                    
+                        self.dateFormatter.dateFormat = "yyyy-MM-dd"
+                        let dateDay = dateFormatter.stringFromDate(weekDate[i])
+                
+                        let dateString = dateDay + " " + m.horario + ":00"
+                        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+                        let finalDate = dateFormatter.dateFromString(dateString)
+                    
+                        if(meals[i] != [] && DailyServices.findByDate(finalDate!) == false){
+                            let d = DailyServices.createDaily(finalDate!)
+                            day.append(d)
+                        }else{
+                            day.append(DailyServices.findByDateDaily(finalDate!))
+                        }
+                    
+//                     DailyServices.createDaily(weekDate[i])
+                    }
+                allDaily.append(day)
+            }
+        }
+        
+        else {
+            
+            for var i = 0; i < indexToRemove.count; i++ {
+                
+                if i >= indexToRemove.first {
+                    self.meals.removeLast()
+                    self.allDaily.removeLast()
+                }
+                else {
+                    self.meals.removeAtIndex(i)
+                    self.allDaily.removeAtIndex(i)
+                }
+            }
+            
+            for var j = indexToRemove.first!; j < (indexToRemove.count + indexToRemove.first!); j++ {
+                let i = indexToRemove[j]
+            
+                var day: [Daily] = []
+                
+                self.meals.append(RefeicaoServices.findByWeek(self.diasPT[i]))
                 for m in meals[i] {
                     
                     self.dateFormatter.dateFormat = "yyyy-MM-dd"
                     let dateDay = dateFormatter.stringFromDate(weekDate[i])
-                
+                    
                     let dateString = dateDay + " " + m.horario + ":00"
                     self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                     dateFormatter.timeZone = NSTimeZone.localTimeZone()
@@ -78,11 +154,14 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                         day.append(DailyServices.findByDateDaily(finalDate!))
                     }
                     
-//                    DailyServices.createDaily(weekDate[i])
+                    //                     DailyServices.createDaily(weekDate[i])
                 }
-            allDaily.append(day)
-
+                allDaily.append(day)
+            }
             
+            if photoControl == 1 {
+                photoControl = 0
+            }
         }
 
         if(day.indexPath != NSIndexPath( index: 99999)){
@@ -222,6 +301,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             day.day = self.allDaily[indexPath.section][indexPath.row]
             day.indexPath = indexPath
             destinationViewController.daily = day
+            takingPhoto = true
 
         }
     }
