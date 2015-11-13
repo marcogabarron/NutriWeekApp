@@ -55,6 +55,7 @@
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
 		DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */; };
+		FF0C5BBF1BF4FF1A00CB4C95 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */; };
 		FF3929251BEA71FB0051E7DF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3929241BEA71FB0051E7DF /* Test.swift */; };
 		FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* TodoList.swift */; };
 		FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A31B534032004A5EED /* TodoItem.swift */; };
@@ -160,6 +161,7 @@
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFoodVC.swift; sourceTree = "<group>"; };
+		FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		FF3929241BEA71FB0051E7DF /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		FFA5004A1B4E1E3A0023208C /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		FFD1A2A31B534032004A5EED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
+				FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */,
 				C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */,
 				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
+				FF0C5BBF1BF4FF1A00CB4C95 /* TransitionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
