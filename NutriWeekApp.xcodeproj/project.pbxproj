@@ -33,8 +33,9 @@
 		DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */; };
 		DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */; };
 		DA8110801BD565C800632A40 /* CreateItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81107F1BD565C800632A40 /* CreateItemVC.swift */; };
-		DA8784FF1BE93428008838E9 /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8784FE1BE93428008838E9 /* DiaryVC.swift */; };
+		DA8784FF1BE93428008838E9 /* DiaryVCOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */; };
 		DA8785011BEA7625008838E9 /* CollectionDiaryClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */; };
+		DAB08E671BFCF50B00D4B63A /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */; };
 		DAC4676D1B6BBEA900F56E67 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC467651B6BBEA900F56E67 /* TutorialVC.swift */; };
 		DAC4676F1B6BC09100F56E67 /* Page1-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467711B6BC09100F56E67 /* Page1-Tutorial.xib */; };
 		DAC467741B6BC14300F56E67 /* Page2-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467761B6BC14300F56E67 /* Page2-Tutorial.xib */; };
@@ -116,8 +117,9 @@
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
 		DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioServices.swift; path = ../ItemCardapioServices.swift; sourceTree = "<group>"; };
 		DA81107F1BD565C800632A40 /* CreateItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateItemVC.swift; path = ../CreateItemVC.swift; sourceTree = "<group>"; };
-		DA8784FE1BE93428008838E9 /* DiaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryVC.swift; path = ../DiaryVC.swift; sourceTree = "<group>"; };
+		DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryVCOLD.swift; path = ../DiaryVCOLD.swift; sourceTree = "<group>"; };
 		DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionDiaryClass.swift; path = ../CollectionDiaryClass.swift; sourceTree = "<group>"; };
+		DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryVC.swift; path = ../DiaryVC.swift; sourceTree = "<group>"; };
 		DAC467651B6BBEA900F56E67 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		DAC467701B6BC09100F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page1-Tutorial.xib"; sourceTree = "<group>"; };
 		DAC467731B6BC09B00F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
@@ -212,7 +214,8 @@
 				C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */,
 				C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */,
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
-				DA8784FE1BE93428008838E9 /* DiaryVC.swift */,
+				DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */,
+				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
 				FF3929241BEA71FB0051E7DF /* Test.swift */,
 			);
 			name = Controllers;
@@ -474,10 +477,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C275F1ED1BF5054600FAA532 /* DailyModel.swift in Sources */,
+				DAB08E671BFCF50B00D4B63A /* DiaryVC.swift in Sources */,
 				DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */,
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
 				FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */,
-				DA8784FF1BE93428008838E9 /* DiaryVC.swift in Sources */,
+				DA8784FF1BE93428008838E9 /* DiaryVCOLD.swift in Sources */,
 				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				C2FE6C6D1BED0CF40044B39B /* DailyDAO.swift in Sources */,
