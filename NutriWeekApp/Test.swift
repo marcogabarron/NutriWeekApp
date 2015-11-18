@@ -15,7 +15,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!
-    @IBOutlet weak var simpleDraw: UIImageView!
     @IBOutlet weak var bottomDP: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var hour: UIButton!
@@ -65,11 +64,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.dateLabel.text = strdate
         
         self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
-        
-        self.simpleDraw.layer.masksToBounds = true
-        self.simpleDraw.layer.borderWidth = 1
-        self.simpleDraw.layer.cornerRadius = self.simpleDraw.frame.height*0.05
-        self.simpleDraw.layer.borderColor = UIColor.grayColor().CGColor
         
         
         descriptionText.delegate = self
@@ -189,7 +183,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func saveButton(sender: AnyObject) {
         let date: NSDate = NSDate()
         
-        if(self.descriptionText.text == "Escreva uma descrição ou comentário"){
+        if(self.descriptionText.text == "No que você está pensando"){
             self.descriptionText.text = ""
         }
         
@@ -199,10 +193,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         let dateDate = dateFormatter.dateFromString(finalDate)
         
         let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
-        
-        
-        
-//        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
         
         if(self.mealImage.hidden == false){
             let id = String(date)
@@ -307,14 +297,14 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     //MARK - logical functions associated to TextView
     
     override func becomeFirstResponder() -> Bool {
-        self.descriptionText.text = "Escreva uma descrição ou comentário"
+        self.descriptionText.text = "No que você está pensando"
         self.descriptionText.textColor = UIColor.lightGrayColor()
         
         return true
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        if (descriptionText?.text == "Escreva uma descrição ou comentário")
+        if (descriptionText?.text == "No que você está pensando")
             
         {
             self.addSaveButton()
@@ -326,7 +316,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     func textViewDidEndEditing(textView: UITextView) {
         if descriptionText!.text.isEmpty
         {
-            descriptionText!.text = "Escreva uma descrição ou comentário"
+            descriptionText!.text = "No que você está pensando"
             descriptionText!.textColor = UIColor.lightGrayColor()
         }
         textView.resignFirstResponder()
