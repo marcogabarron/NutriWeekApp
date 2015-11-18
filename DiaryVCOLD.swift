@@ -19,7 +19,7 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
     var weekDate = [NSDate]()
     var weekDay = [String]()
     var allDaily = [[Daily]]()
-    let day: DailyModel = DailyModel()
+//    let day: DailyModel = DailyModel()
     var indexToRemove = [6]
     var takingPhoto: Bool = false
     var photoControl = 0
@@ -74,20 +74,20 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
             
         }
         
-        if takingPhoto && day.indexPath.row < indexToRemove.first!{
-            photoControl = 1
-            
-            indexToRemove.insert(day.indexPath.row, atIndex: 0)
-            print (indexToRemove)
-        
-            takingPhoto = false
-        }
-        
+//        if takingPhoto && day.indexPath.row < indexToRemove.first!{
+//            photoControl = 1
+//            
+//            indexToRemove.insert(day.indexPath.row, atIndex: 0)
+//            print (indexToRemove)
+//        
+//            takingPhoto = false
+//        }
+//        
         if self.meals == [] {
         
             self.meals.removeAll()
             self.allDaily.removeAll()
-            print(day.indexPath)
+//            print(day.indexPath)
 
             for var i = 0; i < self.diasPT.count; i++ {
             
@@ -164,9 +164,9 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
             }
         }
 
-        if(day.indexPath != NSIndexPath( index: 99999)){
-            self.allDaily[day.indexPath.section][day.indexPath.row] = day.day!
-        }
+//        if(day.indexPath != NSIndexPath( index: 99999)){
+//            self.allDaily[day.indexPath.section][day.indexPath.row] = day.day!
+//        }
         self.diaryCollection.reloadData()
         
     }
@@ -319,15 +319,15 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
     //MARK - Prepare for segue
     /** Prepare for Segue to Week page -- pass the information from Weeks() **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "daily") {
-            let destinationViewController = segue.destinationViewController as! TestController
-            let indexPath = sender as! NSIndexPath
-            day.day = self.allDaily[indexPath.section][indexPath.row]
-            day.indexPath = indexPath
-            destinationViewController.daily = day
-            takingPhoto = true
-
-        }
+//        if (segue.identifier == "daily") {
+//            let destinationViewController = segue.destinationViewController as! TestController
+//            let indexPath = sender as! NSIndexPath
+//            day.day = self.allDaily[indexPath.section][indexPath.row]
+//            day.indexPath = indexPath
+//            destinationViewController.daily = day
+//            takingPhoto = true
+//
+//        }
     }
     
     
