@@ -23,8 +23,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var switchDiet: UISwitch!
     
-    var daily:DailyModel!
-    
     let dateFormatter = NSDateFormatter()
 
     
@@ -56,7 +54,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.datePicker.date = daily.day!.date!
+        self.datePicker.date = NSDate()
         
         
         let timer = NSDateFormatter()
@@ -87,9 +85,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             fileManager.fileExistsAtPath(paths)
         }
         
-        if(daily.day!.hasImage == true){
-            self.mealImage.image = UIImage(named: self.daily.day!.nameImage!)
-        }
 //        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
 
 
@@ -203,31 +198,27 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
         let dateDate = dateFormatter.dateFromString(finalDate)
         
+        let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
-        daily.day!.date = dateDate
-        daily.day!.fled = self.switchDiet.on
-        daily.day!.descriptionStr = self.descriptionText.text
-        daily.day!.hasImage = !self.mealImage.hidden
         
         
 //        let daily: Daily = DailyServices.createDaily(self.datePicker.date, fled: self.switchDiet.on, description: self.descriptionText.text, hasImage: !self.mealImage.hidden)
         
-        if(daily.day!.hasImage == true){
+        if(self.mealImage.hidden == false){
             let id = String(date)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
             let filePathToWrite = "\(paths)/\(id).png"
             
-            daily.day!.nameImage = ("\(paths)/\(id).png")
-            
+            daily.setImage(("\(paths)/\(id).png"))
             
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
             
             self.mealImage.image = UIImage(named: filePathToWrite)
         }
-        DailyServices.editDaily(daily.day!)
-        
+
+        DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
         //        presentViewController(refreshAlert, animated: true, completion: nil)
 
         

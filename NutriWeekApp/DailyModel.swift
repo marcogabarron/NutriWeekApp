@@ -9,16 +9,25 @@
 import Foundation
 
 class DailyModel: NSObject {
-    var day: Daily?
-    var indexPath: NSIndexPath
+    var date: NSDate
+    var fled: Bool
+    var descriptionStr: String
+    var nameImage: String?
+    var hasImage: Bool?
     
-    /** create Meal **/
-    init(day: Daily, index: NSIndexPath){
-        self.day = day
-        self.indexPath = index
+    /** create Daily **/
+    init(date: NSDate, fled: Bool, desc: String){
+        self.date = date
+        self.fled = fled
+        self.descriptionStr = desc
+        self.hasImage = false
+        self.nameImage = ""
+
     }
     
-    override init() {
-        indexPath = NSIndexPath(index: 99999)
+    /** set Image **/
+    func setImage(name: String){
+        self.hasImage = true
+        self.nameImage = name
     }
 }

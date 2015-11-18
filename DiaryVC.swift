@@ -1,5 +1,3 @@
-//
-
 
 import UIKit
 
@@ -17,7 +15,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var weekDate = [NSDate]()
     var weekDay = [String]()
     var allDaily = [[Daily]]()
-    let day: DailyModel = DailyModel()
+//    let day: DailyModel = DailyModel()
     var indexToRemove = [6]
     var takingPhoto: Bool = false
     var photoControl = 0
@@ -101,5 +99,3 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
 }
-
-    
