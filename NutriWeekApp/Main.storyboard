@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Lj-4B-1Df">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jwg-wl-dRS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -718,10 +718,10 @@
                             <mask key="constraints">
                                 <exclude reference="MJ7-3w-dED"/>
                                 <exclude reference="OSk-EM-kv3"/>
+                                <exclude reference="Xcq-cB-ACc"/>
                                 <exclude reference="WrE-lQ-rxE"/>
                                 <exclude reference="otP-bV-lHb"/>
                                 <exclude reference="tJd-8Q-wMF"/>
-                                <exclude reference="Xcq-cB-ACc"/>
                                 <exclude reference="145-0c-2CS"/>
                                 <exclude reference="MHE-HL-adH"/>
                                 <exclude reference="iKW-s6-2RH"/>
@@ -1779,42 +1779,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFo-Cc-huH">
-                                            <rect key="frame" x="0.0" y="4" width="375" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="eHu-lg-606"/>
-                                                <constraint firstAttribute="width" constant="250" id="eQe-S1-cVR"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="eQe-S1-cVR"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dia mês" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QQ-63-d0R">
-                                            <rect key="frame" x="231" y="4" width="136" height="21"/>
+                                            <rect key="frame" x="119" y="4" width="136" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.21176470588235294" green="0.56862745098039214" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="centerX" secondItem="tUC-cV-sCb" secondAttribute="centerX" id="Jdc-n9-s7u"/>
-                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="centerY" secondItem="tUC-cV-sCb" secondAttribute="centerY" id="O79-6e-Mrx"/>
-                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" id="em0-C7-D0Y"/>
-                                        <constraint firstItem="nFo-Cc-huH" firstAttribute="width" secondItem="tUC-cV-sCb" secondAttribute="width" id="x8L-JA-aQT"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="x8L-JA-aQT"/>
-                                        </mask>
-                                    </variation>
                                     <connections>
-                                        <outlet property="headerViewLabel" destination="nFo-Cc-huH" id="epB-Cd-dlg"/>
                                         <outlet property="labelMonthDay" destination="6QQ-63-d0R" id="pbI-b9-Jas"/>
                                     </connections>
                                 </collectionReusableView>
@@ -1864,6 +1837,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiE-zf-0v6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="203.5" y="849.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="c90-oB-HlQ">
+            <objects>
+                <viewController id="Jwg-wl-dRS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GfI-5I-6by"/>
+                        <viewControllerLayoutGuide type="bottom" id="nv5-hW-5FV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XWR-Iq-AYe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-fG-day">
+                                <rect key="frame" x="-5" y="99" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="NcK-U1-bSa">
+                                        <barButtonItem key="leftBarButtonItem" title="Before" id="hdH-vm-dgE"/>
+                                        <barButtonItem key="rightBarButtonItem" title="After" id="pXc-CU-wcO"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iS-vh-ifh">
+                                <rect key="frame" x="167" y="55" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeK-uH-6MM">
+                                <rect key="frame" x="327" y="51" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="+"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qGX-YV-ewQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203.5" y="1660.5"/>
         </scene>
     </scenes>
     <resources>

@@ -169,7 +169,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                     withReuseIdentifier: "headerView",
                     forIndexPath: indexPath)
                     as! CollectionDiaryClass
-                headerViewLabel.headerViewLabel.text = "Planejamenti"
+              //  headerViewLabel.headerViewLabel.text = "Planejamenti"
                 return headerViewLabel
             default:
                 //4

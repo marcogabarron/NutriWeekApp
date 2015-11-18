@@ -88,7 +88,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                 
                 if(allDaily.count > indexPath.section){
                     
-                cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
+               // cell.image.image = UIImage(named: self.allDaily[indexPath.section].nameImage!)
 
                 }
                 
@@ -126,7 +126,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                     withReuseIdentifier: "headerView",
                     forIndexPath: indexPath)
                     as! CollectionDiaryClass
-                headerViewLabel.headerViewLabel.text = diasPT[indexPath.section]
+                //headerViewLabel.headerViewLabel.text = diasPT[indexPath.section]
                 headerViewLabel.labelMonthDay.text = teste[indexPath.section]
                 return headerViewLabel
             default:
