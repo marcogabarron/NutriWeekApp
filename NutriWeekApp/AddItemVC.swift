@@ -46,8 +46,6 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
         
     }
     
-    
-    
     //MARK: TableView
     //the table view is used to go repeat Weekdays - just as occurs in the clock iOS
     
