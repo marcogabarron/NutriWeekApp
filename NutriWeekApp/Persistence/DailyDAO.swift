@@ -76,5 +76,38 @@ class DailyDAO
             print("\(error)")
         }
     }
+    
+    /** find the first meal and return true or no find and return false **/
+    static func findByDateBool(date: NSDate) -> Bool
+    {
+        let daily : [Daily] = self.findAll()
+        var answer : Bool = false
+        
+        for day in daily{
+            if(day.date == date){
+                answer = true
+            }
+        }
+        
+        
+        return answer
+    }
+    
+    /** find the first meal and return true or no find and return false **/
+    static func findByDate(date: NSDate) -> Daily
+    {
+        // Creating fetch request
+        let request = NSFetchRequest(entityName: "Daily")
+        
+        // Assign predicate
+        request.predicate = NSPredicate(format: "date == %@", date)
+        
+        // Perform search
+        //var error: NSErrorPointer = nil
+        let results: [Daily] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Daily]
+        
+        return results.last!
+
+    }
 
 }
