@@ -99,6 +99,9 @@ class DailyDAO
         // Creating fetch request
         let request = NSFetchRequest(entityName: "Daily")
         
+//        let dateFormat = NSDateFormatter()
+//        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
         let startDate = NSCalendar.currentCalendar()
         
         let startDateComps = startDate.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
@@ -107,7 +110,7 @@ class DailyDAO
         startDateComps.minute = 0
         startDateComps.second = 0
         
-        startDate.dateFromComponents(startDateComps)
+        let dateInit = startDate.dateFromComponents(startDateComps)!
         
         let endDate = NSCalendar.currentCalendar()
 
@@ -117,11 +120,12 @@ class DailyDAO
         endDateComps.minute = 59
         endDateComps.second = 59
         
-        endDate.dateFromComponents(endDateComps)
+        let dateEnd = endDate.dateFromComponents(endDateComps)!
+        
         
         
         // Assign predicate
-        request.predicate = NSPredicate(format: "(dateTime >= %@) AND (dateTime < %@)", startDate, endDate)
+        request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", dateInit, dateEnd)
         
         // Perform search
         //var error: NSErrorPointer = nil

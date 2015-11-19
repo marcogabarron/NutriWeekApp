@@ -33,10 +33,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.dateNavigation.title = self.formatterDate(NSDate())
         
         self.disableButtonAfter()
+        if(DailyServices.allDaily().count > 0){
+            self.allDaily = DailyServices.findByDateDaily(NSDate())
         
-        self.allDaily = DailyServices.findByDateDaily(NSDate())
-        
-        self.diaryCollection.reloadData()
+
+            self.diaryCollection.reloadData()
+
+        }
 
     }
     

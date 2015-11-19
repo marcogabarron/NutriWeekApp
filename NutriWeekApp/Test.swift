@@ -193,7 +193,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
         let dateDate = dateFormatter.dateFromString(finalDate)
-        
+        print(dateDate?.description)
         let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
