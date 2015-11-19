@@ -230,6 +230,8 @@
                         <outlet property="dateLabel" destination="dlp-eZ-RK1" id="R8w-5l-B2I"/>
                         <outlet property="datePicker" destination="3Z9-Zp-K5L" id="0Hp-8f-auJ"/>
                         <outlet property="descriptionText" destination="Z07-WU-8mZ" id="NI3-fb-PJd"/>
+                        <outlet property="heightImage" destination="FSF-Bo-LVc" id="PAj-UB-oOt"/>
+                        <outlet property="heightView" destination="FEV-ct-Gn3" id="8gc-s7-1lp"/>
                         <outlet property="hour" destination="jd9-Z6-t8y" id="fA0-rN-vLT"/>
                         <outlet property="mealImage" destination="Rmt-jx-4mb" id="hlp-i4-Zaj"/>
                         <outlet property="saveButton" destination="rBf-Ga-XhO" id="cZF-Y3-YD8"/>
@@ -1903,8 +1905,8 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
-                                                            <rect key="frame" x="0.0" y="5" width="364" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
+                                                            <rect key="frame" x="10" y="5" width="344" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="603-JN-c4p"/>
                                                                 <constraint firstAttribute="width" constant="84" id="huu-R6-VGa"/>
@@ -1921,12 +1923,12 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="rJa-qH-7Gu" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="10" id="0Fh-cT-nFE"/>
-                                                        <constraint firstItem="Dyt-yp-HL2" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" id="E5p-iA-gCp"/>
+                                                        <constraint firstItem="Dyt-yp-HL2" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="10" id="E5p-iA-gCp"/>
                                                         <constraint firstAttribute="bottom" secondItem="rJa-qH-7Gu" secondAttribute="bottom" constant="5" id="H2C-GG-7nz"/>
                                                         <constraint firstItem="rJa-qH-7Gu" firstAttribute="top" secondItem="Dyt-yp-HL2" secondAttribute="bottom" constant="5" id="OIg-Ca-vya"/>
                                                         <constraint firstAttribute="bottom" secondItem="rJa-qH-7Gu" secondAttribute="bottom" id="P9X-t3-S3y"/>
                                                         <constraint firstItem="rJa-qH-7Gu" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="5" id="gzk-rQ-NHW"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Dyt-yp-HL2" secondAttribute="trailing" id="oHg-cG-JXL"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Dyt-yp-HL2" secondAttribute="trailing" constant="10" id="oHg-cG-JXL"/>
                                                         <constraint firstItem="Dyt-yp-HL2" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="5" id="oZO-dU-tc3"/>
                                                         <constraint firstAttribute="trailing" secondItem="rJa-qH-7Gu" secondAttribute="trailing" constant="10" id="xl8-bM-fVy"/>
                                                     </constraints>

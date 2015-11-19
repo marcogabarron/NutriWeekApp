@@ -31,7 +31,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-            }
+    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         

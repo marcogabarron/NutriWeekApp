@@ -21,6 +21,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var switchDiet: UISwitch!
+    @IBOutlet weak var heightImage: NSLayoutConstraint!
+    @IBOutlet weak var heightView: NSLayoutConstraint!
     
     let dateFormatter = NSDateFormatter()
 
@@ -364,8 +366,12 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 //UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
             }
             
-            mealImage.image = imageToSave
-            mealImage.reloadInputViews()
+            self.mealImage.image = imageToSave
+            self.heightView.constant = self.heightView.constant*2
+            self.heightImage.constant = self.mealImage.frame.width*2
+            
+            self.mealImage.reloadInputViews()
+            
             
         }
         
