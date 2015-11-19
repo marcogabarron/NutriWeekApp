@@ -51,11 +51,11 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         if(daily.hasImage == true){
             cell.image.image = UIImage(named: daily.nameImage!)
-            cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+
         }
 
         cell.textLabel.text = daily.descriptionStr
+        cell.dateLabel.text = self.formatterHour(daily.date!)
         
         return cell
     }
@@ -80,6 +80,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         return strdate
     }
     
+    
+    func formatterHour(date: NSDate) -> String{
+        let timer = NSDateFormatter()
+        timer.dateFormat = "HH:mm"
+        
+        let strdate = timer.stringFromDate(date)
+        
+        return strdate
+    }
+    
     func disableButtonAfter(){
         self.afterButtonItem.enabled = false
         self.afterButtonItem.title = ""
@@ -97,7 +107,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.enableButtonAfter()
         self.dateNavigation.title = self.formatterDate(date)
 
-        
+        self.allDaily = DailyServices.findByDateDaily(date)
+
         self.diaryCollection.reloadData()
         
     }
@@ -108,7 +119,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.dateNavigation.title = self.formatterDate(date)
 
-        
+        self.allDaily = DailyServices.findByDateDaily(date)
+
         if(self.dateNavigation.title == self.formatterDate(NSDate())){
             self.disableButtonAfter()
         }
