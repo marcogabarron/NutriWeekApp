@@ -6,16 +6,14 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     
     @IBOutlet weak var diaryCollection: UICollectionView!
+    @IBOutlet weak var dateNavigation: UINavigationItem!
+    @IBOutlet weak var afterButtonItem: UIBarButtonItem!
+    @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     var meals = [[Refeicao]]()
-    let date = NSDate()
-    var date2 = NSDate()
-    let dateFormatter = NSDateFormatter()
-    var weekDate = [NSDate]()
-    var weekDay = [String]()
+    var date = NSDate()
     var allDaily = [[Daily]]()
-//    let day: DailyModel = DailyModel()
     var indexToRemove = [6]
     var takingPhoto: Bool = false
     var photoControl = 0
@@ -31,6 +29,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        self.dateNavigation.title = self.formatterDate(NSDate())
+        
+        self.disableButtonAfter()
+        
+
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -54,48 +59,49 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
+
     
-    func getDayOfWeek(today:NSDate)->Int {
+    func formatterDate(date: NSDate) -> String{
+        let timer = NSDateFormatter()
+        timer.dateFormat = "dd/MM/yyyy"
         
-        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.Weekday, fromDate: today)
-        let weekDay = myComponents.weekday
-        return weekDay
+        let strdate = timer.stringFromDate(date)
+        
+        return strdate
     }
     
-    func settingWeekDay(var sender: Int, var today: NSDate) -> NSDate{
-        
-        self.dateFormatter.dateFormat = "dd/MM/yyyy"
-        
-        if sender != 1{
-            
-            while (sender != 1) {
-                
-                today = (today.dateByAddingTimeInterval(-60*60*24))
-                sender =  getDayOfWeek(today)
-                
-            }
-        }
-        self.date2 = today
-        for(var i = 0; i < 7; i++){
-            self.weekDay.append(dateFormatter.stringFromDate(today))
-            today = (today.dateByAddingTimeInterval(60*60*24))
-            //teste = dateFormatter.stringFromDate(date2)
-        }
-        
-        return date2
-        
+    func disableButtonAfter(){
+        self.afterButtonItem.enabled = false
+        self.afterButtonItem.title = ""
+    }
+    
+    func enableButtonAfter(){
+        self.afterButtonItem.enabled = true
+        self.afterButtonItem.title = "Depois"
     }
     
     @IBAction func beforeButton(sender: UIBarButtonItem) {
         
-        self.weekDay.removeAll()
-        date2 = (date2.dateByAddingTimeInterval(-60*60*24*7))
+        date = (date.dateByAddingTimeInterval(-60*60*24))
+
+        self.enableButtonAfter()
+        self.dateNavigation.title = self.formatterDate(date)
+
         
-        let weekday = getDayOfWeek(date2)
-        settingWeekDay(weekday, today: date2)
         self.diaryCollection.reloadData()
         
     }
     
+    @IBAction func afterButton(sender: AnyObject) {
+
+        date = (date.dateByAddingTimeInterval(60*60*24))
+        
+        self.dateNavigation.title = self.formatterDate(date)
+
+        
+        if(self.dateNavigation.title == self.formatterDate(NSDate())){
+            self.disableButtonAfter()
+        }
+        self.diaryCollection.reloadData()
+    }
 }
