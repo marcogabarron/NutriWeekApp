@@ -108,7 +108,7 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
                             let d = DailyServices.createDaily(finalDate!)
                             day.append(d)
                         }else{
-                            day.append(DailyServices.findByDateDaily(finalDate!))
+//                            day.append(DailyServices.findByDateDaily(finalDate!))
                         }
                     
 //                     DailyServices.createDaily(weekDate[i])
@@ -151,7 +151,7 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
                         let d = DailyServices.createDaily(finalDate!)
                         day.append(d)
                     }else{
-                        day.append(DailyServices.findByDateDaily(finalDate!))
+//                        day.append(DailyServices.findByDateDaily(finalDate!))
                     }
                     
                     //                     DailyServices.createDaily(weekDate[i])

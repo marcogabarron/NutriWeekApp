@@ -11,9 +11,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-    var meals = [[Refeicao]]()
     var date = NSDate()
-    var allDaily = [[Daily]]()
+    var allDaily : [Daily] = []
     var indexToRemove = [6]
     var takingPhoto: Bool = false
     var photoControl = 0
@@ -35,6 +34,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.disableButtonAfter()
         
+        self.allDaily = DailyServices.findByDateDaily(NSDate())
+        
+        self.diaryCollection.reloadData()
 
     }
     
@@ -42,10 +44,15 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-            cell.image.image = UIImage(named: "grape")
-
+        let daily = self.allDaily[indexPath.row]
+        
+        if(daily.hasImage == true){
+            cell.image.image = UIImage(named: daily.nameImage!)
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
+        }
+
+        cell.textLabel.text = daily.descriptionStr
         
         return cell
     }
@@ -57,7 +64,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return self.allDaily.count
     }
 
     
