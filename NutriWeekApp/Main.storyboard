@@ -1932,7 +1932,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3S-3u-INI">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="292"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
                                                             <rect key="frame" x="20" y="34" width="315" height="237"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="237" id="JwT-BR-ypW"/>
@@ -1940,11 +1940,12 @@
                                                             </constraints>
                                                             <variation key="default">
                                                                 <mask key="constraints">
+                                                                    <exclude reference="JwT-BR-ypW"/>
                                                                     <exclude reference="j1A-H3-3j1"/>
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
                                                             <rect key="frame" x="10" y="10" width="300" height="19.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="603-JN-c4p"/>
@@ -1966,7 +1967,7 @@
                                                                 <constraint firstAttribute="height" constant="21" id="TRD-2L-Dt0"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -2028,7 +2029,6 @@
                                         <connections>
                                             <outlet property="checkImage" destination="o2p-1Q-ogA" id="KO6-dx-W2a"/>
                                             <outlet property="dateLabel" destination="LhI-8a-6QX" id="XIY-0G-ef0"/>
-                                            <outlet property="heightImage" destination="JwT-BR-ypW" id="YXw-pX-Xow"/>
                                             <outlet property="image" destination="rJa-qH-7Gu" id="Ehs-WC-g6z"/>
                                             <outlet property="textLabel" destination="Dyt-yp-HL2" id="upX-ia-JPX"/>
                                         </connections>

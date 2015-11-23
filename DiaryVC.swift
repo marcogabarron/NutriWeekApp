@@ -51,15 +51,19 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         let daily = self.allDaily[indexPath.row]
         
         if(daily.hasImage == true){
+            
             cell.image.image = UIImage(named: daily.nameImage!)
 
         }else{
-            cell.heightImage.constant = 10
-        
+            cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 100)
+            cell.updateConstraintsIfNeeded()
+            cell.layoutIfNeeded()           
         }
+        
         if(daily.fled == false){
             cell.checkImage.image = UIImage(named: "logo")
         }
+        
         cell.textLabel.text = daily.descriptionStr
         cell.dateLabel.text = self.formatterHour(daily.date!)
         

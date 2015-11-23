@@ -349,7 +349,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if ( compResult == CFComparisonResult.CompareEqualTo ) {
             self.addSaveButton()
             self.mealImage.hidden = false
-//            self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+            self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
             
             editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
             originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
