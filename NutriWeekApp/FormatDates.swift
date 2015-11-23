@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Notifications {
+class FormatDates {
     
     /** Receive the day of week and the pickerdate time. Build the notification, returning the date to schedule **/
-    func scheduleNotifications (diaDaSemana: String, dateHour: String) -> (NSDate) {
+    func setNotificationDate (notificationWeekDay: String, dateHour: String) -> (NSDate) {
         
-        // Gett the current week day
+        // Get the current week day
         let currentDate = NSDate()
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         let myComponents = myCalendar.components(.Weekday, fromDate: currentDate)
@@ -21,9 +21,13 @@ class Notifications {
 
         var daysTo: NSInteger?
         
-        ///Create the notification date day
-        
-        switch diaDaSemana {
+        //Create the notification date day
+        //It gets the interval(daysTo) between today and the nearest weekDay selected to add a notification
+        //It gets the lowest number wich subtracted by the representative weekday number returns 0 to rest of division by 7(number of days on week).
+        //If the rest of division is 0, the weekDay to add is the same of today. If is not 0, the weekday to add is another day.
+        //Example: if today is wednesday and I want to add friday -> 13 - 4 = 9. 9%7 = 2. From today to friday there is two days.
+        switch notificationWeekDay {
+            
         case "Domingo":
             daysTo = (8 - weekDay ) % 7
                 
@@ -46,26 +50,26 @@ class Notifications {
             daysTo = (14 - weekDay ) % 7
             
         default:
-            print("Error: This day of week is false!")
+            print("Error: Unrecognized day")
         }
         
+        ///Interval betwwen today and the weekday I want to add
         let interval: NSTimeInterval = NSTimeInterval(daysTo!)
-        let currentAdded: NSDate = currentDate.dateByAddingTimeInterval(interval * 60*60*24)
-        
-        //Day getted
-        let dateFormatter = NSDateFormatter()
+        let currentAddedByInterval: NSDate = currentDate.dateByAddingTimeInterval(interval * 60*60*24)
+    
+        var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateDay = dateFormatter.stringFromDate(currentAdded)
+        let dateDayToAdd = dateFormatter.stringFromDate(currentAddedByInterval)
             
         //Date hour getted in picker date
-        let dateStringToAdd = dateDay + "-" + dateHour + ":00"
+        let dateStringToAdd = dateDayToAdd + "-" + dateHour + ":00"
         print(dateStringToAdd)
             
-        //Add both
-        let dateFormatterBack = NSDateFormatter()
-        dateFormatterBack.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-        dateFormatterBack.timeZone = NSTimeZone.localTimeZone()
-        var dateToAdd = dateFormatterBack.dateFromString(dateStringToAdd)
+        //Transform day  and time in only one date
+        dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        var dateToAdd = dateFormatter.dateFromString(dateStringToAdd)
             
         /// Verify if the date generated is before the actual. If its true - only happens if the notification`s day is today early than now - add one week interval
         let dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)
@@ -80,20 +84,17 @@ class Notifications {
         
     }
     
-    //MARK - Format Time
+    //MARK - Format Time //Tirar daqui. mudo para model formatTime
     
     /** Get a date string and returns a formatted string with local time zone **/
     func formatStringTime(dataString: String) -> String{
         
         let dateFormatter = NSDateFormatter()
-        
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        
         let dateValue = dateFormatter.dateFromString(dataString)
         
         let stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
-        
         
         return stringFormatted
         

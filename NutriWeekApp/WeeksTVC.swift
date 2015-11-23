@@ -69,7 +69,7 @@ class WeeksTVC: UITableViewController {
     func removeDay(day: String){
         for index in 0...self.week.getArrayString().count{
             if( self.week.getArrayString()[index] == day){
-                self.week.removeAtIndex(index)
+                self.week.removeDayAtIndex(index)
                 break
             }
         }
@@ -77,7 +77,7 @@ class WeeksTVC: UITableViewController {
     
     /** Add day select **/
     func addDay(day: String){
-        self.week.append(day)
+        self.week.appendDay(day)
     }
     
     /** Prepare for segue back **/

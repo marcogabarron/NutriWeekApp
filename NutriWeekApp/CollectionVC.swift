@@ -27,11 +27,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var bottomCV: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    var daysOfWeekString: Weeks = Weeks(selectedDays: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
-    var notification = Notifications()
+    var format = FormatDates()
     
     //Get the uuid of choosed Refeicao
     var meal: Meal!
@@ -49,11 +49,11 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //items received foods of meal
         self.itens = self.meal.foods
-        let w: Weeks = Weeks(arrayString: [])
+        let w: Weeks = Weeks(selectedDays: [])
 
         let mealsWithSameName: [Refeicao] = RefeicaoServices.findAllWithSameName(self.meal.name)
         for m in mealsWithSameName {
-            w.append(m.diaSemana)
+            w.appendDay(m.diaSemana)
         }
         self.daysOfWeekString = w
         self.daysOfWeekString.change = false
@@ -85,7 +85,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.navigationItem.title = self.meal.name
     
         //Get Time
-        self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
+        self.hour.setTitle(self.format.formatStringTime(meal.hour), forState: .Normal)
         
         //allows multiple selections
         self.collectionView.allowsMultipleSelection = true
@@ -266,10 +266,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
          for ref in allRefWithSameName{
             weeks.append(ref.diaSemana)
-                                
-            let date = NSDate()
-            let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-            TodoList.sharedInstance.removeItem(todoItem)
+                            
+            TodoList.sharedInstance.removeItemById(ref.uuid)
                                 
             //Switch notification off: remove uuid from meal
             if !self.notificationSwitch.on {
@@ -281,8 +279,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 ref.uuid = NSUUID().UUIDString
                 meal.id = ref.uuid
                                     
-                let notification = Notifications()
-                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
+                let format = FormatDates()
+                let todoItem2 = TodoItem(deadline: format.setNotificationDate(ref.diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: ref.uuid)
                 TodoList.sharedInstance.addItem(todoItem2)
            }
                                 
@@ -291,7 +289,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
         let tempWeek = weeks
          //if the comparison between the old with the new from weeks is false, need to delete the difference
-        if(self.daysOfWeekString.compareArray(weeks) == false){
+        if(self.daysOfWeekString.compareWithOlder(weeks) == false){
             var i : Int = 0
             for dayOfWeek in tempWeek {
                 if(self.daysOfWeekString.isSelected(dayOfWeek) == false){
@@ -349,7 +347,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
 
         self.meal.hour = timePicker(self.datePicker)
-        self.hour.setTitle(self.notification.formatStringTime(meal.hour), forState: .Normal)
+        self.hour.setTitle(self.format.formatStringTime(meal.hour), forState: .Normal)
 
     }
 

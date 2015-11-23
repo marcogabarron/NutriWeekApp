@@ -22,7 +22,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     @IBOutlet weak var save: UIBarButtonItem!
     
     ///array Weeks with the week - init with all
-    var daysOfWeekString: Weeks = Weeks(arrayString: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
+    var daysOfWeekString: Weeks = Weeks(selectedDays: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
     var meal: Meal = Meal(week: [], time: "", name: "")
     

@@ -29,5 +29,6 @@ class DailyModel: NSObject {
     func setImage(name: String){
         self.hasImage = true
         self.nameImage = name
+        
     }
 }

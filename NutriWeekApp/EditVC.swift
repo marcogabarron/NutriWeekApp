@@ -40,10 +40,10 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
     var selectedItens = [ItemCardapio]()
     
      ///Notification to edit
-    var notification = Notifications()
+    var format = FormatDates()
     
     ///array Weeks with the week to edit
-    var daysOfWeekString: Weeks = Weeks(arrayString: [])
+    var daysOfWeekString: Weeks = Weeks(selectedDays:[])
     
     ///Meal to edit
     var refeicao:Refeicao!
@@ -315,12 +315,10 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                             //Delete Refeicao and notification to each day because need to delete the notification and no add notification with same uuid                
                             //delete notifications that refer a meal
                             for ref in allRefWithSameName{
-                                let date = NSDate()
-                                let todoItem = TodoItem(deadline: date, title: ref.name , UUID: ref.uuid )
-                                TodoList.sharedInstance.removeItem(todoItem)
+                                TodoList.sharedInstance.removeItemById(ref.uuid)
                                 
-                                let notification = Notifications()
-                                let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(ref.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: ref.uuid)
+                                let format = FormatDates()
+                                let todoItem2 = TodoItem(deadline: format.setNotificationDate(ref.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: ref.uuid)
                                 TodoList.sharedInstance.addItem(todoItem2)
                                 
                                 RefeicaoServices.editRefeicao(ref, name: self.nameTextField.text!, horario: self.TimePicker(self.horario), diaSemana: ref.diaSemana, items: self.selectedItens)
@@ -335,12 +333,10 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                             //It is delete and create notification - need to change
                             let uid: String = self.refeicao.uuid
                             
-                            let date = NSDate()
-                            let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid)
-                            TodoList.sharedInstance.removeItem(todoItem)
+                            TodoList.sharedInstance.removeItemById(self.refeicao.uuid)
                             
-                            let notification = Notifications()
-                            let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.refeicao.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                            let format = FormatDates()
+                            let todoItem2 = TodoItem(deadline: format.setNotificationDate(self.refeicao.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
                             TodoList.sharedInstance.addItem(todoItem2)
                             
                             if(self.nameTextField.text! == self.refeicao.name){
@@ -367,12 +363,10 @@ class EditVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollection
                         //It is delete and create notification - need to change
                         let uid: String = self.refeicao.uuid
                         
-                        let date = NSDate()
-                        let todoItem = TodoItem(deadline: date, title: self.refeicao.name , UUID: self.refeicao.uuid)
-                        TodoList.sharedInstance.removeItem(todoItem)
+                        TodoList.sharedInstance.removeItemById(self.refeicao.uuid)
                         
-                        let notification = Notifications()
-                        let todoItem2 = TodoItem(deadline: notification.scheduleNotifications(self.refeicao.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
+                        let format = FormatDates()
+                        let todoItem2 = TodoItem(deadline: format.setNotificationDate(self.refeicao.diaSemana, dateHour: self.TimePicker(self.horario)), title: self.nameTextField.text!, UUID: uid)
                         TodoList.sharedInstance.addItem(todoItem2)
                         
                         //edit MEAL

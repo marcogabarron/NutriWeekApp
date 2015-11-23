@@ -31,6 +31,8 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         
         //Esconde botão
         start.hidden = true
+        
+        
 
         let page1: UIView! = NSBundle.mainBundle().loadNibNamed("Page1-Tutorial",
             owner: self,
@@ -102,7 +104,6 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
                 
             }
         }
-        
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -115,14 +116,10 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         if pageControl.currentPage == 6 {
             
             start.hidden = false
-            
         }
         else {
-            
-            start.hidden = true
-            
-        }
         
+            start.hidden = true
+        }
     }
-    
 }

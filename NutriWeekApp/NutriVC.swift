@@ -4,30 +4,27 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    //Relative to tableview
     @IBOutlet weak var tableView: UITableView!
-    var diasSemana: [String]! = []
     
-    //days for String for sections and go next page
-    var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    ///Days for String for sections and go next page
+    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     
     //Relative to models and CoreData
-    var items: [Refeicao]!
-    var json = ReadJson()
-    var notification = Notifications()
+    var contextMeal: [Refeicao]!
+    var format = FormatDates()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //translate the weekdays
-        for dia in  self.diasPT{
-            self.diasSemana.append(NSLocalizedString(dia, comment: ""))
+        let firstLaunch = NSUserDefaults.standardUserDefaults().boolForKey("FirstLaunch")
+        if firstLaunch  {
         }
-        
-        //Load json in CoreData
-        self.json.loadFeed()
-        
-
+        else {
+            let food = Food()
+            //Load json in CoreData and set first launch has passed
+            food.loadFeed()
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunch")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,51 +34,45 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationItem.title = "NutriWeek"
-
         self.tableView.reloadData()
     }
     
     
     //MARK: TableView
-    //the TableView is used to show the meals from each weekday. It is used to show the name and the notification hour.
+    //The TableView is used to show the meals from each weekday. It is used to show the name and the notification hour.
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        //here passed the items from same week and count
-        self.items = RefeicaoServices.findByWeek(self.diasPT[section])
-        return items.count
+        //Verify and return the number of meals in each week
+        self.contextMeal = RefeicaoServices.findByWeek(self.daysInPt[section])
+        
+        return contextMeal.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        //here is number of sections - seven
-        return self.diasSemana.count
+        //Set the number of sections according with the number of days of week
+        return self.daysInPt.count
     }
     
-    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
         return 30
-        
     }
     
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCellWithIdentifier("ReuseIdentifier", forIndexPath: indexPath)
-        self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
-    
-        //verify if there is any item in this weekday
-        if(self.items.count > 0){
-            cell.textLabel!.text = self.items[indexPath.row].name
-            cell.detailTextLabel?.text = notification.formatStringTime(self.items[indexPath.row].horario)
-            
-        }
+        self.contextMeal = RefeicaoServices.findByWeek(self.daysInPt[indexPath.section])
+
+            cell.textLabel!.text = self.contextMeal[indexPath.row].name
+            cell.detailTextLabel?.text = format.formatStringTime(self.contextMeal[indexPath.row].horario)
 
         return cell
     
     }
     
-    //configure the layout of section
+    //Configure the layout of section
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
@@ -92,16 +83,16 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         label.minimumScaleFactor = 0.5
         label.textColor = UIColor.whiteColor()
         label.textAlignment = NSTextAlignment.Center
-        label.text = NSLocalizedString(self.diasSemana[section], comment: "")
+        label.text = NSLocalizedString(self.daysInPt[section], comment: "")
         label.font = UIFont(name:"Helvetica-SemiBold", size: 22)
         headerView.addSubview(label)
         
-        self.items = RefeicaoServices.findByWeek(self.diasSemana[section])
+//        self.items = RefeicaoServices.findByWeek(self.diasPT[section])
         
         return headerView
     }
     
-    
+
     //MARK - Table View - Deletion and action buttons
     //delete cell and data in the Core Data
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -109,15 +100,13 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             //Read the sections and all refeicao inside
-            self.items = RefeicaoServices.findByWeek(self.diasPT[indexPath.section])
+            self.contextMeal = RefeicaoServices.findByWeek(self.daysInPt[indexPath.section])
             
             //Delete Refeicao
-            RefeicaoServices.deleteRefeicaoByUuid(self.items[indexPath.row].uuid)
+            RefeicaoServices.deleteRefeicaoByUuid(self.contextMeal[indexPath.row].uuid)
             
-            //Delete Notification
-            let date = NSDate()
-            let todoItem = TodoItem(deadline: date, title: self.items[indexPath.row].name , UUID: self.items[indexPath.row].uuid )
-            TodoList.sharedInstance.removeItem(todoItem)
+            //Delete Local Notification
+            TodoList.sharedInstance.removeItemById(self.contextMeal[indexPath.row].uuid)
             
             //Delete row
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -131,42 +120,27 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "selected") {
             
-            var refeicao:[Refeicao] = []
+            let destinationViewController = segue.destinationViewController as! CollectionVC
             
-            //find the section selected
-            let c = self.tableView.indexPathsForSelectedRows!.last?.section
-            if(c==0){
-                refeicao = RefeicaoServices.findByWeek("Domingo")
+            if let indexPath = tableView.indexPathForSelectedRow {
+                self.contextMeal = RefeicaoServices.findByWeek(self.daysInPt[indexPath.section])
+                print(self.contextMeal)
+                
+            let meal = Meal(id: self.contextMeal.uuid , week: self.contextMeal.diaSemana, time: self.contextMeal.horario, name: self.contextMeal.name, foods: self.contextMeal.getItemsObject())
+                
             }
-            if(c==1){
-                refeicao = RefeicaoServices.findByWeek("Segunda")
-            }
-            if(c==2){
-                refeicao = RefeicaoServices.findByWeek("Terça")
-            }
-            if(c==3){
-                refeicao = RefeicaoServices.findByWeek("Quarta")
-            }
-            if(c==4){
-                refeicao = RefeicaoServices.findByWeek("Quinta")
-            }
-            if(c==5){
-                refeicao = RefeicaoServices.findByWeek("Sexta")
-            }
-            if(c==6){
-                refeicao = RefeicaoServices.findByWeek("Sábado")
-            }
-            var meal: Meal = Meal(week: [], time: "", name: "")
             
-            //find the reference of meal
-            for ref in refeicao {
-                if(ref.name == (sender!.textLabel!!.text!)){
-                    meal = Meal(id: ref.uuid, week: [ref.diaSemana], time: ref.horario, name: ref.name, foods: ref.getItemsObject())
+
+            
+            //Set choiced meal to CollectionVC
+            for selectedMeal in self.contextMeal {
+                if(selectedMeal.name == (sender!.textLabel!!.text!)){
+                    let meal = Meal(id: selectedMeal.uuid, week: [selectedMeal.diaSemana], time: selectedMeal.horario, name: selectedMeal.name, foods: selectedMeal.getItemsObject())
+                    
+                    destinationViewController.meal = meal
                 }
             }
-            let destinationViewController = segue.destinationViewController as! CollectionVC
-            //pass the meal
-            destinationViewController.meal = meal
+         
             
         }
     }

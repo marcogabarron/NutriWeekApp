@@ -33,8 +33,8 @@ class SelectedFoodsSave: SelectedFoodsVC {
             for diaSemana in self.meal.dayOfWeek{
                 
                 // Add notification
-                let notification = Notifications()
-                let todoItem = TodoItem(deadline: notification.scheduleNotifications(diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: NSUUID().UUIDString)
+                let format = FormatDates()
+                let todoItem = TodoItem(deadline: format.setNotificationDate(diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: NSUUID().UUIDString)
                 
                 TodoList.sharedInstance.addItem(todoItem)
                 
