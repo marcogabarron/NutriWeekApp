@@ -17,9 +17,12 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var bottomDP: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var container: UIView!
     @IBOutlet weak var hour: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var switchDiet: UISwitch!
     @IBOutlet weak var heightImage: NSLayoutConstraint!
     @IBOutlet weak var heightView: NSLayoutConstraint!
@@ -41,15 +44,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         self.saveButton.title = NSLocalizedString("", comment: "")
         self.saveButton.enabled = false
-
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(true)
 
     }
     
@@ -82,7 +76,12 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         
 //        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
-
+        
+        
+        let topBorder = UIView()
+        topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
+        topBorder.frame = CGRect(x: 0, y: 0, width: self.view.frame.width * 0.9, height: 1)
+        self.container.addSubview(topBorder)
 
     }
     
@@ -371,7 +370,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.heightView.constant = self.heightView.constant*2
             self.heightImage.constant = self.mealImage.frame.width*2
             
-            self.mealImage.reloadInputViews()
+            self.mealImage.setNeedsDisplay()
             
             
         }
