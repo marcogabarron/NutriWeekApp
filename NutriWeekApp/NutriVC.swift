@@ -45,9 +45,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //Verify and return the number of meals in each week
-        self.contextMeal = RefeicaoServices.findByWeek(self.daysInPt[section])
-        
-        return contextMeal.count
+        return RefeicaoServices.findByWeek(self.daysInPt[section]).count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -58,7 +56,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    
     
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
@@ -86,8 +83,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         label.text = NSLocalizedString(self.daysInPt[section], comment: "")
         label.font = UIFont(name:"Helvetica-SemiBold", size: 22)
         headerView.addSubview(label)
-        
-//        self.items = RefeicaoServices.findByWeek(self.diasPT[section])
         
         return headerView
     }
@@ -123,25 +118,13 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
             let destinationViewController = segue.destinationViewController as! CollectionVC
             
             if let indexPath = tableView.indexPathForSelectedRow {
+                
                 self.contextMeal = RefeicaoServices.findByWeek(self.daysInPt[indexPath.section])
-                print(self.contextMeal)
+                print(self.contextMeal[indexPath.row])
                 
-            let meal = Meal(id: self.contextMeal.uuid , week: self.contextMeal.diaSemana, time: self.contextMeal.horario, name: self.contextMeal.name, foods: self.contextMeal.getItemsObject())
+            destinationViewController.meal = Meal(id: self.contextMeal[indexPath.row].uuid , week: [self.contextMeal[indexPath.row].diaSemana], time: self.contextMeal[indexPath.row].horario, name: self.contextMeal[indexPath.row].name, foods: self.contextMeal[indexPath.row].getItemsObject())
                 
             }
-            
-
-            
-            //Set choiced meal to CollectionVC
-            for selectedMeal in self.contextMeal {
-                if(selectedMeal.name == (sender!.textLabel!!.text!)){
-                    let meal = Meal(id: selectedMeal.uuid, week: [selectedMeal.diaSemana], time: selectedMeal.horario, name: selectedMeal.name, foods: selectedMeal.getItemsObject())
-                    
-                    destinationViewController.meal = meal
-                }
-            }
-         
-            
         }
     }
 
