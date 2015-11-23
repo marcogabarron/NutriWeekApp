@@ -54,10 +54,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             cell.image.image = UIImage(named: daily.nameImage!)
 
-        }else{
-            cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 100)
-            cell.updateConstraintsIfNeeded()
-            cell.layoutIfNeeded()           
         }
         
         if(daily.fled == false){
@@ -80,6 +76,18 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         return self.allDaily.count
     }
 
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+            let daily = self.allDaily[indexPath.row]
+
+            if(daily.hasImage == false){
+                return CGSizeMake(355, 100);
+
+            }
+            
+            return CGSizeMake(355, 300);
+    }
     
     func formatterDate(date: NSDate) -> String{
         let timer = NSDateFormatter()
