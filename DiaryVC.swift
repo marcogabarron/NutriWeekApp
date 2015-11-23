@@ -48,12 +48,17 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
+        
         let daily = self.allDaily[indexPath.row]
+        cell.image.hidden = daily.hasImage == false
         
         if(daily.hasImage == true){
-            
-            cell.image.image = UIImage(named: daily.nameImage!)
+            cell.image.image = UIImage(named:  daily.nameImage!)
 
+            let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
+            cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+            
+            cell.image.setNeedsDisplay()
         }
         
         if(daily.fled == false){
@@ -117,6 +122,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.afterButtonItem.enabled = true
         self.afterButtonItem.title = "Depois"
     }
+    
     
     @IBAction func beforeButton(sender: UIBarButtonItem) {
         
