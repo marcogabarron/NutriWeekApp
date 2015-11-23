@@ -35,7 +35,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.disableButtonAfter()
         if(DailyServices.allDaily().count > 0){
             self.allDaily = DailyServices.findByDateDaily(NSDate())
-        
+            
+            fileManager.fileExistsAtPath(paths)
 
             self.diaryCollection.reloadData()
 
@@ -52,8 +53,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         if(daily.hasImage == true){
             cell.image.image = UIImage(named: daily.nameImage!)
 
+        }else{
+            cell.heightImage.constant = 10
+        
         }
-
+        if(daily.fled == false){
+            cell.checkImage.image = UIImage(named: "logo")
+        }
         cell.textLabel.text = daily.descriptionStr
         cell.dateLabel.text = self.formatterHour(daily.date!)
         

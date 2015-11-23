@@ -14,6 +14,7 @@ class SelectedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var heightImage: NSLayoutConstraint!
 
     
 }

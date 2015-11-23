@@ -1885,26 +1885,27 @@
                                     <constraint firstAttribute="height" constant="554" id="tbv-3g-9OW"/>
                                     <constraint firstAttribute="height" constant="524" id="yGq-zW-mFn"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="hJK-NG-YlQ">
-                                    <size key="itemSize" width="364" height="170"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hJK-NG-YlQ">
+                                    <size key="itemSize" width="355" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SelectedCollectionViewCell" reuseIdentifier="SelectedCollectionViewCell" id="tMD-oe-ui7" customClass="SelectedCollectionViewCell" customModule="NutriWeekApp" customModuleProvider="target">
-                                        <rect key="frame" x="5.5" y="10" width="364" height="170"/>
+                                        <rect key="frame" x="10" y="10" width="355" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="364" height="170"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3S-3u-INI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="364" height="162"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="292"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
-                                                            <rect key="frame" x="10" y="30.5" width="344" height="110.5"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
+                                                            <rect key="frame" x="20" y="34" width="315" height="237"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="237" id="JwT-BR-ypW"/>
                                                                 <constraint firstAttribute="width" secondItem="rJa-qH-7Gu" secondAttribute="height" multiplier="1:1" constant="249" id="j1A-H3-3j1"/>
                                                             </constraints>
                                                             <variation key="default">
@@ -1913,13 +1914,13 @@
                                                                 </mask>
                                                             </variation>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
-                                                            <rect key="frame" x="10" y="5" width="309" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
+                                                            <rect key="frame" x="10" y="10" width="300" height="19.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="603-JN-c4p"/>
                                                                 <constraint firstAttribute="width" constant="84" id="huu-R6-VGa"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="highlightedColor"/>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -1929,7 +1930,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhI-8a-6QX">
-                                                            <rect key="frame" x="10" y="141" width="343" height="21"/>
+                                                            <rect key="frame" x="10" y="271" width="334.5" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="42" id="Oq5-xk-NWc"/>
                                                                 <constraint firstAttribute="height" constant="21" id="TRD-2L-Dt0"/>
@@ -1944,7 +1945,7 @@
                                                             </variation>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o2p-1Q-ogA">
-                                                            <rect key="frame" x="319" y="8" width="45" height="42"/>
+                                                            <rect key="frame" x="310" y="8" width="45" height="42"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="o2p-1Q-ogA" secondAttribute="height" multiplier="15:14" id="izQ-Lh-CRV"/>
                                                                 <constraint firstAttribute="width" constant="45" id="oST-8L-Oyc"/>
@@ -1952,7 +1953,7 @@
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="rJa-qH-7Gu" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="10" id="0Fh-cT-nFE"/>
+                                                        <constraint firstItem="rJa-qH-7Gu" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="20" id="0Fh-cT-nFE"/>
                                                         <constraint firstAttribute="trailing" secondItem="LhI-8a-6QX" secondAttribute="trailing" constant="10.5" id="BGv-gF-vcy"/>
                                                         <constraint firstItem="Dyt-yp-HL2" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="10" id="E5p-iA-gCp"/>
                                                         <constraint firstItem="o2p-1Q-ogA" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="8" id="Ehw-mf-2a2"/>
@@ -1964,9 +1965,9 @@
                                                         <constraint firstItem="rJa-qH-7Gu" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="5" id="gzk-rQ-NHW"/>
                                                         <constraint firstItem="LhI-8a-6QX" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="10.5" id="oGk-EE-wSF"/>
                                                         <constraint firstAttribute="trailing" secondItem="Dyt-yp-HL2" secondAttribute="trailing" constant="10" id="oHg-cG-JXL"/>
-                                                        <constraint firstItem="Dyt-yp-HL2" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="5" id="oZO-dU-tc3"/>
+                                                        <constraint firstItem="Dyt-yp-HL2" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="10" id="oZO-dU-tc3"/>
                                                         <constraint firstAttribute="trailing" secondItem="o2p-1Q-ogA" secondAttribute="trailing" id="qnN-7R-wNk"/>
-                                                        <constraint firstAttribute="trailing" secondItem="rJa-qH-7Gu" secondAttribute="trailing" constant="10" id="xl8-bM-fVy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="rJa-qH-7Gu" secondAttribute="trailing" constant="20" id="xl8-bM-fVy"/>
                                                         <constraint firstAttribute="bottom" secondItem="LhI-8a-6QX" secondAttribute="bottom" id="xv7-YX-NmB"/>
                                                     </constraints>
                                                     <variation key="default">
@@ -1997,6 +1998,7 @@
                                         <connections>
                                             <outlet property="checkImage" destination="o2p-1Q-ogA" id="KO6-dx-W2a"/>
                                             <outlet property="dateLabel" destination="LhI-8a-6QX" id="XIY-0G-ef0"/>
+                                            <outlet property="heightImage" destination="JwT-BR-ypW" id="YXw-pX-Xow"/>
                                             <outlet property="image" destination="rJa-qH-7Gu" id="Ehs-WC-g6z"/>
                                             <outlet property="textLabel" destination="Dyt-yp-HL2" id="upX-ia-JPX"/>
                                         </connections>

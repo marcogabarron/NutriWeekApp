@@ -208,6 +208,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
             
             self.mealImage.image = UIImage(named: filePathToWrite)
+
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
@@ -349,7 +350,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if ( compResult == CFComparisonResult.CompareEqualTo ) {
             self.addSaveButton()
             self.mealImage.hidden = false
-            self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+//            self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
             
             editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
             originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
