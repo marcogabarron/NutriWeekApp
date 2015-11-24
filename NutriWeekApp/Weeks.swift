@@ -10,63 +10,63 @@ import Foundation
 import UIKit
 
 class Weeks {
-    ///array representative weeks
-    var arrayString :[String]
+    ///Array representative weeks ///Array representing selected days to repeat meals in week
+    var daysArray :[String]
     
     var change: Bool = false
     
-    /** create Weeks with String array **/
-    init(arrayString: [String]){
-        self.arrayString = arrayString
+    /** Create Weeks with String array **/
+    init(selectedDays: [String]){
+        self.daysArray = selectedDays
         self.change = false
     }
     
-    /** get the String Array **/
+    /** Get the String Array **/
     func getArrayString() -> [String]{
-        return self.arrayString
+        return self.daysArray
     }
     
-    /** set with a new String Array **/
-    func setArrayString(array: [String]){
-        self.arrayString = array
+    /** Set with a new String Array **/
+    func setArrayString(selectedDays: [String]){
+        self.daysArray = selectedDays
         change = true
     }
     
-    /** remove at index **/
-    func removeAtIndex(index: Int){
-        self.arrayString.removeAtIndex(index)
+    /** Remove at index **/
+    func removeDayAtIndex(index: Int){
+        self.daysArray.removeAtIndex(index)
         change = true
     }
     
-    /** add at index **/
-    func append(str: String){
-        self.arrayString.append(str)
+    /** Add day **/
+    func appendDay(weekDay: String){
+        self.daysArray.append(weekDay)
         change = true
     }
     
-    /** verify if the String (one day a week) there is in Array String **/
-    func isSelected(str: String) -> Bool{
+    /** Verify if the String (one day a week) there is in Array String **/
+    func isSelected(weekDay: String) -> Bool{
         var boolean : Bool = false
-        for strings in self.arrayString {
-            if(strings == str){
+        for strings in self.daysArray {
+            if(strings == weekDay){
                 boolean = true
             }
         }
         return boolean
     }
     
-    func compareArray(week:[String]) -> Bool{
-        for str in week {
-            if(self.isSelected(str) == false){
+    func compareWeeks(week:[String]) -> Bool{
+        for day in week {
+            if(self.isSelected(day) == false){
                 return false
             }
         }
         return true
     }
     
-    func compareWeek(week:[String]) -> Bool{
-        for str in self.arrayString {
-            if(self.isSelected(str) == false){
+    func compareWeek(week:[String]) -> Bool{  //Não entendi porque pede week se não é usado
+        for day in self.daysArray {
+            if(self.isSelected(day) == false){
                 return false
             }
         }

@@ -4,22 +4,30 @@ import UIKit
 
 class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
-    
+    //MARK: IBOutlets and other variables and constants
     @IBOutlet weak var diaryCollection: UICollectionView!
     @IBOutlet weak var dateNavigation: UINavigationItem!
     @IBOutlet weak var afterButtonItem: UIBarButtonItem!
     @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
-    var date = NSDate()
+    ///Days for String for sections and go next page
+//    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    
+    //Relative to models and CoreData
+    var format = FormatDates()
     var allDaily : [Daily] = []
+    
+    var date = NSDate()
     var indexToRemove = [6]
     var takingPhoto: Bool = false
     var photoControl = 0
     
-    
+    //Relative to save images
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,25 +37,27 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewWillAppear(animated)
         date = NSDate()
         
-        self.dateNavigation.title = self.formatterDate(NSDate())
+        self.dateNavigation.title = self.formatterHour(NSDate())
         
+        
+        self.dateNavigation.title = self.format.formatDateToYearDatString(NSDate())
         self.disableButtonAfter()
+        
         if(DailyServices.allDaily().count > 0){
             let date = NSDate()
             self.allDaily = DailyServices.findByDateDaily(date)
             
             fileManager.fileExistsAtPath(paths)
-
+            
             self.diaryCollection.reloadData()
-
         }
-
     }
     
+    
+    //MARK: CollectionView
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
-        
         
         let daily = self.allDaily[indexPath.row]
         cell.image.hidden = daily.hasImage == false
@@ -66,13 +76,12 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
         
         cell.textLabel.text = daily.descriptionStr
-        cell.dateLabel.text = self.formatterHour(daily.date!)
+        cell.dateLabel.text = self.format.formatDateToString(daily.date!)
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
        // self.performSegueWithIdentifier("daily", sender: indexPath)
         
     }
@@ -94,25 +103,43 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             return CGSizeMake(355, 300);
     }
     
-    func formatterDate(date: NSDate) -> String{
-        let timer = NSDateFormatter()
-        timer.dateFormat = "dd/MM/yyyy"
+    
+    //MARK: Action
+    @IBAction func beforeButton(sender: UIBarButtonItem) {
         
-        let strdate = timer.stringFromDate(date)
+        date = (date.dateByAddingTimeInterval(-60*60*24))
         
-        return strdate
+        self.enableButtonAfter()
+        self.dateNavigation.title = self.format.formatDateToYearDatString(date)
+        
+        self.allDaily = DailyServices.findByDateDaily(date)
+        
+        self.diaryCollection.reloadData()
     }
     
     
     func formatterHour(date: NSDate) -> String{
         let timer = NSDateFormatter()
         timer.dateFormat = "dd/MM/yyyy HH:mm"
-        
-        let strdate = timer.stringFromDate(date)
-        
-        return strdate
+        return timer.stringFromDate(date)
     }
     
+    @IBAction func afterButton(sender: AnyObject) {
+        
+        date = (date.dateByAddingTimeInterval(60*60*24))
+        
+        self.dateNavigation.title = self.format.formatDateToYearDatString(date)
+        
+        self.allDaily = DailyServices.findByDateDaily(date)
+        
+        if(self.dateNavigation.title == self.format.formatDateToYearDatString(NSDate())){
+            self.disableButtonAfter()
+        }
+        self.diaryCollection.reloadData()
+    }
+    
+    
+    //MARK: Functions
     func disableButtonAfter(){
         self.afterButtonItem.enabled = false
         self.afterButtonItem.title = ""
@@ -123,39 +150,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.afterButtonItem.title = "Depois"
     }
     
-    
-    @IBAction func beforeButton(sender: UIBarButtonItem) {
-        
-        date = (date.dateByAddingTimeInterval(-60*60*24))
 
-        self.enableButtonAfter()
-        self.dateNavigation.title = self.formatterDate(date)
-
-        self.allDaily = DailyServices.findByDateDaily(date)
-
-        self.diaryCollection.reloadData()
-        
-    }
-    
-    @IBAction func afterButton(sender: AnyObject) {
-
-        date = (date.dateByAddingTimeInterval(60*60*24))
-        
-        self.dateNavigation.title = self.formatterDate(date)
-
-        self.allDaily = DailyServices.findByDateDaily(date)
-
-        if(self.dateNavigation.title == self.formatterDate(NSDate())){
-            self.disableButtonAfter()
-        }
-        self.diaryCollection.reloadData()
-    }
     
     //MARK - Prepare for segue
     /** Prepare for Segue to Week page -- pass the information from Weeks() **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Register") {
-            let destinationViewController = segue.destinationViewController as! TestController
+            let destinationViewController = segue.destinationViewController as! AddDailyVC
             destinationViewController.date = self.date
         }
     }

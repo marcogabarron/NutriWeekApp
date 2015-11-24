@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
-		C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11361B4C3B6D00A232AC /* Alimentos.swift */; };
-		C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTVC.swift */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
 		C246E4171BD950990068ED68 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E4161BD950990068ED68 /* Meal.swift */; };
@@ -20,7 +18,6 @@
 		C25856371B53EFF100244735 /* Refeicao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25856361B53EFF100244735 /* Refeicao.swift */; };
 		C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */ = {isa = PBXBuildFile; fileRef = C273B1FF1B610E2A0048936E /* AlimentosFr.txt */; };
 		C275F1ED1BF5054600FAA532 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275F1EC1BF5054600FAA532 /* DailyModel.swift */; };
-		C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2895AF51B4DACA1004700EF /* ReadJson.swift */; };
 		C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */ = {isa = PBXBuildFile; fileRef = C29A78071B5949B100E055DF /* AlimentosEn.txt */; };
 		C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A0093B1B56C4E500F4A914 /* EditVC.swift */; };
 		C2A0F6491BE12602007EA3AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2A0F6481BE12602007EA3AD /* Images.xcassets */; };
@@ -56,11 +53,11 @@
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
 		DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */; };
-		FF0C5BBF1BF4FF1A00CB4C95 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */; };
-		FF3929251BEA71FB0051E7DF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3929241BEA71FB0051E7DF /* Test.swift */; };
+		FF1A34331C04BE5C00BFEB06 /* AddDailyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */; };
+		FF1A34341C04BE5C00BFEB06 /* RepeatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */; };
+		FF1A34361C04BE9200BFEB06 /* FormatDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34351C04BE9200BFEB06 /* FormatDates.swift */; };
 		FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* TodoList.swift */; };
 		FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A31B534032004A5EED /* TodoItem.swift */; };
-		FFD1A2A61B53F34D004A5EED /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A51B53F34D004A5EED /* Notifications.swift */; };
 		FFE87BB91B584C50006A9C59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFE87BBB1B584C50006A9C59 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +73,6 @@
 
 /* Begin PBXFileReference section */
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
-		C20B11361B4C3B6D00A232AC /* Alimentos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alimentos.swift; sourceTree = "<group>"; };
-		C20B11381B4C41A800A232AC /* WeeksTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTVC.swift; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
 		C23850BF1B5F445D00A21CD5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -100,7 +95,6 @@
 		C27CACBD1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page7-Tutorial.strings"; sourceTree = "<group>"; };
 		C27CACBE1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C27CACBF1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C2895AF51B4DACA1004700EF /* ReadJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadJson.swift; sourceTree = "<group>"; };
 		C29A78041B593CB700E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C29A78051B593CC400E055DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C29A78061B593D1F00E055DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -163,11 +157,11 @@
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFoodVC.swift; sourceTree = "<group>"; };
-		FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
-		FF3929241BEA71FB0051E7DF /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyVC.swift; sourceTree = "<group>"; };
+		FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatTVC.swift; sourceTree = "<group>"; };
+		FF1A34351C04BE9200BFEB06 /* FormatDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDates.swift; sourceTree = "<group>"; };
 		FFA5004A1B4E1E3A0023208C /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		FFD1A2A31B534032004A5EED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
-		FFD1A2A51B53F34D004A5EED /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FFE87BBD1B584D1A006A9C59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,16 +201,16 @@
 				DAC467651B6BBEA900F56E67 /* TutorialVC.swift */,
 				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
 				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
+				FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */,
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
-				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
-				C20B11381B4C41A800A232AC /* WeeksTVC.swift */,
 				DA81107F1BD565C800632A40 /* CreateItemVC.swift */,
 				C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */,
 				C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */,
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
 				DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */,
+				FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */,
 				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
-				FF3929241BEA71FB0051E7DF /* Test.swift */,
+				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -228,12 +222,10 @@
 				C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */,
 				C29A78071B5949B100E055DF /* AlimentosEn.txt */,
 				C20B11341B4C3AEB00A232AC /* Alimentos.txt */,
-				C20B11361B4C3B6D00A232AC /* Alimentos.swift */,
-				C2895AF51B4DACA1004700EF /* ReadJson.swift */,
+				FF1A34351C04BE9200BFEB06 /* FormatDates.swift */,
 				C20B113C1B4D8E1B00A232AC /* Weeks.swift */,
 				FFD1A2A31B534032004A5EED /* TodoItem.swift */,
 				FFA5004A1B4E1E3A0023208C /* TodoList.swift */,
-				FFD1A2A51B53F34D004A5EED /* Notifications.swift */,
 				C246E4161BD950990068ED68 /* Meal.swift */,
 				C246E4181BD951A60068ED68 /* Food.swift */,
 				C275F1EC1BF5054600FAA532 /* DailyModel.swift */,
@@ -352,7 +344,6 @@
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
-				FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -482,14 +473,12 @@
 				C2B86B661B4AEAD600130D63 /* SelectedCollectionViewCell.swift in Sources */,
 				FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */,
 				DA8784FF1BE93428008838E9 /* DiaryVCOLD.swift in Sources */,
-				C20B11371B4C3B6D00A232AC /* Alimentos.swift in Sources */,
 				DACDF92E1B46C20A00C6AE59 /* CollectionVC.swift in Sources */,
 				C2FE6C6D1BED0CF40044B39B /* DailyDAO.swift in Sources */,
 				C246E4171BD950990068ED68 /* Meal.swift in Sources */,
 				C2FE6C6F1BED16970044B39B /* DailyServices.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
-				FF3929251BEA71FB0051E7DF /* Test.swift in Sources */,
 				DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				C246E4191BD951A60068ED68 /* Food.swift in Sources */,
@@ -498,12 +487,12 @@
 				DAC4676D1B6BBEA900F56E67 /* TutorialVC.swift in Sources */,
 				C25856371B53EFF100244735 /* Refeicao.swift in Sources */,
 				DA8785011BEA7625008838E9 /* CollectionDiaryClass.swift in Sources */,
-				C2895AF61B4DACA1004700EF /* ReadJson.swift in Sources */,
+				FF1A34361C04BE9200BFEB06 /* FormatDates.swift in Sources */,
+				FF1A34341C04BE5C00BFEB06 /* RepeatTVC.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
+				FF1A34331C04BE5C00BFEB06 /* AddDailyVC.swift in Sources */,
 				C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */,
 				FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */,
-				C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */,
-				FFD1A2A61B53F34D004A5EED /* Notifications.swift in Sources */,
 				C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
@@ -514,7 +503,6 @@
 				C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */,
 				C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */,
 				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
-				FF0C5BBF1BF4FF1A00CB4C95 /* TransitionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
