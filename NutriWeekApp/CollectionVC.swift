@@ -26,7 +26,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var hour: UIButton!
     
     
-
     //Relative to models and CoreData
     var foods = [ItemCardapio]()
     var format = FormatDates()
@@ -208,7 +207,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(self.mealWeekDays.getArrayString().count == 7){
             cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
             
-        }else{
+        } else {
             cell.detailTextLabel?.text = ""
             var buildDetail: String = " "
             
@@ -217,6 +216,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 if(buildDetail != " "){
                     buildDetail = buildDetail.stringByAppendingString(", ")
                 }
+                
                 switch day {
                 case "Domingo":
                     buildDetail = buildDetail.stringByAppendingString(NSLocalizedString("dom", comment: ""))
