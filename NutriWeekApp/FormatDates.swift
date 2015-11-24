@@ -59,19 +59,19 @@ class FormatDates {
         let interval: NSTimeInterval = NSTimeInterval(daysTo!)
         let currentAddedByInterval: NSDate = currentDate.dateByAddingTimeInterval(interval * 60*60*24)
     
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateDayToAdd = dateFormatter.stringFromDate(currentAddedByInterval)
+//        var dateFormatter = NSDateFormatter()
+        self.dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateDayToAdd = self.dateFormatter.stringFromDate(currentAddedByInterval)
             
         //Date hour getted in picker date
         let dateStringToAdd = dateDayToAdd + "-" + dateHour + ":00"
         print(dateStringToAdd)
             
         //Transform day  and time in only one date
-        dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        var dateToAdd = dateFormatter.dateFromString(dateStringToAdd)
+        self.dateFormatter = NSDateFormatter()
+        self.dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        var dateToAdd = self.dateFormatter.dateFromString(dateStringToAdd)
             
         /// Verify if the date generated is before the actual. If its true - only happens if the notification`s day is today early than now - add one week interval
         let dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)

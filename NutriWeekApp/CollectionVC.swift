@@ -30,7 +30,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var foods = [ItemCardapio]()
     var format = FormatDates()
     var meal: Meal!
-    let transitionManager = TransitionManager()
     
     ///Manage meal frequency at week
     var mealWeekDays: Weeks = Weeks(selectedDays: [])
@@ -306,7 +305,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                         
                     } else {
                         find = false
-                        
                     }
                 }
                 
@@ -356,16 +354,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     
     //MARK: Functions
-//    //Checks whether the item is selected
-//    func isSelected(itemNew: ItemCardapio)->Bool{
-//        var boolean : Bool = false
-//        for item in self.meal.foods{
-//            if(itemNew == item){
-//                boolean = true
-//            }
-//        }
-//        return boolean
-//    }
     
     /** Stops shaking the collection view cells **/
     func stopShakingIcons(layer: CALayer) {
@@ -450,8 +438,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         } else if (segue.identifier == "ChangeFood") {
             let destinationViewController = segue.destinationViewController as! ChangeFoodVC
             
-//            destinationViewController.transitioningDelegate = self.transitionManager
-            
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeFoodDismiss", name: "ChangeFoodDismiss", object: nil)
             
             destinationViewController.view.frame = CGRectInset(destinationViewController.view.frame, 100, 50)
@@ -464,7 +450,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             destinationViewController.meal = self.meal
             
         } else if (segue.identifier == "Week") {
-                let destinationViewController = segue.destinationViewController as! WeeksTVC
+                let destinationViewController = segue.destinationViewController as! RepeatTVC
                 destinationViewController.weekDays = self.mealWeekDays
             }
     }

@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="-303" y="314"/>
         </scene>
-        <!--Test Controller-->
+        <!--Add DailyVC-->
         <scene sceneID="GBY-Mv-Pmq">
             <objects>
-                <viewController id="wGE-OJ-beA" customClass="TestController" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wGE-OJ-beA" customClass="AddDailyVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a9h-ft-DYh"/>
                         <viewControllerLayoutGuide type="bottom" id="Qju-hB-srt"/>
@@ -1041,7 +1041,7 @@
         <!--Repetir-->
         <scene sceneID="prb-SG-gQN">
             <objects>
-                <tableViewController id="wIO-eg-H86" customClass="WeeksTVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wIO-eg-H86" customClass="RepeatTVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsMultipleSelection="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ww3-ZZ-Ow5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1201,7 +1201,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Repetir" id="rnl-A0-T2e"/>
                     <connections>
-                        <outlet property="navigationTitle" destination="rnl-A0-T2e" id="cgI-AZ-MDl"/>
+                        <outlet property="navigationTitle" destination="rnl-A0-T2e" id="BWo-oI-aQk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>

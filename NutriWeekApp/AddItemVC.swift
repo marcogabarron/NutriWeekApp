@@ -181,7 +181,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "Week") {
-            let destinationViewController = segue.destinationViewController as! WeeksTVC
+            let destinationViewController = segue.destinationViewController as! RepeatTVC
             destinationViewController.weekDays = self.mealWeekDays
             
         } else if (segue.identifier == "Next") {

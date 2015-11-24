@@ -20,7 +20,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     ///Relative to models and CoreData
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
-    var meal:Meal!
+    var meal: Meal!
     
     ///Search bar assistent. Say if it is active or no
     var searchActive: Bool = false

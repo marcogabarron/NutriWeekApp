@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
-		C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* WeeksTVC.swift */; };
+		C20B11391B4C41A800A232AC /* RepeatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B11381B4C41A800A232AC /* RepeatTVC.swift */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
 		C246E4171BD950990068ED68 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C246E4161BD950990068ED68 /* Meal.swift */; };
@@ -54,8 +54,7 @@
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
 		DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */; };
-		FF0C5BBF1BF4FF1A00CB4C95 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */; };
-		FF3929251BEA71FB0051E7DF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3929241BEA71FB0051E7DF /* Test.swift */; };
+		FF3929251BEA71FB0051E7DF /* AddDailyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3929241BEA71FB0051E7DF /* AddDailyVC.swift */; };
 		FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* TodoList.swift */; };
 		FFAC2EC21C03A62500C646EF /* FormatDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC2EC11C03A62500C646EF /* FormatDates.swift */; };
 		FFD1A2A41B534032004A5EED /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD1A2A31B534032004A5EED /* TodoItem.swift */; };
@@ -74,7 +73,7 @@
 
 /* Begin PBXFileReference section */
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
-		C20B11381B4C41A800A232AC /* WeeksTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeksTVC.swift; sourceTree = "<group>"; };
+		C20B11381B4C41A800A232AC /* RepeatTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatTVC.swift; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
 		C23850BF1B5F445D00A21CD5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -159,8 +158,7 @@
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFoodVC.swift; sourceTree = "<group>"; };
-		FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
-		FF3929241BEA71FB0051E7DF /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		FF3929241BEA71FB0051E7DF /* AddDailyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyVC.swift; sourceTree = "<group>"; };
 		FFA5004A1B4E1E3A0023208C /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		FFAC2EC11C03A62500C646EF /* FormatDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDates.swift; sourceTree = "<group>"; };
 		FFD1A2A31B534032004A5EED /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
@@ -202,7 +200,7 @@
 				DAC467651B6BBEA900F56E67 /* TutorialVC.swift */,
 				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
 				DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */,
-				C20B11381B4C41A800A232AC /* WeeksTVC.swift */,
+				C20B11381B4C41A800A232AC /* RepeatTVC.swift */,
 				C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */,
 				C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */,
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
@@ -210,7 +208,7 @@
 				DA4061A11B41D9D400B6B204 /* AddItemVC.swift */,
 				DA81107F1BD565C800632A40 /* CreateItemVC.swift */,
 				DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */,
-				FF3929241BEA71FB0051E7DF /* Test.swift */,
+				FF3929241BEA71FB0051E7DF /* AddDailyVC.swift */,
 				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
 			);
@@ -346,7 +344,6 @@
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
-				FF0C5BBE1BF4FF1A00CB4C95 /* TransitionManager.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -482,7 +479,7 @@
 				C2FE6C6F1BED16970044B39B /* DailyServices.swift in Sources */,
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
-				FF3929251BEA71FB0051E7DF /* Test.swift in Sources */,
+				FF3929251BEA71FB0051E7DF /* AddDailyVC.swift in Sources */,
 				DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				C246E4191BD951A60068ED68 /* Food.swift in Sources */,
@@ -495,7 +492,7 @@
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
 				C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */,
 				FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */,
-				C20B11391B4C41A800A232AC /* WeeksTVC.swift in Sources */,
+				C20B11391B4C41A800A232AC /* RepeatTVC.swift in Sources */,
 				C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
@@ -506,7 +503,6 @@
 				C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */,
 				C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */,
 				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
-				FF0C5BBF1BF4FF1A00CB4C95 /* TransitionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
