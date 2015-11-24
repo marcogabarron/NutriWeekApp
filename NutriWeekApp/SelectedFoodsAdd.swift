@@ -10,20 +10,22 @@ import UIKit
 
 class SelectedFoodsAdd: SelectedFoodsVC {
     
+    //MARK: Lifecycle
+    
     override func viewWillAppear(animated: Bool) {
+        
         saveButton.title = NSLocalizedString ("", comment: "")
         saveButton.enabled = false
 
         //Show all itens, ascending by name
         self.itens = ItemCardapioServices.allItemCardapios()
         
-        //initial empty serach bar text
+        //Set empty initial serach bar text
         self.searchBar.text = ""
-                
-        self.collectionView.allowsMultipleSelection = true
         
         self.selectedItens = self.meal.foods
-        
+                
+        self.collectionView.allowsMultipleSelection = true
         self.collectionView.reloadData()
     }
     
@@ -31,7 +33,10 @@ class SelectedFoodsAdd: SelectedFoodsVC {
         self.meal.setItems(self.selectedItens)
     }
     
-    /**save action**/
+    
+    //MARK: Actions
+    
+    /** Save action **/
     @IBAction func saveItemButton(sender: AnyObject) {
         if(self.selectedItens.count == 0){
             //Animation to show there are no selected food

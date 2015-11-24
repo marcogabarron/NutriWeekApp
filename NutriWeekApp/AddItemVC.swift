@@ -196,7 +196,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! WeeksTVC
-            destinationViewController.week = self.daysOfWeekString
+            destinationViewController.weekDays = self.daysOfWeekString
         }else{
             if (segue.identifier == "Next") {
                 let destination = segue.destinationViewController as! SelectedFoodsVC

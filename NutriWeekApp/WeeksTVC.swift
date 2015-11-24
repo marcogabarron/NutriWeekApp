@@ -10,66 +10,68 @@ import UIKit
 
 class WeeksTVC: UITableViewController {
     
-    ///RepeatStrng
-    @IBOutlet weak var `repeat`: UINavigationItem!
+    ///Navigation title
+    @IBOutlet weak var navigationTitle: UINavigationItem!
+    
+    ///Set the possible repeat days
+    let daysInPt: [String] = ([ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"])
     
     ///Interact with Weeks model
-    var week:Weeks!
+    var weekDays: Weeks!
     
-    var arrayFix: [String] = ([ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"])
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        `repeat`.title = NSLocalizedString("Repetir", comment: "")
-        
+        navigationTitle.title = NSLocalizedString("Repetir", comment: "")
     }
+    
+    
+    //MARK: TableView
     
     /** Write the name of the cell **/
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
-        cell.textLabel?.text = NSLocalizedString(self.arrayFix[indexPath.row], comment: "")
+        cell.textLabel?.text = NSLocalizedString(self.daysInPt[indexPath.row], comment: "")
         
         //Says it is selected or not
-        if(self.week.isSelected(self.arrayFix[indexPath.row])){
+        if(self.weekDays.isSelected(self.daysInPt[indexPath.row])){
             cell.accessoryType = .Checkmark
         }else{
             cell.accessoryType = .None
         }
         
         return cell
-        
     }
 
     /** Select and deselect cell, adding or removing days of array **/
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         
-        if(self.week.getArrayString().count != 1){
+        if(self.weekDays.getArrayString().count != 1){
             
-                if cell!.accessoryType == .Checkmark
-                {
+                if cell!.accessoryType == .Checkmark {
                     cell!.accessoryType = .None
-                    self.removeDay(self.arrayFix[indexPath.row])
-                }
-                else
-                {
+                    self.removeDay(self.daysInPt[indexPath.row])
+                    
+                } else {
                     cell!.accessoryType = .Checkmark
-                    self.addDay(self.arrayFix[indexPath.row])
+                    self.addDay(self.daysInPt[indexPath.row])
                 }
-            
         }
         cell?.selected = false
-        
     }
+    
+    //MARK: functions
     
     /** Remove day deselect **/
     func removeDay(day: String){
-        for index in 0...self.week.getArrayString().count{
-            if( self.week.getArrayString()[index] == day){
-                self.week.removeDayAtIndex(index)
+        for index in 0...self.weekDays.getArrayString().count{
+            if( self.weekDays.getArrayString()[index] == day){
+                self.weekDays.removeDayAtIndex(index)
                 break
             }
         }
@@ -77,14 +79,17 @@ class WeeksTVC: UITableViewController {
     
     /** Add day select **/
     func addDay(day: String){
-        self.week.appendDay(day)
+        self.weekDays.appendDay(day)
     }
+    
+    
+    //MARK: Prepare for segue
     
     /** Prepare for segue back **/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! AddItemVC
-            destinationViewController.daysOfWeekString = self.week
+            destinationViewController.daysOfWeekString = self.weekDays
         }
     }
     

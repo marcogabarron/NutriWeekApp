@@ -178,7 +178,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-eZ-RK1">
-                                                <rect key="frame" x="62" y="14" width="210" height="20.5"/>
+                                                <rect key="frame" x="62" y="14" width="210" height="21"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,7 +308,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseIdentifier" editingAccessoryType="detailDisclosureButton" textLabel="icz-Vw-der" detailTextLabel="moG-xy-lqr" rowHeight="36" style="IBUITableViewCellStyleValue1" id="dnF-6a-wWp">
-                                        <rect key="frame" x="0.0" y="49.5" width="375" height="36"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnF-6a-wWp" id="Ybe-bt-DUm">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="35.5"/>
@@ -1043,7 +1043,7 @@
             <objects>
                 <tableViewController id="wIO-eg-H86" customClass="WeeksTVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsMultipleSelection="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ww3-ZZ-Ow5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -1201,7 +1201,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Repetir" id="rnl-A0-T2e"/>
                     <connections>
-                        <outlet property="repeat" destination="rnl-A0-T2e" id="uSU-1X-hxN"/>
+                        <outlet property="navigationTitle" destination="rnl-A0-T2e" id="cgI-AZ-MDl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbD-Da-bJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1939,7 +1939,7 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
-                                                            <rect key="frame" x="10" y="10" width="300" height="19.5"/>
+                                                            <rect key="frame" x="10" y="10" width="300" height="20"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="603-JN-c4p"/>
@@ -1955,7 +1955,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhI-8a-6QX">
-                                                            <rect key="frame" x="10" y="271" width="334.5" height="21"/>
+                                                            <rect key="frame" x="10" y="271" width="335" height="21"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="42" id="Oq5-xk-NWc"/>
@@ -2092,8 +2092,8 @@
         <image name="logo" width="510" height="510"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVe-Qv-OL8"/>
-        <segue reference="0MD-79-vIg"/>
+        <segue reference="y0R-Mn-KcX"/>
+        <segue reference="tEw-8l-R7X"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -4,6 +4,7 @@ import CoreData
 
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    //MARK: IBOutlets and other variables and constants
     @IBOutlet weak var tableView: UITableView!
     
     ///Days for String for sections and go next page
@@ -14,6 +15,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var format = FormatDates()
     
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,8 +45,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     //MARK: TableView
-    //The TableView is used to show the meals from each weekday. It is used to show the name and the notification hour.
     
+    //The TableView is used to show the meals from each weekday. It is used to show the name and the notification hour.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         //Verify and return the number of meals in each week
         return RefeicaoServices.findByWeek(self.daysInPt[section]).count
@@ -90,8 +92,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
 
-    //MARK - Table View - Deletion and action buttons
-    //delete cell and data in the Core Data
+    //MARK - Table View - Deletion cells and meals in core data
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.Delete {

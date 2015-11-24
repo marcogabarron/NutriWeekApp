@@ -9,9 +9,14 @@
 import UIKit
 
 class SelectedFoodsSave: SelectedFoodsVC {
-    /**save action**/
+    
+    //MARK: Actions
+    
+    /** Save action **/
     @IBAction func saveItemButton(sender: AnyObject) {
+        
         if(self.selectedItens.count == 0){
+            
             //Animation to show there are no selected food
             UIView.animateWithDuration(0.5, delay: 0.0, options: [], animations: {() -> Void in
                 
@@ -24,11 +29,10 @@ class SelectedFoodsSave: SelectedFoodsVC {
                         self.collectionView.backgroundColor = UIColor.whiteColor()
                         
                     })
-                    
             })
             
+        } else {
             
-        }else{
             self.meal.setItems(self.selectedItens)
             for diaSemana in self.meal.dayOfWeek{
                 
@@ -40,15 +44,9 @@ class SelectedFoodsSave: SelectedFoodsVC {
                 
                 //Add Refeicao
                 RefeicaoServices.createRefeicao(self.meal.name, horario: self.meal.hour, diaSemana: diaSemana, items: self.selectedItens, uuid: todoItem.UUID)
-                
             }
-            
         }
-        
-        
-        
         self.navigationController?.popViewControllerAnimated(true)
-        
     }
 
 }

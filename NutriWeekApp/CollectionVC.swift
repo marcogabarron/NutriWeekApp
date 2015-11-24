@@ -10,12 +10,13 @@ import UIKit
 
 class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
   
+    //MARK: IBOutlets and other variables and constants
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var notificationSwitch: UISwitch!    //     important for translation
-    @IBOutlet weak var notificationLabel: UILabel!      //     important for translation
+    @IBOutlet weak var notificationLabel: UILabel!    
 
     @IBOutlet weak var datePicker: UIDatePicker!
     ///Constraint`s controller to datePicker appear
@@ -24,14 +25,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 //    @IBOutlet weak var name: UILabel! //Pode tirar?
     @IBOutlet weak var hour: UIButton!
     
-    ///Manage meal frequency at week
-    var mealWeekDays: Weeks = Weeks(selectedDays: [])
+    
 
     //Relative to models and CoreData
     var foods = [ItemCardapio]()
     var format = FormatDates()
     var meal: Meal!
     let transitionManager = TransitionManager()
+    
+    ///Manage meal frequency at week
+    var mealWeekDays: Weeks = Weeks(selectedDays: [])
     
     ///Get the other equal meals at the other weekDays
     var mealsWithSameName: [Refeicao]!
@@ -40,6 +43,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     var delButtonAppears: Bool = false
     
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -276,32 +280,38 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         //If received week and the new setted week, needs to delete the difference
         if !self.mealWeekDays.compareWeeks(tempWeekDays) {
             print("woooow")
-            let tempWeek = tempWeekDays
-            var i : Int = 0
-            for weekDay in tempWeek {
+//            let tempWeek = tempWeekDays
+            var index  = 0
+            for weekDay in tempWeekDays {
                 if(self.mealWeekDays.isSelected(weekDay) == false){
-                    tempWeekDays.removeAtIndex(i)
-                    RefeicaoServices.deleteMeal(self.mealsWithSameName[i])
+                    tempWeekDays.removeAtIndex(index)
+                    RefeicaoServices.deleteMeal(self.mealsWithSameName[index])
+
                 }
-                i++
+                index++
             }
         }
                             
         if(self.mealWeekDays.getArrayString().count != tempWeekDays.count){
             print("YE")
-            let new = self.mealWeekDays.getArrayString()
+            let tempWeek = self.mealWeekDays.getArrayString()
             var find: Bool = true
-            for dayNew in new {
-                for dayOld in tempWeekDays {
-                    if(dayOld == dayNew){
+            
+            for compareDay in tempWeek {
+                for day in tempWeekDays {
+                    
+                    if(day == compareDay){
                         find = true
                         break
-                    }else{
+                        
+                    } else {
                         find = false
+                        
                     }
                 }
+                
                 if(find == false){
-                    RefeicaoServices.createRefeicao(self.meal.name, horario: self.meal.hour, diaSemana: dayNew, items: self.meal.foods, uuid: NSUUID().UUIDString)
+                    RefeicaoServices.createRefeicao(self.meal.name, horario: self.meal.hour, diaSemana: compareDay, items: self.meal.foods, uuid: NSUUID().UUIDString)
                 }
             }
         }
@@ -345,7 +355,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     
-    //MARK: Logic Functions
+    //MARK: Functions
 //    //Checks whether the item is selected
 //    func isSelected(itemNew: ItemCardapio)->Bool{
 //        var boolean : Bool = false
@@ -455,7 +465,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
         } else if (segue.identifier == "Week") {
                 let destinationViewController = segue.destinationViewController as! WeeksTVC
-                destinationViewController.week = self.mealWeekDays
+                destinationViewController.weekDays = self.mealWeekDays
             }
     }
     
