@@ -10,7 +10,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var afterButtonItem: UIBarButtonItem!
     @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
-    var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     var date = NSDate()
     var allDaily : [Daily] = []
     var indexToRemove = [6]
@@ -34,7 +33,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         self.disableButtonAfter()
         if(DailyServices.allDaily().count > 0){
-            self.allDaily = DailyServices.findByDateDaily(NSDate())
+            let date = NSDate()
+            self.allDaily = DailyServices.findByDateDaily(date)
             
             fileManager.fileExistsAtPath(paths)
 
@@ -106,7 +106,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     func formatterHour(date: NSDate) -> String{
         let timer = NSDateFormatter()
-        timer.dateFormat = "HH:mm"
+        timer.dateFormat = "dd/MM/yyyy HH:mm"
         
         let strdate = timer.stringFromDate(date)
         
@@ -149,5 +149,14 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             self.disableButtonAfter()
         }
         self.diaryCollection.reloadData()
+    }
+    
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Week page -- pass the information from Weeks() **/
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Register") {
+            let destinationViewController = segue.destinationViewController as! TestController
+            destinationViewController.date = self.date
+        }
     }
 }

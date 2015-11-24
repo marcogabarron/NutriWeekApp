@@ -34,7 +34,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-    var date: NSDate = NSDate()
+    var date: NSDate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,19 +57,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         self.datePicker.date = NSDate()
         
-        let strdate = timer.stringFromDate(self.datePicker.date)
+        let strdate = timer.stringFromDate(date)
         self.dateLabel.text = strdate
         self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
         
         
         descriptionText.delegate = self
         descriptionText!.autocorrectionType = UITextAutocorrectionType.No
-        
-        //tap to close keyboard and close date picker
-        let tap = UITapGestureRecognizer(target: self, action: "closeDatePicker:")
-        tap.numberOfTapsRequired = 1
-        tap.delegate = self
-        self.view.addGestureRecognizer(tap)
         
         if(DailyServices.allDaily().count > 0){
             fileManager.fileExistsAtPath(paths)
@@ -186,18 +180,24 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func saveButton(sender: AnyObject) {
-        let date: NSDate = NSDate()
-        
         if(self.descriptionText.text == "No que você está pensando"){
             self.descriptionText.text = ""
         }
         
-        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        self.dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateDay = dateFormatter.stringFromDate(date)
+        
+        self.dateFormatter.dateFormat = "HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
-        let dateDate = dateFormatter.dateFromString(finalDate)
-        print(dateDate?.description)
-        let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
+        let hourDatePicker = dateFormatter.stringFromDate(self.datePicker.date)
+        
+        let dateString = dateDay + " " + hourDatePicker
+        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let finalDate = dateFormatter.dateFromString(dateString)
+        
+        let daily: DailyModel = DailyModel(date: finalDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
             let id = String(date)
@@ -233,6 +233,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             })
             
         }else{
+            
             self.view.layoutIfNeeded()
             UIView.animateWithDuration(1, animations: {
                 self.bottomDP.constant = -216

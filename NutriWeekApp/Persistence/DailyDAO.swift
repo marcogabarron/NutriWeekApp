@@ -102,30 +102,31 @@ class DailyDAO
 //        let dateFormat = NSDateFormatter()
 //        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        let startDate = NSCalendar.currentCalendar()
         
-        let startDateComps = startDate.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
-
+        let calendar = NSCalendar.currentCalendar()
+        
+        let startDateComps = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.TimeZone], fromDate: date)
+        
         startDateComps.hour = 0
         startDateComps.minute = 0
         startDateComps.second = 0
-        
-        let dateInit = startDate.dateFromComponents(startDateComps)!
-        
-        let endDate = NSCalendar.currentCalendar()
+        startDateComps.timeZone = NSTimeZone(abbreviation: "UTC")
 
-        let endDateComps = startDate.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
+        let dateInit = calendar.dateFromComponents(startDateComps)!
+
+        let endDateComps = calendar.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
         
         endDateComps.hour = 23
         endDateComps.minute = 59
         endDateComps.second = 59
+        endDateComps.timeZone = NSTimeZone(abbreviation: "UTC")
         
-        let dateEnd = endDate.dateFromComponents(endDateComps)!
+        let dateEnd = calendar.dateFromComponents(endDateComps)!
         
         
         
         // Assign predicate
-        request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", dateInit, dateEnd)
+        request.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", dateInit, dateEnd)
         
         // Perform search
         //var error: NSErrorPointer = nil

@@ -2053,7 +2053,7 @@
                     <navigationItem key="navigationItem" title="Diário" id="kO0-x4-Ui5">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="38e-pv-hRv">
                             <connections>
-                                <segue destination="wGE-OJ-beA" kind="show" id="n5r-r1-rsd"/>
+                                <segue destination="wGE-OJ-beA" kind="show" identifier="Register" id="n5r-r1-rsd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
