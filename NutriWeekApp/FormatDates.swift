@@ -91,9 +91,8 @@ class FormatDates {
     /** Get a date string and returns a formatted string with local time zone **/
     func formatStringTime(dataString: String) -> String{
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        self.dateFormatter.dateFormat = "HH:mm"
+        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
         let dateValue = dateFormatter.dateFromString(dataString)
         
         let stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
