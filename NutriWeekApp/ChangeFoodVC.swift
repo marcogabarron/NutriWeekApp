@@ -11,21 +11,19 @@ import UIKit
 
 class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
-    var colorImage = UIColor.blackColor().CGColor
-    
+    //MARK: IBOutlets and other variables and constants
+    @IBOutlet weak var collectionView: UICollectionView!
     
     //Relative to models and CoreData
     var itens = [ItemCardapio]()
     var selectedItens = [ItemCardapio]()
-    
-    ///Get the uuid of choosed Refeicao
     var meal: Meal!
     
+    ///Selected food from CollectionVC
     var selectedItemIndex: Int!
     
-    //Relative to collection View
-    @IBOutlet weak var collectionView: UICollectionView!
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,16 +44,16 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.collectionView.layer.masksToBounds = true
         self.collectionView.layer.cornerRadius = self.collectionView.frame.height/5
         
-        //allows multiple selections
+        //Allows multiple selections
         self.collectionView.allowsMultipleSelection = true
-        
         self.collectionView.reloadData()
         
     }
     
-    //MARK: CollectionView
-    // show the items save in the Core Data
     
+    //MARK: CollectionView
+    
+    //Show meal foods
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return itens.count
     }
@@ -83,10 +81,10 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
         closeModal()
     }
     
-    func closeModal() {
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "ChangeFoodDismiss", object: nil))
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+    
+    //MARK: Actions
+    @IBAction func bringImageToFront(gestureRecognizer: UITapGestureRecognizer) {
+        closeModal()
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
@@ -96,7 +94,11 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return true
     }
     
-    @IBAction func bringImageToFront(gestureRecognizer: UITapGestureRecognizer) {
-        closeModal()
+    
+    //MARK: Function/"Prepare for segue"(Dismiss)
+    func closeModal() {
+        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "ChangeFoodDismiss", object: nil))
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

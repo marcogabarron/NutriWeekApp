@@ -11,7 +11,7 @@ import MobileCoreServices
 import AVFoundation
 import AssetsLibrary
 
-class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
+class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!

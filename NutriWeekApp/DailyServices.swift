@@ -15,7 +15,7 @@ class DailyServices {
 
     }
     
-    /**create the Entity ItemCardapio that represent the Food**/
+    /** Create the Entity ItemCardapio that represent the Food **/
     static func createDaily(date: NSDate, fled: Bool, description: String, hasImage: Bool)     {
         
         let daily: Daily = Daily()
@@ -29,7 +29,7 @@ class DailyServices {
 
     }
     
-    /**create the Entity ItemCardapio that represent the Food**/
+    /** Create the Entity ItemCardapio that represent the Food **/
     static func createDaily(date: NSDate, fled: Bool, description: String, hasImage: Bool, name: String)     {
         
         let daily: Daily = Daily()
@@ -44,7 +44,7 @@ class DailyServices {
         
     }
     
-    /** find all Daily **/
+    /** Find all Daily **/
     static func allDaily() -> [Daily] {
         return DailyDAO.findAll()
     }

@@ -17,7 +17,7 @@ class Meal: NSObject {
     var foods: [ItemCardapio]
     var id: String?
     
-    /** create Meal **/
+    /** Init Meal **/
     init(id: String, week: [String], time: String, name: String, foods: [ItemCardapio]){
         self.id = id
         self.dayOfWeek = week
@@ -26,7 +26,7 @@ class Meal: NSObject {
         self.foods = foods
     }
     
-    /** create Meal **/
+    /** Create Meal **/
     init(week: [String], time: String, name: String){
         self.dayOfWeek = week
         self.hour = time
@@ -34,6 +34,7 @@ class Meal: NSObject {
         self.foods = []
     }
     
+    /** Get existing foods from ItemCardapio **/
     func setItems(foods: [ItemCardapio]){
         self.foods = foods
     }
@@ -47,7 +48,6 @@ class Meal: NSObject {
     
     func removeFood(n: Int){
         self.foods.removeAtIndex(n)
+        
     }
-
-    
 }

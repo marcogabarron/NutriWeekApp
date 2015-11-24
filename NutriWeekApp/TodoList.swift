@@ -52,17 +52,18 @@ class TodoList {
     }
     
     /** Remove itens of notifications list **/
-    func removeItem(item: TodoItem) {
+    func removeItemById(UUID: String) {
         if let scheduledLocalNotifications = UIApplication.sharedApplication().scheduledLocalNotifications {
-        for notification in scheduledLocalNotifications{ // loop through notifications...
-            if (notification.userInfo!["UUID"] as! String == item.UUID) { // ...and cancel the notification that corresponds to this TodoItem instance (matched by UUID)
-                UIApplication.sharedApplication().cancelLocalNotification(notification) // there should be a maximum of one match on UUID
+            for notification in scheduledLocalNotifications{ // loop through notifications...
+                if (notification.userInfo!["UUID"] as! String == UUID) { // ...and cancel the notification that corresponds to this TodoItem instance (matched by UUID)
+                    UIApplication.sharedApplication().cancelLocalNotification(notification) // there should be a maximum of one match on UUID
                 break
+                }
             }
-            }}
+        }
         
         if var todoItems = NSUserDefaults.standardUserDefaults().dictionaryForKey(ITEMS_KEY) {
-            todoItems.removeValueForKey(item.UUID)
+            todoItems.removeValueForKey(UUID)
             NSUserDefaults.standardUserDefaults().setObject(todoItems, forKey: ITEMS_KEY) // save/overwrite todo item list
         }
     }
