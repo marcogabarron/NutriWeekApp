@@ -6,16 +6,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     
     @IBOutlet weak var diaryCollection: UICollectionView!
+    @IBOutlet weak var dateNavigation: UINavigationItem!
+    @IBOutlet weak var afterButtonItem: UIBarButtonItem!
+    @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
     var diasPT: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-    var meals = [[Refeicao]]()
-    let date = NSDate()
-    var date2 = NSDate()
-    let dateFormatter = NSDateFormatter()
-    var weekDate = [NSDate]()
-    var weekDay = [String]()
-    var allDaily = [[Daily]]()
-//    let day: DailyModel = DailyModel()
+    var date = NSDate()
+    var allDaily : [Daily] = []
     var indexToRemove = [6]
     var takingPhoto: Bool = false
     var photoControl = 0
@@ -31,16 +28,45 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-            }
+        
+        
+        self.dateNavigation.title = self.formatterDate(NSDate())
+        
+        self.disableButtonAfter()
+        if(DailyServices.allDaily().count > 0){
+            self.allDaily = DailyServices.findByDateDaily(NSDate())
+            
+            fileManager.fileExistsAtPath(paths)
+
+            self.diaryCollection.reloadData()
+
+        }
+
+    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-            cell.image.image = UIImage(named: "grape")
+        
+        let daily = self.allDaily[indexPath.row]
+        cell.image.hidden = daily.hasImage == false
+        
+        if(daily.hasImage == true){
+            cell.image.image = UIImage(named:  daily.nameImage!)
 
-            cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
+            cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+            
+            cell.image.setNeedsDisplay()
+        }
+        
+        if(daily.fled == false){
+            cell.checkImage.image = UIImage(named: "logo")
+        }
+        
+        cell.textLabel.text = daily.descriptionStr
+        cell.dateLabel.text = self.formatterHour(daily.date!)
         
         return cell
     }
@@ -52,50 +78,76 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return self.allDaily.count
     }
-    
-    func getDayOfWeek(today:NSDate)->Int {
-        
-        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.Weekday, fromDate: today)
-        let weekDay = myComponents.weekday
-        return weekDay
-    }
-    
-    func settingWeekDay(var sender: Int, var today: NSDate) -> NSDate{
-        
-        self.dateFormatter.dateFormat = "dd/MM/yyyy"
-        
-        if sender != 1{
-            
-            while (sender != 1) {
-                
-                today = (today.dateByAddingTimeInterval(-60*60*24))
-                sender =  getDayOfWeek(today)
-                
+
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+            let daily = self.allDaily[indexPath.row]
+
+            if(daily.hasImage == false){
+                return CGSizeMake(355, 100);
+
             }
-        }
-        self.date2 = today
-        for(var i = 0; i < 7; i++){
-            self.weekDay.append(dateFormatter.stringFromDate(today))
-            today = (today.dateByAddingTimeInterval(60*60*24))
-            //teste = dateFormatter.stringFromDate(date2)
-        }
-        
-        return date2
-        
+            
+            return CGSizeMake(355, 300);
     }
+    
+    func formatterDate(date: NSDate) -> String{
+        let timer = NSDateFormatter()
+        timer.dateFormat = "dd/MM/yyyy"
+        
+        let strdate = timer.stringFromDate(date)
+        
+        return strdate
+    }
+    
+    
+    func formatterHour(date: NSDate) -> String{
+        let timer = NSDateFormatter()
+        timer.dateFormat = "HH:mm"
+        
+        let strdate = timer.stringFromDate(date)
+        
+        return strdate
+    }
+    
+    func disableButtonAfter(){
+        self.afterButtonItem.enabled = false
+        self.afterButtonItem.title = ""
+    }
+    
+    func enableButtonAfter(){
+        self.afterButtonItem.enabled = true
+        self.afterButtonItem.title = "Depois"
+    }
+    
     
     @IBAction func beforeButton(sender: UIBarButtonItem) {
         
-        self.weekDay.removeAll()
-        date2 = (date2.dateByAddingTimeInterval(-60*60*24*7))
-        
-        let weekday = getDayOfWeek(date2)
-        settingWeekDay(weekday, today: date2)
+        date = (date.dateByAddingTimeInterval(-60*60*24))
+
+        self.enableButtonAfter()
+        self.dateNavigation.title = self.formatterDate(date)
+
+        self.allDaily = DailyServices.findByDateDaily(date)
+
         self.diaryCollection.reloadData()
         
     }
     
+    @IBAction func afterButton(sender: AnyObject) {
+
+        date = (date.dateByAddingTimeInterval(60*60*24))
+        
+        self.dateNavigation.title = self.formatterDate(date)
+
+        self.allDaily = DailyServices.findByDateDaily(date)
+
+        if(self.dateNavigation.title == self.formatterDate(NSDate())){
+            self.disableButtonAfter()
+        }
+        self.diaryCollection.reloadData()
+    }
 }

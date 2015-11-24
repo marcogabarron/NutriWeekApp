@@ -58,7 +58,7 @@ class DailyServices {
         return DailyDAO.findByDateBool(date)
     }
     
-    static func findByDateDaily(date: NSDate) -> Daily{
+    static func findByDateDaily(date: NSDate) -> [Daily]{
         return DailyDAO.findByDate(date)
     }
     

@@ -94,19 +94,44 @@ class DailyDAO
     }
     
     /** find the first meal and return true or no find and return false **/
-    static func findByDate(date: NSDate) -> Daily
+    static func findByDate(date: NSDate) -> [Daily]
     {
         // Creating fetch request
         let request = NSFetchRequest(entityName: "Daily")
         
+//        let dateFormat = NSDateFormatter()
+//        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        let startDate = NSCalendar.currentCalendar()
+        
+        let startDateComps = startDate.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
+
+        startDateComps.hour = 0
+        startDateComps.minute = 0
+        startDateComps.second = 0
+        
+        let dateInit = startDate.dateFromComponents(startDateComps)!
+        
+        let endDate = NSCalendar.currentCalendar()
+
+        let endDateComps = startDate.components([NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: date)
+        
+        endDateComps.hour = 23
+        endDateComps.minute = 59
+        endDateComps.second = 59
+        
+        let dateEnd = endDate.dateFromComponents(endDateComps)!
+        
+        
+        
         // Assign predicate
-        request.predicate = NSPredicate(format: "date == %@", date)
+        request.predicate = NSPredicate(format: "(date >= %@) AND (date < %@)", dateInit, dateEnd)
         
         // Perform search
         //var error: NSErrorPointer = nil
         let results: [Daily] = (try! DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request)) as! [Daily]
         
-        return results.last!
+        return results
 
     }
 

@@ -17,10 +17,15 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var bottomDP: NSLayoutConstraint!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var container: UIView!
     @IBOutlet weak var hour: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var switchDiet: UISwitch!
+    @IBOutlet weak var heightImage: NSLayoutConstraint!
+    @IBOutlet weak var heightView: NSLayoutConstraint!
     
     let dateFormatter = NSDateFormatter()
 
@@ -42,27 +47,18 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(true)
-
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.datePicker.date = NSDate()
         
         
+        // Set current date and time on labels and datePicker
         let timer = NSDateFormatter()
         timer.dateFormat = "dd/MM/yyyy"
         
+        self.datePicker.date = NSDate()
+        
         let strdate = timer.stringFromDate(self.datePicker.date)
-        
         self.dateLabel.text = strdate
-        
         self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
         
         
@@ -80,7 +76,16 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         
 //        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Add a tiny line separator
+        let topBorder = UIView()
+        topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
+        topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
+        self.container.addSubview(topBorder)
 
     }
     
@@ -109,7 +114,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                     imagePicker.delegate = self
                     imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
                     imagePicker.mediaTypes = [kUTTypeImage as String]
-                    imagePicker.allowsEditing = true
+//                    imagePicker.allowsEditing = true
                     imagePicker.showsCameraControls = true
                 
                     self.presentViewController(imagePicker, animated: true, completion: nil)
@@ -191,7 +196,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
         let dateDate = dateFormatter.dateFromString(finalDate)
-        
+        print(dateDate?.description)
         let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
@@ -206,6 +211,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
             
             self.mealImage.image = UIImage(named: filePathToWrite)
+
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
@@ -346,12 +352,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         let compResult:CFComparisonResult = CFStringCompare(mediaType as NSString!, kUTTypeImage, CFStringCompareFlags.CompareCaseInsensitive)
         if ( compResult == CFComparisonResult.CompareEqualTo ) {
             self.addSaveButton()
-            self.mealImage.hidden = false
-            self.mealImage.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
             
             editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
             originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
-
             
             if ( editedImage != nil ) {
                 imageToSave = editedImage
@@ -359,13 +362,25 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 imageToSave = originalImage
             }
             
+            let imageHeightProportion = imageToSave!.size.width / self.container.frame.width
+            let imageHeight = imageToSave!.size.height / imageHeightProportion
+            
+            self.mealImage.hidden = false
+            self.mealImage.frame = CGRect(x: 0, y: 0, width: self.container.frame.width, height: imageHeight)
+            
             if (newMedia == true) {
                 
                 //UIImageWriteToSavedPhotosAlbum(imageToSave!, self,"image:didFinishSavingWithError:contextInfo:", nil)
             }
             
-            mealImage.image = imageToSave
-            mealImage.reloadInputViews()
+            self.mealImage.image = imageToSave
+            // Image height + Initial Value (170)
+            self.heightView.constant = 170 + imageHeight
+            // Image Height
+            self.heightImage.constant = imageHeight
+            
+            self.mealImage.setNeedsDisplay()
+            
             
         }
         
