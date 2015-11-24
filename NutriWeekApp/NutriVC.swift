@@ -13,6 +13,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var contextMeal: [Refeicao]!
     var format = FormatDates()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,10 +28,11 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

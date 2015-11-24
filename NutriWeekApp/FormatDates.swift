@@ -84,7 +84,7 @@ class FormatDates {
         
     }
     
-    //MARK - Format Time //Tirar daqui. mudo para model formatTime
+    //MARK - Format Time
     
     /** Get a date string and returns a formatted string with local time zone **/
     func formatStringTime(dataString: String) -> String{
@@ -99,4 +99,32 @@ class FormatDates {
         return stringFormatted
         
     }
+    
+    /** Convert stringDate to Date **/
+    func formatStringToDate(dataString: String) -> NSDate{
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        
+        let dateValue = dateFormatter.dateFromString(dataString)
+        
+        return dateValue!
+        
+    }
+    
+    /** Get date and returns a string formatted to save Refeicao **/
+    func formatDateToString(date: NSDate) -> String{
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        let strDate = dateFormatter.stringFromDate(date)
+        
+        return strDate
+        
+    }
+
 }
+

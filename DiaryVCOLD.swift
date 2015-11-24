@@ -178,7 +178,7 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
         if(meals[indexPath.section].count == 0){
             cell.textLabel.text = ""
             
-            cell.image.image = UIImage(named: "add")
+            cell.image.image = UIImage(named: "addButton")
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
         }else{
@@ -186,7 +186,7 @@ class DiaryVCOLD: UIViewController, UICollectionViewDataSource, UICollectionView
         if(Int(indexPath.row) == self.allDaily[indexPath.section].count ){
             cell.textLabel.text = ""
             
-            cell.image.image = UIImage(named: "add")
+            cell.image.image = UIImage(named: "addButton")
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
             

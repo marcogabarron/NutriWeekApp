@@ -15,5 +15,4 @@ class CollectionCell: UICollectionViewCell {
     @IBOutlet weak var dellButton: UIButton!
     @IBOutlet weak var view: UIView!
 
-    
 }

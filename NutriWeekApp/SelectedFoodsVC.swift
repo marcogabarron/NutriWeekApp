@@ -112,7 +112,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource {
         if(Int(indexPath.row) == self.itens.count){
             cell.textLabel.text = ""
             
-            cell.image.image = UIImage(named: "add")
+            cell.image.image = UIImage(named: "Button")
             cell.image.layer.masksToBounds = true
             cell.image.layer.cornerRadius = cell.frame.width/3
         }else{

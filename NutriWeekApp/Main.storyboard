@@ -737,10 +737,10 @@
                         <outlet property="bottomCV" destination="6fQ-qE-raf" id="NkD-yT-BhE"/>
                         <outlet property="collectionView" destination="PHI-5M-ugB" id="cna-PF-D98"/>
                         <outlet property="datePicker" destination="RzB-Z0-gB5" id="vsU-xT-qbK"/>
-                        <outlet property="editButton" destination="2mc-Zl-Udg" id="yRw-gz-LOX"/>
                         <outlet property="hour" destination="Akj-MK-TVd" id="qa4-KH-R7f"/>
                         <outlet property="notificationLabel" destination="gmj-Zu-2vu" id="UFS-2Q-HxL"/>
                         <outlet property="notificationSwitch" destination="s5w-AR-wlP" id="ueu-vw-I1q"/>
+                        <outlet property="saveButton" destination="2mc-Zl-Udg" id="sOJ-Es-8t3"/>
                         <outlet property="tableView" destination="PNy-TW-Xnv" id="HSg-sO-vrY"/>
                         <segue destination="jfp-Lu-MSy" kind="show" identifier="Add" id="vUv-t4-hOd"/>
                         <segue destination="FoE-M3-xpS" kind="presentation" identifier="ChangeFood" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Fve-WF-Mtp"/>
@@ -1043,7 +1043,7 @@
             <objects>
                 <tableViewController id="wIO-eg-H86" customClass="WeeksTVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsMultipleSelection="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Ww3-ZZ-Ow5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
@@ -2092,8 +2092,8 @@
         <image name="logo" width="510" height="510"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y0R-Mn-KcX"/>
-        <segue reference="tEw-8l-R7X"/>
+        <segue reference="lVe-Qv-OL8"/>
+        <segue reference="0MD-79-vIg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.15858728520000001" green="0.58771474189999995" blue="0.47183916279999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

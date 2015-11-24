@@ -55,7 +55,7 @@ class Weeks {
         return boolean
     }
     
-    func compareWithOlder(week:[String]) -> Bool{
+    func compareWeeks(week:[String]) -> Bool{
         for day in week {
             if(self.isSelected(day) == false){
                 return false
