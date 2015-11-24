@@ -13,6 +13,7 @@ import AssetsLibrary
 
 class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
+    //MARK: IBOutlets and other variables and constants
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var bottomDP: NSLayoutConstraint!
@@ -27,55 +28,44 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBOutlet weak var heightImage: NSLayoutConstraint!
     @IBOutlet weak var heightView: NSLayoutConstraint!
     
+    //Relative to models and CoreData
+    var format = FormatDates()
     let dateFormatter = NSDateFormatter()
-
-    
-    var newMedia: Bool?
+    //Relative to save images
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-    var date: NSDate = NSDate()
+    var date: NSDate!
+    ///Verify if the choiced image was taked by the user and allows it to be saved
+    var newMedia: Bool?
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         self.mealImage.hidden = true
         
         self.saveButton.title = NSLocalizedString("", comment: "")
         self.saveButton.enabled = false
-
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        
         // Set current date and time on labels and datePicker
-        let timer = NSDateFormatter()
-        timer.dateFormat = "dd/MM/yyyy"
-        
         self.datePicker.date = NSDate()
         
-        let strdate = timer.stringFromDate(self.datePicker.date)
-        self.dateLabel.text = strdate
-        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
-        
+        self.dateLabel.text = self.format.formatDateToYearDatString(date)
+        self.hour.setTitle(self.format.formatDateToString(self.datePicker.date), forState: .Normal)
         
         descriptionText.delegate = self
         descriptionText!.autocorrectionType = UITextAutocorrectionType.No
         
-        //tap to close keyboard and close date picker
-        let tap = UITapGestureRecognizer(target: self, action: "closeDatePicker:")
-        tap.numberOfTapsRequired = 1
-        tap.delegate = self
-        self.view.addGestureRecognizer(tap)
-        
+
         if(DailyServices.allDaily().count > 0){
             fileManager.fileExistsAtPath(paths)
         }
-        
-//        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -86,7 +76,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
         topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
         self.container.addSubview(topBorder)
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -112,21 +101,21 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             {
                 //Chamar câmera
                 if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-                
+                    
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
                     imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
                     imagePicker.mediaTypes = [kUTTypeImage as String]
-//                    imagePicker.allowsEditing = true
+                    //                    imagePicker.allowsEditing = true
                     imagePicker.showsCameraControls = true
-                
+                    
                     self.presentViewController(imagePicker, animated: true, completion: nil)
                     self.newMedia = true
                 }
             }
             else if authStatus == AVAuthorizationStatus.Denied //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-            
+                
                 let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
@@ -180,13 +169,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 self.presentViewController(imagePicker, animated: true, completion: nil)
                 self.newMedia = false
             }
-            
+                
                 //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
             else {
                 
                 let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                   
+                    
                     //Direcionar para ajustes
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
@@ -207,23 +196,24 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         alertCamera.addAction(cancelAction)
         
         presentViewController(alertCamera, animated: true, completion: nil)
-
+        
     }
     
-    
     @IBAction func saveButton(sender: AnyObject) {
-        let date: NSDate = NSDate()
-        
         if(self.descriptionText.text == "No que você está pensando"){
             self.descriptionText.text = ""
         }
         
-        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
-        let dateDate = dateFormatter.dateFromString(finalDate)
-        print(dateDate?.description)
-        let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
+        let dateDay = format.formatDateToDatString(date)
+
+        let hourDatePicker = format.formatDateToStringWithSecounds(self.datePicker.date)
+        
+        let dateString = dateDay + " " + hourDatePicker
+        
+        let finalDate = format.formatCompleteStringToDate(dateString)
+        
+
+        let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
             let id = String(date)
@@ -233,22 +223,18 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             let filePathToWrite = "\(paths)/\(id).png"
             
             daily.setImage(("\(paths)/\(id).png"))
-            
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
-            
             self.mealImage.image = UIImage(named: filePathToWrite)
-
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
-        //        presentViewController(refreshAlert, animated: true, completion: nil)
-
-        
+//                presentViewController(refreshAlert, animated: true, completion: nil)
 
     }
     
+    
     @IBAction func datePickerAppear(sender: AnyObject) {
-        self.datePicker.date = self.formatTime((self.hour.titleLabel?.text)!)
+        self.datePicker.date = self.format.formatStringToDate((self.hour.titleLabel?.text)!)
         
         if(self.bottomDP.constant == -216){
             
@@ -259,6 +245,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             })
             
         }else{
+
             self.view.layoutIfNeeded()
             UIView.animateWithDuration(1, animations: {
                 self.bottomDP.constant = -216
@@ -267,14 +254,28 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }
     }
     
+    
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
         self.addSaveButton()
         
-        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
+        self.hour.setTitle( self.format.formatDateToString(self.datePicker.date), forState: .Normal)
     }
+    
     
     @IBAction func fletChange(sender: AnyObject) {
         self.addSaveButton()
+    }
+
+    
+    //MARK - logical functions associated to Datepicker
+    
+    //Gesture tap to close datepicker
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if(self.bottomDP.constant == -216){
+            return false
+            
+        }
+        return true
     }
     
     func closeDatePicker(){
@@ -286,45 +287,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             })
         }
     }
-
     
-    //MARK - logical functions associated to Datepicker
-    
-    //gesture tap to close datepicker
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        if(self.bottomDP.constant == -216){
-            return false
-            
-        }
-        return true
-        
-    }
-    
-    //Get datePicker and returns a string formatted to save Refeicao
-    func timePicker(sender: UIDatePicker) -> String{
-        
-        let timer = NSDateFormatter()
-        timer.dateFormat = "HH:mm"
-        
-        let strdate = timer.stringFromDate(sender.date)
-        
-        return strdate
-        
-    }
-    
-    // Convert stringDate to Date
-    func formatTime(dataString: String) -> NSDate{
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        
-        let dateValue = dateFormatter.dateFromString(dataString)
-        
-        return dateValue!
-        
-    }
     
     //MARK - logical functions associated to TextView
     
@@ -336,9 +299,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        if (descriptionText?.text == "No que você está pensando")
+        if (descriptionText?.text == "No que você está pensando") {
             
-        {
             self.addSaveButton()
             descriptionText!.text = nil
             descriptionText!.textColor = UIColor.blackColor()
@@ -346,8 +308,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        if descriptionText!.text.isEmpty
-        {
+        if descriptionText!.text.isEmpty {
+            
             descriptionText!.text = "No que você está pensando"
             descriptionText!.textColor = UIColor.lightGrayColor()
         }
@@ -361,6 +323,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }
         return true
     }
+    
     
     //MARK - logical functions associated to Image and save button
     
@@ -388,11 +351,11 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 imageToSave = originalImage
             }
             
-            let imageHeightProportion = imageToSave!.size.width / self.container.frame.width
+            let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width
             let imageHeight = imageToSave!.size.height / imageHeightProportion
             
             self.mealImage.hidden = false
-            self.mealImage.frame = CGRect(x: 0, y: 0, width: self.container.frame.width, height: imageHeight)
+            self.mealImage.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: imageHeight)
             
             if (newMedia == true) {
                 
