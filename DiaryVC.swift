@@ -27,7 +27,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        date = NSDate()
         
         self.dateNavigation.title = self.formatterDate(NSDate())
         
