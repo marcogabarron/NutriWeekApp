@@ -325,11 +325,11 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 imageToSave = originalImage
             }
             
-            let imageHeightProportion = imageToSave!.size.width / self.container.frame.width
+            let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width
             let imageHeight = imageToSave!.size.height / imageHeightProportion
             
             self.mealImage.hidden = false
-            self.mealImage.frame = CGRect(x: 0, y: 0, width: self.container.frame.width, height: imageHeight)
+            self.mealImage.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: imageHeight)
             
             if (newMedia == true) {
                 
