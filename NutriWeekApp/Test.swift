@@ -13,6 +13,7 @@ import AssetsLibrary
 
 class TestController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
+    //MARK: IBOutlets and other variables and constants
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var bottomDP: NSLayoutConstraint!
@@ -27,45 +28,40 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var heightImage: NSLayoutConstraint!
     @IBOutlet weak var heightView: NSLayoutConstraint!
     
-    let dateFormatter = NSDateFormatter()
-
+    //Relative to models and CoreData
+    var format = FormatDates()
     
-    var newMedia: Bool?
+    //Relative to save images
     var fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
-    var date: NSDate = NSDate()
+    ///Verify if the choiced image was taked by the user and allows it to be saved
+    var newMedia: Bool?
     
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         self.mealImage.hidden = true
         
         self.saveButton.title = NSLocalizedString("", comment: "")
         self.saveButton.enabled = false
-
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
-        
         // Set current date and time on labels and datePicker
-        let timer = NSDateFormatter()
-        timer.dateFormat = "dd/MM/yyyy"
-        
         self.datePicker.date = NSDate()
         
-        let strdate = timer.stringFromDate(self.datePicker.date)
-        self.dateLabel.text = strdate
-        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
-        
+        self.dateLabel.text = self.format.formatDateToYearDatString(self.datePicker.date)
+        self.hour.setTitle(self.format.formatDateToString(self.datePicker.date), forState: .Normal)
         
         descriptionText.delegate = self
         descriptionText!.autocorrectionType = UITextAutocorrectionType.No
         
-        //tap to close keyboard and close date picker
+        //Tap to close keyboard and close date picker
         let tap = UITapGestureRecognizer(target: self, action: "closeDatePicker:")
         tap.numberOfTapsRequired = 1
         tap.delegate = self
@@ -74,8 +70,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         if(DailyServices.allDaily().count > 0){
             fileManager.fileExistsAtPath(paths)
         }
-        
-//        cell.image.image = UIImage(named: self.allDaily[indexPath.section][indexPath.row].nameImage!)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -86,7 +80,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
         topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
         self.container.addSubview(topBorder)
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,15 +92,15 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBAction func cameraButton(sender: AnyObject) {
         
-        //Faz o alert que vai dar as opções de câmera e de galeria
+        //Alert to show camera options
         let alertCamera = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
             
-            //Verifica a permissão da câmera
+            //Verify camera permission
             if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
             {
-                //Chamar câmera
+                //Go to camera
                 if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
                 
                     let imagePicker = UIImagePickerController()
@@ -121,13 +114,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                     self.newMedia = true
                 }
             }
-            else //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
+            else //If camera is not authorized, notify user and give the option to change it in settings
             {
             
                 let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                    //Direcionar para ajustes
+                    //Go to settings
                     
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
@@ -142,7 +135,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
             
-            //Chamar galeria
+            //Go to camera row
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                 
                 let imagePicker = UIImagePickerController()
@@ -155,23 +148,21 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 self.newMedia = false
             }
             
-                //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
+            //If camera row is not authorized, notify user and give the option to change it in settings (not working)
             else {
                 
                 let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
                    
-                    //Direcionar para ajustes
+                    //Go to settings
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
                         UIApplication.sharedApplication().openURL(url)
                     }
-                    
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-                
             }
         }))
         
@@ -181,7 +172,6 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         alertCamera.addAction(cancelAction)
         
         presentViewController(alertCamera, animated: true, completion: nil)
-
     }
     
     
@@ -192,12 +182,13 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.descriptionText.text = ""
         }
         
-        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        let finalDate = dateFormatter.stringFromDate(self.datePicker.date)
-        let dateDate = dateFormatter.dateFromString(finalDate)
-        print(dateDate?.description)
-        let daily: DailyModel = DailyModel(date: dateDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
+        let stringDate = dateFormatter.stringFromDate(self.datePicker.date)
+        let finalDate = dateFormatter.dateFromString(stringDate)
+        print(finalDate?.description)
+        let daily: DailyModel = DailyModel(date: finalDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
             let id = String(date)
@@ -207,22 +198,18 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             let filePathToWrite = "\(paths)/\(id).png"
             
             daily.setImage(("\(paths)/\(id).png"))
-            
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
-            
             self.mealImage.image = UIImage(named: filePathToWrite)
-
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
         //        presentViewController(refreshAlert, animated: true, completion: nil)
 
-        
-
     }
     
+    
     @IBAction func datePickerAppear(sender: AnyObject) {
-        self.datePicker.date = self.formatTime((self.hour.titleLabel?.text)!)
+        self.datePicker.date = self.format.formatStringToDate((self.hour.titleLabel?.text)!)
         
         if(self.bottomDP.constant == -216){
             
@@ -232,7 +219,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 self.view.layoutIfNeeded()
             })
             
-        }else{
+        } else {
             self.view.layoutIfNeeded()
             UIView.animateWithDuration(1, animations: {
                 self.bottomDP.constant = -216
@@ -241,14 +228,28 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
+    
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
         self.addSaveButton()
         
-        self.hour.setTitle( timePicker(self.datePicker), forState: .Normal)
+        self.hour.setTitle( self.format.formatDateToString(self.datePicker.date), forState: .Normal)
     }
+    
     
     @IBAction func fletChange(sender: AnyObject) {
         self.addSaveButton()
+    }
+
+    
+    //MARK - logical functions associated to Datepicker
+    
+    //Gesture tap to close datepicker
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if(self.bottomDP.constant == -216){
+            return false
+            
+        }
+        return true
     }
     
     func closeDatePicker(){
@@ -260,45 +261,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
             })
         }
     }
-
     
-    //MARK - logical functions associated to Datepicker
-    
-    //gesture tap to close datepicker
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        if(self.bottomDP.constant == -216){
-            return false
-            
-        }
-        return true
-        
-    }
-    
-    //Get datePicker and returns a string formatted to save Refeicao
-    func timePicker(sender: UIDatePicker) -> String{
-        
-        let timer = NSDateFormatter()
-        timer.dateFormat = "HH:mm"
-        
-        let strdate = timer.stringFromDate(sender.date)
-        
-        return strdate
-        
-    }
-    
-    // Convert stringDate to Date
-    func formatTime(dataString: String) -> NSDate{
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        
-        let dateValue = dateFormatter.dateFromString(dataString)
-        
-        return dateValue!
-        
-    }
     
     //MARK - logical functions associated to TextView
     
@@ -310,9 +273,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        if (descriptionText?.text == "No que você está pensando")
+        if (descriptionText?.text == "No que você está pensando") {
             
-        {
             self.addSaveButton()
             descriptionText!.text = nil
             descriptionText!.textColor = UIColor.blackColor()
@@ -320,8 +282,8 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        if descriptionText!.text.isEmpty
-        {
+        if descriptionText!.text.isEmpty {
+            
             descriptionText!.text = "No que você está pensando"
             descriptionText!.textColor = UIColor.lightGrayColor()
         }
@@ -335,6 +297,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         return true
     }
+    
     
     //MARK - logical functions associated to Image and save button
     

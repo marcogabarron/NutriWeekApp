@@ -69,7 +69,7 @@ class FormatDates {
             
         //Transform day  and time in only one date
         dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = NSTimeZone.localTimeZone()
         var dateToAdd = dateFormatter.dateFromString(dateStringToAdd)
             

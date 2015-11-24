@@ -4,7 +4,7 @@ import Foundation
 
 class ItemCardapioServices
 {
-    /**create the Entity ItemCardapio that represent the Food**/
+    /** Create the Entity ItemCardapio that represent the Food **/
     static func createItemCardapio(name: String, image: String, category: String)
     {
         
@@ -15,27 +15,27 @@ class ItemCardapioServices
 
 
         
-        // insert it
+        // Insert it
         ItemCardapioDAO.insert(itemCardapio)
         
     }
     
-    /** find one or more food with name(s) **/
+    /** Find one or more food with name(s) **/
     static func findItemCardapio(name: String, image: String) -> [ItemCardapio]
     {
-        // find it
+        // Find it
         return ItemCardapioDAO.findByName(name, image: image)
         
     }
-    /** find one or more food with name(s) **/
+    /** Find one or more food with name(s) **/
     static func findItemCardapioByCategory(category: String) -> [ItemCardapio]
     {
-        // find it
+        // Find it
         return ItemCardapioDAO.findByCategory(category)
         
     }
     
-    /** find all ItemCardapio **/
+    /** Find all ItemCardapio **/
     static func allItemCardapios() -> [ItemCardapio] {
         return ItemCardapioDAO.findAll()
     }
