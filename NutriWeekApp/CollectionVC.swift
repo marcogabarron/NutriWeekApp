@@ -273,7 +273,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             RefeicaoServices.editRefeicao(tempMeal, name: self.meal.name, horario: self.meal.hour, diaSemana: tempMeal.diaSemana, items: self.meal.foods, uuid: tempMeal.uuid)
         }
         
-         //If received week and the new setted week, needs to delete the difference
+        //If received week and the new setted week, needs to delete the difference
         if !self.mealWeekDays.compareWeeks(tempWeekDays) {
             print("woooow")
             let tempWeek = tempWeekDays
@@ -288,6 +288,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
                             
         if(self.mealWeekDays.getArrayString().count != tempWeekDays.count){
+            print("YE")
             let new = self.mealWeekDays.getArrayString()
             var find: Bool = true
             for dayNew in new {
