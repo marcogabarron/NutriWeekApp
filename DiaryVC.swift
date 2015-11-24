@@ -11,7 +11,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
     ///Days for String for sections and go next page
-    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+//    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     
     //Relative to models and CoreData
     var format = FormatDates()
@@ -35,12 +35,17 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        date = NSDate()
+        
+        self.dateNavigation.title = self.formatterHour(NSDate())
+        
         
         self.dateNavigation.title = self.format.formatDateToYearDatString(NSDate())
         self.disableButtonAfter()
         
         if(DailyServices.allDaily().count > 0){
-            self.allDaily = DailyServices.findByDateDaily(NSDate())
+            let date = NSDate()
+            self.allDaily = DailyServices.findByDateDaily(date)
             
             fileManager.fileExistsAtPath(paths)
             
@@ -113,6 +118,12 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     
+    func formatterHour(date: NSDate) -> String{
+        let timer = NSDateFormatter()
+        timer.dateFormat = "dd/MM/yyyy HH:mm"
+        return timer.stringFromDate(date)
+    }
+    
     @IBAction func afterButton(sender: AnyObject) {
         
         date = (date.dateByAddingTimeInterval(60*60*24))
@@ -137,5 +148,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     func enableButtonAfter(){
         self.afterButtonItem.enabled = true
         self.afterButtonItem.title = "Depois"
+    }
+    
+
+    
+    //MARK - Prepare for segue
+    /** Prepare for Segue to Week page -- pass the information from Weeks() **/
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "Register") {
+            let destinationViewController = segue.destinationViewController as! AddDailyVC
+            destinationViewController.date = self.date
+        }
     }
 }

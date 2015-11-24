@@ -32,7 +32,6 @@
 		DA8110801BD565C800632A40 /* CreateItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81107F1BD565C800632A40 /* CreateItemVC.swift */; };
 		DA8784FF1BE93428008838E9 /* DiaryVCOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */; };
 		DA8785011BEA7625008838E9 /* CollectionDiaryClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */; };
-		DA8F08991C04D53E001640DD /* AddDailyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F08981C04D53E001640DD /* AddDailyVC.swift */; };
 		DAB08E671BFCF50B00D4B63A /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */; };
 		DAC4676D1B6BBEA900F56E67 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC467651B6BBEA900F56E67 /* TutorialVC.swift */; };
 		DAC4676F1B6BC09100F56E67 /* Page1-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467711B6BC09100F56E67 /* Page1-Tutorial.xib */; };
@@ -54,6 +53,7 @@
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
 		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
 		DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */; };
+		FF1A34331C04BE5C00BFEB06 /* AddDailyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */; };
 		FF1A34341C04BE5C00BFEB06 /* RepeatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */; };
 		FF1A34361C04BE9200BFEB06 /* FormatDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34351C04BE9200BFEB06 /* FormatDates.swift */; };
 		FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA5004A1B4E1E3A0023208C /* TodoList.swift */; };
@@ -113,7 +113,6 @@
 		DA81107F1BD565C800632A40 /* CreateItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateItemVC.swift; path = ../CreateItemVC.swift; sourceTree = "<group>"; };
 		DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryVCOLD.swift; path = ../DiaryVCOLD.swift; sourceTree = "<group>"; };
 		DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionDiaryClass.swift; path = ../CollectionDiaryClass.swift; sourceTree = "<group>"; };
-		DA8F08981C04D53E001640DD /* AddDailyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyVC.swift; sourceTree = "<group>"; };
 		DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryVC.swift; path = ../DiaryVC.swift; sourceTree = "<group>"; };
 		DAC467651B6BBEA900F56E67 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		DAC467701B6BC09100F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page1-Tutorial.xib"; sourceTree = "<group>"; };
@@ -158,6 +157,7 @@
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
 		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFoodVC.swift; sourceTree = "<group>"; };
+		FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyVC.swift; sourceTree = "<group>"; };
 		FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatTVC.swift; sourceTree = "<group>"; };
 		FF1A34351C04BE9200BFEB06 /* FormatDates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDates.swift; sourceTree = "<group>"; };
 		FFA5004A1B4E1E3A0023208C /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
@@ -197,7 +197,6 @@
 		C2B86B631B4AE71700130D63 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA8F08981C04D53E001640DD /* AddDailyVC.swift */,
 				DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */,
 				DAC467651B6BBEA900F56E67 /* TutorialVC.swift */,
 				DAD5A1961B3D7747003829BF /* NutriVC.swift */,
@@ -209,6 +208,7 @@
 				C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */,
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
 				DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */,
+				FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */,
 				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
 			);
@@ -399,11 +399,11 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = UNMPYLD92U;
+						DevelopmentTeam = 97EUAUR8F9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = UNMPYLD92U;
+						DevelopmentTeam = 97EUAUR8F9;
 						TestTargetID = DAD5A1601B3D7549003829BF;
 					};
 				};
@@ -490,8 +490,8 @@
 				FF1A34361C04BE9200BFEB06 /* FormatDates.swift in Sources */,
 				FF1A34341C04BE5C00BFEB06 /* RepeatTVC.swift in Sources */,
 				DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */,
+				FF1A34331C04BE5C00BFEB06 /* AddDailyVC.swift in Sources */,
 				C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */,
-				DA8F08991C04D53E001640DD /* AddDailyVC.swift in Sources */,
 				FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */,
 				C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
