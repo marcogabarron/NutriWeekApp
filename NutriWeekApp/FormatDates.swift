@@ -124,6 +124,17 @@ class FormatDates {
         
     }
     
+    /** Get date and returns a string formatted to save Refeicao **/
+    func formatDateToStringWithSecounds(date: NSDate) -> String{
+        
+        self.dateFormatter.dateFormat = "HH:mm:ss"
+        
+        let strDate = dateFormatter.stringFromDate(date)
+        
+        return strDate
+        
+    }
+    
     /** Get current date and set day, month and year string **/
     func formatDateToYearDatString(date: NSDate) -> String{
         
@@ -132,6 +143,27 @@ class FormatDates {
         let strDate = self.dateFormatter.stringFromDate(date)
         
         return strDate
+    }
+    
+    /** Get current date and set day, month and year string **/
+    func formatDateToDatString(date: NSDate) -> String{
+        
+        self.dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let strDate = self.dateFormatter.stringFromDate(date)
+        
+        return strDate
+    }
+    
+    /** Get current date and set day, month and year string **/
+    func formatCompleteStringToDate(str: String) -> NSDate{
+        
+        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
+
+        let strDate = self.dateFormatter.dateFromString(str)
+        
+        return strDate!
     }
 
 }

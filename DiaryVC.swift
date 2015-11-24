@@ -37,9 +37,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewWillAppear(animated)
         date = NSDate()
         
-        self.dateNavigation.title = self.formatterHour(NSDate())
-        
-        
         self.dateNavigation.title = self.format.formatDateToYearDatString(NSDate())
         self.disableButtonAfter()
         
@@ -71,8 +68,12 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.image.setNeedsDisplay()
         }
         
-        if(daily.fled == false){
+        if(daily.fled == true){
             cell.checkImage.image = UIImage(named: "logo")
+            cell.checkImage.hidden = false
+        }else{
+            cell.checkImage.hidden = true
+
         }
         
         cell.textLabel.text = daily.descriptionStr
@@ -115,13 +116,6 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.allDaily = DailyServices.findByDateDaily(date)
         
         self.diaryCollection.reloadData()
-    }
-    
-    
-    func formatterHour(date: NSDate) -> String{
-        let timer = NSDateFormatter()
-        timer.dateFormat = "dd/MM/yyyy HH:mm"
-        return timer.stringFromDate(date)
     }
     
     @IBAction func afterButton(sender: AnyObject) {

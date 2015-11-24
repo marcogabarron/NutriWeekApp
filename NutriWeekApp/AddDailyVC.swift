@@ -176,26 +176,16 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             self.descriptionText.text = ""
         }
         
-        
-        self.dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateDay = dateFormatter.stringFromDate(date)
-        
-        self.dateFormatter.dateFormat = "HH:mm:ss"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        let hourDatePicker = dateFormatter.stringFromDate(self.datePicker.date)
+        let dateDay = format.formatDateToDatString(date)
+
+        let hourDatePicker = format.formatDateToStringWithSecounds(self.datePicker.date)
         
         let dateString = dateDay + " " + hourDatePicker
-        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        let finalDate = dateFormatter.dateFromString(dateString)
+        let finalDate = format.formatCompleteStringToDate(dateString)
         
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//        dateFormatter.timeZone = NSTimeZone.localTimeZone()
-//        let stringDate = dateFormatter.stringFromDate(self.datePicker.date)
-//        let finalDate = dateFormatter.dateFromString(stringDate)
-//        print(finalDate?.description)
-        let daily: DailyModel = DailyModel(date: finalDate!, fled: self.switchDiet.on, desc: self.descriptionText.text)
+
+        let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
             let id = String(date)
