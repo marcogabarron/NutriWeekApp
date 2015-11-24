@@ -104,8 +104,11 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
             
+            
+            let authStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+            
             //Verifica a permissão da câmera
-            if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
+            if authStatus ==  AVAuthorizationStatus.Authorized
             {
                 //Chamar câmera
                 if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
@@ -121,7 +124,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                     self.newMedia = true
                 }
             }
-            else //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
+            else if authStatus == AVAuthorizationStatus.Denied //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
             
                 let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -137,6 +140,29 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+            }
+            else if authStatus == AVAuthorizationStatus.NotDetermined {
+                AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { granted in
+                    if granted {
+                        //Chamar câmera
+                        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+                            
+                            let imagePicker = UIImagePickerController()
+                            imagePicker.delegate = self
+                            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                            imagePicker.mediaTypes = [kUTTypeImage as String]
+                            //                    imagePicker.allowsEditing = true
+                            imagePicker.showsCameraControls = true
+                            
+                            self.presentViewController(imagePicker, animated: true, completion: nil)
+                            self.newMedia = true
+                        }
+                    }
+                    else {
+                        // Criar alert informativo que o usuarios precisa dar permissao para acessar este recurso
+                        print(2)
+                    }
+                })
             }
         }))
         
