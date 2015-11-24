@@ -84,8 +84,9 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Add a tiny line separator
         let topBorder = UIView()
         topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
-        topBorder.frame = CGRect(x: 0, y: 0, width: self.container.frame.width, height: 1)
+        topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
         self.container.addSubview(topBorder)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,7 +114,7 @@ class TestController: UIViewController, UINavigationControllerDelegate, UIImageP
                     imagePicker.delegate = self
                     imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
                     imagePicker.mediaTypes = [kUTTypeImage as String]
-                    imagePicker.allowsEditing = true
+//                    imagePicker.allowsEditing = true
                     imagePicker.showsCameraControls = true
                 
                     self.presentViewController(imagePicker, animated: true, completion: nil)

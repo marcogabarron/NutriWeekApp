@@ -48,16 +48,17 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         let cell = self.diaryCollection.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
+        
         let daily = self.allDaily[indexPath.row]
+        cell.image.hidden = daily.hasImage == false
         
         if(daily.hasImage == true){
-            
-            cell.image.image = UIImage(named: daily.nameImage!)
+            cell.image.image = UIImage(named:  daily.nameImage!)
 
-        }else{
-            cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, 100)
-            cell.updateConstraintsIfNeeded()
-            cell.layoutIfNeeded()           
+            let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
+            cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+            
+            cell.image.setNeedsDisplay()
         }
         
         if(daily.fled == false){
@@ -80,6 +81,18 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         return self.allDaily.count
     }
 
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+            let daily = self.allDaily[indexPath.row]
+
+            if(daily.hasImage == false){
+                return CGSizeMake(355, 100);
+
+            }
+            
+            return CGSizeMake(355, 300);
+    }
     
     func formatterDate(date: NSDate) -> String{
         let timer = NSDateFormatter()
@@ -109,6 +122,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.afterButtonItem.enabled = true
         self.afterButtonItem.title = "Depois"
     }
+    
     
     @IBAction func beforeButton(sender: UIBarButtonItem) {
         
