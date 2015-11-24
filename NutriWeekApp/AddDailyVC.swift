@@ -351,6 +351,16 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 imageToSave = originalImage
             }
             
+            if imageToSave?.imageOrientation == .Down {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI), flip: false)
+            }
+            else if imageToSave?.imageOrientation == .Left {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(-M_PI_2), flip: false)
+            }
+            else if imageToSave?.imageOrientation == .Right {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI_2), flip: false)
+            }
+            
             let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width
             let imageHeight = imageToSave!.size.height / imageHeightProportion
             
@@ -377,16 +387,5 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
 
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

@@ -11,7 +11,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var beforeButtonItem: UIBarButtonItem!
     
     ///Days for String for sections and go next page
-//    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    //    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     
     //Relative to models and CoreData
     var format = FormatDates()
@@ -61,9 +61,11 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         
         if(daily.hasImage == true){
             cell.image.image = UIImage(named:  daily.nameImage!)
-
-            let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
-            cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+            
+            if cell.image.image != nil {
+                let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
+                cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+            }
             
             cell.image.setNeedsDisplay()
         }
@@ -73,7 +75,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.checkImage.hidden = false
         }else{
             cell.checkImage.hidden = true
-
+            
         }
         
         cell.textLabel.text = daily.descriptionStr
@@ -83,22 +85,22 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-       // self.performSegueWithIdentifier("daily", sender: indexPath)
+        // self.performSegueWithIdentifier("daily", sender: indexPath)
         
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.allDaily.count
     }
-
+    
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
             let daily = self.allDaily[indexPath.row]
-
+            
             if(daily.hasImage == false){
                 return CGSizeMake(355, 100);
-
+                
             }
             
             return CGSizeMake(355, 300);
@@ -144,7 +146,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         self.afterButtonItem.title = "Depois"
     }
     
-
+    
     
     //MARK - Prepare for segue
     /** Prepare for Segue to Week page -- pass the information from Weeks() **/
