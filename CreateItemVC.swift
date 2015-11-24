@@ -10,23 +10,18 @@ import CoreData
 
 class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    
+    //MARK: IBOutlets and other variables and constants
+    @IBOutlet weak var save: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
-    
+    @IBOutlet weak var simpleLabel: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
-    
     @IBOutlet weak var imageCategory: UIImageView!
-    
     @IBOutlet weak var labelName: UILabel!
     
-    @IBOutlet weak var simpleLabel: UILabel!
-    
-    @IBOutlet weak var save: UIBarButtonItem!
-    
+
+    ///Relative to food category
     var categoryArray:[String] = [String]()
-    
-    var selectedCategory:String = ""
-    
+    var selectedCategory: String = ""
     var numberCategory: Int = 1
     
     
@@ -65,6 +60,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
 //        }
 //    }
     
+    //MARK: Lifecycle
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
         //saveClicked = false
@@ -76,14 +72,11 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         super.viewDidLoad()
 
         self.nameTextField.delegate = self
-        
         self.nameTextField.placeholder = NSLocalizedString("Nome do Item", comment: "")
         
         self.labelName.text = NSLocalizedString("Nome do Item", comment: "")
-        
         self.simpleLabel.text = NSLocalizedString("Selecione uma categoria:", comment: "")
 
-        
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
         
@@ -99,13 +92,12 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         //delegate?.willComeBackFromCreateItemVC(saveClicked)
     }
     
+    //MARK: Picker view
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        
         return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
         return categoryArray.count
     }
     
@@ -124,27 +116,28 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         
     }
     
-    /**Close keyboard when clicked return **/
+    
+    //MARK: Actions
+    
+    /** Close keyboard when clicked return **/
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true
     }
     
+    
     @IBAction func onTapped(sender: AnyObject) {
         view.endEditing(true)
     }
     
+    
     @IBAction func nameChanged(){
-        
-        
         labelName.text = nameTextField.text
-        
     }
     
     
     @IBAction func saveButtonClicked() {
         //saveClicked = true
-
         if nameTextField.text == ""{
             
             UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
@@ -159,7 +152,6 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
                 self.nameTextField.placeholder = NSLocalizedString("*Choose a Name", comment: "")
                 self.nameTextField.tintColor = UIColor.redColor()
                 
-                
             })
         })
         
@@ -169,10 +161,8 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
             
             ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)" + ".jpg", category: show)
             
-                self.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewControllerAnimated(true)
             
         }
-    
     }
-    
 }

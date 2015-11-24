@@ -10,6 +10,8 @@ import Foundation
 
 class FormatDates {
     
+    var dateFormatter = NSDateFormatter()
+    
     /** Receive the day of week and the pickerdate time. Build the notification, returning the date to schedule **/
     func setNotificationDate (notificationWeekDay: String, dateHour: String) -> (NSDate) {
         
@@ -103,10 +105,8 @@ class FormatDates {
     /** Convert stringDate to Date **/
     func formatStringToDate(dataString: String) -> NSDate{
         
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateFormat = "HH:mm"
-        dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        self.dateFormatter.dateFormat = "HH:mm"
+        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
         
         let dateValue = dateFormatter.dateFromString(dataString)
         
@@ -117,13 +117,22 @@ class FormatDates {
     /** Get date and returns a string formatted to save Refeicao **/
     func formatDateToString(date: NSDate) -> String{
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
+        self.dateFormatter.dateFormat = "HH:mm"
         
         let strDate = dateFormatter.stringFromDate(date)
         
         return strDate
         
+    }
+    
+    /** Get current date and set day, month and year string **/
+    func formatDateToYearDatString(date: NSDate) -> String{
+        
+        self.dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        let strDate = self.dateFormatter.stringFromDate(date)
+        
+        return strDate
     }
 
 }

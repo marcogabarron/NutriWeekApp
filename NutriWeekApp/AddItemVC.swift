@@ -168,7 +168,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     
     //MARK: Logic Functions
     
-    /**Close keyboard when clicked return **/
+    /** Close keyboard when clicked return **/
     func textFieldShouldReturn(nameTextField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
         return true

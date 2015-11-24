@@ -89,7 +89,7 @@ class WeeksTVC: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "Week") {
             let destinationViewController = segue.destinationViewController as! AddItemVC
-            destinationViewController.daysOfWeekString = self.weekDays
+            destinationViewController.mealWeekDays = self.weekDays
         }
     }
     
