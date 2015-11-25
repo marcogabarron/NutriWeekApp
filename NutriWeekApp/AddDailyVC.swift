@@ -228,7 +228,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
-//                presentViewController(refreshAlert, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
 
     }
     
