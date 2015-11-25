@@ -88,35 +88,38 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     
     @IBAction func cameraButton(sender: AnyObject) {
         
-        //Alert to show camera options
+        //Faz o alert que vai dar as opções de câmera e de galeria
         let alertCamera = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
             
-            //Verify camera permission
-            if AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo) ==  AVAuthorizationStatus.Authorized
+            
+            let authStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
+            
+            //Verifica a permissão da câmera
+            if authStatus ==  AVAuthorizationStatus.Authorized
             {
-                //Go to camera
+                //Chamar câmera
                 if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-                
+                    
                     let imagePicker = UIImagePickerController()
                     imagePicker.delegate = self
                     imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
                     imagePicker.mediaTypes = [kUTTypeImage as String]
-//                    imagePicker.allowsEditing = true
+                    //                    imagePicker.allowsEditing = true
                     imagePicker.showsCameraControls = true
-                
+                    
                     self.presentViewController(imagePicker, animated: true, completion: nil)
                     self.newMedia = true
                 }
             }
-            else //If camera is not authorized, notify user and give the option to change it in settings
+            else if authStatus == AVAuthorizationStatus.Denied //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-            
+                
                 let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                    //Go to settings
+                    //Direcionar para ajustes
                     
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
@@ -127,11 +130,34 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+            else if authStatus == AVAuthorizationStatus.NotDetermined {
+                AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { granted in
+                    if granted {
+                        //Chamar câmera
+                        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+                            
+                            let imagePicker = UIImagePickerController()
+                            imagePicker.delegate = self
+                            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                            imagePicker.mediaTypes = [kUTTypeImage as String]
+                            //                    imagePicker.allowsEditing = true
+                            imagePicker.showsCameraControls = true
+                            
+                            self.presentViewController(imagePicker, animated: true, completion: nil)
+                            self.newMedia = true
+                        }
+                    }
+                    else {
+                        // Criar alert informativo que o usuarios precisa dar permissao para acessar este recurso
+                        print(2)
+                    }
+                })
+            }
         }))
         
         alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
             
-            //Go to camera row
+            //Chamar galeria
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                 
                 let imagePicker = UIImagePickerController()
@@ -143,22 +169,24 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 self.presentViewController(imagePicker, animated: true, completion: nil)
                 self.newMedia = false
             }
-            
-            //If camera row is not authorized, notify user and give the option to change it in settings (not working)
+                
+                //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
             else {
                 
                 let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
                 alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                   
-                    //Go to settings
+                    
+                    //Direcionar para ajustes
                     let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
                     if let url = settingsUrl {
                         UIApplication.sharedApplication().openURL(url)
                     }
+                    
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+                
             }
         }))
         
@@ -168,8 +196,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         alertCamera.addAction(cancelAction)
         
         presentViewController(alertCamera, animated: true, completion: nil)
+        
     }
-    
     
     @IBAction func saveButton(sender: AnyObject) {
         if(self.descriptionText.text == "No que você está pensando"){
@@ -323,6 +351,16 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 imageToSave = originalImage
             }
             
+            if imageToSave?.imageOrientation == .Down {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI), flip: false)
+            }
+            else if imageToSave?.imageOrientation == .Left {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(-M_PI_2), flip: false)
+            }
+            else if imageToSave?.imageOrientation == .Right {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI_2), flip: false)
+            }
+            
             let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width
             let imageHeight = imageToSave!.size.height / imageHeightProportion
             
@@ -349,16 +387,5 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
 
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4356C63D1C04FF2200E9B1E6 /* ImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
 				DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */,
 				FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */,
+				4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */,
 				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
 			);
@@ -399,7 +402,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 97EUAUR8F9;
+						DevelopmentTeam = V4EX66VGXQ;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -480,6 +483,7 @@
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
 				DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */,
+				4356C63D1C04FF2200E9B1E6 /* ImageRotation.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				C246E4191BD951A60068ED68 /* Food.swift in Sources */,
 				DA8110801BD565C800632A40 /* CreateItemVC.swift in Sources */,
