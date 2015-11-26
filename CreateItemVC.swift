@@ -25,41 +25,6 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     var numberCategory: Int = 1
     
     
-    //var saveClicked: Bool!
-    
-//    override func willMoveToParentViewController(parent: UIViewController?) {
-//        super.willMoveToParentViewController(parent)
-//        if parent == nil && !saveClicked{
-//
-//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-//                        let alert = UIAlertController(title: "Take one option",
-//                            message: "Really want to go back?",
-//                            preferredStyle: .Alert)
-//            
-//                        let save = UIAlertAction(title: "Save modifications",
-//                            style: .Default) { (action: UIAlertAction!) -> Void in
-//                                
-//                                
-//                                self.saveButtonClicked()
-//                                
-//                        }
-//            
-//                        let cancel = UIAlertAction(title: "Discard",
-//                            style: .Default) { (action: UIAlertAction!) -> Void in
-//                                
-//                        }
-//            presentViewController(alert,
-//                animated: true,
-//                completion: nil)
-//            
-//            
-//                        alert.addAction(save)
-//                        alert.addAction(cancel)
-//            
-//        
-//        }
-//    }
-    
     //MARK: Lifecycle
     override func viewWillAppear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -70,6 +35,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Create Item")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
 
         self.nameTextField.delegate = self
         self.nameTextField.placeholder = NSLocalizedString("Nome do Item", comment: "")

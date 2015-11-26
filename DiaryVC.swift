@@ -34,6 +34,14 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     override func viewWillAppear(animated: Bool) {
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "See Daily")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         super.viewWillAppear(animated)
         date = NSDate()
         

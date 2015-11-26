@@ -35,6 +35,14 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     
     
     override func viewWillAppear(animated: Bool) {
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Selected Foods")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         self.navigationItem.title = NSLocalizedString("Seleção de Alimentos", comment: "Food")
         
         self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")

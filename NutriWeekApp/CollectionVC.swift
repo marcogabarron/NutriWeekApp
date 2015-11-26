@@ -69,6 +69,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     override func viewWillAppear(animated: Bool) {
         
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "See diet")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
+        //language
         self.navigationItem.title = NSLocalizedString("Refeição", comment: "Refeição")
         self.notificationLabel.text = NSLocalizedString("Notificação", comment: "Notification")
         

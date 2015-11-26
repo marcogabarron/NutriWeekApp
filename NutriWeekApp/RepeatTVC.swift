@@ -28,6 +28,17 @@ class RepeatTVC: UITableViewController {
     }
     
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Selection Weeks")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
+    
     //MARK: TableView
     
     /** Write the name of the cell **/

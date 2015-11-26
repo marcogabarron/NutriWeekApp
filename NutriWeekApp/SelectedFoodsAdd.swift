@@ -14,6 +14,14 @@ class SelectedFoodsAdd: SelectedFoodsVC {
     
     override func viewWillAppear(animated: Bool) {
         
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Add Item in Edit diet")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         saveButton.title = NSLocalizedString ("", comment: "")
         saveButton.enabled = false
 
@@ -31,6 +39,7 @@ class SelectedFoodsAdd: SelectedFoodsVC {
     
     override func viewWillDisappear(animated: Bool) {
         self.meal.setItems(self.selectedItens)
+        
     }
     
     

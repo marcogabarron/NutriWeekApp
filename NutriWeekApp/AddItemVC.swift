@@ -36,6 +36,14 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     }
     
     override func viewWillAppear(animated: Bool) {
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Name, hour and repetition")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         if(self.meal.foods.count >= 1){
             self.navigationController?.popViewControllerAnimated(true)
 

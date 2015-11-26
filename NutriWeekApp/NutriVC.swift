@@ -37,7 +37,16 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "NutriWeekVC")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         self.navigationItem.title = "NutriWeek"
+        
         self.tableView.reloadData()
     }
     

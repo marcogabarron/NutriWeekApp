@@ -53,6 +53,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
+        //Google Analytics - monitoring screens
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Created daily")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
         // Set current date and time on labels and datePicker
         self.datePicker.date = NSDate()
         
