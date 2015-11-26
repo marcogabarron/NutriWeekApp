@@ -12,7 +12,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //Relative to models and CoreData
     var contextMeal: [Refeicao]!
-    var format = FormatDates()
+    var format = NSDateFormatter()
     
     
     //MARK: Lifecycle

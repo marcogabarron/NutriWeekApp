@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4356C63D1C04FF2200E9B1E6 /* ImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */; };
+		4356C63F1C061CAF00E9B1E6 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4356C63E1C061CAF00E9B1E6 /* Photos.framework */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
+		4356C63E1C061CAF00E9B1E6 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4356C63F1C061CAF00E9B1E6 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +256,7 @@
 		DAD5A1581B3D7549003829BF = {
 			isa = PBXGroup;
 			children = (
+				4356C63E1C061CAF00E9B1E6 /* Photos.framework */,
 				DAD5A1631B3D7549003829BF /* NutriWeekApp */,
 				DAD5A17C1B3D7549003829BF /* NutriWeekAppTests */,
 				DAD5A1621B3D7549003829BF /* Products */,

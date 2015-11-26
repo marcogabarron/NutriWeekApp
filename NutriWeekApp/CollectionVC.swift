@@ -28,7 +28,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     //Relative to models and CoreData
     var foods = [ItemCardapio]()
-    var format = FormatDates()
+    var format = NSDateFormatter()
     var meal: Meal!
     
     ///Manage meal frequency at week

@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 import AssetsLibrary
+import Photos
 
 class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
@@ -29,7 +30,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBOutlet weak var heightView: NSLayoutConstraint!
     
     //Relative to models and CoreData
-    var format = FormatDates()
     let dateFormatter = NSDateFormatter()
     //Relative to save images
     var fileManager = NSFileManager.defaultManager()
@@ -56,8 +56,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         // Set current date and time on labels and datePicker
         self.datePicker.date = NSDate()
         
-        self.dateLabel.text = self.format.formatDateToYearDatString(date)
-        self.hour.setTitle(self.format.formatDateToString(self.datePicker.date), forState: .Normal)
+        self.dateLabel.text = self.dateFormatter.formatDateToYearDateString(date)
+        self.hour.setTitle(self.dateFormatter.formatDateToString(self.datePicker.date), forState: .Normal)
         
         descriptionText.delegate = self
         descriptionText!.autocorrectionType = UITextAutocorrectionType.No
@@ -92,7 +92,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         let alertCamera = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
         alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
-            
             
             let authStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
             
@@ -158,6 +157,11 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
             
             //Chamar galeria
+            
+            let authStatus = PHPhotoLibrary.authorizationStatus()
+            
+            print(authStatus)
+            
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
                 
                 let imagePicker = UIImagePickerController()
@@ -204,13 +208,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             self.descriptionText.text = ""
         }
         
-        let dateDay = format.formatDateToDatString(date)
+        let dateDay = dateFormatter.formatDateToDateString(date)
 
-        let hourDatePicker = format.formatDateToStringWithSecounds(self.datePicker.date)
+        let hourDatePicker = dateFormatter.formatDateToStringWithSecounds(self.datePicker.date)
         
         let dateString = dateDay + " " + hourDatePicker
         
-        let finalDate = format.formatCompleteStringToDate(dateString)
+        let finalDate = dateFormatter.formatCompleteStringToDate(dateString)
         
 
         let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
@@ -234,7 +238,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     
     
     @IBAction func datePickerAppear(sender: AnyObject) {
-        self.datePicker.date = self.format.formatStringToDate((self.hour.titleLabel?.text)!)
+        self.datePicker.date = self.dateFormatter.formatStringToDate((self.hour.titleLabel?.text)!)
         
         if(self.bottomDP.constant == -216){
             
@@ -258,7 +262,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
         self.addSaveButton()
         
-        self.hour.setTitle( self.format.formatDateToString(self.datePicker.date), forState: .Normal)
+        self.hour.setTitle( self.dateFormatter.formatDateToString(self.datePicker.date), forState: .Normal)
     }
     
     
@@ -352,13 +356,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             }
             
             if imageToSave?.imageOrientation == .Down {
-                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI), flip: false)
+                imageToSave = imageToSave?.rotate(CGFloat(M_PI), flip: false, invertSize: false)
             }
             else if imageToSave?.imageOrientation == .Left {
-                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(-M_PI_2), flip: false)
+                imageToSave = imageToSave?.rotate(CGFloat(-M_PI_2), flip: false, invertSize: true)
             }
             else if imageToSave?.imageOrientation == .Right {
-                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI_2), flip: false)
+                imageToSave = imageToSave?.rotate(CGFloat(M_PI_2), flip: false, invertSize: true)
             }
             
             let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width

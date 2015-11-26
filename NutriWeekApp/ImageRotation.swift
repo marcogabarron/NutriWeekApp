@@ -11,11 +11,11 @@
 import UIKit
 
 extension UIImage {
-    public func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
+    public func rotate(radian: CGFloat, flip: Bool, invertSize: Bool) -> UIImage {
         
         // calculate the size of the rotated view's containing box for our drawing space
         let rotatedViewBox = UIView(frame: CGRect(origin: CGPointZero, size: size))
-        let t = CGAffineTransformMakeRotation(degrees);
+        let t = CGAffineTransformMakeRotation(radian);
         rotatedViewBox.transform = t
         let rotatedSize = rotatedViewBox.frame.size
         
@@ -27,7 +27,7 @@ extension UIImage {
         CGContextTranslateCTM(bitmap, rotatedSize.width / 2.0, rotatedSize.height / 2.0);
         
         //   // Rotate the image context
-        CGContextRotateCTM(bitmap, degrees);
+        CGContextRotateCTM(bitmap, radian);
         
         // Now, draw the rotated/scaled image into the context
         var yFlip: CGFloat
@@ -39,7 +39,12 @@ extension UIImage {
         }
         
         CGContextScaleCTM(bitmap, yFlip, -1.0)
-        CGContextDrawImage(bitmap, CGRectMake(-size.width / 2, -size.height / 2, size.width, size.height), CGImage)
+        if invertSize {
+            CGContextDrawImage(bitmap, CGRectMake(-size.height / 2, -size.width / 2, size.height, size.width), CGImage)
+        }
+        else {
+            CGContextDrawImage(bitmap, CGRectMake(-size.width / 2, -size.height / 2, size.width, size.height), CGImage)
+        }
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

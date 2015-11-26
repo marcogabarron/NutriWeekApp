@@ -20,7 +20,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     
     
     //Relative to models and CoreData
-    var format = FormatDates()
+    var format = NSDateFormatter()
     var meal: Meal = Meal(week: [], time: "", name: "")
     
     ///Manage meal frequency at week - init with all week days
