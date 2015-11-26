@@ -19,6 +19,8 @@ class RepeatTVC: UITableViewController {
     ///Interact with Weeks model
     var weekDays: Weeks!
     
+    //tracker - Google Analytics
+    let tracker = GAI.sharedInstance().defaultTracker
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -32,7 +34,6 @@ class RepeatTVC: UITableViewController {
         super.viewWillAppear(true)
         
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Selection Weeks")
         
         let builder = GAIDictionaryBuilder.createScreenView()

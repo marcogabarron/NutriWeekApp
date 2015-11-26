@@ -26,6 +26,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
+    //tracker and builder - Google Analytics
+    let tracker = GAI.sharedInstance().defaultTracker
     let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle
@@ -36,12 +38,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     override func viewWillAppear(animated: Bool) {
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "See Daily")
-        
         //Google Analytics - monitoring begin
         builder.set(kGAISessionControl, forKey: "start")
-        
         tracker.send(builder.build() as [NSObject : AnyObject])
         
         

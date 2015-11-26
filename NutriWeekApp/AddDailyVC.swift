@@ -39,6 +39,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     ///Verify if the choiced image was taked by the user and allows it to be saved
     var newMedia: Bool?
     
+    ///tracker and builder - Google Analytics
+    let tracker = GAI.sharedInstance().defaultTracker
     let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle
@@ -55,7 +57,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         super.viewWillAppear(true)
         
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Created daily")
         
         tracker.send(builder.build() as [NSObject : AnyObject])

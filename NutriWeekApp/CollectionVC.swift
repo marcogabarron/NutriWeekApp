@@ -40,6 +40,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //var colorImage = UIColor.blackColor().CGColor //precisa?
     var delButtonAppears: Bool = false
     
+    //tracker - Google Analytics
+    let tracker = GAI.sharedInstance().defaultTracker
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -70,9 +72,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewWillAppear(animated: Bool) {
         
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "See diet")
-        
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
@@ -128,6 +128,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return 1
     }
     
+    //created collection view cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as! CollectionCell
@@ -179,6 +180,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
     }
 
+    //selected colletion view cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.row == self.foods.count){
             self.performSegueWithIdentifier("Add", sender: self)
@@ -287,8 +289,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         //If received week and the new setted week, needs to delete the difference
         if !self.mealWeekDays.compareWeeks(tempWeekDays) {
-            print("woooow")
-//            let tempWeek = tempWeekDays
             var index  = 0
             for weekDay in tempWeekDays {
                 if(self.mealWeekDays.isSelected(weekDay) == false){
@@ -301,7 +301,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
                             
         if(self.mealWeekDays.getArrayString().count != tempWeekDays.count){
-            print("YE")
             let tempWeek = self.mealWeekDays.getArrayString()
             var find: Bool = true
             
@@ -322,6 +321,8 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 }
             }
         }
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "Edit diet", label: nil , value: nil).build() as [NSObject : AnyObject])
         
         self.navigationController?.popViewControllerAnimated(true)
     }

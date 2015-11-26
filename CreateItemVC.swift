@@ -24,6 +24,10 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     var selectedCategory: String = ""
     var numberCategory: Int = 1
     
+    ///builder and tracker - Google Analytics
+    let tracker = GAI.sharedInstance().defaultTracker
+    let builder = GAIDictionaryBuilder.createScreenView()
+
     
     //MARK: Lifecycle
     override func viewWillAppear(animated: Bool) {
@@ -37,10 +41,8 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         super.viewDidLoad()
         
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Create Item")
         
-        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
 
         self.nameTextField.delegate = self
@@ -128,9 +130,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         })
         
         } else {
-            //colocar função para criar item no core Data
             let show = NSLocalizedString(self.selectedCategory, comment: "")
+            let dataToAnalytic = self.nameTextField.text! + " " + self.selectedCategory
             
+            //Google Analytics - monitoring events - dicover created food
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "Created a food that was not registered before", label: dataToAnalytic, value: nil).build() as [NSObject : AnyObject])
+            
+            //colocar função para criar item no core Data
             ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)" + ".jpg", category: show)
             
             self.navigationController?.popViewControllerAnimated(true)

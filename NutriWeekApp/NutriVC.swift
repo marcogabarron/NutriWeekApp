@@ -14,6 +14,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var contextMeal: [Refeicao]!
     var format = FormatDates()
     
+    //tracker - Google Analytics
+    let tracker = GAI.sharedInstance().defaultTracker
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -38,7 +40,6 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         super.viewWillAppear(animated)
         
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "NutriWeekVC")
         
         let builder = GAIDictionaryBuilder.createScreenView()
