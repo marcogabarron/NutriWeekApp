@@ -22,6 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create the settings to use register user local notifications
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [UIUserNotificationType.Badge, UIUserNotificationType.Sound, UIUserNotificationType.Alert], categories: nil))
         
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+//        
+//        // Optional: configure GAI options.
+//        let gai = GAI.sharedInstance()
+//
+//        gai.trackUncaughtExceptions = true
+//        gai.dispatchInterval = 20
+//        gai.logger.logLevel = GAILogLevel.Verbose
+//        gai.trackerWithTrackingId("UA-70701653-1")
+
+        
         return true
     }
     

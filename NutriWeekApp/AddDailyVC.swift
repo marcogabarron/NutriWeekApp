@@ -39,6 +39,9 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     ///Verify if the choiced image was taked by the user and allows it to be saved
     var newMedia: Bool?
     
+    ///tracker and builder - Google Analytics
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
+    let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -52,6 +55,11 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        
+        //Google Analytics - monitoring screens
+        tracker.set(kGAIScreenName, value: "Created daily")
+        
+        tracker.send(builder.build() as [NSObject : AnyObject])
         
         // Set current date and time on labels and datePicker
         self.datePicker.date = NSDate()
@@ -76,6 +84,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
         topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
         self.container.addSubview(topBorder)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        //Google Analytics - monitoring end
+        builder.set(kGAISessionControl, forKey: "end")
     }
     
     override func didReceiveMemoryWarning() {
@@ -220,7 +235,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
-            let id = String(date)
+            let id = Int(date.timeIntervalSince1970 * 1000)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
@@ -232,7 +247,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
-//                presentViewController(refreshAlert, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
 
     }
     
