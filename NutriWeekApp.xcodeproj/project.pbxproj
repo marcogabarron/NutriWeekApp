@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4356C63D1C04FF2200E9B1E6 /* ImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */; };
+		43BA70C71C079E3000FB7A25 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BA70C61C079E3000FB7A25 /* Photos.framework */; };
 		AF9EB678E911FAD492BF1E77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE62D813F40FEB57393DF8B /* libPods.a */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		15A92B74BA856D0DA5E19CAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
+		43BA70C61C079E3000FB7A25 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		588EA2B8E58312E66B11B0B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7EE62D813F40FEB57393DF8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BA70C71C079E3000FB7A25 /* Photos.framework in Frameworks */,
 				AF9EB678E911FAD492BF1E77 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +199,7 @@
 		2F244D4AA2D3B85ADC777C7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43BA70C61C079E3000FB7A25 /* Photos.framework */,
 				7EE62D813F40FEB57393DF8B /* libPods.a */,
 			);
 			name = Frameworks;
@@ -434,7 +438,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 97EUAUR8F9;
+						DevelopmentTeam = V4EX66VGXQ;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;

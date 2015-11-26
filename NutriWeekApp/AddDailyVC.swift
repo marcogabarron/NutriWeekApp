@@ -113,57 +113,19 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             //Verifica a permissão da câmera
             if authStatus ==  AVAuthorizationStatus.Authorized
             {
-                //Chamar câmera
-                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-                    
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.delegate = self
-                    imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                    imagePicker.mediaTypes = [kUTTypeImage as String]
-                    //                    imagePicker.allowsEditing = true
-                    imagePicker.showsCameraControls = true
-                    
-                    self.presentViewController(imagePicker, animated: true, completion: nil)
-                    self.newMedia = true
-                }
+                self.showCamera()
             }
             else if authStatus == AVAuthorizationStatus.Denied //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-                
-                let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                
-                alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                    //Direcionar para ajustes
-                    
-                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
-                    if let url = settingsUrl {
-                        UIApplication.sharedApplication().openURL(url)
-                    }
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.showAdjustmentDisclaimer("Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera")
             }
             else if authStatus == AVAuthorizationStatus.NotDetermined {
                 AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { granted in
                     if granted {
-                        //Chamar câmera
-                        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-                            
-                            let imagePicker = UIImagePickerController()
-                            imagePicker.delegate = self
-                            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                            imagePicker.mediaTypes = [kUTTypeImage as String]
-                            //                    imagePicker.allowsEditing = true
-                            imagePicker.showsCameraControls = true
-                            
-                            self.presentViewController(imagePicker, animated: true, completion: nil)
-                            self.newMedia = true
-                        }
+                        self.showCamera()
                     }
                     else {
-                        // Criar alert informativo que o usuarios precisa dar permissao para acessar este recurso
-                        print(2)
+                        self.showAdjustmentDisclaimer("Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera")
                     }
                 })
             }
@@ -175,37 +137,21 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             
             let authStatus = PHPhotoLibrary.authorizationStatus()
             
-            print(authStatus)
-            
-            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-                
-                let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-                imagePicker.mediaTypes = [kUTTypeImage as String]
-                imagePicker.allowsEditing = true
-                
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-                self.newMedia = false
+            if authStatus == PHAuthorizationStatus.Authorized {
+                self.showGalleryPicker()
             }
-                
-                //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
-            else {
-                
-                let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                    
-                    //Direcionar para ajustes
-                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
-                    if let url = settingsUrl {
-                        UIApplication.sharedApplication().openURL(url)
+            else if authStatus == PHAuthorizationStatus.Denied {
+                self.showAdjustmentDisclaimer("Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria")
+            }
+            else if authStatus == PHAuthorizationStatus.NotDetermined {
+                PHPhotoLibrary.requestAuthorization({status in
+                    if authStatus == PHAuthorizationStatus.Authorized {
+                        self.showGalleryPicker()
                     }
-                    
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
+                    else if authStatus == PHAuthorizationStatus.Denied {
+                        self.showAdjustmentDisclaimer("Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria")
+                    }
+                })
             }
         }))
         
@@ -216,6 +162,50 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
         presentViewController(alertCamera, animated: true, completion: nil)
         
+    }
+    
+    func showCamera() {
+        //Chamar câmera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            //                    imagePicker.allowsEditing = true
+            imagePicker.showsCameraControls = true
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.newMedia = true
+        }
+    }
+    
+    func showGalleryPicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.mediaTypes = [kUTTypeImage as String]
+        imagePicker.allowsEditing = true
+        
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+        self.newMedia = false
+    }
+    
+    func showAdjustmentDisclaimer(title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            //Direcionar para ajustes
+            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+            if let url = settingsUrl {
+                UIApplication.sharedApplication().openURL(url)
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func saveButton(sender: AnyObject) {
