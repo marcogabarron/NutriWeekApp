@@ -25,6 +25,8 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     ///Search bar assistent. Say if it is active or no
     var searchActive: Bool = false
     
+    //tracker - Google Analytics
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
 
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -35,6 +37,13 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     
     
     override func viewWillAppear(animated: Bool) {
+        //Google Analytics - monitoring screens
+        tracker.set(kGAIScreenName, value: "Selected Foods")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         self.navigationItem.title = NSLocalizedString("Seleção de Alimentos", comment: "Food")
         
         self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
@@ -47,6 +56,12 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
         
         self.collectionView.allowsMultipleSelection = true
         self.collectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        print("pass")
     }
     
     

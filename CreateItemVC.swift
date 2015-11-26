@@ -24,41 +24,10 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     var selectedCategory: String = ""
     var numberCategory: Int = 1
     
-    
-    //var saveClicked: Bool!
-    
-//    override func willMoveToParentViewController(parent: UIViewController?) {
-//        super.willMoveToParentViewController(parent)
-//        if parent == nil && !saveClicked{
-//
-//            //UIAlert para perguntar se ele deseja salvar somente para este dia ou para todos os dias
-//                        let alert = UIAlertController(title: "Take one option",
-//                            message: "Really want to go back?",
-//                            preferredStyle: .Alert)
-//            
-//                        let save = UIAlertAction(title: "Save modifications",
-//                            style: .Default) { (action: UIAlertAction!) -> Void in
-//                                
-//                                
-//                                self.saveButtonClicked()
-//                                
-//                        }
-//            
-//                        let cancel = UIAlertAction(title: "Discard",
-//                            style: .Default) { (action: UIAlertAction!) -> Void in
-//                                
-//                        }
-//            presentViewController(alert,
-//                animated: true,
-//                completion: nil)
-//            
-//            
-//                        alert.addAction(save)
-//                        alert.addAction(cancel)
-//            
-//        
-//        }
-//    }
+    ///builder and tracker - Google Analytics
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
+    let builder = GAIDictionaryBuilder.createScreenView()
+
     
     //MARK: Lifecycle
     override func viewWillAppear(animated: Bool) {
@@ -70,6 +39,11 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Google Analytics - monitoring screens
+        tracker.set(kGAIScreenName, value: "Create Item")
+        
+        tracker.send(builder.build() as [NSObject : AnyObject])
 
         self.nameTextField.delegate = self
         self.nameTextField.placeholder = NSLocalizedString("Nome do Item", comment: "")
@@ -156,9 +130,13 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         })
         
         } else {
-            //colocar função para criar item no core Data
             let show = NSLocalizedString(self.selectedCategory, comment: "")
+            let dataToAnalytic = self.nameTextField.text! + " " + self.selectedCategory
             
+            //Google Analytics - monitoring events - dicover created food
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "Created a food that was not registered before", label: dataToAnalytic, value: nil).build() as [NSObject : AnyObject])
+            
+            //colocar função para criar item no core Data
             ItemCardapioServices.createItemCardapio(nameTextField.text!, image: "\(numberCategory)" + ".jpg", category: show)
             
             self.navigationController?.popViewControllerAnimated(true)

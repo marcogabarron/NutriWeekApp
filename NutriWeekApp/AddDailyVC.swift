@@ -39,6 +39,9 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     ///Verify if the choiced image was taked by the user and allows it to be saved
     var newMedia: Bool?
     
+    ///tracker and builder - Google Analytics
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
+    let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -52,6 +55,11 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        
+        //Google Analytics - monitoring screens
+        tracker.set(kGAIScreenName, value: "Created daily")
+        
+        tracker.send(builder.build() as [NSObject : AnyObject])
         
         // Set current date and time on labels and datePicker
         self.datePicker.date = NSDate()
@@ -76,6 +84,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
         topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
         self.container.addSubview(topBorder)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        //Google Analytics - monitoring end
+        builder.set(kGAISessionControl, forKey: "end")
     }
     
     override func didReceiveMemoryWarning() {
@@ -228,7 +243,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
-//                presentViewController(refreshAlert, animated: true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
 
     }
     
@@ -351,6 +366,16 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 imageToSave = originalImage
             }
             
+            if imageToSave?.imageOrientation == .Down {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI), flip: false)
+            }
+            else if imageToSave?.imageOrientation == .Left {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(-M_PI_2), flip: false)
+            }
+            else if imageToSave?.imageOrientation == .Right {
+                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI_2), flip: false)
+            }
+            
             let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width
             let imageHeight = imageToSave!.size.height / imageHeightProportion
             
@@ -377,16 +402,5 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
 
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

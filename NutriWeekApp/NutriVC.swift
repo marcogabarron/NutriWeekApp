@@ -2,6 +2,7 @@
 import UIKit
 import CoreData
 
+
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //MARK: IBOutlets and other variables and constants
@@ -14,6 +15,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var contextMeal: [Refeicao]!
     var format = FormatDates()
     
+    //tracker - Google Analytics
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -37,7 +40,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //Google Analytics - monitoring screens
+        tracker.set(kGAIScreenName, value: "NutriWeekVC")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        
         self.navigationItem.title = "NutriWeek"
+        
         self.tableView.reloadData()
     }
     

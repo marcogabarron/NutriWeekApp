@@ -1925,7 +1925,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="292"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
-                                                            <rect key="frame" x="10" y="34" width="335" height="237"/>
+                                                            <rect key="frame" x="10" y="39.5" width="335" height="231.5"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="237" id="JwT-BR-ypW"/>
@@ -1939,7 +1939,7 @@
                                                             </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dyt-yp-HL2">
-                                                            <rect key="frame" x="10" y="10" width="300" height="20"/>
+                                                            <rect key="frame" x="10" y="10" width="300" height="19.5"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="603-JN-c4p"/>
@@ -1986,7 +1986,7 @@
                                                         <constraint firstItem="Dyt-yp-HL2" firstAttribute="leading" secondItem="l3S-3u-INI" secondAttribute="leading" constant="10" id="E5p-iA-gCp"/>
                                                         <constraint firstItem="o2p-1Q-ogA" firstAttribute="top" secondItem="l3S-3u-INI" secondAttribute="top" constant="8" id="Ehw-mf-2a2"/>
                                                         <constraint firstAttribute="bottom" secondItem="rJa-qH-7Gu" secondAttribute="bottom" constant="5" id="H2C-GG-7nz"/>
-                                                        <constraint firstItem="rJa-qH-7Gu" firstAttribute="top" secondItem="Dyt-yp-HL2" secondAttribute="bottom" constant="5" id="OIg-Ca-vya"/>
+                                                        <constraint firstItem="rJa-qH-7Gu" firstAttribute="top" secondItem="Dyt-yp-HL2" secondAttribute="bottom" constant="10" id="OIg-Ca-vya"/>
                                                         <constraint firstAttribute="bottom" secondItem="rJa-qH-7Gu" secondAttribute="bottom" id="P9X-t3-S3y"/>
                                                         <constraint firstItem="o2p-1Q-ogA" firstAttribute="leading" secondItem="Dyt-yp-HL2" secondAttribute="trailing" id="RRR-c7-Nbd"/>
                                                         <constraint firstItem="LhI-8a-6QX" firstAttribute="top" secondItem="rJa-qH-7Gu" secondAttribute="bottom" id="ews-db-Ifg"/>
