@@ -39,6 +39,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     ///Verify if the choiced image was taked by the user and allows it to be saved
     var newMedia: Bool?
     
+    let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -57,7 +58,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Created daily")
         
-        let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
         // Set current date and time on labels and datePicker
@@ -83,6 +83,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         topBorder.backgroundColor = UIColor(red: 54/255, green: 145/255, blue: 92/255, alpha: 1)
         topBorder.frame = CGRect(x: 0, y: 0, width: self.mealImage.frame.width, height: 1)
         self.container.addSubview(topBorder)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        //Google Analytics - monitoring end
+        builder.set(kGAISessionControl, forKey: "end")
     }
     
     override func didReceiveMemoryWarning() {

@@ -26,6 +26,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let fileManager = NSFileManager.defaultManager()
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
+    let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -38,7 +39,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "See Daily")
         
-        let builder = GAIDictionaryBuilder.createScreenView()
+        //Google Analytics - monitoring begin
+        builder.set(kGAISessionControl, forKey: "start")
+        
         tracker.send(builder.build() as [NSObject : AnyObject])
         
         
@@ -56,6 +59,13 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             
             self.diaryCollection.reloadData()
         }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        //Google Analytics - monitoring end
+        builder.set(kGAISessionControl, forKey: "end")
     }
     
     
