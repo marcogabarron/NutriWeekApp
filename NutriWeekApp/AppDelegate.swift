@@ -26,11 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configureError:NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
-        
-        // Optional: configure GAI options.
-        let gai = GAI.sharedInstance()
-        gai.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+//        
+//        // Optional: configure GAI options.
+//        let gai = GAI.sharedInstance()
+//
+//        gai.trackUncaughtExceptions = true
+//        gai.dispatchInterval = 20
+//        gai.logger.logLevel = GAILogLevel.Verbose
+//        gai.trackerWithTrackingId("UA-70701653-1")
 
         
         return true

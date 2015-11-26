@@ -231,7 +231,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
-            let id = String(date)
+            let id = Int(date.timeIntervalSince1970 * 1000)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
