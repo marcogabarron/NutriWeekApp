@@ -26,7 +26,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     var searchActive: Bool = false
     
     //tracker - Google Analytics
-    let tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
 
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -56,6 +56,12 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
         
         self.collectionView.allowsMultipleSelection = true
         self.collectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        print("pass")
     }
     
     

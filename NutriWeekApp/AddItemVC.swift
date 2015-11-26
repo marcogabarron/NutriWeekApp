@@ -37,7 +37,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
     
     override func viewWillAppear(animated: Bool) {
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
+        let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
         tracker.set(kGAIScreenName, value: "Name, hour and repetition")
         
         let builder = GAIDictionaryBuilder.createScreenView()

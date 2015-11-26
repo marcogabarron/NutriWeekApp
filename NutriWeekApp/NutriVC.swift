@@ -2,6 +2,7 @@
 import UIKit
 import CoreData
 
+
 class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     //MARK: IBOutlets and other variables and constants
@@ -15,7 +16,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var format = FormatDates()
     
     //tracker - Google Analytics
-    let tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     
     //MARK: Lifecycle
     override func viewDidLoad() {

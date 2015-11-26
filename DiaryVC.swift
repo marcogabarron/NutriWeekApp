@@ -27,7 +27,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     
     //tracker and builder - Google Analytics
-    let tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     let builder = GAIDictionaryBuilder.createScreenView()
     
     //MARK: Lifecycle

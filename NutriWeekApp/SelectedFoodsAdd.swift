@@ -15,7 +15,6 @@ class SelectedFoodsAdd: SelectedFoodsVC {
     override func viewWillAppear(animated: Bool) {
         
         //Google Analytics - monitoring screens
-        let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Add Item in Edit diet")
         
         let builder = GAIDictionaryBuilder.createScreenView()

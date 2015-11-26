@@ -25,7 +25,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
     var numberCategory: Int = 1
     
     ///builder and tracker - Google Analytics
-    let tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     let builder = GAIDictionaryBuilder.createScreenView()
 
     

@@ -20,7 +20,7 @@ class RepeatTVC: UITableViewController {
     var weekDays: Weeks!
     
     //tracker - Google Analytics
-    let tracker = GAI.sharedInstance().defaultTracker
+    let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     
     //MARK: Lifecycle
     override func viewDidLoad() {
