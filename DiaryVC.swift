@@ -126,6 +126,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     //MARK: Action
     @IBAction func beforeButton(sender: UIBarButtonItem) {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Before", action: "The user clicks here to see your register of meals", label: nil, value: nil).build() as [NSObject : AnyObject])
+
         
         date = (date.dateByAddingTimeInterval(-60*60*24))
         
@@ -138,6 +141,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @IBAction func afterButton(sender: AnyObject) {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button After", action: "The user clicks here to see your register of meals", label: nil, value: nil).build() as [NSObject : AnyObject])
         
         date = (date.dateByAddingTimeInterval(60*60*24))
         
