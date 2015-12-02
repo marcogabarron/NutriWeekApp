@@ -28,7 +28,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     //Relative to models and CoreData
     var foods = [ItemCardapio]()
-    var format = FormatDates()
+    var format = NSDateFormatter()
     var meal: Meal!
     
     ///Manage meal frequency at week
@@ -48,7 +48,6 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         super.viewDidLoad()
         
         //Inits disabled because there is no changes do save
-        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
         self.saveButton.enabled = false
         
         //Passing selected meal foods to actual current foods
@@ -91,12 +90,12 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(self.foods != self.meal.foods){
             //Get the Cardapio itens with the choosed Refeicao uuid
             self.foods = self.meal.foods
-            self.saveButton.enabled = true
+            self.activeSaveButton()
             
         }
         
         if(self.mealWeekDays.change){
-            self.saveButton.enabled = true
+            self.activeSaveButton()
         }
         
         //Tap to stop shaking - if there are shaking
@@ -183,6 +182,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //selected colletion view cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if(indexPath.row == self.foods.count){
+            //Google Analytics - monitoring events - dicover created food
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Add - COllectionVC", action: "The user want to add food in the meal created", label: nil, value: nil).build() as [NSObject : AnyObject])
+            
             self.performSegueWithIdentifier("Add", sender: self)
         }
         else if self.delButtonAppears {
@@ -218,6 +220,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             cell.detailTextLabel?.text = NSLocalizedString("Todos os dias", comment: "")
             
         } else {
+            //Google Analytics - monitoring events - dicover created food
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Weeks", action: "To see if in the edit the user want to change weeks", label: cell.detailTextLabel?.text, value: nil).build() as [NSObject : AnyObject])
+            
+            
             cell.detailTextLabel?.text = ""
             var buildDetail: String = " "
             
@@ -254,6 +260,10 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
+        
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Weeks", action: "To see if in the edit the user want to change weeks", label: cell?.detailTextLabel?.text, value: nil).build() as [NSObject : AnyObject])
+        
         cell!.selected = false
     }
 
@@ -322,7 +332,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
         }
         //Google Analytics - monitoring events - dicover created food
-        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "Edit diet", label: nil , value: nil).build() as [NSObject : AnyObject])
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save and enable notification", action: "Edit diet", label: nil , value: self.notificationSwitch.on).build() as [NSObject : AnyObject])
         
         self.navigationController?.popViewControllerAnimated(true)
     }
@@ -351,7 +361,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
-        self.saveButton.enabled = true
+        self.activeSaveButton()
 
         self.meal.hour = self.format.formatDateToString(self.datePicker.date)
         self.hour.setTitle(self.format.formatStringTime(meal.hour), forState: .Normal)
@@ -359,11 +369,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     
     @IBAction func valueChange(sender: AnyObject) {
-        self.saveButton.enabled = true
+        self.activeSaveButton()
     }
     
     
     //MARK: Functions
+    
+    func activeSaveButton(){
+        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.enabled = true
+    }
     
     /** Stops shaking the collection view cells **/
     func stopShakingIcons(layer: CALayer) {
@@ -402,7 +417,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.meal.removeFood((sender.layer.valueForKey("index")!.row) as Int)
                 
         self.foods = self.meal.foods
-        self.saveButton.enabled = true
+        self.activeSaveButton()
 
         var index: [NSIndexPath] = []
         index.append(sender.layer.valueForKey("index") as! NSIndexPath)
@@ -469,7 +484,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if(self.foods != self.meal.foods){
             //Get the Cardapio itens with the choosed Refeicao uuid
             self.foods = self.meal.foods
-            self.saveButton.enabled = true
+            self.activeSaveButton()
         }
         
         self.collectionView.reloadData()

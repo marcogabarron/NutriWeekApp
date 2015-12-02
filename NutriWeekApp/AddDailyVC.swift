@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 import AssetsLibrary
+import Photos
 
 class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UIGestureRecognizerDelegate {
     
@@ -29,7 +30,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBOutlet weak var heightView: NSLayoutConstraint!
     
     //Relative to models and CoreData
-    var format = FormatDates()
     let dateFormatter = NSDateFormatter()
     //Relative to save images
     var fileManager = NSFileManager.defaultManager()
@@ -64,8 +64,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         // Set current date and time on labels and datePicker
         self.datePicker.date = NSDate()
         
-        self.dateLabel.text = self.format.formatDateToYearDatString(date)
-        self.hour.setTitle(self.format.formatDateToString(self.datePicker.date), forState: .Normal)
+        self.dateLabel.text = self.dateFormatter.formatDateToYearDateString(date)
+        self.hour.setTitle(self.dateFormatter.formatDateToString(self.datePicker.date), forState: .Normal)
         
         descriptionText.delegate = self
         descriptionText!.autocorrectionType = UITextAutocorrectionType.No
@@ -108,63 +108,24 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
         alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
             
-            
             let authStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
             
             //Verifica a permissão da câmera
             if authStatus ==  AVAuthorizationStatus.Authorized
             {
-                //Chamar câmera
-                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-                    
-                    let imagePicker = UIImagePickerController()
-                    imagePicker.delegate = self
-                    imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                    imagePicker.mediaTypes = [kUTTypeImage as String]
-                    //                    imagePicker.allowsEditing = true
-                    imagePicker.showsCameraControls = true
-                    
-                    self.presentViewController(imagePicker, animated: true, completion: nil)
-                    self.newMedia = true
-                }
+                self.showCamera()
             }
             else if authStatus == AVAuthorizationStatus.Denied //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-                
-                let alert = UIAlertController(title: "Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                
-                alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                    //Direcionar para ajustes
-                    
-                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
-                    if let url = settingsUrl {
-                        UIApplication.sharedApplication().openURL(url)
-                    }
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.showAdjustmentDisclaimer("Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera")
             }
             else if authStatus == AVAuthorizationStatus.NotDetermined {
                 AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { granted in
                     if granted {
-                        //Chamar câmera
-                        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-                            
-                            let imagePicker = UIImagePickerController()
-                            imagePicker.delegate = self
-                            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-                            imagePicker.mediaTypes = [kUTTypeImage as String]
-                            //                    imagePicker.allowsEditing = true
-                            imagePicker.showsCameraControls = true
-                            
-                            self.presentViewController(imagePicker, animated: true, completion: nil)
-                            self.newMedia = true
-                        }
+                        self.showCamera()
                     }
                     else {
-                        // Criar alert informativo que o usuarios precisa dar permissao para acessar este recurso
-                        print(2)
+                        self.showAdjustmentDisclaimer("Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera")
                     }
                 })
             }
@@ -173,35 +134,24 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
             
             //Chamar galeria
-            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.SavedPhotosAlbum) {
-                
-                let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-                imagePicker.mediaTypes = [kUTTypeImage as String]
-                imagePicker.allowsEditing = true
-                
-                self.presentViewController(imagePicker, animated: true, completion: nil)
-                self.newMedia = false
+            
+            let authStatus = PHPhotoLibrary.authorizationStatus()
+            
+            if authStatus == PHAuthorizationStatus.Authorized {
+                self.showGalleryPicker()
             }
-                
-                //Caso a galeria não esteja disponível, nas configurações, o usuário pode alterar
-            else {
-                
-                let alert = UIAlertController(title: "Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
-                    
-                    //Direcionar para ajustes
-                    let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
-                    if let url = settingsUrl {
-                        UIApplication.sharedApplication().openURL(url)
+            else if authStatus == PHAuthorizationStatus.Denied {
+                self.showAdjustmentDisclaimer("Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria")
+            }
+            else if authStatus == PHAuthorizationStatus.NotDetermined {
+                PHPhotoLibrary.requestAuthorization({status in
+                    if authStatus == PHAuthorizationStatus.Authorized {
+                        self.showGalleryPicker()
                     }
-                    
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-                
+                    else if authStatus == PHAuthorizationStatus.Denied {
+                        self.showAdjustmentDisclaimer("Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria")
+                    }
+                })
             }
         }))
         
@@ -214,24 +164,78 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
     }
     
+    func showCamera() {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Camera", action: "showCamera", label: "Camera", value: nil).build() as [NSObject : AnyObject])
+        
+        
+        //Chamar câmera
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            //                    imagePicker.allowsEditing = true
+            imagePicker.showsCameraControls = true
+            
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.newMedia = true
+        }
+    }
+    
+    func showGalleryPicker() {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Camera", action: "showGallery", label: "Gallery", value: nil).build() as [NSObject : AnyObject])
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.mediaTypes = [kUTTypeImage as String]
+        imagePicker.allowsEditing = true
+        
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+        self.newMedia = false
+    }
+    
+    func showAdjustmentDisclaimer(title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Ir para ajustes", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            //Direcionar para ajustes
+            let settingsUrl = NSURL(string: UIApplicationOpenSettingsURLString)
+            if let url = settingsUrl {
+                UIApplication.sharedApplication().openURL(url)
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func saveButton(sender: AnyObject) {
         if(self.descriptionText.text == "No que você está pensando"){
             self.descriptionText.text = ""
         }
         
-        let dateDay = format.formatDateToDatString(date)
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "Save daily - we want to see if the user writes the description and if he fled diet", label: self.descriptionText.text, value: self.switchDiet.on).build() as [NSObject : AnyObject])
+        
+        let dateDay = dateFormatter.formatDateToDateString(date)
 
-        let hourDatePicker = format.formatDateToStringWithSecounds(self.datePicker.date)
+        let hourDatePicker = dateFormatter.formatDateToStringWithSecounds(self.datePicker.date)
         
         let dateString = dateDay + " " + hourDatePicker
         
-        let finalDate = format.formatCompleteStringToDate(dateString)
+        let finalDate = dateFormatter.formatCompleteStringToDate(dateString)
         
 
         let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
-            let id = String(date)
+            let id = Int(date.timeIntervalSince1970 * 1000)
             
             let selectedImage = mealImage.image
             let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
@@ -249,7 +253,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     
     
     @IBAction func datePickerAppear(sender: AnyObject) {
-        self.datePicker.date = self.format.formatStringToDate((self.hour.titleLabel?.text)!)
+        self.datePicker.date = self.dateFormatter.formatStringToDate((self.hour.titleLabel?.text)!)
         
         if(self.bottomDP.constant == -216){
             
@@ -273,7 +277,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBAction func UpdateTimerPicker(sender: AnyObject) {
         self.addSaveButton()
         
-        self.hour.setTitle( self.format.formatDateToString(self.datePicker.date), forState: .Normal)
+        self.hour.setTitle( self.dateFormatter.formatDateToString(self.datePicker.date), forState: .Normal)
     }
     
     
@@ -367,13 +371,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             }
             
             if imageToSave?.imageOrientation == .Down {
-                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI), flip: false)
+                imageToSave = imageToSave?.rotate(CGFloat(M_PI), flip: false, invertSize: false)
             }
             else if imageToSave?.imageOrientation == .Left {
-                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(-M_PI_2), flip: false)
+                imageToSave = imageToSave?.rotate(CGFloat(-M_PI_2), flip: false, invertSize: true)
             }
             else if imageToSave?.imageOrientation == .Right {
-                imageToSave = imageToSave?.imageRotatedByDegrees(CGFloat(M_PI_2), flip: false)
+                imageToSave = imageToSave?.rotate(CGFloat(M_PI_2), flip: false, invertSize: true)
             }
             
             let imageHeightProportion = imageToSave!.size.width / self.mealImage.frame.width

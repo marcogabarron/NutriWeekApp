@@ -74,6 +74,9 @@ class RepeatTVC: UITableViewController {
                     self.addDay(self.daysInPt[indexPath.row])
                 }
         }
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Weeks", action: "See the day of week selected or deselected", label: cell?.textLabel?.text , value: (cell!.accessoryType == .Checkmark)).build() as [NSObject : AnyObject])
+        
         cell?.selected = false
     }
     

@@ -34,11 +34,14 @@ class SelectedFoodsSave: SelectedFoodsVC {
         } else {
             
             self.meal.setItems(self.selectedItens)
+            //Google Analytics - monitoring events - dicover created food
+            tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "To save meal. We want to see how many foods are in the register", label: nil, value: self.meal.foods.count).build() as [NSObject : AnyObject])
+            
             for diaSemana in self.meal.dayOfWeek{
                 
                 // Add notification
-                let format = FormatDates()
-                let todoItem = TodoItem(deadline: format.setNotificationDate(diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: NSUUID().UUIDString)
+                let dateFormat = NSDateFormatter()
+                let todoItem = TodoItem(deadline: dateFormat.setNotificationDate(diaSemana, dateHour: self.meal.hour), title: self.meal.name, UUID: NSUUID().UUIDString)
                 
                 TodoList.sharedInstance.addItem(todoItem)
                 

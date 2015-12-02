@@ -14,7 +14,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     //    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     
     //Relative to models and CoreData
-    var format = FormatDates()
+    var format = NSDateFormatter()
     var allDaily : [Daily] = []
     
     var date = NSDate()
@@ -47,7 +47,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewWillAppear(animated)
         date = NSDate()
         
-        self.dateNavigation.title = self.format.formatDateToYearDatString(NSDate())
+        self.dateNavigation.title = self.format.formatDateToYearDateString(NSDate())
         self.disableButtonAfter()
         
         if(DailyServices.allDaily().count > 0){
@@ -126,11 +126,14 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     //MARK: Action
     @IBAction func beforeButton(sender: UIBarButtonItem) {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Before", action: "The user clicks here to see your register of meals", label: nil, value: nil).build() as [NSObject : AnyObject])
+
         
         date = (date.dateByAddingTimeInterval(-60*60*24))
         
         self.enableButtonAfter()
-        self.dateNavigation.title = self.format.formatDateToYearDatString(date)
+        self.dateNavigation.title = self.format.formatDateToYearDateString(date)
         
         self.allDaily = DailyServices.findByDateDaily(date)
         
@@ -138,14 +141,16 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @IBAction func afterButton(sender: AnyObject) {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button After", action: "The user clicks here to see your register of meals", label: nil, value: nil).build() as [NSObject : AnyObject])
         
         date = (date.dateByAddingTimeInterval(60*60*24))
         
-        self.dateNavigation.title = self.format.formatDateToYearDatString(date)
+        self.dateNavigation.title = self.format.formatDateToYearDateString(date)
         
         self.allDaily = DailyServices.findByDateDaily(date)
         
-        if(self.dateNavigation.title == self.format.formatDateToYearDatString(NSDate())){
+        if(self.dateNavigation.title == self.format.formatDateToYearDateString(NSDate())){
             self.disableButtonAfter()
         }
         self.diaryCollection.reloadData()

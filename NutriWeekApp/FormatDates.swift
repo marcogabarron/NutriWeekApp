@@ -8,12 +8,12 @@
 
 import Foundation
 
-class FormatDates {
+extension NSDateFormatter {
     
-    var dateFormatter = NSDateFormatter()
+//    var dateFormatter = NSDateFormatter()
     
     /** Receive the day of week and the pickerdate time. Build the notification, returning the date to schedule **/
-    func setNotificationDate (notificationWeekDay: String, dateHour: String) -> (NSDate) {
+    public func setNotificationDate (notificationWeekDay: String, dateHour: String) -> (NSDate) {
         
         // Get the current week day
         let currentDate = NSDate()
@@ -60,18 +60,17 @@ class FormatDates {
         let currentAddedByInterval: NSDate = currentDate.dateByAddingTimeInterval(interval * 60*60*24)
     
 //        var dateFormatter = NSDateFormatter()
-        self.dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateDayToAdd = self.dateFormatter.stringFromDate(currentAddedByInterval)
+        dateFormat = "yyyy-MM-dd"
+        let dateDayToAdd = stringFromDate(currentAddedByInterval)
             
         //Date hour getted in picker date
         let dateStringToAdd = dateDayToAdd + "-" + dateHour + ":00"
         print(dateStringToAdd)
             
         //Transform day  and time in only one date
-        self.dateFormatter = NSDateFormatter()
-        self.dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
-        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        var dateToAdd = self.dateFormatter.dateFromString(dateStringToAdd)
+        dateFormat = "yyyy-MM-dd-HH:mm:ss"
+        timeZone = NSTimeZone.localTimeZone()
+        var dateToAdd = dateFromString(dateStringToAdd)
             
         /// Verify if the date generated is before the actual. If its true - only happens if the notification`s day is today early than now - add one week interval
         let dateComparisionResult:NSComparisonResult = currentDate.compare(dateToAdd!)
@@ -89,79 +88,84 @@ class FormatDates {
     //MARK - Format Time
     
     /** Get a date string and returns a formatted string with local time zone **/
-    func formatStringTime(dataString: String) -> String{
+    public func formatStringTime(dataString: String) -> String{
         
-        self.dateFormatter.dateFormat = "HH:mm"
-        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
-        let dateValue = dateFormatter.dateFromString(dataString)
+        dateFormat = "HH:mm"
+        timeZone = NSTimeZone.localTimeZone()
+        let dateValue = dateFromString(dataString)
         
         let stringFormatted = NSDateFormatter.localizedStringFromDate(dateValue!, dateStyle: .NoStyle, timeStyle: .ShortStyle)
         
         return stringFormatted
         
+        
+    }
+    
+    public static func formatStringToDate(str: String, mask: String) {
+    
     }
     
     /** Convert stringDate to Date **/
-    func formatStringToDate(dataString: String) -> NSDate{
+    public func formatStringToDate(dataString: String) -> NSDate{
         
-        self.dateFormatter.dateFormat = "HH:mm"
-        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        dateFormat = "HH:mm"
+        timeZone = NSTimeZone.localTimeZone()
         
-        let dateValue = dateFormatter.dateFromString(dataString)
+        let dateValue = dateFromString(dataString)
         
         return dateValue!
         
     }
     
     /** Get date and returns a string formatted to save Refeicao **/
-    func formatDateToString(date: NSDate) -> String{
+    public func formatDateToString(date: NSDate) -> String{
         
-        self.dateFormatter.dateFormat = "HH:mm"
+        dateFormat = "HH:mm"
         
-        let strDate = dateFormatter.stringFromDate(date)
+        let strDate = stringFromDate(date)
         
         return strDate
         
     }
     
     /** Get date and returns a string formatted to save Refeicao **/
-    func formatDateToStringWithSecounds(date: NSDate) -> String{
+    public func formatDateToStringWithSecounds(date: NSDate) -> String{
         
-        self.dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormat = "HH:mm:ss"
         
-        let strDate = dateFormatter.stringFromDate(date)
+        let strDate = stringFromDate(date)
         
         return strDate
         
     }
     
     /** Get current date and set day, month and year string **/
-    func formatDateToYearDatString(date: NSDate) -> String{
+    public func formatDateToYearDateString(date: NSDate) -> String{
         
-        self.dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormat = "dd/MM/yyyy"
         
-        let strDate = self.dateFormatter.stringFromDate(date)
-        
-        return strDate
-    }
-    
-    /** Get current date and set day, month and year string **/
-    func formatDateToDatString(date: NSDate) -> String{
-        
-        self.dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        let strDate = self.dateFormatter.stringFromDate(date)
+        let strDate = stringFromDate(date)
         
         return strDate
     }
     
     /** Get current date and set day, month and year string **/
-    func formatCompleteStringToDate(str: String) -> NSDate{
+    public func formatDateToDateString(date: NSDate) -> String{
         
-        self.dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        self.dateFormatter.timeZone = NSTimeZone.localTimeZone()
+        dateFormat = "yyyy-MM-dd"
+        
+        let strDate = stringFromDate(date)
+        
+        return strDate
+    }
+    
+    /** Get current date and set day, month and year string **/
+    public func formatCompleteStringToDate(str: String) -> NSDate{
+       
+        dateFormat = "yyyy-MM-dd HH:mm:ss"
+        timeZone = NSTimeZone.localTimeZone()
 
-        let strDate = self.dateFormatter.dateFromString(str)
+        let strDate = dateFromString(str)
         
         return strDate!
     }
