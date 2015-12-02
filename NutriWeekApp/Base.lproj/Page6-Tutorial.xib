@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -18,15 +18,15 @@
                         <constraint firstAttribute="height" constant="259" id="QdO-HA-mCW"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page7-Back to the first screen and check your meals and create if needed" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-c7-VzW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 5 - Edit your meal" translatesAutoresizingMaskIntoConstraints="NO" id="FzS-c7-VzW">
                     <rect key="frame" x="131" y="202" width="113" height="203"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="203" id="7Sh-oI-WUh"/>
                         <constraint firstAttribute="width" constant="113" id="WiH-DM-515"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Volte para a tela inicial para verificar suas refeições da semana" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMt-ZO-ErY">
-                    <rect key="frame" x="60" y="441" width="247" height="79"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifique ou edite uma refeição." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMt-ZO-ErY">
+                    <rect key="frame" x="60" y="441" width="247" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Page7-Back to the first screen and check your meals and create if needed" width="750" height="1334"/>
+        <image name="Page 5 - Edit your meal" width="750" height="1334"/>
         <image name="iphone6-plus-box-silver-2014" width="478" height="595"/>
     </resources>
 </document>

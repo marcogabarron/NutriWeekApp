@@ -165,6 +165,10 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     }
     
     func showCamera() {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Camera", action: "showCamera", label: "Camera", value: nil).build() as [NSObject : AnyObject])
+        
+        
         //Chamar câmera
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
@@ -181,6 +185,9 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     }
     
     func showGalleryPicker() {
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Camera", action: "showGallery", label: "Gallery", value: nil).build() as [NSObject : AnyObject])
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
@@ -212,6 +219,9 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         if(self.descriptionText.text == "No que você está pensando"){
             self.descriptionText.text = ""
         }
+        
+        //Google Analytics - monitoring events - dicover created food
+        tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Save", action: "Save daily - we want to see if the user writes the description and if he fled diet", label: self.descriptionText.text, value: self.switchDiet.on).build() as [NSObject : AnyObject])
         
         let dateDay = dateFormatter.formatDateToDateString(date)
 

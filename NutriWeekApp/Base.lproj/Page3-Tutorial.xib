@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -18,8 +18,8 @@
                         <constraint firstAttribute="height" constant="203" id="zWy-Dl-tzF"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Clique para adicionar novas refeições " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKb-wz-8ol">
-                    <rect key="frame" x="63" y="441" width="247" height="52.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete os campos para adicionar uma nova refeição e ser lembrado de quando comer." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKb-wz-8ol">
+                    <rect key="frame" x="63.5" y="441" width="247" height="61"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -31,9 +31,17 @@
                         <constraint firstAttribute="width" constant="206" id="PvW-uL-p1W"/>
                     </constraints>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 2 - Add a new meal" translatesAutoresizingMaskIntoConstraints="NO" id="ZEC-My-MMf">
+                    <rect key="frame" x="131" y="202" width="113" height="203"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="113" id="7df-oY-BZw"/>
+                        <constraint firstAttribute="height" constant="203" id="se3-EF-lVK"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ZEC-My-MMf" firstAttribute="top" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" constant="-231" id="2jI-9Q-gbL"/>
                 <constraint firstAttribute="trailing" secondItem="NbO-ZR-7O1" secondAttribute="trailing" constant="131" id="7fu-88-THz"/>
                 <constraint firstItem="qKb-wz-8ol" firstAttribute="top" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" constant="8" id="9hD-ci-aTg"/>
                 <constraint firstAttribute="trailing" secondItem="9fA-Aw-Ohc" secondAttribute="trailing" constant="85" id="A9r-ut-t3Q"/>
@@ -46,6 +54,7 @@
                 <constraint firstAttribute="centerX" secondItem="NbO-ZR-7O1" secondAttribute="centerX" id="bYN-WA-b0g"/>
                 <constraint firstAttribute="centerY" secondItem="9fA-Aw-Ohc" secondAttribute="centerY" constant="30" id="bfb-4p-X3p"/>
                 <constraint firstAttribute="centerY" secondItem="NbO-ZR-7O1" secondAttribute="centerY" constant="30" id="ca2-fQ-d4k"/>
+                <constraint firstItem="ZEC-My-MMf" firstAttribute="leading" secondItem="9fA-Aw-Ohc" secondAttribute="trailing" constant="-159" id="cdF-cM-D7f"/>
                 <constraint firstAttribute="bottom" secondItem="NbO-ZR-7O1" secondAttribute="bottom" constant="262" id="f7L-9h-jEn"/>
                 <constraint firstItem="qKb-wz-8ol" firstAttribute="top" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" constant="20" id="gU1-zp-ZtF"/>
                 <constraint firstItem="qKb-wz-8ol" firstAttribute="centerX" secondItem="9fA-Aw-Ohc" secondAttribute="centerX" id="tCN-iB-Dd4"/>
@@ -68,6 +77,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Page 2 - Add a new meal" width="750" height="1334"/>
         <image name="iOS Simulator Screen Shot 22.07.2015 14.06.31" width="750" height="1334"/>
         <image name="iphone6-plus-box-silver-2014" width="478" height="595"/>
     </resources>
