@@ -7,54 +7,61 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view autoresizesSubviews="NO" contentMode="scaleAspectFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauhchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="4Ac-JK-xGw">
-                    <rect key="frame" x="108" y="130" width="159" height="157"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-Zw-XKP">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="GVH-Y3-Inu">
+                            <rect key="frame" x="84" y="174" width="206" height="259"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="206" id="EJ5-8o-SGh"/>
+                                <constraint firstAttribute="height" constant="259" id="Vd8-Zu-7Lb"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 0 - Open your app and check your diet by week" translatesAutoresizingMaskIntoConstraints="NO" id="BSD-fa-dT3">
+                            <rect key="frame" x="131" y="202" width="113" height="203"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="113" id="1NK-W3-yCQ"/>
+                                <constraint firstAttribute="height" constant="203" id="ddE-y1-g4T"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abra seu aplicativo, veja os dias da semana e refeições cadastradas, caso haja." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fez-bV-7S0">
+                            <rect key="frame" x="64" y="441" width="247" height="79"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="79" id="WkP-Jh-XZR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="157" id="G06-f9-5yD"/>
-                        <constraint firstAttribute="width" constant="159" id="ONW-x3-NGX"/>
+                        <constraint firstItem="fez-bV-7S0" firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" id="5WF-it-Fzz"/>
+                        <constraint firstAttribute="centerX" secondItem="BSD-fa-dT3" secondAttribute="centerX" id="WOc-aS-XI0"/>
+                        <constraint firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" constant="0.5" id="fpp-oK-h3x"/>
+                        <constraint firstItem="fez-bV-7S0" firstAttribute="width" secondItem="GVH-Y3-Inu" secondAttribute="width" multiplier="1.2" id="gAS-c4-7gY"/>
+                        <constraint firstAttribute="centerY" secondItem="BSD-fa-dT3" secondAttribute="centerY" constant="30" id="i35-su-YEP"/>
+                        <constraint firstAttribute="centerY" secondItem="GVH-Y3-Inu" secondAttribute="centerY" constant="30" id="lLm-aK-0Qd"/>
+                        <constraint firstItem="fez-bV-7S0" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="8" id="xzP-bz-YeL"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NutriWeek" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-Qh-1G9">
-                    <rect key="frame" x="134" y="295" width="109" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <color key="textColor" red="0.22352941179999999" green="0.61960784310000006" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-Vindo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEM-4n-5bL">
-                    <rect key="frame" x="68" y="354" width="239" height="51"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                    <color key="textColor" red="0.19545091058935465" green="0.73222626339696961" blue="0.59058568149757484" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este é o NutriWeek, seu aplicativo de Nutrição. Avance de tela para seguir no tutorial" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCl-WF-h3s">
-                    <rect key="frame" x="68" y="425" width="239" height="61"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.52490729359999999" green="1" blue="0.25160054599999998" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="lEM-4n-5bL" firstAttribute="width" secondItem="4Ac-JK-xGw" secondAttribute="width" multiplier="1.5" id="2zU-aC-cN2"/>
-                <constraint firstItem="lEM-4n-5bL" firstAttribute="centerX" secondItem="sX3-Qh-1G9" secondAttribute="centerX" id="HYf-6F-99B"/>
-                <constraint firstItem="4Ac-JK-xGw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="130" id="K4B-PA-DtL"/>
-                <constraint firstItem="LCl-WF-h3s" firstAttribute="top" secondItem="lEM-4n-5bL" secondAttribute="bottom" constant="20" id="Rgt-AC-DXi"/>
-                <constraint firstItem="LCl-WF-h3s" firstAttribute="centerX" secondItem="lEM-4n-5bL" secondAttribute="centerX" id="WSL-8E-TlT"/>
-                <constraint firstAttribute="centerX" secondItem="4Ac-JK-xGw" secondAttribute="centerX" id="Y01-H7-M4i"/>
-                <constraint firstItem="sX3-Qh-1G9" firstAttribute="centerX" secondItem="4Ac-JK-xGw" secondAttribute="centerX" id="fSX-YO-bWT"/>
-                <constraint firstItem="sX3-Qh-1G9" firstAttribute="top" secondItem="4Ac-JK-xGw" secondAttribute="bottom" constant="8" id="obh-6J-mFu"/>
-                <constraint firstItem="LCl-WF-h3s" firstAttribute="width" secondItem="lEM-4n-5bL" secondAttribute="width" id="p6m-d7-wMy"/>
-                <constraint firstItem="lEM-4n-5bL" firstAttribute="top" secondItem="sX3-Qh-1G9" secondAttribute="bottom" constant="30" id="rIO-og-BoT"/>
+                <constraint firstAttribute="trailing" secondItem="SRo-Zw-XKP" secondAttribute="trailing" id="HwO-TG-0hM"/>
+                <constraint firstAttribute="bottom" secondItem="SRo-Zw-XKP" secondAttribute="bottom" id="Q3A-0g-Kcl"/>
+                <constraint firstItem="SRo-Zw-XKP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RAB-y6-NCR"/>
+                <constraint firstItem="SRo-Zw-XKP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="umW-6T-TPl"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="352" y="322"/>
         </view>
     </objects>
     <resources>
-        <image name="LauhchScreen" width="299" height="299"/>
+        <image name="Page 0 - Open your app and check your diet by week" width="750" height="1334"/>
+        <image name="iphone6-plus-box-silver-2014" width="478" height="595"/>
     </resources>
 </document>

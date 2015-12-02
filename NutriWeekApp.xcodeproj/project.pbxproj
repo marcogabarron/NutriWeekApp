@@ -31,6 +31,9 @@
 		C2FE6C6F1BED16970044B39B /* DailyServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE6C6E1BED16970044B39B /* DailyServices.swift */; };
 		C2FE6C731BED1E420044B39B /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE6C721BED1E420044B39B /* Daily.swift */; };
 		DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4061A11B41D9D400B6B204 /* AddItemVC.swift */; };
+		DA539FB11C0F63B6007B4A4E /* Page1-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA539FB31C0F63B6007B4A4E /* Page1-Tutorial.xib */; };
+		DA539FB51C0F6401007B4A4E /* Page8-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA539FB71C0F6401007B4A4E /* Page8-Tutorial.xib */; };
+		DA539FBB1C0F66F0007B4A4E /* Page9-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA539FBD1C0F66F0007B4A4E /* Page9-Tutorial.xib */; };
 		DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */; };
 		DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */; };
 		DA8110801BD565C800632A40 /* CreateItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81107F1BD565C800632A40 /* CreateItemVC.swift */; };
@@ -38,7 +41,7 @@
 		DA8785011BEA7625008838E9 /* CollectionDiaryClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */; };
 		DAB08E671BFCF50B00D4B63A /* DiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */; };
 		DAC4676D1B6BBEA900F56E67 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC467651B6BBEA900F56E67 /* TutorialVC.swift */; };
-		DAC4676F1B6BC09100F56E67 /* Page1-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467711B6BC09100F56E67 /* Page1-Tutorial.xib */; };
+		DAC4676F1B6BC09100F56E67 /* Page0-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467711B6BC09100F56E67 /* Page0-Tutorial.xib */; };
 		DAC467741B6BC14300F56E67 /* Page2-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467761B6BC14300F56E67 /* Page2-Tutorial.xib */; };
 		DAC467791B6BC18600F56E67 /* Page3-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC4677B1B6BC18600F56E67 /* Page3-Tutorial.xib */; };
 		DAC4677E1B6BC1A300F56E67 /* Page4-Tutorial.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC467801B6BC1A300F56E67 /* Page4-Tutorial.xib */; };
@@ -95,7 +98,7 @@
 		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C273B1FF1B610E2A0048936E /* AlimentosFr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosFr.txt; sourceTree = "<group>"; };
 		C275F1EC1BF5054600FAA532 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
-		C27CACB71BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
+		C27CACB71BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
 		C27CACB81BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
 		C27CACB91BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page3-Tutorial.strings"; sourceTree = "<group>"; };
 		C27CACBA1BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page4-Tutorial.strings"; sourceTree = "<group>"; };
@@ -119,6 +122,12 @@
 		C2FE6C6E1BED16970044B39B /* DailyServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyServices.swift; sourceTree = "<group>"; };
 		C2FE6C721BED1E420044B39B /* Daily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Daily.swift; path = ../../../Daily.swift; sourceTree = "<group>"; };
 		DA4061A11B41D9D400B6B204 /* AddItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		DA539FB41C0F63B9007B4A4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page1-Tutorial.xib"; sourceTree = "<group>"; };
+		DA539FB61C0F6401007B4A4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page8-Tutorial.xib"; sourceTree = "<group>"; };
+		DA539FB91C0F6404007B4A4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page8-Tutorial.strings"; sourceTree = "<group>"; };
+		DA539FBA1C0F640F007B4A4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
+		DA539FBC1C0F66F0007B4A4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page9-Tutorial.xib"; sourceTree = "<group>"; };
+		DA539FBF1C0F66F2007B4A4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page9-Tutorial.strings"; sourceTree = "<group>"; };
 		DA60CF971B4D6EAA00C78BA0 /* ItemCardapioDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioDAO.swift; path = ../../ItemCardapioDAO.swift; sourceTree = "<group>"; };
 		DA60CF991B4D6EE700C78BA0 /* ItemCardapioServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCardapioServices.swift; path = ../ItemCardapioServices.swift; sourceTree = "<group>"; };
 		DA81107F1BD565C800632A40 /* CreateItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateItemVC.swift; path = ../CreateItemVC.swift; sourceTree = "<group>"; };
@@ -126,8 +135,8 @@
 		DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionDiaryClass.swift; path = ../CollectionDiaryClass.swift; sourceTree = "<group>"; };
 		DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryVC.swift; path = ../DiaryVC.swift; sourceTree = "<group>"; };
 		DAC467651B6BBEA900F56E67 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
-		DAC467701B6BC09100F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page1-Tutorial.xib"; sourceTree = "<group>"; };
-		DAC467731B6BC09B00F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
+		DAC467701B6BC09100F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page0-Tutorial.xib"; sourceTree = "<group>"; };
+		DAC467731B6BC09B00F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467751B6BC14300F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page2-Tutorial.xib"; sourceTree = "<group>"; };
 		DAC467781B6BC14500F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC4677A1B6BC18600F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page3-Tutorial.xib"; sourceTree = "<group>"; };
@@ -140,8 +149,8 @@
 		DAC4678C1B6BC26A00F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page6-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC4678E1B6BC28700F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page7-Tutorial.xib"; sourceTree = "<group>"; };
 		DAC467911B6BC28A00F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page7-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467931B6BC35A00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467951B6BC35B00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
+		DAC467931B6BC35A00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
+		DAC467951B6BC35B00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467971B6BC37900F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467991B6BC37A00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC4679B1B6BC37E00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page3-Tutorial.strings"; sourceTree = "<group>"; };
@@ -268,13 +277,16 @@
 		DAC4676E1B6BBEB800F56E67 /* Pages-Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				DAC467711B6BC09100F56E67 /* Page1-Tutorial.xib */,
+				DAC467711B6BC09100F56E67 /* Page0-Tutorial.xib */,
+				DA539FB31C0F63B6007B4A4E /* Page1-Tutorial.xib */,
 				DAC467761B6BC14300F56E67 /* Page2-Tutorial.xib */,
 				DAC4677B1B6BC18600F56E67 /* Page3-Tutorial.xib */,
 				DAC467801B6BC1A300F56E67 /* Page4-Tutorial.xib */,
 				DAC467851B6BC20A00F56E67 /* Page5-Tutorial.xib */,
 				DAC4678A1B6BC26900F56E67 /* Page6-Tutorial.xib */,
 				DAC4678F1B6BC28700F56E67 /* Page7-Tutorial.xib */,
+				DA539FB71C0F6401007B4A4E /* Page8-Tutorial.xib */,
+				DA539FBD1C0F66F0007B4A4E /* Page9-Tutorial.xib */,
 			);
 			name = "Pages-Tutorial";
 			sourceTree = "<group>";
@@ -478,13 +490,16 @@
 				C273B2001B610E2A0048936E /* AlimentosFr.txt in Resources */,
 				DAC4678D1B6BC28700F56E67 /* Page7-Tutorial.xib in Resources */,
 				C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */,
+				DA539FB11C0F63B6007B4A4E /* Page1-Tutorial.xib in Resources */,
 				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
-				DAC4676F1B6BC09100F56E67 /* Page1-Tutorial.xib in Resources */,
+				DAC4676F1B6BC09100F56E67 /* Page0-Tutorial.xib in Resources */,
+				DA539FB51C0F6401007B4A4E /* Page8-Tutorial.xib in Resources */,
 				C2A0F6491BE12602007EA3AD /* Images.xcassets in Resources */,
 				DAC467881B6BC26900F56E67 /* Page6-Tutorial.xib in Resources */,
 				DAC4677E1B6BC1A300F56E67 /* Page4-Tutorial.xib in Resources */,
 				C2E90E8E1C06237800C92C56 /* GoogleService-Info.plist in Resources */,
 				C29A78081B5949B100E055DF /* AlimentosEn.txt in Resources */,
+				DA539FBB1C0F66F0007B4A4E /* Page9-Tutorial.xib in Resources */,
 				DAD5A1741B3D7549003829BF /* LaunchScreen.xib in Resources */,
 				DAC467791B6BC18600F56E67 /* Page3-Tutorial.xib in Resources */,
 				DAC467831B6BC20A00F56E67 /* Page5-Tutorial.xib in Resources */,
@@ -614,7 +629,34 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DAC467711B6BC09100F56E67 /* Page1-Tutorial.xib */ = {
+		DA539FB31C0F63B6007B4A4E /* Page1-Tutorial.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA539FB41C0F63B9007B4A4E /* Base */,
+				DA539FBA1C0F640F007B4A4E /* en */,
+			);
+			name = "Page1-Tutorial.xib";
+			sourceTree = "<group>";
+		};
+		DA539FB71C0F6401007B4A4E /* Page8-Tutorial.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA539FB61C0F6401007B4A4E /* Base */,
+				DA539FB91C0F6404007B4A4E /* en */,
+			);
+			name = "Page8-Tutorial.xib";
+			sourceTree = "<group>";
+		};
+		DA539FBD1C0F66F0007B4A4E /* Page9-Tutorial.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA539FBC1C0F66F0007B4A4E /* Base */,
+				DA539FBF1C0F66F2007B4A4E /* en */,
+			);
+			name = "Page9-Tutorial.xib";
+			sourceTree = "<group>";
+		};
+		DAC467711B6BC09100F56E67 /* Page0-Tutorial.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DAC467701B6BC09100F56E67 /* Base */,
@@ -623,7 +665,7 @@
 				DAC467951B6BC35B00F56E67 /* fr */,
 				C27CACB71BE275D8007AFB4C /* pt */,
 			);
-			name = "Page1-Tutorial.xib";
+			name = "Page0-Tutorial.xib";
 			sourceTree = "<group>";
 		};
 		DAC467761B6BC14300F56E67 /* Page2-Tutorial.xib */ = {

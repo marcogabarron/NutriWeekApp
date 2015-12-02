@@ -32,7 +32,9 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         //Esconde botão
         start.hidden = true
         
-        
+        let page0: UIView! = NSBundle.mainBundle().loadNibNamed("Page0-Tutorial",
+            owner: self,
+            options: nil)[0] as! UIView
 
         let page1: UIView! = NSBundle.mainBundle().loadNibNamed("Page1-Tutorial",
             owner: self,
@@ -62,13 +64,22 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
             owner: self,
             options: nil)[0] as! UIView
         
-        let pages: [UIView!] = [page1,page2, page3, page4, page5, page6, page7]
+        let page8: UIView! = NSBundle.mainBundle().loadNibNamed("Page8-Tutorial",
+            owner: self,
+            options: nil)[0] as! UIView
+        
+        let page9: UIView! = NSBundle.mainBundle().loadNibNamed("Page9-Tutorial",
+            owner: self,
+            options: nil)[0] as! UIView
+        
+        let pages: [UIView!] = [page0, page1,page2, page3, page4, page5, page6, page7, page8, page9]
         
         var size = view.bounds.size
         size.width = CGFloat(pages.count) * view.bounds.size.width
         scrollView.contentSize = size
         
         for i in 0..<pages.count {
+            
             let page = pages[i]
             let contentView = UIView()
             contentView.frame = self.view.frame
@@ -78,6 +89,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
             var frame = contentView.frame
             frame.origin.x = contentView.frame.origin.x + CGFloat(i) * contentView.frame.size.width
             contentView.frame = frame
+            
         }
         
         pageControl.currentPage = 0
@@ -87,7 +99,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
     func dismissTutorial(animated: Bool)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationID") as! UINavigationController
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationID") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         if let window = appDelegate.window{
@@ -113,7 +125,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         
         pageControl.currentPage = Int(page)
         
-        if pageControl.currentPage == 6 {
+        if pageControl.currentPage == 9 {
             
             start.hidden = false
         }
