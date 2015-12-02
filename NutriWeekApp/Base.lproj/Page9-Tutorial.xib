@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDf-8Q-XSC">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="sKh-4N-o4I">
+                            <rect key="frame" x="84" y="174" width="206" height="259"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="259" id="4tu-fU-Rd1"/>
+                                <constraint firstAttribute="width" constant="206" id="bcz-Um-tPS"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 8 - Check your diary" translatesAutoresizingMaskIntoConstraints="NO" id="NEP-Yd-h3t">
+                            <rect key="frame" x="131" y="202" width="113" height="203"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="113" id="TJV-hj-F2q"/>
+                                <constraint firstAttribute="height" constant="203" id="hoo-MC-m93"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volte para o diário para verificar suas anotações no diário." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVr-0W-Uau">
+                            <rect key="frame" x="64" y="441" width="247" height="79"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="79" id="G99-xs-Mt9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="yVr-0W-Uau" firstAttribute="top" secondItem="sKh-4N-o4I" secondAttribute="bottom" constant="8" id="3R2-4q-cgL"/>
+                        <constraint firstAttribute="centerX" secondItem="NEP-Yd-h3t" secondAttribute="centerX" id="PGm-8n-sfm"/>
+                        <constraint firstAttribute="centerY" secondItem="NEP-Yd-h3t" secondAttribute="centerY" constant="30" id="TBl-7P-bXC"/>
+                        <constraint firstItem="yVr-0W-Uau" firstAttribute="centerX" secondItem="sKh-4N-o4I" secondAttribute="centerX" id="iUz-NN-qgO"/>
+                        <constraint firstAttribute="centerX" secondItem="sKh-4N-o4I" secondAttribute="centerX" constant="0.5" id="iid-h1-ZgW"/>
+                        <constraint firstAttribute="centerY" secondItem="sKh-4N-o4I" secondAttribute="centerY" constant="30" id="kfM-MY-PpK"/>
+                        <constraint firstItem="yVr-0W-Uau" firstAttribute="width" secondItem="sKh-4N-o4I" secondAttribute="width" multiplier="1.2" id="zcl-yu-uwg"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="sDf-8Q-XSC" secondAttribute="trailing" id="3Ds-Ix-4PP"/>
+                <constraint firstItem="sDf-8Q-XSC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AkB-3O-jeE"/>
+                <constraint firstAttribute="bottom" secondItem="sDf-8Q-XSC" secondAttribute="bottom" id="d3l-CV-dpE"/>
+                <constraint firstItem="sDf-8Q-XSC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r1Q-1H-F0h"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Page 8 - Check your diary" width="750" height="1334"/>
+        <image name="iphone6-plus-box-silver-2014" width="478" height="595"/>
+    </resources>
+</document>
