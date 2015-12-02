@@ -13,7 +13,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
         
         if start.hidden == false{
             dismissTutorial(true)
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTutorial") 
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTutorial")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
         
