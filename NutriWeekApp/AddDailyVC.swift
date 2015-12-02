@@ -234,6 +234,9 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             daily.setImage(("\(paths)/\(id).png"))
             fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
             self.mealImage.image = UIImage(named: filePathToWrite)
+            
+            let pm = PhotoManager()
+            pm.savePhoto(selectedImage!)
         }
 
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
