@@ -14,40 +14,85 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-Zw-XKP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="GVH-Y3-Inu">
-                            <rect key="frame" x="84" y="174" width="206" height="259"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="GVH-Y3-Inu">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="206" id="EJ5-8o-SGh"/>
                                 <constraint firstAttribute="height" constant="259" id="Vd8-Zu-7Lb"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="EJ5-8o-SGh"/>
+                                    <exclude reference="Vd8-Zu-7Lb"/>
+                                </mask>
+                            </variation>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 0 - Open your app and check your diet by week" translatesAutoresizingMaskIntoConstraints="NO" id="BSD-fa-dT3">
-                            <rect key="frame" x="131" y="202" width="113" height="203"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abra seu aplicativo, veja os dias da semana e refeições cadastradas, caso haja." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fez-bV-7S0">
+                            <rect key="frame" x="0.0" y="557" width="375" height="60"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="113" id="1NK-W3-yCQ"/>
-                                <constraint firstAttribute="height" constant="203" id="ddE-y1-g4T"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abra seu aplicativo, veja os dias da semana e refeições cadastradas, caso haja." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fez-bV-7S0">
-                            <rect key="frame" x="64" y="441" width="247" height="79"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="79" id="WkP-Jh-XZR"/>
+                                <constraint firstAttribute="height" constant="60" id="WkP-Jh-XZR"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 0 - Open your app and check your diet by week" translatesAutoresizingMaskIntoConstraints="NO" id="BSD-fa-dT3">
+                            <rect key="frame" x="0.0" y="90" width="375" height="367"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="113" id="1NK-W3-yCQ"/>
+                                <constraint firstAttribute="width" constant="113" id="7xo-Id-QyC"/>
+                                <constraint firstAttribute="height" constant="203" id="ddE-y1-g4T"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="1NK-W3-yCQ"/>
+                                    <exclude reference="7xo-Id-QyC"/>
+                                    <exclude reference="ddE-y1-g4T"/>
+                                </mask>
+                            </variation>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="-366" id="1Vg-d7-erS"/>
+                        <constraint firstAttribute="trailing" secondItem="fez-bV-7S0" secondAttribute="trailing" id="4Wb-02-2n0"/>
                         <constraint firstItem="fez-bV-7S0" firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" id="5WF-it-Fzz"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" id="8sh-Rt-ZUE"/>
+                        <constraint firstItem="GVH-Y3-Inu" firstAttribute="top" secondItem="SRo-Zw-XKP" secondAttribute="top" id="ET8-Zu-IX9"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" id="Gty-Wq-VIu"/>
+                        <constraint firstItem="fez-bV-7S0" firstAttribute="leading" secondItem="SRo-Zw-XKP" secondAttribute="leading" id="RXs-nY-rpP"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="centerX" secondItem="SRo-Zw-XKP" secondAttribute="centerX" id="Vbd-S1-Kmk"/>
                         <constraint firstAttribute="centerX" secondItem="BSD-fa-dT3" secondAttribute="centerX" id="WOc-aS-XI0"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="top" secondItem="SRo-Zw-XKP" secondAttribute="top" constant="90" id="Yuv-u5-u2V"/>
+                        <constraint firstItem="fez-bV-7S0" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="10" id="c2Y-dD-ptl"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="centerY" secondItem="GVH-Y3-Inu" secondAttribute="centerY" id="chV-uQ-0Ha"/>
                         <constraint firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" constant="0.5" id="fpp-oK-h3x"/>
                         <constraint firstItem="fez-bV-7S0" firstAttribute="width" secondItem="GVH-Y3-Inu" secondAttribute="width" multiplier="1.2" id="gAS-c4-7gY"/>
+                        <constraint firstAttribute="trailing" secondItem="GVH-Y3-Inu" secondAttribute="trailing" id="gwp-Be-myB"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="leading" secondItem="GVH-Y3-Inu" secondAttribute="trailing" constant="10" id="hF4-nV-hhu"/>
+                        <constraint firstItem="GVH-Y3-Inu" firstAttribute="leading" secondItem="SRo-Zw-XKP" secondAttribute="leading" constant="10" id="hgp-Ut-JjN"/>
                         <constraint firstAttribute="centerY" secondItem="BSD-fa-dT3" secondAttribute="centerY" constant="30" id="i35-su-YEP"/>
                         <constraint firstAttribute="centerY" secondItem="GVH-Y3-Inu" secondAttribute="centerY" constant="30" id="lLm-aK-0Qd"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="leading" secondItem="SRo-Zw-XKP" secondAttribute="leading" id="nHS-ht-ccA"/>
+                        <constraint firstAttribute="bottom" secondItem="fez-bV-7S0" secondAttribute="bottom" constant="50" id="oB5-rQ-hSi"/>
+                        <constraint firstItem="BSD-fa-dT3" firstAttribute="centerX" secondItem="fez-bV-7S0" secondAttribute="centerX" id="uDf-yy-o9i"/>
                         <constraint firstItem="fez-bV-7S0" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="8" id="xzP-bz-YeL"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fpp-oK-h3x"/>
+                            <exclude reference="hgp-Ut-JjN"/>
+                            <exclude reference="lLm-aK-0Qd"/>
+                            <exclude reference="1Vg-d7-erS"/>
+                            <exclude reference="8sh-Rt-ZUE"/>
+                            <exclude reference="WOc-aS-XI0"/>
+                            <exclude reference="hF4-nV-hhu"/>
+                            <exclude reference="i35-su-YEP"/>
+                            <exclude reference="5WF-it-Fzz"/>
+                            <exclude reference="gAS-c4-7gY"/>
+                            <exclude reference="xzP-bz-YeL"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

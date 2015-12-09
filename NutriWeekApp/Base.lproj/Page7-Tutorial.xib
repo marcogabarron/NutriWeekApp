@@ -11,25 +11,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="utr-uv-kCf">
-                    <rect key="frame" x="84" y="174" width="206" height="259"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="utr-uv-kCf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 6 - Complete diary if you want it" translatesAutoresizingMaskIntoConstraints="NO" id="Lk5-FR-uKF">
+                    <rect key="frame" x="80" y="85" width="215" height="362"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Na outra tab bar você pode ver o diário de refeições. Clicando aqui você adiciona uma refeição no diário." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl4-es-k0E">
+                    <rect key="frame" x="0.0" y="547" width="375" height="70"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="259" id="2hd-kb-jrZ"/>
-                        <constraint firstAttribute="width" constant="206" id="lIp-rs-znn"/>
+                        <constraint firstAttribute="height" constant="70" id="Z3m-2X-J5w"/>
                     </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 6 - Complete diary if you want it" translatesAutoresizingMaskIntoConstraints="NO" id="Lk5-FR-uKF">
-                    <rect key="frame" x="131" y="202" width="113" height="203"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="113" id="npc-Td-2Vi"/>
-                        <constraint firstAttribute="height" constant="203" id="vOA-Q2-zde"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique para acrescentar uma anotação em seu diário." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl4-es-k0E">
-                    <rect key="frame" x="63.5" y="441" width="247" height="41"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -38,15 +33,31 @@
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Lk5-FR-uKF" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="90" id="3H7-S5-DS3"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="Ax2-U0-SY5"/>
+                <constraint firstItem="Lk5-FR-uKF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="BGt-CM-hsm"/>
+                <constraint firstAttribute="trailing" secondItem="utr-uv-kCf" secondAttribute="trailing" id="DvN-rO-joP"/>
+                <constraint firstItem="Lk5-FR-uKF" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="GHG-gm-8QP"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="Lk5-FR-uKF" secondAttribute="bottom" constant="100" id="J04-2F-pFt"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="8" id="Ldo-6X-i1z"/>
-                <constraint firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" constant="0.5" id="N4s-1x-zem"/>
-                <constraint firstAttribute="centerY" secondItem="Lk5-FR-uKF" secondAttribute="centerY" constant="30" id="a51-yU-ixS"/>
-                <constraint firstAttribute="centerY" secondItem="utr-uv-kCf" secondAttribute="centerY" constant="30" id="fV1-7s-PJB"/>
-                <constraint firstAttribute="centerX" secondItem="Lk5-FR-uKF" secondAttribute="centerX" id="q7F-Q8-FPz"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="10" id="Mvu-kI-cB1"/>
+                <constraint firstAttribute="bottom" secondItem="Xl4-es-k0E" secondAttribute="bottom" constant="50" id="SIc-6s-bUl"/>
+                <constraint firstItem="Lk5-FR-uKF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="85" id="eMY-H5-JCY"/>
+                <constraint firstItem="utr-uv-kCf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gCZ-2h-vag"/>
+                <constraint firstItem="utr-uv-kCf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iNl-YE-VGT"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p6Z-wr-OnP"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="width" secondItem="utr-uv-kCf" secondAttribute="width" multiplier="1.2" id="ul3-Bj-Wf3"/>
+                <constraint firstAttribute="trailing" secondItem="Xl4-es-k0E" secondAttribute="trailing" id="xkc-xR-EJ7"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3H7-S5-DS3"/>
+                    <exclude reference="Ax2-U0-SY5"/>
+                    <exclude reference="Ldo-6X-i1z"/>
+                    <exclude reference="ul3-Bj-Wf3"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

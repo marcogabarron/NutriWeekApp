@@ -404,7 +404,7 @@
                                 <animations/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-7V-5N5">
-                                <rect key="frame" x="317" y="610" width="34" height="30"/>
+                                <rect key="frame" x="317" y="267" width="34" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -423,7 +423,7 @@
                             <constraint firstItem="Zkd-cY-nfs" firstAttribute="centerX" secondItem="aqv-Za-OHF" secondAttribute="centerX" id="NfU-V5-gVi"/>
                             <constraint firstItem="0hu-7V-5N5" firstAttribute="leading" secondItem="aqv-Za-OHF" secondAttribute="trailing" constant="-58" id="SQF-NA-jW0"/>
                             <constraint firstItem="Zkd-cY-nfs" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="top" constant="400" id="UJh-IY-FbK"/>
-                            <constraint firstItem="0hu-7V-5N5" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="bottom" constant="-57" id="ZdH-vf-4rR"/>
+                            <constraint firstItem="0hu-7V-5N5" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="bottom" constant="-400" id="ZdH-vf-4rR"/>
                             <constraint firstAttribute="height" secondItem="aqv-Za-OHF" secondAttribute="height" id="ZnO-xS-lcL"/>
                             <constraint firstAttribute="width" secondItem="aqv-Za-OHF" secondAttribute="width" id="aGL-rm-78g"/>
                             <constraint firstAttribute="centerX" secondItem="Zkd-cY-nfs" secondAttribute="centerX" id="jLS-1r-WfE"/>
