@@ -36,7 +36,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ao criar um diario você registra sua verdadeira refeição, podendo colocar foto, descrição ou registrar se seguiu a dieta." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFt-9h-bUq">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No diario você registra sua verdadeira refeição, podendo colocar foto, descrição ou registrar se seguiu a dieta." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFt-9h-bUq">
                     <rect key="frame" x="0.0" y="547" width="375" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="zV4-HB-9k2"/>

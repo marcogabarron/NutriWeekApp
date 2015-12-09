@@ -36,7 +36,7 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salvando você consegue vê-la no diário. Deste modo você consegue se acompanhar quanto a dieta." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVr-0W-Uau">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salvando você consegue vê-la no diário. Fazendo isso todos os dias, você consegue se acompanhar quanto a dieta." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVr-0W-Uau">
                     <rect key="frame" x="0.0" y="547" width="375" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="HvA-ev-jxJ"/>
