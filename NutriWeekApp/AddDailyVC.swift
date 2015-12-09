@@ -250,7 +250,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 newSize = CGSize(width: 800, height: originalSize.width * proportion)
             }
             
-            let selectedImage = mealImage.image4?.resize(newSize)
+            let selectedImage = mealImage.image?.resize(newSize)
             
 //            let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
 //            let filePathToWrite = "\(paths)/\(id).png"

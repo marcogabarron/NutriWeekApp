@@ -30,10 +30,8 @@ class PhotoManager {
                 (success, error)in
                 let collectionFetchResult = PHAssetCollection.fetchAssetCollectionsWithLocalIdentifiers([self.placeholder.localIdentifier], options: nil)
                 
-                print(collectionFetchResult.firstObject)
+//                print(collectionFetchResult.firstObject)
                 self.album = collectionFetchResult.firstObject as! PHAssetCollection
-                
-                // [self addAssetToAssetCollection:[collectionFetchResult firstObject]];
                 
                 self.getAssetToAlbum(imageIdentifier) {
                     image in
@@ -44,6 +42,8 @@ class PhotoManager {
     }
     
     func savePhoto(image: UIImage, onCompletion: (String) -> Void) {
+        
+//        print(NSDate())
         
         self.loadAlbumWithTitleExist(self.albumTitle)
         if album != nil {
@@ -57,10 +57,8 @@ class PhotoManager {
                 (success, error)in
                 let collectionFetchResult = PHAssetCollection.fetchAssetCollectionsWithLocalIdentifiers([self.placeholder.localIdentifier], options: nil)
                 
-                print(collectionFetchResult.firstObject)
+//                print(collectionFetchResult.firstObject)
                 self.album = collectionFetchResult.firstObject as! PHAssetCollection
-                
-                // [self addAssetToAssetCollection:[collectionFetchResult firstObject]];
                 
                 self.addAssetToAlbum(image) {
                     imageIdentifier in
@@ -80,7 +78,8 @@ class PhotoManager {
             albumChangeRequest?.addAssets([self.placeholder!])
             
             }, completionHandler: {(success, error)in
-                print("\nSave Image -> ", (success ? "Success" : "Error!"))
+                //                print("\nSave Image -> ", (success ? "Success" : "Error!"))
+//                print(NSDate())
                 onCompletion(self.placeholder.localIdentifier)
         })
     }
@@ -91,7 +90,7 @@ class PhotoManager {
         fetchOptions.predicate = NSPredicate(format: "localIdentifier = %@", imageIdentifier)
         
         let assets : PHFetchResult = PHAsset.fetchAssetsInAssetCollection(self.album, options: fetchOptions)
-        print(assets)
+//        print(assets)
         
         let imageManager = PHCachingImageManager()
         
@@ -101,7 +100,7 @@ class PhotoManager {
             
             if object is PHAsset {
                 let asset = object as! PHAsset
-                print(asset)
+//                print(asset)
                 
                 if asset.localIdentifier == imageIdentifier {
                 

@@ -1807,7 +1807,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3S-3u-INI">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="292"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="rJa-qH-7Gu">
                                                             <rect key="frame" x="10" y="39.5" width="335" height="231.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="237" id="JwT-BR-ypW"/>

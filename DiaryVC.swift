@@ -83,28 +83,7 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             pm.getPhoto(daily.nameImage!) {
                 image in
                 cell.image.image = image
-                
-                if cell.image.image != nil {
-                    let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
-                    cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
-                }
-                
-                cell.image.setNeedsDisplay()
             }
-            
-            if cell.image.image != nil {
-                let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
-                cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
-            }
-            
-//            cell.image.image = UIImage(named:  daily.nameImage!)
-//
-//            if cell.image.image != nil {
-//                let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
-//                cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
-//            }
-//            
-//            cell.image.setNeedsDisplay()
         }
         
         if(daily.fled == true){
