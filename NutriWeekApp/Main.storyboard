@@ -402,6 +402,9 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-cY-nfs">
                                 <rect key="frame" x="168" y="610" width="39" height="37"/>
                                 <animations/>
+                                <connections>
+                                    <action selector="nextPageClick:" destination="cf5-aG-LZM" eventType="valueChanged" id="rmf-c7-ZEK"/>
+                                </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-7V-5N5">
                                 <rect key="frame" x="317" y="267" width="34" height="30"/>
