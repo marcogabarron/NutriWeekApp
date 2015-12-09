@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="GVH-Y3-Inu">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="557"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="206" id="EJ5-8o-SGh"/>
                                 <constraint firstAttribute="height" constant="259" id="Vd8-Zu-7Lb"/>
@@ -28,7 +28,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abra seu aplicativo, veja os dias da semana e refeições cadastradas, caso haja." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fez-bV-7S0">
-                            <rect key="frame" x="0.0" y="557" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="527" width="375" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="WkP-Jh-XZR"/>
                             </constraints>
@@ -37,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 0 - Open your app and check your diet by week" translatesAutoresizingMaskIntoConstraints="NO" id="BSD-fa-dT3">
-                            <rect key="frame" x="0.0" y="90" width="375" height="367"/>
+                            <rect key="frame" x="0.0" y="90" width="375" height="377"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="113" id="1NK-W3-yCQ"/>
                                 <constraint firstAttribute="width" constant="113" id="7xo-Id-QyC"/>
@@ -64,7 +64,7 @@
                         <constraint firstItem="BSD-fa-dT3" firstAttribute="centerX" secondItem="SRo-Zw-XKP" secondAttribute="centerX" id="Vbd-S1-Kmk"/>
                         <constraint firstAttribute="centerX" secondItem="BSD-fa-dT3" secondAttribute="centerX" id="WOc-aS-XI0"/>
                         <constraint firstItem="BSD-fa-dT3" firstAttribute="top" secondItem="SRo-Zw-XKP" secondAttribute="top" constant="90" id="Yuv-u5-u2V"/>
-                        <constraint firstItem="fez-bV-7S0" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="10" id="c2Y-dD-ptl"/>
+                        <constraint firstItem="fez-bV-7S0" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="-30" id="c2Y-dD-ptl"/>
                         <constraint firstItem="BSD-fa-dT3" firstAttribute="centerY" secondItem="GVH-Y3-Inu" secondAttribute="centerY" id="chV-uQ-0Ha"/>
                         <constraint firstAttribute="centerX" secondItem="GVH-Y3-Inu" secondAttribute="centerX" constant="0.5" id="fpp-oK-h3x"/>
                         <constraint firstItem="fez-bV-7S0" firstAttribute="width" secondItem="GVH-Y3-Inu" secondAttribute="width" multiplier="1.2" id="gAS-c4-7gY"/>
@@ -74,7 +74,7 @@
                         <constraint firstAttribute="centerY" secondItem="BSD-fa-dT3" secondAttribute="centerY" constant="30" id="i35-su-YEP"/>
                         <constraint firstAttribute="centerY" secondItem="GVH-Y3-Inu" secondAttribute="centerY" constant="30" id="lLm-aK-0Qd"/>
                         <constraint firstItem="BSD-fa-dT3" firstAttribute="leading" secondItem="SRo-Zw-XKP" secondAttribute="leading" id="nHS-ht-ccA"/>
-                        <constraint firstAttribute="bottom" secondItem="fez-bV-7S0" secondAttribute="bottom" constant="50" id="oB5-rQ-hSi"/>
+                        <constraint firstAttribute="bottom" secondItem="fez-bV-7S0" secondAttribute="bottom" constant="80" id="oB5-rQ-hSi"/>
                         <constraint firstItem="BSD-fa-dT3" firstAttribute="centerX" secondItem="fez-bV-7S0" secondAttribute="centerX" id="uDf-yy-o9i"/>
                         <constraint firstItem="fez-bV-7S0" firstAttribute="top" secondItem="GVH-Y3-Inu" secondAttribute="bottom" constant="8" id="xzP-bz-YeL"/>
                     </constraints>
