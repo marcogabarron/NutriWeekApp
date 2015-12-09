@@ -11,41 +11,66 @@ import Photos
 
 class PhotoManager {
     
-    var placeholder: PHObjectPlaceholder!
-    var album: PHAssetCollection!
+    private var placeholder: PHObjectPlaceholder!
+    private var album: PHAssetCollection!
+    
     private let albumTitle = "NutriWeek"
     
-    func savePhoto(image: UIImage) {
+    func getPhoto(imageIdentifier:String, onCompletion: (UIImage) -> Void) {
         
         self.loadAlbumWithTitleExist(self.albumTitle)
         if album != nil {
-            self.addAssetToAlbum(image)
+            self.getAssetToAlbum(imageIdentifier) {
+                image in
+                onCompletion(image)
+            }
         }
         else {
-            // Create Album
-            PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-                // Request creating an album from the textfield
-                let createAlbumRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(self.albumTitle)
+            self.createAlbum() {
+                (success, error)in
+                let collectionFetchResult = PHAssetCollection.fetchAssetCollectionsWithLocalIdentifiers([self.placeholder.localIdentifier], options: nil)
                 
-                // Store placeholder object for use later
-                self.placeholder = createAlbumRequest.placeholderForCreatedAssetCollection;
+                print(collectionFetchResult.firstObject)
+                self.album = collectionFetchResult.firstObject as! PHAssetCollection
                 
-                }, completionHandler: {(success, error)in
-                    
-                    let collectionFetchResult = PHAssetCollection.fetchAssetCollectionsWithLocalIdentifiers([self.placeholder.localIdentifier], options: nil)
-                    
-                    print(collectionFetchResult.firstObject)
-                    self.album = collectionFetchResult.firstObject as! PHAssetCollection
-                    
-                    // [self addAssetToAssetCollection:[collectionFetchResult firstObject]];
-                    
-                    self.addAssetToAlbum(image)
-                    
-            })
+                // [self addAssetToAssetCollection:[collectionFetchResult firstObject]];
+                
+                self.getAssetToAlbum(imageIdentifier) {
+                    image in
+                    onCompletion(image)
+                }
+            }
         }
     }
     
-    private func addAssetToAlbum(image: UIImage) {
+    func savePhoto(image: UIImage, onCompletion: (String) -> Void) {
+        
+        self.loadAlbumWithTitleExist(self.albumTitle)
+        if album != nil {
+            self.addAssetToAlbum(image) {
+                imageIdentifier in
+                onCompletion(imageIdentifier)
+            }
+        }
+        else {
+            self.createAlbum() {
+                (success, error)in
+                let collectionFetchResult = PHAssetCollection.fetchAssetCollectionsWithLocalIdentifiers([self.placeholder.localIdentifier], options: nil)
+                
+                print(collectionFetchResult.firstObject)
+                self.album = collectionFetchResult.firstObject as! PHAssetCollection
+                
+                // [self addAssetToAssetCollection:[collectionFetchResult firstObject]];
+                
+                self.addAssetToAlbum(image) {
+                    imageIdentifier in
+                    onCompletion(imageIdentifier)
+                }
+            }
+        }
+    }
+    
+    private func addAssetToAlbum(image: UIImage, onCompletion: (String) -> Void) {
         PHPhotoLibrary.sharedPhotoLibrary().performChanges({
             
             let createAssetRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
@@ -55,9 +80,44 @@ class PhotoManager {
             albumChangeRequest?.addAssets([self.placeholder!])
             
             }, completionHandler: {(success, error)in
-                print(self.placeholder)
                 print("\nSave Image -> ", (success ? "Success" : "Error!"))
+                onCompletion(self.placeholder.localIdentifier)
         })
+    }
+    
+    private func getAssetToAlbum(imageIdentifier:String, onCompletion: (UIImage) -> Void) {
+        
+        let fetchOptions = PHFetchOptions()
+        fetchOptions.predicate = NSPredicate(format: "localIdentifier = %@", imageIdentifier)
+        
+        let assets : PHFetchResult = PHAsset.fetchAssetsInAssetCollection(self.album, options: fetchOptions)
+        print(assets)
+        
+        let imageManager = PHCachingImageManager()
+        
+        assets.enumerateObjectsUsingBlock{(object: AnyObject!,
+            count: Int,
+            stop: UnsafeMutablePointer<ObjCBool>) in
+            
+            if object is PHAsset {
+                let asset = object as! PHAsset
+                print(asset)
+                
+                if asset.localIdentifier == imageIdentifier {
+                
+                    let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
+                
+                    let options = PHImageRequestOptions()
+                
+                    imageManager.requestImageForAsset(asset, targetSize: imageSize, contentMode: .AspectFill, options: options, resultHandler: {
+                        (image: UIImage?, info: [NSObject : AnyObject]?) in
+                        //                    print(info)
+                        onCompletion(image!)
+                    })
+                }
+            }
+            
+        }
     }
     
     private func loadAlbumWithTitleExist(title:String) -> Bool {
@@ -70,5 +130,21 @@ class PhotoManager {
         } else {
             return false
         }
+    }
+    
+    private func createAlbum(onCompletion: (Bool, NSError?) -> Void) {
+        
+        // Create Album
+        PHPhotoLibrary.sharedPhotoLibrary().performChanges({
+            // Request creating an album from the textfield
+            let createAlbumRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle(self.albumTitle)
+            
+            // Store placeholder object for use later
+            self.placeholder = createAlbumRequest.placeholderForCreatedAssetCollection;
+            
+            }, completionHandler: {(success, error)in
+                onCompletion(success, error)
+                
+        })
     }
 }

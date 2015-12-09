@@ -30,6 +30,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     let builder = GAIDictionaryBuilder.createScreenView()
     
+    let pm = PhotoManager()
+    
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,14 +79,32 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         cell.image.hidden = daily.hasImage == false
         
         if(daily.hasImage == true){
-            cell.image.image = UIImage(named:  daily.nameImage!)
+            
+            pm.getPhoto(daily.nameImage!) {
+                image in
+                cell.image.image = image
+                
+                if cell.image.image != nil {
+                    let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
+                    cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+                }
+                
+                cell.image.setNeedsDisplay()
+            }
             
             if cell.image.image != nil {
                 let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
                 cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
             }
             
-            cell.image.setNeedsDisplay()
+//            cell.image.image = UIImage(named:  daily.nameImage!)
+//
+//            if cell.image.image != nil {
+//                let imageHeightProportion = cell.image.image!.size.width / cell.image.frame.width
+//                cell.image.frame.size.height = cell.image.image!.size.height / imageHeightProportion
+//            }
+//            
+//            cell.image.setNeedsDisplay()
         }
         
         if(daily.fled == true){
