@@ -235,20 +235,49 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         let daily: DailyModel = DailyModel(date: finalDate, fled: self.switchDiet.on, desc: self.descriptionText.text)
         
         if(self.mealImage.hidden == false){
-            let id = Int(date.timeIntervalSince1970 * 1000)
+//            let id = Int(date.timeIntervalSince1970 * 1000)
             
-            let selectedImage = mealImage.image
-            let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
-            let filePathToWrite = "\(paths)/\(id).png"
+            // Resize image to max 800x600
+            let newSize:CGSize!
+            let originalSize = (mealImage.image?.size)!
+            let proportion:CGFloat!
+            if (originalSize.width / 800) >= (originalSize.height / 600) {
+                proportion = 800 / originalSize.width
+                newSize = CGSize(width: 800, height: originalSize.height * proportion)
+            }
+            else {
+                proportion = 600 / originalSize.height
+                newSize = CGSize(width: 800, height: originalSize.width * proportion)
+            }
             
-            daily.setImage(("\(paths)/\(id).png"))
-            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
-            self.mealImage.image = UIImage(named: filePathToWrite)
+            let selectedImage = mealImage.image?.resize(newSize)
+            
+//            let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
+//            let filePathToWrite = "\(paths)/\(id).png"
+//            
+//            daily.setImage(("\(paths)/\(id).png"))
+//            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+//            self.mealImage.image = UIImage(named: filePathToWrite)
+            
+            // Save photo in NutriWeekAlbum
+            let pm = PhotoManager()
+            pm.savePhoto(selectedImage!) {
+                imageIdentifier in
+                
+                daily.setImage(imageIdentifier)
+                
+                self.createDaily(daily)
+            }
+        }
+        else {
+            self.createDaily(daily)
         }
 
+    }
+    
+    private func createDaily(daily: DailyModel) {
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
         self.navigationController?.popViewControllerAnimated(true)
-
     }
     
     

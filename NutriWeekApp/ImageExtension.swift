@@ -51,4 +51,14 @@ extension UIImage {
         
         return newImage
     }
+    
+    public func resize(newSize: CGSize) -> UIImage {
+        UIGraphicsBeginImageContext( newSize );
+        self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return newImage
+    }
 }

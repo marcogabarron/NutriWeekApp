@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,22 +10,27 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-oi-rOx">
-                    <rect key="frame" x="84" y="174" width="206" height="259"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="259" id="05q-rL-WYW"/>
-                        <constraint firstAttribute="width" constant="206" id="hcn-7X-1Hy"/>
-                    </constraints>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-oi-rOx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 4 - Check your diet and click to edit" translatesAutoresizingMaskIntoConstraints="NO" id="IUP-NS-AYA">
-                    <rect key="frame" x="131" y="202" width="113" height="203"/>
+                    <rect key="frame" x="85" y="85" width="205" height="367"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="203" id="B0m-0n-trv"/>
                         <constraint firstAttribute="width" constant="113" id="dwd-h4-19W"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="B0m-0n-trv"/>
+                            <exclude reference="dwd-h4-19W"/>
+                        </mask>
+                    </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volte para a tela inicial para verificar suas refeições da semana e clique para editar esta refeição." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-pm-f2a">
-                    <rect key="frame" x="81.5" y="441" width="247" height="81.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agora na tela inicial você pode verificar suas refeições da semana. Clique para ver ou editar esta refeição." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-pm-f2a">
+                    <rect key="frame" x="0.0" y="517" width="375" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="xN4-34-cl3"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -34,15 +38,25 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="3HZ-pm-f2a" firstAttribute="centerX" secondItem="aaG-oi-rOx" secondAttribute="centerX" constant="18" id="AjO-EX-bke"/>
-                <constraint firstAttribute="centerX" secondItem="aaG-oi-rOx" secondAttribute="centerX" constant="0.5" id="B6Y-5K-Kfk"/>
-                <constraint firstItem="3HZ-pm-f2a" firstAttribute="width" secondItem="aaG-oi-rOx" secondAttribute="width" multiplier="1.2" id="Mx9-GS-Z1g"/>
-                <constraint firstItem="3HZ-pm-f2a" firstAttribute="top" secondItem="aaG-oi-rOx" secondAttribute="bottom" constant="8" id="SRm-Yp-hEo"/>
-                <constraint firstAttribute="centerY" secondItem="aaG-oi-rOx" secondAttribute="centerY" constant="30" id="ZDN-7R-kFI"/>
+                <constraint firstItem="IUP-NS-AYA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="85" id="3OA-wn-628"/>
+                <constraint firstItem="3HZ-pm-f2a" firstAttribute="top" secondItem="aaG-oi-rOx" secondAttribute="bottom" constant="-30" id="9PK-k6-BCi"/>
+                <constraint firstAttribute="bottom" secondItem="3HZ-pm-f2a" secondAttribute="bottom" constant="80" id="Wqq-u6-UvU"/>
+                <constraint firstAttribute="trailing" secondItem="aaG-oi-rOx" secondAttribute="trailing" id="aad-uE-Qrs"/>
+                <constraint firstItem="aaG-oi-rOx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ciP-VL-UzU"/>
+                <constraint firstAttribute="trailing" secondItem="3HZ-pm-f2a" secondAttribute="trailing" id="eFg-Pf-2x6"/>
                 <constraint firstAttribute="centerX" secondItem="IUP-NS-AYA" secondAttribute="centerX" id="gm0-Zi-Xwz"/>
                 <constraint firstAttribute="centerY" secondItem="IUP-NS-AYA" secondAttribute="centerY" constant="30" id="mNb-qb-zZh"/>
+                <constraint firstItem="IUP-NS-AYA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="85" id="otD-WF-LBE"/>
+                <constraint firstItem="aaG-oi-rOx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pUW-j8-d3r"/>
+                <constraint firstItem="3HZ-pm-f2a" firstAttribute="top" secondItem="IUP-NS-AYA" secondAttribute="bottom" constant="65" id="rDg-22-XyC"/>
+                <constraint firstItem="3HZ-pm-f2a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wsS-V5-WhS"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="mNb-qb-zZh"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4356C63D1C04FF2200E9B1E6 /* ImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */; };
+		4356C63D1C04FF2200E9B1E6 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356C63C1C04FF2200E9B1E6 /* ImageExtension.swift */; };
 		43BA70C71C079E3000FB7A25 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BA70C61C079E3000FB7A25 /* Photos.framework */; };
+		43BA70C91C079F7800FB7A25 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BA70C81C079F7800FB7A25 /* PhotoManager.swift */; };
 		AF9EB678E911FAD492BF1E77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE62D813F40FEB57393DF8B /* libPods.a */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
@@ -80,8 +81,9 @@
 
 /* Begin PBXFileReference section */
 		15A92B74BA856D0DA5E19CAA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
+		4356C63C1C04FF2200E9B1E6 /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		43BA70C61C079E3000FB7A25 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		43BA70C81C079F7800FB7A25 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		588EA2B8E58312E66B11B0B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7EE62D813F40FEB57393DF8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
@@ -249,9 +251,10 @@
 				C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */,
 				DAB08E661BFCF50B00D4B63A /* DiaryVC.swift */,
 				FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */,
-				4356C63C1C04FF2200E9B1E6 /* ImageRotation.swift */,
+				4356C63C1C04FF2200E9B1E6 /* ImageExtension.swift */,
 				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
+				43BA70C81C079F7800FB7A25 /* PhotoManager.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -450,7 +453,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = UNMPYLD92U;
+						DevelopmentTeam = V4EX66VGXQ;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -583,7 +586,8 @@
 				DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */,
 				DAD5A18F1B3D76AA003829BF /* RefeicaoDAO.swift in Sources */,
 				DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */,
-				4356C63D1C04FF2200E9B1E6 /* ImageRotation.swift in Sources */,
+				4356C63D1C04FF2200E9B1E6 /* ImageExtension.swift in Sources */,
+				43BA70C91C079F7800FB7A25 /* PhotoManager.swift in Sources */,
 				DA4061A21B41D9D400B6B204 /* AddItemVC.swift in Sources */,
 				C246E4191BD951A60068ED68 /* Food.swift in Sources */,
 				DA8110801BD565C800632A40 /* CreateItemVC.swift in Sources */,
