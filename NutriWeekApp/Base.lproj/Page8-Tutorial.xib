@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="Ceq-B5-G0z">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                     <constraints>
                         <constraint firstAttribute="width" id="IJz-Yr-upb"/>
                         <constraint firstAttribute="height" constant="259" id="nLH-9s-5Kl"/>
@@ -24,7 +24,7 @@
                     </variation>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 7 - Add a new post in diary" translatesAutoresizingMaskIntoConstraints="NO" id="d2f-d1-uKB">
-                    <rect key="frame" x="85" y="85" width="205" height="362"/>
+                    <rect key="frame" x="85" y="85" width="205" height="372"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="203" id="7qG-f4-bOi"/>
                         <constraint firstAttribute="width" constant="113" id="cQG-iF-gh5"/>
@@ -37,7 +37,7 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No diario você registra sua verdadeira refeição, podendo colocar foto, descrição ou registrar se seguiu a dieta." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFt-9h-bUq">
-                    <rect key="frame" x="0.0" y="547" width="375" height="70"/>
+                    <rect key="frame" x="0.0" y="517" width="375" height="70"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="70" id="zV4-HB-9k2"/>
                     </constraints>
@@ -52,12 +52,12 @@
                 <constraint firstItem="Ceq-B5-G0z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="204" id="AIu-1s-Ecf"/>
                 <constraint firstItem="hFt-9h-bUq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DZf-d6-WFH"/>
                 <constraint firstAttribute="trailing" secondItem="Ceq-B5-G0z" secondAttribute="trailing" id="GPw-4J-nYa"/>
-                <constraint firstAttribute="bottom" secondItem="hFt-9h-bUq" secondAttribute="bottom" constant="50" id="KrU-F4-Bk3"/>
+                <constraint firstAttribute="bottom" secondItem="hFt-9h-bUq" secondAttribute="bottom" constant="80" id="KrU-F4-Bk3"/>
                 <constraint firstItem="d2f-d1-uKB" firstAttribute="centerX" secondItem="Ceq-B5-G0z" secondAttribute="centerX" id="Sqw-9I-IMa"/>
                 <constraint firstItem="Ceq-B5-G0z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bQb-nm-NHj"/>
                 <constraint firstItem="d2f-d1-uKB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="85" id="niF-Lo-9T9"/>
-                <constraint firstItem="hFt-9h-bUq" firstAttribute="top" secondItem="Ceq-B5-G0z" secondAttribute="bottom" constant="10" id="qtd-YS-aud"/>
-                <constraint firstItem="hFt-9h-bUq" firstAttribute="top" secondItem="d2f-d1-uKB" secondAttribute="bottom" constant="100" id="roQ-KC-DwY"/>
+                <constraint firstItem="hFt-9h-bUq" firstAttribute="top" secondItem="Ceq-B5-G0z" secondAttribute="bottom" constant="-30" id="qtd-YS-aud"/>
+                <constraint firstItem="hFt-9h-bUq" firstAttribute="top" secondItem="d2f-d1-uKB" secondAttribute="bottom" constant="60" id="roQ-KC-DwY"/>
                 <constraint firstItem="Ceq-B5-G0z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xLa-f8-m8r"/>
                 <constraint firstItem="d2f-d1-uKB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="85" id="yR5-MO-0eE"/>
             </constraints>
