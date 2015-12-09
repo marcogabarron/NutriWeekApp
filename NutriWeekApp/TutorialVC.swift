@@ -134,4 +134,21 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
             start.hidden = true
         }
     }
+    @IBAction func nextPageClick(sender: AnyObject) {
+//        let page = floor(scrollView.contentOffset.x /
+//            self.view.frame.width)
+        
+        let p = CGFloat(pageControl.currentPage)
+        
+        scrollView.contentOffset.x = CGFloat(self.view.frame.width)*p
+        
+        if pageControl.currentPage == 9 {
+            
+            start.hidden = false
+        }
+        else {
+            
+            start.hidden = true
+        }
+    }
 }
