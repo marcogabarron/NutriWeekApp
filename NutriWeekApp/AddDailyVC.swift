@@ -273,6 +273,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             self.createDaily(daily)
         }
 
+        self.navigationController?.popViewControllerAnimated(true)
+
     }
     
     private func createDaily(daily: DailyModel) {
