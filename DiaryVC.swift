@@ -115,11 +115,11 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             let daily = self.allDaily[indexPath.row]
             
             if(daily.hasImage == false){
-                return CGSizeMake(355, 100);
+                return CGSizeMake(self.view.frame.width - 15, 100);
                 
             }
             
-            return CGSizeMake(355, 300);
+            return CGSizeMake(self.view.frame.width - 15, 300);
     }
     
     
