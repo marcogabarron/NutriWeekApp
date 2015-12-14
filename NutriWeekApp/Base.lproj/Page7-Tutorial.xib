@@ -8,19 +8,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iphone6-plus-box-silver-2014" translatesAutoresizingMaskIntoConstraints="NO" id="utr-uv-kCf">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 6 - Complete diary if you want it" translatesAutoresizingMaskIntoConstraints="NO" id="Lk5-FR-uKF">
-                    <rect key="frame" x="80" y="85" width="215" height="367"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 6 - Complete diary if you want it" translatesAutoresizingMaskIntoConstraints="NO" id="utr-uv-kCf">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Na outra tab bar você pode ver o diário de refeições. Clicando aqui você adiciona uma refeição no diário." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl4-es-k0E">
-                    <rect key="frame" x="0.0" y="517" width="375" height="70"/>
+                    <rect key="frame" x="0.0" y="410" width="320" height="70"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="Z3m-2X-J5w"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Z3m-2X-J5w"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,26 +26,20 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Lk5-FR-uKF" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="90" id="3H7-S5-DS3"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="Ax2-U0-SY5"/>
-                <constraint firstItem="Lk5-FR-uKF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="BGt-CM-hsm"/>
                 <constraint firstAttribute="trailing" secondItem="utr-uv-kCf" secondAttribute="trailing" id="DvN-rO-joP"/>
-                <constraint firstItem="Lk5-FR-uKF" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="GHG-gm-8QP"/>
-                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="Lk5-FR-uKF" secondAttribute="bottom" constant="65" id="J04-2F-pFt"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="8" id="Ldo-6X-i1z"/>
-                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="-30" id="Mvu-kI-cB1"/>
-                <constraint firstAttribute="bottom" secondItem="Xl4-es-k0E" secondAttribute="bottom" constant="80" id="SIc-6s-bUl"/>
-                <constraint firstItem="Lk5-FR-uKF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="85" id="eMY-H5-JCY"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" id="Mvu-kI-cB1"/>
+                <constraint firstAttribute="bottom" secondItem="Xl4-es-k0E" secondAttribute="bottom" id="SIc-6s-bUl"/>
                 <constraint firstItem="utr-uv-kCf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gCZ-2h-vag"/>
                 <constraint firstItem="utr-uv-kCf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iNl-YE-VGT"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p6Z-wr-OnP"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="width" secondItem="utr-uv-kCf" secondAttribute="width" multiplier="1.2" id="ul3-Bj-Wf3"/>
                 <constraint firstAttribute="trailing" secondItem="Xl4-es-k0E" secondAttribute="trailing" id="xkc-xR-EJ7"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="3H7-S5-DS3"/>
                     <exclude reference="Ax2-U0-SY5"/>
                     <exclude reference="Ldo-6X-i1z"/>
                     <exclude reference="ul3-Bj-Wf3"/>
@@ -57,7 +48,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Page 6 - Complete diary if you want it" width="750" height="1334"/>
-        <image name="iphone6-plus-box-silver-2014" width="478" height="595"/>
+        <image name="Page 6 - Complete diary if you want it" width="478" height="595"/>
     </resources>
 </document>

@@ -15,7 +15,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 0 - Open your app and check your diet by week" translatesAutoresizingMaskIntoConstraints="NO" id="GVH-Y3-Inu">
-                            <rect key="frame" x="0.0" y="15" width="320" height="360"/>
+                            <rect key="frame" x="0.0" y="15" width="320" height="360.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="206" id="EJ5-8o-SGh"/>
                                 <constraint firstAttribute="height" constant="259" id="Vd8-Zu-7Lb"/>
@@ -28,7 +28,7 @@
                             </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abra seu aplicativo, veja os dias da semana e refeições cadastradas, caso haja." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fez-bV-7S0">
-                            <rect key="frame" x="16" y="370" width="288" height="48"/>
+                            <rect key="frame" x="15" y="370" width="288.5" height="47.5"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="WkP-Jh-XZR"/>
                             </constraints>
