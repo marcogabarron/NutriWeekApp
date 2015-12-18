@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
@@ -11,9 +11,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 1 - Click on new meal" translatesAutoresizingMaskIntoConstraints="NO" id="Moe-a5-Xaq">
-                    <rect key="frame" x="-1" y="0.0" width="321" height="420"/>
+                    <rect key="frame" x="0.0" y="15" width="320" height="361"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="320" id="1Of-xV-Fif"/>
                         <constraint firstAttribute="width" constant="206" id="L8A-JF-KrU"/>
+                        <constraint firstAttribute="height" constant="361" id="d1x-1K-zHr"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -22,7 +24,7 @@
                     </variation>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Clique para adicionar novas refeições." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-iL-73e">
-                    <rect key="frame" x="0.0" y="420" width="320" height="60"/>
+                    <rect key="frame" x="0.0" y="376" width="320" height="104"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="Tax-Iw-d3O"/>
                         <constraint firstAttribute="height" constant="60" id="g92-Xn-QtC"/>
@@ -36,6 +38,7 @@
                         <mask key="constraints">
                             <exclude reference="Tax-Iw-d3O"/>
                             <exclude reference="g92-Xn-QtC"/>
+                            <exclude reference="gSj-of-qPz"/>
                             <exclude reference="hFD-d4-mHI"/>
                         </mask>
                     </variation>
@@ -44,7 +47,7 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="0rN-iL-73e" secondAttribute="bottom" id="0Ae-Rd-HT3"/>
-                <constraint firstItem="Moe-a5-Xaq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1Ao-By-Ks7"/>
+                <constraint firstItem="Moe-a5-Xaq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="1Ao-By-Ks7"/>
                 <constraint firstAttribute="bottom" secondItem="0rN-iL-73e" secondAttribute="bottom" constant="80" id="2Ja-Ib-09c"/>
                 <constraint firstItem="Moe-a5-Xaq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5uP-Bq-ECh"/>
                 <constraint firstItem="Moe-a5-Xaq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6Fc-Vl-KnJ"/>
@@ -60,6 +63,7 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="5uP-Bq-ECh"/>
+                    <exclude reference="H3J-uk-Il7"/>
                     <exclude reference="2Ja-Ib-09c"/>
                     <exclude reference="CsT-Rj-Hsq"/>
                     <exclude reference="L7e-Y5-OMn"/>
