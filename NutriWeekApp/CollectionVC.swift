@@ -176,7 +176,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
         default:
             assert(false, "Unexpected element kind")
+
             }
+        
     }
 
     //selected colletion view cell

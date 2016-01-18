@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -12,37 +12,57 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 6 - Complete diary if you want it" translatesAutoresizingMaskIntoConstraints="NO" id="utr-uv-kCf">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                    <rect key="frame" x="0.0" y="20" width="320" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="fPE-MT-kEZ"/>
+                        <constraint firstAttribute="width" constant="320" id="sgH-HE-eaV"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Na outra tab bar você pode ver o diário de refeições. Clicando aqui você adiciona uma refeição no diário." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl4-es-k0E">
-                    <rect key="frame" x="0.0" y="410" width="320" height="70"/>
+                    <rect key="frame" x="16" y="335" width="288" height="69"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Z3m-2X-J5w"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Z3m-2X-J5w"/>
+                        </mask>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="4qQ-me-clq"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="Ax2-U0-SY5"/>
                 <constraint firstAttribute="trailing" secondItem="utr-uv-kCf" secondAttribute="trailing" id="DvN-rO-joP"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="8" id="Ldo-6X-i1z"/>
-                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" id="Mvu-kI-cB1"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="top" secondItem="utr-uv-kCf" secondAttribute="bottom" constant="-5" id="Mvu-kI-cB1"/>
                 <constraint firstAttribute="bottom" secondItem="Xl4-es-k0E" secondAttribute="bottom" id="SIc-6s-bUl"/>
                 <constraint firstItem="utr-uv-kCf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gCZ-2h-vag"/>
                 <constraint firstItem="utr-uv-kCf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="iNl-YE-VGT"/>
+                <constraint firstItem="utr-uv-kCf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="jh0-v7-UKO"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="p6Z-wr-OnP"/>
+                <constraint firstItem="utr-uv-kCf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tYc-H8-fRg"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1/7" id="toY-Xd-1Qy"/>
                 <constraint firstItem="Xl4-es-k0E" firstAttribute="width" secondItem="utr-uv-kCf" secondAttribute="width" multiplier="1.2" id="ul3-Bj-Wf3"/>
                 <constraint firstAttribute="trailing" secondItem="Xl4-es-k0E" secondAttribute="trailing" id="xkc-xR-EJ7"/>
+                <constraint firstItem="Xl4-es-k0E" firstAttribute="centerX" secondItem="utr-uv-kCf" secondAttribute="centerX" id="yIp-c6-m9H"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="DvN-rO-joP"/>
+                    <exclude reference="gCZ-2h-vag"/>
+                    <exclude reference="iNl-YE-VGT"/>
                     <exclude reference="Ax2-U0-SY5"/>
                     <exclude reference="Ldo-6X-i1z"/>
+                    <exclude reference="SIc-6s-bUl"/>
+                    <exclude reference="p6Z-wr-OnP"/>
                     <exclude reference="ul3-Bj-Wf3"/>
+                    <exclude reference="xkc-xR-EJ7"/>
                 </mask>
             </variation>
         </view>

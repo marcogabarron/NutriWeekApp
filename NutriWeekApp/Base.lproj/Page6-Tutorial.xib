@@ -11,11 +11,13 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Page 5 - Edit your meal" translatesAutoresizingMaskIntoConstraints="NO" id="z9n-pv-gLe">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Page 5 - Edit your meal" translatesAutoresizingMaskIntoConstraints="NO" id="z9n-pv-gLe">
+                    <rect key="frame" x="0.0" y="20" width="320" height="320"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="206" id="1aC-8I-1YF"/>
+                        <constraint firstAttribute="height" constant="320" id="PcP-I6-yIQ"/>
                         <constraint firstAttribute="height" constant="259" id="QdO-HA-mCW"/>
+                        <constraint firstAttribute="width" constant="320" id="zaH-wa-OMR"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -24,14 +26,19 @@
                         </mask>
                     </variation>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Veja ou edite uma refeição." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMt-ZO-ErY">
-                    <rect key="frame" x="0.0" y="420" width="320" height="60"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veja ou edite uma refeição." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMt-ZO-ErY">
+                    <rect key="frame" x="16" y="335" width="288" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Zh3-fw-zJh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Zh3-fw-zJh"/>
+                        </mask>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,21 +49,36 @@
                 <constraint firstItem="z9n-pv-gLe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ce7-uy-nut"/>
                 <constraint firstItem="aMt-ZO-ErY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J6w-RR-b45"/>
                 <constraint firstItem="aMt-ZO-ErY" firstAttribute="width" secondItem="z9n-pv-gLe" secondAttribute="width" multiplier="1.2" id="OTD-zU-fRF"/>
-                <constraint firstItem="aMt-ZO-ErY" firstAttribute="top" secondItem="z9n-pv-gLe" secondAttribute="bottom" id="ScN-th-N9K"/>
+                <constraint firstItem="aMt-ZO-ErY" firstAttribute="centerX" secondItem="z9n-pv-gLe" secondAttribute="centerX" id="SXu-qT-dZc"/>
+                <constraint firstItem="aMt-ZO-ErY" firstAttribute="top" secondItem="z9n-pv-gLe" secondAttribute="bottom" constant="-5" id="ScN-th-N9K"/>
+                <constraint firstItem="z9n-pv-gLe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XIl-KK-OLt"/>
+                <constraint firstItem="aMt-ZO-ErY" firstAttribute="centerY" secondItem="z9n-pv-gLe" secondAttribute="centerY" id="YAz-nW-oZa"/>
                 <constraint firstItem="aMt-ZO-ErY" firstAttribute="centerX" secondItem="z9n-pv-gLe" secondAttribute="centerX" constant="-3" id="ZRZ-Fi-cpv"/>
                 <constraint firstAttribute="trailing" secondItem="z9n-pv-gLe" secondAttribute="trailing" id="aiX-Va-QFj"/>
                 <constraint firstAttribute="trailing" secondItem="aMt-ZO-ErY" secondAttribute="trailing" id="bH9-zS-FV9"/>
                 <constraint firstItem="z9n-pv-gLe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bcF-d5-snD"/>
+                <constraint firstItem="aMt-ZO-ErY" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="bfh-yK-plF"/>
+                <constraint firstItem="z9n-pv-gLe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="dc9-Mn-Yr0"/>
+                <constraint firstItem="aMt-ZO-ErY" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1/10" id="eR0-uT-Xuc"/>
+                <constraint firstItem="z9n-pv-gLe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hUg-Oa-LFg"/>
                 <constraint firstAttribute="bottom" secondItem="aMt-ZO-ErY" secondAttribute="bottom" id="u0m-P4-Qe4"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="1JD-NR-kqn"/>
+                    <exclude reference="J6w-RR-b45"/>
+                    <exclude reference="OTD-zU-fRF"/>
+                    <exclude reference="YAz-nW-oZa"/>
+                    <exclude reference="ZRZ-Fi-cpv"/>
+                    <exclude reference="bH9-zS-FV9"/>
+                    <exclude reference="u0m-P4-Qe4"/>
                     <exclude reference="5DT-x8-05J"/>
                     <exclude reference="7wA-Vr-7Po"/>
-                    <exclude reference="1JD-NR-kqn"/>
-                    <exclude reference="OTD-zU-fRF"/>
-                    <exclude reference="ZRZ-Fi-cpv"/>
+                    <exclude reference="Ce7-uy-nut"/>
+                    <exclude reference="XIl-KK-OLt"/>
+                    <exclude reference="aiX-Va-QFj"/>
+                    <exclude reference="bcF-d5-snD"/>
                 </mask>
             </variation>
         </view>

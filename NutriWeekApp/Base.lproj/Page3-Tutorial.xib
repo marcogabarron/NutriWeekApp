@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,40 +12,62 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete os campos para adicionar uma nova refeição e ser lembrado de quando comer." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKb-wz-8ol">
-                    <rect key="frame" x="0.0" y="419" width="320" height="61"/>
+                    <rect key="frame" x="16" y="345" width="288" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="61" id="NxZ-s1-oMc"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="NxZ-s1-oMc"/>
+                        </mask>
+                    </variation>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="Page 2 - Add a new meal" translatesAutoresizingMaskIntoConstraints="NO" id="9fA-Aw-Ohc">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="419"/>
+                    <rect key="frame" x="0.0" y="20" width="320" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="0S3-jc-IqX"/>
+                        <constraint firstAttribute="width" constant="320" id="jnq-Ah-whV"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="9fA-Aw-Ohc" secondAttribute="trailing" constant="85" id="A9r-ut-t3Q"/>
+                <constraint firstItem="9fA-Aw-Ohc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="CyZ-dc-Pcm"/>
+                <constraint firstItem="qKb-wz-8ol" firstAttribute="centerX" secondItem="9fA-Aw-Ohc" secondAttribute="centerX" id="DYs-g7-IYs"/>
                 <constraint firstAttribute="trailing" secondItem="qKb-wz-8ol" secondAttribute="trailing" id="Puw-eF-fbf"/>
                 <constraint firstItem="9fA-Aw-Ohc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Q0J-Mb-4u2"/>
+                <constraint firstItem="qKb-wz-8ol" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="TUJ-6L-esb"/>
                 <constraint firstAttribute="bottom" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" constant="234" id="WMu-uH-ghx"/>
                 <constraint firstItem="9fA-Aw-Ohc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="84" id="XA5-bo-tN5"/>
                 <constraint firstItem="9fA-Aw-Ohc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="174" id="Xdc-jm-GCd"/>
-                <constraint firstItem="qKb-wz-8ol" firstAttribute="top" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" id="bd1-qa-Dxd"/>
+                <constraint firstItem="9fA-Aw-Ohc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bK4-Pk-gGl"/>
+                <constraint firstItem="qKb-wz-8ol" firstAttribute="top" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" constant="5" id="bd1-qa-Dxd"/>
                 <constraint firstItem="qKb-wz-8ol" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cDf-tO-eGf"/>
                 <constraint firstAttribute="bottom" secondItem="qKb-wz-8ol" secondAttribute="bottom" id="csU-kk-JrH"/>
-                <constraint firstItem="9fA-Aw-Ohc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g1h-ln-Oim"/>
+                <constraint firstItem="9fA-Aw-Ohc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="g1h-ln-Oim"/>
                 <constraint firstItem="qKb-wz-8ol" firstAttribute="top" secondItem="9fA-Aw-Ohc" secondAttribute="bottom" constant="20" id="gU1-zp-ZtF"/>
+                <constraint firstItem="9fA-Aw-Ohc" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="miJ-z1-fo3"/>
                 <constraint firstAttribute="trailing" secondItem="9fA-Aw-Ohc" secondAttribute="trailing" id="vdR-5b-ms7"/>
+                <constraint firstItem="qKb-wz-8ol" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1/10" id="z6g-Id-Xue"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="A9r-ut-t3Q"/>
+                    <exclude reference="CyZ-dc-Pcm"/>
+                    <exclude reference="Q0J-Mb-4u2"/>
                     <exclude reference="WMu-uH-ghx"/>
                     <exclude reference="XA5-bo-tN5"/>
                     <exclude reference="Xdc-jm-GCd"/>
+                    <exclude reference="miJ-z1-fo3"/>
+                    <exclude reference="vdR-5b-ms7"/>
+                    <exclude reference="Puw-eF-fbf"/>
+                    <exclude reference="cDf-tO-eGf"/>
+                    <exclude reference="csU-kk-JrH"/>
                     <exclude reference="gU1-zp-ZtF"/>
                 </mask>
             </variation>
