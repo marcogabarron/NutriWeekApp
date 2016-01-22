@@ -453,10 +453,11 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = MERJVB67M9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = UNMPYLD92U;
+						DevelopmentTeam = MERJVB67M9;
 						TestTargetID = DAD5A1601B3D7549003829BF;
 					};
 				};

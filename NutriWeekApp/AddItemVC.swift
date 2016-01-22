@@ -49,7 +49,7 @@ class AddItemVC: UIViewController, UICollectionViewDelegateFlowLayout, UITextFie
 
         }
         self.navigationItem.title = NSLocalizedString("Informações", comment: "")
-        self.save.title = NSLocalizedString("Salvar", comment: "")
+        self.save.title = NSLocalizedString("Concluir", comment: "")
 
         self.tableView.reloadData()
     }

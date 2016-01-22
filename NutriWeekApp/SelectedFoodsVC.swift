@@ -32,7 +32,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.title = NSLocalizedString ("Salvar", comment: "")
+        saveButton.title = NSLocalizedString ("Concluir", comment: "")
     }
     
     
@@ -44,7 +44,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
         tracker.send(builder.build() as [NSObject : AnyObject])
         
         
-        self.navigationItem.title = NSLocalizedString("Seleção de Alimentos", comment: "Food")
+        self.navigationItem.title = NSLocalizedString("Seleção", comment: "Food")
         
         self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
         

@@ -378,7 +378,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK: Functions
     
     func activeSaveButton(){
-        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.title = NSLocalizedString("Concluir", comment: "Concluir")
         self.saveButton.enabled = true
     }
     

@@ -34,7 +34,7 @@ class CreateItemVC: UIViewController, UITextFieldDelegate, UIPickerViewDelegate,
         super.viewWillDisappear(animated)
         //saveClicked = false
         self.navigationItem.title = NSLocalizedString("Novo Alimento", comment: "")
-        self.save.title = NSLocalizedString("Salvar", comment: "")
+        self.save.title = NSLocalizedString("Concluir", comment: "")
     }
     
     override func viewDidLoad() {
