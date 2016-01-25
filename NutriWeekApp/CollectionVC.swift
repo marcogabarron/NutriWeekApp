@@ -176,7 +176,9 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
         default:
             assert(false, "Unexpected element kind")
+
             }
+        
     }
 
     //selected colletion view cell
@@ -376,7 +378,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     //MARK: Functions
     
     func activeSaveButton(){
-        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.title = NSLocalizedString("Concluir", comment: "Concluir")
         self.saveButton.enabled = true
     }
     

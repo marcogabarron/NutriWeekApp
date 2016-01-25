@@ -273,13 +273,17 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             self.createDaily(daily)
         }
 
-        self.navigationController?.popViewControllerAnimated(true)
+//        self.navigationController?.popViewControllerAnimated(true)
 
     }
     
     private func createDaily(daily: DailyModel) {
         DailyServices.createDaily(daily.date, fled: daily.fled, description: daily.descriptionStr, hasImage: daily.hasImage!, name: daily.nameImage!)
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+        
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     
@@ -378,7 +382,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     //MARK - logical functions associated to Image and save button
     
     func addSaveButton(){
-        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.title = NSLocalizedString("Concluir", comment: "Concluir")
         self.saveButton.enabled = true
     }
     
