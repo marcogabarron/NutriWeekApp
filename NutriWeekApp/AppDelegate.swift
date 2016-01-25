@@ -36,6 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        gai.trackerWithTrackingId("UA-70701653-1")
 
         
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Selected)
+        
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
+        
+        
         return true
     }
     

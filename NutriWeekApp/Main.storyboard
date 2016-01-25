@@ -38,7 +38,7 @@
         <scene sceneID="oSu-61-CVS">
             <objects>
                 <navigationController id="1iD-Ak-XWc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diário" image="diary-50(3)" id="bQE-Yc-VbY" colorLabel="IBBuiltInLabel-Green"/>
+                    <tabBarItem key="tabBarItem" title="Diário" image="diary-50-unselected" selectedImage="diary-50" id="bQE-Yc-VbY" colorLabel="IBBuiltInLabel-Green"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Csk-fS-YLI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -266,7 +266,7 @@
         <scene sceneID="Nj9-1t-bSa">
             <objects>
                 <navigationController id="Uy7-UN-XTR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Refeições" image="Service Bell-50" id="uNE-xb-gAj"/>
+                    <tabBarItem key="tabBarItem" title="Refeições" image="Service-Bell-unselected" selectedImage="Service-Bell-50" id="uNE-xb-gAj"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="pUd-KT-N90">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1991,9 +1991,11 @@
     <resources>
         <image name="1" width="276" height="183"/>
         <image name="Camera-50" width="50" height="50"/>
-        <image name="Service Bell-50" width="32" height="32"/>
+        <image name="Service-Bell-50" width="32" height="32"/>
+        <image name="Service-Bell-unselected" width="32" height="32"/>
         <image name="dell" width="100" height="100"/>
-        <image name="diary-50(3)" width="35" height="35"/>
+        <image name="diary-50" width="35" height="35"/>
+        <image name="diary-50-unselected" width="35" height="35"/>
         <image name="logo" width="510" height="510"/>
     </resources>
     <inferredMetricsTieBreakers>
