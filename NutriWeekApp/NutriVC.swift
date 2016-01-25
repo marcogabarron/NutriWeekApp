@@ -87,15 +87,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 54/255, green: 173/255, blue: 92/255, alpha: 0.2)
+        headerView.backgroundColor = UIColor(red: 212/255, green: 247/255, blue: 195/255, alpha: 1)
         
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
         label.autoresizesSubviews = true
         label.minimumScaleFactor = 0.5
-        label.textColor = UIColor(red: 54/255, green: 173/255, blue: 92/255, alpha: 0.8)
+        label.textColor = UIColor(red: 60/255, green: 118/255, blue: 61/255, alpha: 1)
         label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.daysInPt[section], comment: "")
-        label.font = UIFont(name:"Helvetica-SemiBold", size: 22)
+        label.font = UIFont(name:"Helvetica-SemiBold", size: 10)
         headerView.addSubview(label)
         
         return headerView

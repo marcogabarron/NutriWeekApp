@@ -1932,9 +1932,11 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-fG-day">
                                 <rect key="frame" x="0.0" y="64" width="414" height="44"/>
                                 <color key="backgroundColor" red="0.21176470588235294" green="0.67843137254901964" blue="0.36078431372549019" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.83137254901960778" green="0.96862745098039216" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Title" id="NcK-U1-bSa">
                                         <barButtonItem key="leftBarButtonItem" title="Anterior" id="hdH-vm-dgE">
+                                            <color key="tintColor" red="0.23529411764705882" green="0.46274509803921571" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="beforeButton:" destination="Jwg-wl-dRS" id="orE-sa-afE"/>
                                             </connections>
