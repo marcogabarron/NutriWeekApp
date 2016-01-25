@@ -137,7 +137,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
             cell.image.image = UIImage(named: "addButton")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
             
             cell.dellButton.hidden = true
             
@@ -147,7 +147,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             cell.image.image = UIImage(named: "\(foods[indexPath.row].image)")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
             
             if(delButtonAppears == true){
                 cell.dellButton.hidden = false

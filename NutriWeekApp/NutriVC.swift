@@ -46,8 +46,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
-        
         self.navigationItem.title = "Dieta"
+        
         
         self.tableView.reloadData()
     }

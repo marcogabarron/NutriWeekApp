@@ -42,7 +42,7 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
         self.view.frame = CGRect(origin: self.view.frame.origin, size: CGSize(width: self.view.frame.size.width / 2, height: self.view.frame.size.height / 2))
         
         self.collectionView.layer.masksToBounds = true
-        self.collectionView.layer.cornerRadius = self.collectionView.frame.height/5
+        self.collectionView.layer.cornerRadius = self.collectionView.frame.height/7
         
         //Allows multiple selections
         self.collectionView.allowsMultipleSelection = true
@@ -67,7 +67,7 @@ class ChangeFoodVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
         cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
         cell.image.layer.masksToBounds = true
-        cell.image.layer.cornerRadius = cell.frame.width/3
+        cell.image.layer.cornerRadius = cell.frame.width/5
         
         cell.checkImage.hidden = true
         

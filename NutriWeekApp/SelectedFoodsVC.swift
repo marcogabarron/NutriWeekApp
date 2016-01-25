@@ -126,7 +126,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
             
             cell.image.image = UIImage(named: "Button")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
             
         } else {
             cell.textLabel.text = itens[indexPath.row].name
@@ -134,7 +134,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
             
             cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
             
             //Change label color when it is already selected - It is within the selected array
             if(self.find(self.itens[indexPath.row])){
