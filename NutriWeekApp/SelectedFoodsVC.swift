@@ -32,7 +32,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.title = NSLocalizedString ("Salvar", comment: "")
+        saveButton.title = NSLocalizedString ("Concluir", comment: "")
     }
     
     
@@ -44,7 +44,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
         tracker.send(builder.build() as [NSObject : AnyObject])
         
         
-        self.navigationItem.title = NSLocalizedString("Seleção de Alimentos", comment: "Food")
+        self.navigationItem.title = NSLocalizedString("Seleção", comment: "Food")
         
         self.navigationController!.navigationBar.topItem!.title = NSLocalizedString("Cancelar", comment: "Cancel")
         
@@ -126,7 +126,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
             
             cell.image.image = UIImage(named: "Button")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
             
         } else {
             cell.textLabel.text = itens[indexPath.row].name
@@ -134,7 +134,7 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
             
             cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
             cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/3
+            cell.image.layer.cornerRadius = cell.frame.width/5
             
             //Change label color when it is already selected - It is within the selected array
             if(self.find(self.itens[indexPath.row])){

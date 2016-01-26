@@ -46,8 +46,8 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
+        self.navigationItem.title = "Dieta"
         
-        self.navigationItem.title = "NutriWeek"
         
         self.tableView.reloadData()
     }
@@ -77,6 +77,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
             cell.textLabel!.text = self.contextMeal[indexPath.row].name
             cell.detailTextLabel?.text = format.formatStringTime(self.contextMeal[indexPath.row].horario)
+            
 
         return cell
     
@@ -86,15 +87,15 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = UIView()
-        headerView.backgroundColor = UIColor(red: 51/255, green: 153/255, blue: 102/255, alpha: 1)
+        headerView.backgroundColor = UIColor(red: 212/255, green: 247/255, blue: 195/255, alpha: 1)
         
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
         label.autoresizesSubviews = true
         label.minimumScaleFactor = 0.5
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor(red: 60/255, green: 118/255, blue: 61/255, alpha: 1)
         label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.daysInPt[section], comment: "")
-        label.font = UIFont(name:"Helvetica-SemiBold", size: 22)
+        label.font = UIFont(name:"Helvetica-SemiBold", size: 10)
         headerView.addSubview(label)
         
         return headerView

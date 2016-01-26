@@ -382,7 +382,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     //MARK - logical functions associated to Image and save button
     
     func addSaveButton(){
-        self.saveButton.title = NSLocalizedString("Salvar", comment: "Salvar")
+        self.saveButton.title = NSLocalizedString("Concluir", comment: "Concluir")
         self.saveButton.enabled = true
     }
     

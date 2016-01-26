@@ -36,6 +36,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.beforeButtonItem.tintColor = UIColor(red: 54/255, green: 173/255, blue: 92/255, alpha: 0.8)
+        self.afterButtonItem.tintColor = UIColor(red: 54/255, green: 173/255, blue: 92/255, alpha: 0.8)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -49,8 +51,9 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         super.viewWillAppear(animated)
         date = NSDate()
         
-        self.dateNavigation.title = self.format.formatDateToYearDateString(NSDate())
+        self.dateNavigation.title = self.format.formatDateToYearDateString(date)
         self.disableButtonAfter()
+        self.beforeButtonItem.title = self.format.formatDateToYearDateString(date.dateByAddingTimeInterval(-60*60*24))
         
         if(DailyServices.allDaily().count > 0){
             let date = NSDate()
@@ -129,10 +132,12 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button Before", action: "The user clicks here to see your register of meals", label: nil, value: nil).build() as [NSObject : AnyObject])
 
         
-        date = (date.dateByAddingTimeInterval(-60*60*24))
+        date = date.dateByAddingTimeInterval(-60*60*24)
         
         self.enableButtonAfter()
         self.dateNavigation.title = self.format.formatDateToYearDateString(date)
+        self.beforeButtonItem.title = self.format.formatDateToYearDateString(date.dateByAddingTimeInterval(-60*60*24))
+        self.afterButtonItem.title = self.format.formatDateToYearDateString(date.dateByAddingTimeInterval(60*60*24))
         
         self.allDaily = DailyServices.findByDateDaily(date)
         
@@ -143,9 +148,11 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         //Google Analytics - monitoring events - dicover created food
         tracker.send(GAIDictionaryBuilder.createEventWithCategory("Button After", action: "The user clicks here to see your register of meals", label: nil, value: nil).build() as [NSObject : AnyObject])
         
-        date = (date.dateByAddingTimeInterval(60*60*24))
+        date = date.dateByAddingTimeInterval(60*60*24)
         
         self.dateNavigation.title = self.format.formatDateToYearDateString(date)
+        self.beforeButtonItem.title = self.format.formatDateToYearDateString(date.dateByAddingTimeInterval(-60*60*24))
+        self.afterButtonItem.title = self.format.formatDateToYearDateString(date.dateByAddingTimeInterval(60*60*24))
         
         self.allDaily = DailyServices.findByDateDaily(date)
         
