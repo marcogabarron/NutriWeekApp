@@ -151,6 +151,9 @@
                             <constraint firstItem="czi-cW-N1e" firstAttribute="top" secondItem="pTU-K8-Mii" secondAttribute="bottom" id="epE-4C-tcU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="connectTxt" destination="GfG-U0-IUx" id="HL2-4H-EwC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3U-ba-Mxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

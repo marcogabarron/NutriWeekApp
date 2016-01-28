@@ -12,6 +12,7 @@
 		43BA70C91C079F7800FB7A25 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BA70C81C079F7800FB7A25 /* PhotoManager.swift */; };
 		AF9EB678E911FAD492BF1E77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE62D813F40FEB57393DF8B /* libPods.a */; };
 		C2019D131C5A7E8B00AF2723 /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */; };
+		C2019D171C5A98AE00AF2723 /* DietConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2019D161C5A98AE00AF2723 /* DietConnection.swift */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
@@ -88,6 +89,7 @@
 		588EA2B8E58312E66B11B0B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7EE62D813F40FEB57393DF8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
+		C2019D161C5A98AE00AF2723 /* DietConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietConnection.swift; sourceTree = "<group>"; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				C246E4161BD950990068ED68 /* Meal.swift */,
 				C246E4181BD951A60068ED68 /* Food.swift */,
 				C275F1EC1BF5054600FAA532 /* DailyModel.swift */,
+				C2019D161C5A98AE00AF2723 /* DietConnection.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */,
 				C2FE6C731BED1E420044B39B /* Daily.swift in Sources */,
 				C246E41F1BD9DA800068ED68 /* SelectedFoodsAdd.swift in Sources */,
+				C2019D171C5A98AE00AF2723 /* DietConnection.swift in Sources */,
 				C246E41D1BD9D9240068ED68 /* SelectedFoodsSave.swift in Sources */,
 				C2A0093C1B56C4E500F4A914 /* EditVC.swift in Sources */,
 				DACDF9301B46D2D000C6AE59 /* CollectionCell.swift in Sources */,
