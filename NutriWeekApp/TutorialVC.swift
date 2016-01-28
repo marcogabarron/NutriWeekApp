@@ -12,7 +12,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
     @IBAction func start(sender: AnyObject) {
         
         if start.hidden == false{
-            dismissTutorial(true)
+            dismissTutorialFirst(true)
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "FirstLaunchTutorial")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
@@ -99,7 +99,7 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
     func dismissTutorial(animated: Bool)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationID") as! UITabBarController
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTabID") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         if let window = appDelegate.window{
@@ -109,6 +109,28 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
                 UIView.transitionWithView(window, duration: 0.5, options: .TransitionFlipFromRight, animations: {
                     window.rootViewController = viewController
                 }, completion: nil)
+                
+            } else {
+                
+                window.rootViewController = viewController
+                
+            }
+        }
+    }
+    
+    func dismissTutorialFirst(animated: Bool)
+    {
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationID")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let window = appDelegate.window{
+            
+            if animated {
+                
+                UIView.transitionWithView(window, duration: 0.5, options: .TransitionFlipFromRight, animations: {
+                    window.rootViewController = viewController
+                    }, completion: nil)
                 
             } else {
                 

@@ -11,6 +11,7 @@
 		43BA70C71C079E3000FB7A25 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BA70C61C079E3000FB7A25 /* Photos.framework */; };
 		43BA70C91C079F7800FB7A25 /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BA70C81C079F7800FB7A25 /* PhotoManager.swift */; };
 		AF9EB678E911FAD492BF1E77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE62D813F40FEB57393DF8B /* libPods.a */; };
+		C2019D131C5A7E8B00AF2723 /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
@@ -86,6 +87,7 @@
 		43BA70C81C079F7800FB7A25 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		588EA2B8E58312E66B11B0B5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7EE62D813F40FEB57393DF8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				DA8784FE1BE93428008838E9 /* DiaryVCOLD.swift */,
 				C2A0093B1B56C4E500F4A914 /* EditVC.swift */,
 				43BA70C81C079F7800FB7A25 /* PhotoManager.swift */,
+				C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				FFA5004B1B4E1E3A0023208C /* TodoList.swift in Sources */,
 				C2F175381BD555E5000B2A3E /* ItemCardapio.swift in Sources */,
 				DA60CF9A1B4D6EE700C78BA0 /* ItemCardapioServices.swift in Sources */,
+				C2019D131C5A7E8B00AF2723 /* ConnectVC.swift in Sources */,
 				DAD5A16A1B3D7549003829BF /* NutriWeekApp.xcdatamodeld in Sources */,
 				DAD5A1671B3D7549003829BF /* AppDelegate.swift in Sources */,
 				DA60CF981B4D6EAA00C78BA0 /* ItemCardapioDAO.swift in Sources */,
