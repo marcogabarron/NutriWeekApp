@@ -216,7 +216,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     }
     
     @IBAction func saveButton(sender: AnyObject) {
-        if(self.descriptionText.text == "No que você está pensando"){
+        if(self.descriptionText.text == "Anotações do diário de refeições"){
             self.descriptionText.text = ""
         }
         
@@ -346,14 +346,14 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     //MARK - logical functions associated to TextView
     
     override func becomeFirstResponder() -> Bool {
-        self.descriptionText.text = "No que você está pensando"
+        self.descriptionText.text = "Anotações do diário de refeições"
         self.descriptionText.textColor = UIColor.lightGrayColor()
         
         return true
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        if (descriptionText?.text == "No que você está pensando") {
+        if (descriptionText?.text == "Anotações do diário de refeições") {
             
             self.addSaveButton()
             descriptionText!.text = nil
@@ -364,7 +364,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     func textViewDidEndEditing(textView: UITextView) {
         if descriptionText!.text.isEmpty {
             
-            descriptionText!.text = "No que você está pensando"
+            descriptionText!.text = "Anotações do diário de refeições"
             descriptionText!.textColor = UIColor.lightGrayColor()
         }
         textView.resignFirstResponder()
