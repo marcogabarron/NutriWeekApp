@@ -307,7 +307,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlp-eZ-RK1">
-                                                <rect key="frame" x="62" y="14" width="241" height="21"/>
+                                                <rect key="frame" x="62" y="14" width="241" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -336,7 +336,7 @@
                                         </constraints>
                                     </view>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXX-qS-ueY">
-                                        <rect key="frame" x="295" y="65" width="55" height="31"/>
+                                        <rect key="frame" x="294.5" y="65" width="55" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="9LF-nY-RZg"/>
                                         </constraints>
@@ -459,7 +459,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ReuseIdentifier" editingAccessoryType="detailDisclosureButton" textLabel="icz-Vw-der" detailTextLabel="moG-xy-lqr" rowHeight="36" style="IBUITableViewCellStyleValue1" id="dnF-6a-wWp">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="36"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="375" height="36"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dnF-6a-wWp" id="Ybe-bt-DUm">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="35.5"/>
@@ -612,7 +612,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s5w-AR-wlP">
-                                <rect key="frame" x="270" y="32" width="51" height="31"/>
+                                <rect key="frame" x="270" y="31.5" width="51" height="31"/>
                                 <color key="onTintColor" red="0.18039215689999999" green="0.63137254899999995" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="valueChange:" destination="oxc-Ih-3gp" eventType="valueChanged" id="OWx-Qj-Qac"/>
@@ -642,7 +642,7 @@
                                 </connections>
                             </datePicker>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PHI-5M-ugB">
-                                <rect key="frame" x="3" y="132" width="366" height="422"/>
+                                <rect key="frame" x="3" y="132" width="366" height="421.5"/>
                                 <color key="backgroundColor" red="0.99450888159999995" green="1" blue="0.99538113699999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="537" id="hcg-Tp-KeZ"/>
@@ -1026,7 +1026,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPt-Qe-9JQ">
-                                <rect key="frame" x="33" y="70" width="326" height="21"/>
+                                <rect key="frame" x="33" y="70" width="326" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="iV6-oM-miQ"/>
                                     <constraint firstAttribute="height" constant="21" id="p6m-AJ-eQc"/>
@@ -1949,7 +1949,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SelectedCollectionViewCell" reuseIdentifier="SelectedCollectionViewCell" id="tMD-oe-ui7" customClass="SelectedCollectionViewCell" customModule="NutriWeekApp" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="10" width="355" height="300"/>
+                                        <rect key="frame" x="29.5" y="10" width="355" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="300"/>
@@ -2217,8 +2217,8 @@
                                                 <state key="normal" title="Desconectar ao Nutricinonista"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="VzR-U3-6gN"/>
                                                         <exclude reference="3lE-1F-Oh0"/>
+                                                        <exclude reference="VzR-U3-6gN"/>
                                                     </mask>
                                                 </variation>
                                             </button>
@@ -2284,8 +2284,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="sIx-xm-w5N"/>
                                         <exclude reference="Iye-2f-9IV"/>
+                                        <exclude reference="sIx-xm-w5N"/>
                                     </mask>
                                 </variation>
                             </scrollView>
