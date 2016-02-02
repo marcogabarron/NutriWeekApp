@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -10,7 +11,7 @@
         <!--ConnectVC-->
         <scene sceneID="JBZ-Kf-3kS">
             <objects>
-                <viewController restorationIdentifier="NavigationID" storyboardIdentifier="NavigationID" automaticallyAdjustsScrollViewInsets="NO" id="BJv-Su-YAG" customClass="ConnectVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NavigationIDOLD" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BJv-Su-YAG" customClass="ConnectVC" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yqe-yX-jao"/>
                         <viewControllerLayoutGuide type="bottom" id="czi-cW-N1e"/>
@@ -157,12 +158,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3U-ba-Mxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2264" y="-388"/>
+            <point key="canvasLocation" x="-2345" y="-603"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Hjg-3v-xW4">
             <objects>
-                <tabBarController storyboardIdentifier="NavigationTabID" id="8Lj-4B-1Df" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigationID" id="8Lj-4B-1Df" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="DGO-oT-Vvt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -2200,7 +2201,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-ZX-CdB">
                                                 <rect key="frame" x="18" y="356" width="378" height="30"/>
-                                                <state key="normal" title="Conectar ao Nutricionista"/>
+                                                <state key="normal" title="Função indisponível no momento"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c04-qr-5u4">
                                                 <rect key="frame" x="18" y="263" width="378" height="41"/>

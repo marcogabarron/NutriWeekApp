@@ -99,7 +99,8 @@ class TutorialVC: UIViewController, UIScrollViewDelegate {
     func dismissTutorial(animated: Bool)
     {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationTabID") as! UITabBarController
+        //Foi alterado para NavigationID ao invés de NavigationTabID
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("NavigationID") as! UITabBarController
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         if let window = appDelegate.window{
