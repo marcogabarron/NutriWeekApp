@@ -28,6 +28,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     @IBOutlet weak var switchDiet: UISwitch!
     @IBOutlet weak var heightImage: NSLayoutConstraint!
     @IBOutlet weak var heightView: NSLayoutConstraint!
+    @IBOutlet weak var follow: UILabel!
     
     //Relative to models and CoreData
     let dateFormatter = NSDateFormatter()
@@ -66,6 +67,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
         self.dateLabel.text = self.dateFormatter.formatDateToYearDateString(date)
         self.hour.setTitle(self.dateFormatter.formatDateToString(self.datePicker.date), forState: .Normal)
+        
+        self.follow.text = NSLocalizedString("Seguiu a dieta", comment: "")
         
         descriptionText.delegate = self
         descriptionText!.autocorrectionType = UITextAutocorrectionType.No
@@ -106,7 +109,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         //Faz o alert que vai dar as opções de câmera e de galeria
         let alertCamera = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        alertCamera.addAction(UIAlertAction(title: "Tirar Foto", style: .Default, handler: { (action: UIAlertAction!) in
+        alertCamera.addAction(UIAlertAction(title: NSLocalizedString("Tirar Foto", comment: ""), style: .Default, handler: { (action: UIAlertAction!) in
             
             let authStatus = AVCaptureDevice.authorizationStatusForMediaType(AVMediaTypeVideo)
             
@@ -117,7 +120,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             }
             else if authStatus == AVAuthorizationStatus.Denied //Caso a câmera não esteja disponível, nas configurações, o usuário pode alterar
             {
-                self.showAdjustmentDisclaimer("Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera")
+                self.showAdjustmentDisclaimer(NSLocalizedString("Câmera indisponível", comment: ""), message: NSLocalizedString("Vá em ajustes e altere as configurações do aplicativo para usar a câmera", comment: ""))
             }
             else if authStatus == AVAuthorizationStatus.NotDetermined {
                 AVCaptureDevice.requestAccessForMediaType(AVMediaTypeVideo, completionHandler: { granted in
@@ -125,13 +128,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                         self.showCamera()
                     }
                     else {
-                        self.showAdjustmentDisclaimer("Câmera indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a câmera")
+                        self.showAdjustmentDisclaimer(NSLocalizedString("Câmera indisponível", comment: ""), message: NSLocalizedString("Vá em ajustes e altere as configurações do aplicativo para usar a câmera", comment: ""))
                     }
                 })
             }
         }))
         
-        alertCamera.addAction(UIAlertAction(title: "Galeria", style: .Default, handler: { (action: UIAlertAction!) in
+        alertCamera.addAction(UIAlertAction(title: NSLocalizedString("Galeria", comment: ""), style: .Default, handler: { (action: UIAlertAction!) in
             
             //Chamar galeria
             
@@ -141,7 +144,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 self.showGalleryPicker()
             }
             else if authStatus == PHAuthorizationStatus.Denied {
-                self.showAdjustmentDisclaimer("Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria")
+                self.showAdjustmentDisclaimer(NSLocalizedString("Galeria indisponível", comment: ""), message: NSLocalizedString("Vá em ajustes e altere as configurações do aplicativo para usar a galeria", comment: ""))
             }
             else if authStatus == PHAuthorizationStatus.NotDetermined {
                 PHPhotoLibrary.requestAuthorization({status in
@@ -149,13 +152,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                         self.showGalleryPicker()
                     }
                     else if authStatus == PHAuthorizationStatus.Denied {
-                        self.showAdjustmentDisclaimer("Galeria indisponível", message: "Vá em ajustes e altere as configurações do aplicativo para usar a galeria")
+                        self.showAdjustmentDisclaimer(NSLocalizedString("Galeria indisponível", comment: ""), message: NSLocalizedString("Vá em ajustes e altere as configurações do aplicativo para usar a galeria", comment: ""))
                     }
                 })
             }
         }))
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel) {
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancelar", comment: ""), style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
         }
         alertCamera.addAction(cancelAction)
@@ -211,12 +214,12 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: ""), style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func saveButton(sender: AnyObject) {
-        if(self.descriptionText.text == "Anotações do diário de refeições"){
+        if(self.descriptionText.text == NSLocalizedString("Anotações do diário de refeições", comment: "")){
             self.descriptionText.text = ""
         }
         
@@ -346,14 +349,14 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     //MARK - logical functions associated to TextView
     
     override func becomeFirstResponder() -> Bool {
-        self.descriptionText.text = "Anotações do diário de refeições"
+        self.descriptionText.text = NSLocalizedString("Anotações do diário de refeições", comment: "")
         self.descriptionText.textColor = UIColor.lightGrayColor()
         
         return true
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        if (descriptionText?.text == "Anotações do diário de refeições") {
+        if (descriptionText?.text == NSLocalizedString("Anotações do diário de refeições", comment: "")) {
             
             self.addSaveButton()
             descriptionText!.text = nil
@@ -364,7 +367,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     func textViewDidEndEditing(textView: UITextView) {
         if descriptionText!.text.isEmpty {
             
-            descriptionText!.text = "Anotações do diário de refeições"
+            descriptionText!.text = NSLocalizedString("Anotações do diário de refeições", comment: "")
             descriptionText!.textColor = UIColor.lightGrayColor()
         }
         textView.resignFirstResponder()
