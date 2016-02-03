@@ -47,6 +47,8 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         builder.set(kGAISessionControl, forKey: "start")
         tracker.send(builder.build() as [NSObject : AnyObject])
         
+        self.navigationItem.title = NSLocalizedString("Diário", comment: "")
+        
         
         super.viewWillAppear(animated)
         date = NSDate()

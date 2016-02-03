@@ -100,8 +100,6 @@
 		C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsSave.swift; sourceTree = "<group>"; };
 		C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsAdd.swift; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
-		C273B1FD1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		C273B1FE1B610DFF0048936E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C273B1FF1B610E2A0048936E /* AlimentosFr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosFr.txt; sourceTree = "<group>"; };
 		C275F1EC1BF5054600FAA532 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
 		C27CACB71BE275D8007AFB4C /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = "pt.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
@@ -156,19 +154,12 @@
 		DAC4678E1B6BC28700F56E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Page7-Tutorial.xib"; sourceTree = "<group>"; };
 		DAC467911B6BC28A00F56E67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Page7-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467931B6BC35A00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467951B6BC35B00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page0-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467971B6BC37900F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467991B6BC37A00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page2-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC4679B1B6BC37E00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page3-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC4679D1B6BC37E00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page3-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC4679F1B6BC42A00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page4-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467A11B6BC42B00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page4-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467A31B6BC44B00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page5-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467A51B6BC44C00F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page5-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467A71B6BC44F00F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page6-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467A91B6BC45000F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page6-Tutorial.strings"; sourceTree = "<group>"; };
 		DAC467AB1B6BC45400F56E67 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page7-Tutorial.strings"; sourceTree = "<group>"; };
-		DAC467AD1B6BC45500F56E67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/Page7-Tutorial.strings"; sourceTree = "<group>"; };
 		DACDF92D1B46C20A00C6AE59 /* CollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionVC.swift; sourceTree = "<group>"; };
 		DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		DAD5A1611B3D7549003829BF /* NutriWeekApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriWeekApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -476,7 +467,6 @@
 				Base,
 				en,
 				es,
-				fr,
 				pt,
 			);
 			mainGroup = DAD5A1581B3D7549003829BF;
@@ -674,7 +664,6 @@
 				DAC467701B6BC09100F56E67 /* Base */,
 				DAC467731B6BC09B00F56E67 /* en */,
 				DAC467931B6BC35A00F56E67 /* es */,
-				DAC467951B6BC35B00F56E67 /* fr */,
 				C27CACB71BE275D8007AFB4C /* pt */,
 			);
 			name = "Page0-Tutorial.xib";
@@ -686,7 +675,6 @@
 				DAC467751B6BC14300F56E67 /* Base */,
 				DAC467781B6BC14500F56E67 /* en */,
 				DAC467971B6BC37900F56E67 /* es */,
-				DAC467991B6BC37A00F56E67 /* fr */,
 				C27CACB81BE275D8007AFB4C /* pt */,
 			);
 			name = "Page2-Tutorial.xib";
@@ -698,7 +686,6 @@
 				DAC4677A1B6BC18600F56E67 /* Base */,
 				DAC4677D1B6BC18800F56E67 /* en */,
 				DAC4679B1B6BC37E00F56E67 /* es */,
-				DAC4679D1B6BC37E00F56E67 /* fr */,
 				C27CACB91BE275D8007AFB4C /* pt */,
 			);
 			name = "Page3-Tutorial.xib";
@@ -710,7 +697,6 @@
 				DAC4677F1B6BC1A300F56E67 /* Base */,
 				DAC467821B6BC1AB00F56E67 /* en */,
 				DAC4679F1B6BC42A00F56E67 /* es */,
-				DAC467A11B6BC42B00F56E67 /* fr */,
 				C27CACBA1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page4-Tutorial.xib";
@@ -722,7 +708,6 @@
 				DAC467841B6BC20A00F56E67 /* Base */,
 				DAC467871B6BC20C00F56E67 /* en */,
 				DAC467A31B6BC44B00F56E67 /* es */,
-				DAC467A51B6BC44C00F56E67 /* fr */,
 				C27CACBB1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page5-Tutorial.xib";
@@ -734,7 +719,6 @@
 				DAC467891B6BC26900F56E67 /* Base */,
 				DAC4678C1B6BC26A00F56E67 /* en */,
 				DAC467A71B6BC44F00F56E67 /* es */,
-				DAC467A91B6BC45000F56E67 /* fr */,
 				C27CACBC1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page6-Tutorial.xib";
@@ -746,7 +730,6 @@
 				DAC4678E1B6BC28700F56E67 /* Base */,
 				DAC467911B6BC28A00F56E67 /* en */,
 				DAC467AB1B6BC45400F56E67 /* es */,
-				DAC467AD1B6BC45500F56E67 /* fr */,
 				C27CACBD1BE275D8007AFB4C /* pt */,
 			);
 			name = "Page7-Tutorial.xib";
@@ -758,7 +741,6 @@
 				C29A78041B593CB700E055DF /* Base */,
 				C29A78051B593CC400E055DF /* en */,
 				C2A5B1731B5F43A300C7EAB1 /* es */,
-				C273B1FD1B610DFF0048936E /* fr */,
 				C27CACBE1BE275D8007AFB4C /* pt */,
 			);
 			name = LaunchScreen.xib;
@@ -770,7 +752,6 @@
 				FFE87BBD1B584D1A006A9C59 /* en */,
 				C29A78061B593D1F00E055DF /* Base */,
 				C23850BF1B5F445D00A21CD5 /* es */,
-				C273B1FE1B610DFF0048936E /* fr */,
 				C27CACBF1BE275D8007AFB4C /* pt */,
 			);
 			name = Localizable.strings;
