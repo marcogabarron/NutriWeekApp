@@ -13,6 +13,7 @@
 		AF9EB678E911FAD492BF1E77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE62D813F40FEB57393DF8B /* libPods.a */; };
 		C2019D131C5A7E8B00AF2723 /* ConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */; };
 		C2019D171C5A98AE00AF2723 /* DietConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2019D161C5A98AE00AF2723 /* DietConnection.swift */; };
+		C2019D681C62731500AF2723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2019D6A1C62731500AF2723 /* Main.storyboard */; };
 		C20B11351B4C3AEB00A232AC /* Alimentos.txt in Resources */ = {isa = PBXBuildFile; fileRef = C20B11341B4C3AEB00A232AC /* Alimentos.txt */; };
 		C20B113D1B4D8E1B00A232AC /* Weeks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B113C1B4D8E1B00A232AC /* Weeks.swift */; };
 		C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */ = {isa = PBXBuildFile; fileRef = C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */; };
@@ -61,7 +62,6 @@
 		DAD5A1901B3D76AA003829BF /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A18B1B3D76AA003829BF /* DatabaseManager.swift */; };
 		DAD5A1941B3D76B7003829BF /* RefeicaoServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */; };
 		DAD5A1971B3D7747003829BF /* NutriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5A1961B3D7747003829BF /* NutriVC.swift */; };
-		DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAD5A19C1B3D9A9E003829BF /* Main.storyboard */; };
 		DAE2137F1BEA7F3600C3921E /* ChangeFoodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */; };
 		FF1A34331C04BE5C00BFEB06 /* AddDailyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */; };
 		FF1A34341C04BE5C00BFEB06 /* RepeatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */; };
@@ -90,6 +90,9 @@
 		7EE62D813F40FEB57393DF8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2019D121C5A7E8B00AF2723 /* ConnectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectVC.swift; sourceTree = "<group>"; };
 		C2019D161C5A98AE00AF2723 /* DietConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietConnection.swift; sourceTree = "<group>"; };
+		C2019D6E1C62737000AF2723 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		C2019D6F1C62758A00AF2723 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		C2019D701C62758C00AF2723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C20B11341B4C3AEB00A232AC /* Alimentos.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alimentos.txt; sourceTree = "<group>"; };
 		C20B113C1B4D8E1B00A232AC /* Weeks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weeks.swift; sourceTree = "<group>"; };
 		C23850BD1B5F444A00A21CD5 /* AlimentosEs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosEs.txt; sourceTree = "<group>"; };
@@ -172,7 +175,6 @@
 		DAD5A18B1B3D76AA003829BF /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		DAD5A1931B3D76B7003829BF /* RefeicaoServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefeicaoServices.swift; sourceTree = "<group>"; };
 		DAD5A1961B3D7747003829BF /* NutriVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutriVC.swift; sourceTree = "<group>"; };
-		DAD5A19C1B3D9A9E003829BF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DAE2137E1BEA7F3600C3921E /* ChangeFoodVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeFoodVC.swift; sourceTree = "<group>"; };
 		FF1A34311C04BE5C00BFEB06 /* AddDailyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDailyVC.swift; sourceTree = "<group>"; };
 		FF1A34321C04BE5C00BFEB06 /* RepeatTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatTVC.swift; sourceTree = "<group>"; };
@@ -388,7 +390,7 @@
 			children = (
 				DAC4676E1B6BBEB800F56E67 /* Pages-Tutorial */,
 				DAD5A1721B3D7549003829BF /* LaunchScreen.xib */,
-				DAD5A19C1B3D9A9E003829BF /* Main.storyboard */,
+				C2019D6A1C62731500AF2723 /* Main.storyboard */,
 				C2B86B651B4AEAD600130D63 /* SelectedCollectionViewCell.swift */,
 				DACDF92F1B46D2D000C6AE59 /* CollectionCell.swift */,
 				DA8785001BEA7625008838E9 /* CollectionDiaryClass.swift */,
@@ -490,7 +492,7 @@
 				DAC4678D1B6BC28700F56E67 /* Page7-Tutorial.xib in Resources */,
 				C23850BE1B5F444A00A21CD5 /* AlimentosEs.txt in Resources */,
 				DA539FB11C0F63B6007B4A4E /* Page1-Tutorial.xib in Resources */,
-				DAD5A19D1B3D9A9E003829BF /* Main.storyboard in Resources */,
+				C2019D681C62731500AF2723 /* Main.storyboard in Resources */,
 				DAC4676F1B6BC09100F56E67 /* Page0-Tutorial.xib in Resources */,
 				DA539FB51C0F6401007B4A4E /* Page8-Tutorial.xib in Resources */,
 				C2A0F6491BE12602007EA3AD /* Images.xcassets in Resources */,
@@ -631,6 +633,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C2019D6A1C62731500AF2723 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2019D6E1C62737000AF2723 /* es */,
+				C2019D6F1C62758A00AF2723 /* en */,
+				C2019D701C62758C00AF2723 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		DA539FB31C0F63B6007B4A4E /* Page1-Tutorial.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
