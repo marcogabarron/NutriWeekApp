@@ -110,7 +110,7 @@ class DailyDAO
         startDateComps.hour = 0
         startDateComps.minute = 0
         startDateComps.second = 0
-        startDateComps.timeZone = NSTimeZone(abbreviation: "UTC")
+        startDateComps.timeZone = NSTimeZone.localTimeZone()
 
         let dateInit = calendar.dateFromComponents(startDateComps)!
 
@@ -119,7 +119,7 @@ class DailyDAO
         endDateComps.hour = 23
         endDateComps.minute = 59
         endDateComps.second = 59
-        endDateComps.timeZone = NSTimeZone(abbreviation: "UTC")
+        startDateComps.timeZone = NSTimeZone.localTimeZone()
         
         let dateEnd = calendar.dateFromComponents(endDateComps)!
         

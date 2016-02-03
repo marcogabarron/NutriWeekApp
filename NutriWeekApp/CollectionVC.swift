@@ -176,8 +176,15 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
         default:
             assert(false, "Unexpected element kind")
+            
+            let headerViewLabel = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "headerView", forIndexPath: indexPath) as! CollectionDiaryClass
+            
+            return headerViewLabel
 
             }
+
+        
+        
         
     }
 

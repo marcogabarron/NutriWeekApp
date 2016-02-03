@@ -162,10 +162,13 @@ extension NSDateFormatter {
     /** Get current date and set day, month and year string **/
     public func formatCompleteStringToDate(str: String) -> NSDate{
        
-        dateFormat = "yyyy-MM-dd HH:mm:ss"
-        timeZone = NSTimeZone.localTimeZone()
+        let formatter = NSDateFormatter()
 
-        let strDate = dateFromString(str)
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.timeZone = NSTimeZone.localTimeZone()
+
+        let strDate = formatter.dateFromString(str)
+
         
         return strDate!
     }
