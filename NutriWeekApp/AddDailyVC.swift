@@ -52,6 +52,10 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
         self.saveButton.title = NSLocalizedString("", comment: "")
         self.saveButton.enabled = false
+        
+        
+        // Set current date and time on labels and datePicker
+        self.datePicker.date = NSDate()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,9 +65,6 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         tracker.set(kGAIScreenName, value: "Created daily")
         
         tracker.send(builder.build() as [NSObject : AnyObject])
-        
-        // Set current date and time on labels and datePicker
-        self.datePicker.date = NSDate()
         
         self.dateLabel.text = self.dateFormatter.formatDateToYearDateString(date)
         self.hour.setTitle(self.dateFormatter.formatDateToString(self.datePicker.date), forState: .Normal)

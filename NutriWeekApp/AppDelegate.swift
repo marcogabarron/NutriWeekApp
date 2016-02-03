@@ -26,14 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var configureError:NSError?
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
-//        
-//        // Optional: configure GAI options.
-//        let gai = GAI.sharedInstance()
-//
-//        gai.trackUncaughtExceptions = true
-//        gai.dispatchInterval = 20
-//        gai.logger.logLevel = GAILogLevel.Verbose
-//        gai.trackerWithTrackingId("UA-70701653-1")
 
         
         UITabBar.appearance().tintColor = UIColor.whiteColor()
@@ -42,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
-        
+
         
         return true
     }
