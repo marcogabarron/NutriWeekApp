@@ -191,7 +191,7 @@
         <scene sceneID="oSu-61-CVS">
             <objects>
                 <navigationController id="1iD-Ak-XWc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Diário" image="diary-50-unselected" selectedImage="diary-50" id="bQE-Yc-VbY" colorLabel="IBBuiltInLabel-Green"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Diário" image="diary-50-unselected" selectedImage="diary-50" id="bQE-Yc-VbY" colorLabel="IBBuiltInLabel-Green"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Csk-fS-YLI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -893,7 +893,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-vb-A3J">
-                                <rect key="frame" x="-4" y="154" width="383" height="216"/>
+                                <rect key="frame" x="-4" y="154" width="383" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ZXS-1f-zwu"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="457894050.72941703">
                                     <!--2015-07-06 16:47:30 +0000-->
                                 </date>
@@ -907,8 +910,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gcs-Po-qRI">
-                                <rect key="frame" x="-4" y="370" width="383" height="53"/>
+                                <rect key="frame" x="-4" y="334" width="383" height="79"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="ANz-zj-PL8"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="simpleCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="simpleCell" textLabel="O0Z-g2-9JK" detailTextLabel="b7j-B3-EWU" style="IBUITableViewCellStyleValue1" id="ouR-W8-WbN">
                                         <rect key="frame" x="0.0" y="22" width="383" height="44"/>
@@ -951,19 +957,26 @@
                             <constraint firstItem="Gcs-Po-qRI" firstAttribute="leading" secondItem="Sci-vb-A3J" secondAttribute="leading" id="F2a-hZ-6Hp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DwK-ZG-ewI" secondAttribute="trailing" constant="-4" id="FIL-i8-gfK"/>
                             <constraint firstItem="Gcs-Po-qRI" firstAttribute="trailing" secondItem="Sci-vb-A3J" secondAttribute="trailing" id="Fco-6M-w8l"/>
-                            <constraint firstItem="cR5-OD-3xK" firstAttribute="top" secondItem="Gcs-Po-qRI" secondAttribute="bottom" constant="200" id="IEl-Yi-jwP"/>
+                            <constraint firstItem="cR5-OD-3xK" firstAttribute="top" secondItem="Gcs-Po-qRI" secondAttribute="bottom" constant="20" id="IEl-Yi-jwP"/>
                             <constraint firstItem="DwK-ZG-ewI" firstAttribute="centerX" secondItem="DZO-CR-lW4" secondAttribute="centerX" id="WMt-CG-7YS"/>
                             <constraint firstItem="DwK-ZG-ewI" firstAttribute="width" secondItem="DZO-CR-lW4" secondAttribute="width" multiplier="1/2" id="a68-fL-Tr4"/>
+                            <constraint firstItem="Gcs-Po-qRI" firstAttribute="leading" secondItem="DZO-CR-lW4" secondAttribute="leadingMargin" constant="-20" id="iRH-1h-1BT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sci-vb-A3J" secondAttribute="trailing" constant="-20" id="kUp-HX-ZhG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gcs-Po-qRI" secondAttribute="trailing" constant="-20" id="m7s-S0-7Me"/>
                             <constraint firstItem="Gcs-Po-qRI" firstAttribute="top" secondItem="Sci-vb-A3J" secondAttribute="bottom" id="mw2-HI-55I"/>
                             <constraint firstItem="Sci-vb-A3J" firstAttribute="top" secondItem="DwK-ZG-ewI" secondAttribute="bottom" constant="30" id="o2B-OY-Dsk"/>
                             <constraint firstItem="DwK-ZG-ewI" firstAttribute="top" secondItem="ETv-jN-Tka" secondAttribute="bottom" constant="30" id="tgf-mk-0PI"/>
                             <constraint firstItem="DwK-ZG-ewI" firstAttribute="leading" secondItem="DZO-CR-lW4" secondAttribute="leadingMargin" constant="30" id="ydI-76-GFt"/>
+                            <constraint firstItem="Gcs-Po-qRI" firstAttribute="top" secondItem="Sci-vb-A3J" secondAttribute="bottom" constant="30" id="zUx-5t-Lm2"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="FIL-i8-gfK"/>
                                 <exclude reference="ydI-76-GFt"/>
+                                <exclude reference="F2a-hZ-6Hp"/>
+                                <exclude reference="Fco-6M-w8l"/>
+                                <exclude reference="mw2-HI-55I"/>
+                                <exclude reference="IEl-Yi-jwP"/>
                             </mask>
                         </variation>
                     </view>
@@ -2155,7 +2168,7 @@
         <scene sceneID="JJ7-ye-wfX">
             <objects>
                 <navigationController id="1ir-uq-iqe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Nutricionista" image="nutOff" selectedImage="nut" id="H8q-gg-IO8" colorLabel="IBBuiltInLabel-Green"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Nutricionista" image="nutOff" selectedImage="nut" id="H8q-gg-IO8" colorLabel="IBBuiltInLabel-Green"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="9c1-Sa-JHM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2217,7 +2230,7 @@
                                                 <color key="textColor" name="shadowColor" catalog="System" colorSpace="catalog"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4l8-IA-5zt">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4l8-IA-5zt">
                                                 <rect key="frame" x="18" y="388" width="378" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="3lE-1F-Oh0"/>
@@ -2329,7 +2342,7 @@
         <image name="nutOff" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y0R-Mn-KcX"/>
+        <segue reference="lVe-Qv-OL8"/>
         <segue reference="0MD-79-vIg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.18039215689999999" green="0.63137254899999995" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>

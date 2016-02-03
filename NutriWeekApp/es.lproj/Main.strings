@@ -1,0 +1,204 @@
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "0hu-7V-5N5"; */
+"0hu-7V-5N5.normalTitle" = "Start";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "2mc-Zl-Udg"; */
+"2mc-Zl-Udg.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Pular esta etapa"; ObjectID = "2xL-t0-0XL"; */
+"2xL-t0-0XL.normalTitle" = "Pular esta etapa";
+
+/* Class = "UIButton"; normalTitle = "Desconectar ao Nutricinonista"; ObjectID = "4l8-IA-5zt"; */
+"4l8-IA-5zt.normalTitle" = "Desconectar ao Nutricinonista";
+
+/* Class = "UINavigationItem"; title = "New Item"; ObjectID = "6GT-Si-qNj"; */
+"6GT-Si-qNj.title" = "New Item";
+
+/* Class = "UILabel"; text = "Dia mês"; ObjectID = "6QQ-63-d0R"; */
+"6QQ-63-d0R.text" = "Dia mês";
+
+/* Class = "UILabel"; text = "Domingo"; ObjectID = "7bS-Jc-MYI"; */
+"7bS-Jc-MYI.text" = "Domingo";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8Pe-ji-GQD"; */
+"8Pe-ji-GQD.text" = "Label";
+
+/* Class = "UILabel"; text = "Item Name"; ObjectID = "AXo-vG-7cN"; */
+"AXo-vG-7cN.text" = "Item Name";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Akj-MK-TVd"; */
+"Akj-MK-TVd.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "BVN-hm-29R"; */
+"BVN-hm-29R.text" = "Label";
+
+/* Class = "UILabel"; text = "Código não encontrado"; ObjectID = "Cof-FR-Zah"; */
+"Cof-FR-Zah.text" = "Código não encontrado";
+
+/* Class = "UINavigationItem"; title = "Informações"; ObjectID = "DCJ-Ah-fgh"; */
+"DCJ-Ah-fgh.title" = "Informações";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "DwK-ZG-ewI"; */
+"DwK-ZG-ewI.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Dyt-yp-HL2"; */
+"Dyt-yp-HL2.text" = "Label";
+
+/* Class = "UILabel"; text = "Sexta"; ObjectID = "E7T-Bk-hAE"; */
+"E7T-Bk-hAE.text" = "Sexta";
+
+/* Class = "UILabel"; text = "Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. "; ObjectID = "EP5-TR-iEa"; */
+"EP5-TR-iEa.text" = "Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. ";
+
+/* Class = "UILabel"; text = "Segunda"; ObjectID = "FQr-47-YeE"; */
+"FQr-47-YeE.text" = "Segunda";
+
+/* Class = "UITextField"; placeholder = "Insira o código "; ObjectID = "GfG-U0-IUx"; */
+"GfG-U0-IUx.placeholder" = "Insira o código ";
+
+/* Class = "UITabBarItem"; title = "Nutricionista"; ObjectID = "H8q-gg-IO8"; */
+"H8q-gg-IO8.title" = "Nutricionista";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "JHI-lV-N3u"; */
+"JHI-lV-N3u.title" = "Save";
+
+/* Class = "UILabel"; text = "Terça"; ObjectID = "L0L-xh-Yu4"; */
+"L0L-xh-Yu4.text" = "Terça";
+
+/* Class = "UILabel"; text = "Sábado"; ObjectID = "L1j-rE-Prf"; */
+"L1j-rE-Prf.text" = "Sábado";
+
+/* Class = "UILabel"; text = "Bem-vindo(a) ao NutriWeek."; ObjectID = "Lcl-Yq-jx8"; */
+"Lcl-Yq-jx8.text" = "Bem-vindo(a) ao NutriWeek.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "LhI-8a-6QX"; */
+"LhI-8a-6QX.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Diary"; ObjectID = "MRz-fd-Brf"; */
+"MRz-fd-Brf.title" = "Diary";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "NcK-U1-bSa"; */
+"NcK-U1-bSa.title" = "Title";
+
+/* Class = "UILabel"; text = "Repetir"; ObjectID = "O0Z-g2-9JK"; */
+"O0Z-g2-9JK.text" = "Repetir";
+
+/* Class = "UILabel"; text = "Código não encontrado"; ObjectID = "RC2-ck-lyW"; */
+"RC2-ck-lyW.text" = "Código não encontrado";
+
+/* Class = "UITextField"; placeholder = "Insira o código "; ObjectID = "UKL-Zl-pNb"; */
+"UKL-Zl-pNb.placeholder" = "Insira o código ";
+
+/* Class = "UISearchBar"; UiD-71-Wox.scopeButtonTitles[0] = "Title"; ObjectID = "UiD-71-Wox"; */
+"UiD-71-Wox.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; UiD-71-Wox.scopeButtonTitles[1] = "Title"; ObjectID = "UiD-71-Wox"; */
+"UiD-71-Wox.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XPK-g2-SAk"; */
+"XPK-g2-SAk.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Selected Foods"; ObjectID = "XhH-s1-Cj6"; */
+"XhH-s1-Cj6.title" = "Selected Foods";
+
+/* Class = "UILabel"; text = "Quinta"; ObjectID = "Ygm-06-qcv"; */
+"Ygm-06-qcv.text" = "Quinta";
+
+/* Class = "UILabel"; text = "Todos os Dias"; ObjectID = "b7j-B3-EWU"; */
+"b7j-B3-EWU.text" = "Todos os Dias";
+
+/* Class = "UITabBarItem"; title = "Diário"; ObjectID = "bQE-Yc-VbY"; */
+"bQE-Yc-VbY.title" = "Diário";
+
+/* Class = "UINavigationItem"; title = "Nutricionista"; ObjectID = "bhF-Io-BcN"; */
+"bhF-Io-BcN.title" = "Nutricionista";
+
+/* Class = "UILabel"; text = "Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. "; ObjectID = "c04-qr-5u4"; */
+"c04-qr-5u4.text" = "Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. ";
+
+/* Class = "UILabel"; text = "Data"; ObjectID = "dlp-eZ-RK1"; */
+"dlp-eZ-RK1.text" = "Data";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eR2-fi-FxS"; */
+"eR2-fi-FxS.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Before"; ObjectID = "g7G-b9-6se"; */
+"g7G-b9-6se.title" = "Before";
+
+/* Class = "UILabel"; text = "Notificação:"; ObjectID = "gmj-Zu-2vu"; */
+"gmj-Zu-2vu.text" = "Notificação:";
+
+/* Class = "UIBarButtonItem"; title = "Antes"; ObjectID = "hdH-vm-dgE"; */
+"hdH-vm-dgE.title" = "Antes";
+
+/* Class = "UILabel"; text = "Quarta"; ObjectID = "hqx-Cf-FZp"; */
+"hqx-Cf-FZp.text" = "Quarta";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "icz-Vw-der"; */
+"icz-Vw-der.text" = "Title";
+
+/* Class = "UIButton"; normalTitle = "hora"; ObjectID = "jd9-Z6-t8y"; */
+"jd9-Z6-t8y.normalTitle" = "hora";
+
+/* Class = "UINavigationItem"; title = "Diário"; ObjectID = "kO0-x4-Ui5"; */
+"kO0-x4-Ui5.title" = "Diário";
+
+/* Class = "UILabel"; text = "Seguiu a dieta: "; ObjectID = "kWy-jS-wjY"; */
+"kWy-jS-wjY.text" = "Seguiu a dieta: ";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "keq-Z1-ufH"; */
+"keq-Z1-ufH.title" = "Save";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "mKN-Va-qNY"; */
+"mKN-Va-qNY.title" = "Save";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "moG-xy-lqr"; */
+"moG-xy-lqr.text" = "Detail";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nFo-Cc-huH"; */
+"nFo-Cc-huH.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "nae-1R-tOB"; */
+"nae-1R-tOB.title" = "Save";
+
+/* Class = "UIButton"; normalTitle = "Função indisponível no momento"; ObjectID = "pEW-ZX-CdB"; */
+"pEW-ZX-CdB.normalTitle" = "Função indisponível no momento";
+
+/* Class = "UIBarButtonItem"; title = "Depois"; ObjectID = "pXc-CU-wcO"; */
+"pXc-CU-wcO.title" = "Depois";
+
+/* Class = "UIBarButtonItem"; title = "After"; ObjectID = "qdp-Cb-Pwc"; */
+"qdp-Cb-Pwc.title" = "After";
+
+/* Class = "UILabel"; text = "Repetir"; ObjectID = "r0M-ZQ-r9Q"; */
+"r0M-ZQ-r9Q.text" = "Repetir";
+
+/* Class = "UIBarButtonItem"; title = "Concluir"; ObjectID = "rBf-Ga-XhO"; */
+"rBf-Ga-XhO.title" = "Concluir";
+
+/* Class = "UITextField"; placeholder = "Item Name"; ObjectID = "rNn-fU-SQx"; */
+"rNn-fU-SQx.placeholder" = "Item Name";
+
+/* Class = "UINavigationItem"; title = "Repetir"; ObjectID = "rnl-A0-T2e"; */
+"rnl-A0-T2e.title" = "Repetir";
+
+/* Class = "UILabel"; text = "Todos os Dias"; ObjectID = "t0u-N3-pbS"; */
+"t0u-N3-pbS.text" = "Todos os Dias";
+
+/* Class = "UITabBarItem"; title = "Refeições"; ObjectID = "uNE-xb-gAj"; */
+"uNE-xb-gAj.title" = "Comidas";
+
+/* Class = "UIButton"; normalTitle = "Conectar ao Nutricionista"; ObjectID = "w5X-QQ-08K"; */
+"w5X-QQ-08K.normalTitle" = "Conectar ao Nutricionista";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "xuf-Tq-woe"; */
+"xuf-Tq-woe.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yA7-WC-ffX"; */
+"yA7-WC-ffX.text" = "Label";
+
+/* Class = "UILabel"; text = "Category:"; ObjectID = "yPt-Qe-9JQ"; */
+"yPt-Qe-9JQ.text" = "Category:";
+
+/* Class = "UINavigationItem"; title = "Dieta"; ObjectID = "yYQ-51-4qm"; */
+"yYQ-51-4qm.title" = "Dieta";
