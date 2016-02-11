@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -540,21 +540,24 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqv-Za-OHF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.95950335259999997" green="0.95705932380000003" blue="0.97827452420000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="cf5-aG-LZM" id="New-fh-NJK"/>
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-cY-nfs">
                                 <rect key="frame" x="140" y="423" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.22352941179999999" green="0.62352941179999999" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="nextPageClick:" destination="cf5-aG-LZM" eventType="valueChanged" id="rmf-c7-ZEK"/>
                                 </connections>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hu-7V-5N5">
-                                <rect key="frame" x="262" y="80" width="34" height="30"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.1954509106" green="0.73222626339999997" blue="0.59058568150000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="101.5" y="390" width="117" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Começar!">
+                                    <color key="titleColor" red="0.22352941179999999" green="0.62352941179999999" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -562,14 +565,15 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94509803920000002" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Zkd-cY-nfs" firstAttribute="leading" secondItem="aqv-Za-OHF" secondAttribute="trailing" constant="-207" id="2cJ-Tq-zcV"/>
                             <constraint firstItem="Zkd-cY-nfs" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="bottom" constant="-57" id="6FD-ad-E8e"/>
                             <constraint firstItem="Zkd-cY-nfs" firstAttribute="centerX" secondItem="aqv-Za-OHF" secondAttribute="centerX" id="NfU-V5-gVi"/>
                             <constraint firstItem="0hu-7V-5N5" firstAttribute="leading" secondItem="aqv-Za-OHF" secondAttribute="trailing" constant="-58" id="SQF-NA-jW0"/>
                             <constraint firstItem="Zkd-cY-nfs" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="top" constant="400" id="UJh-IY-FbK"/>
-                            <constraint firstItem="0hu-7V-5N5" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="bottom" constant="-400" id="ZdH-vf-4rR"/>
+                            <constraint firstItem="0hu-7V-5N5" firstAttribute="centerX" secondItem="aqv-Za-OHF" secondAttribute="centerX" id="Vlj-s6-eWY"/>
+                            <constraint firstItem="0hu-7V-5N5" firstAttribute="top" secondItem="aqv-Za-OHF" secondAttribute="bottom" constant="-90" id="ZdH-vf-4rR"/>
                             <constraint firstAttribute="height" secondItem="aqv-Za-OHF" secondAttribute="height" id="ZnO-xS-lcL"/>
                             <constraint firstAttribute="width" secondItem="aqv-Za-OHF" secondAttribute="width" id="aGL-rm-78g"/>
                             <constraint firstAttribute="centerX" secondItem="Zkd-cY-nfs" secondAttribute="centerX" id="jLS-1r-WfE"/>
@@ -585,6 +589,7 @@
                                 <exclude reference="jLS-1r-WfE"/>
                                 <exclude reference="tXO-ZD-rXk"/>
                                 <exclude reference="upN-C4-u5Y"/>
+                                <exclude reference="SQF-NA-jW0"/>
                             </mask>
                         </variation>
                     </view>
@@ -598,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am4-YJ-caQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2534.5" y="267.5"/>
+            <point key="canvasLocation" x="-2535" y="267"/>
         </scene>
         <!--CollectionVC-->
         <scene sceneID="VP6-Lr-Rk0">
@@ -2222,7 +2227,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-ZX-CdB">
                                                 <rect key="frame" x="18" y="356" width="378" height="30"/>
-                                                <state key="normal" title="Função indisponível no momento"/>
+                                                <state key="normal" title="Em breve"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c04-qr-5u4">
                                                 <rect key="frame" x="18" y="263" width="378" height="41"/>

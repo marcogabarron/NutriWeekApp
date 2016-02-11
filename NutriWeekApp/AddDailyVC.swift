@@ -256,14 +256,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             
             let selectedImage = mealImage.image?.resize(newSize)
             
-//            let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
-//            let filePathToWrite = "\(paths)/\(id).png"
-//            
-//            daily.setImage(("\(paths)/\(id).png"))
-//            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
-//            self.mealImage.image = UIImage(named: filePathToWrite)
-            
-            // Save photo in NutriWeekAlbum
+
             let pm = PhotoManager()
             pm.savePhoto(selectedImage!) {
                 imageIdentifier in
