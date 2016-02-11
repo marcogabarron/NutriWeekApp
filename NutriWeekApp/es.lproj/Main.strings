@@ -108,7 +108,7 @@
 "b7j-B3-EWU.text" = "Todos os Dias";
 
 /* Class = "UITabBarItem"; title = "Diário"; ObjectID = "bQE-Yc-VbY"; */
-"bQE-Yc-VbY.title" = "Diário";
+"bQE-Yc-VbY.title" = "Diario";
 
 /* Class = "UINavigationItem"; title = "Nutricionista"; ObjectID = "bhF-Io-BcN"; */
 "bhF-Io-BcN.title" = "Nutricionista";
@@ -141,7 +141,7 @@
 "jd9-Z6-t8y.normalTitle" = "hora";
 
 /* Class = "UINavigationItem"; title = "Diário"; ObjectID = "kO0-x4-Ui5"; */
-"kO0-x4-Ui5.title" = "Diário";
+"kO0-x4-Ui5.title" = "Diario";
 
 /* Class = "UILabel"; text = "Seguiu a dieta: "; ObjectID = "kWy-jS-wjY"; */
 "kWy-jS-wjY.text" = "Seguiu a dieta: ";
