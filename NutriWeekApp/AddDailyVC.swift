@@ -176,6 +176,19 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         //Chamar câmera
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
+            let authStatus = PHPhotoLibrary.authorizationStatus()
+            
+            if authStatus == PHAuthorizationStatus.Denied {
+                self.showAdjustmentDisclaimer(NSLocalizedString("Galeria indisponível", comment: ""), message: NSLocalizedString("Vá em ajustes e altere as configurações do aplicativo para usar a galeria", comment: ""))
+            }
+            else if authStatus == PHAuthorizationStatus.NotDetermined {
+                PHPhotoLibrary.requestAuthorization({status in
+                    if authStatus == PHAuthorizationStatus.Denied {
+                        self.showAdjustmentDisclaimer(NSLocalizedString("Galeria indisponível", comment: ""), message: NSLocalizedString("Vá em ajustes e altere as configurações do aplicativo para usar a galeria", comment: ""))
+                    }
+                })
+            }
+            
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
@@ -185,6 +198,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
             self.newMedia = true
+            
+            
         }
     }
     
@@ -256,14 +271,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             
             let selectedImage = mealImage.image?.resize(newSize)
             
-//            let imageData: NSData = UIImagePNGRepresentation(selectedImage!)!
-//            let filePathToWrite = "\(paths)/\(id).png"
-//            
-//            daily.setImage(("\(paths)/\(id).png"))
-//            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
-//            self.mealImage.image = UIImage(named: filePathToWrite)
-            
-            // Save photo in NutriWeekAlbum
+
             let pm = PhotoManager()
             pm.savePhoto(selectedImage!) {
                 imageIdentifier in
