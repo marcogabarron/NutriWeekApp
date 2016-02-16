@@ -452,7 +452,7 @@
 				TargetAttributes = {
 					DAD5A1601B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 97EUAUR8F9;
+						DevelopmentTeam = MERJVB67M9;
 					};
 					DAD5A1781B3D7549003829BF = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -866,7 +866,7 @@
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidgabarron.nutriweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -885,7 +885,7 @@
 				COPY_HEADERS_RUN_UNIFDEF = NO;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = NutriWeekApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepidgabarron.nutriweek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
