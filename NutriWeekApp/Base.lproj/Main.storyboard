@@ -584,12 +584,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="SQF-NA-jW0"/>
                                 <exclude reference="2cJ-Tq-zcV"/>
                                 <exclude reference="UJh-IY-FbK"/>
                                 <exclude reference="jLS-1r-WfE"/>
                                 <exclude reference="tXO-ZD-rXk"/>
                                 <exclude reference="upN-C4-u5Y"/>
-                                <exclude reference="SQF-NA-jW0"/>
                             </mask>
                         </variation>
                     </view>
