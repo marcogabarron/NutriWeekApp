@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -861,7 +862,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="YIr-Q7-tJ7">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="2mc-Zl-Udg">
+                        <barButtonItem key="rightBarButtonItem" title="Concluir" id="2mc-Zl-Udg">
                             <connections>
                                 <action selector="save:" destination="oxc-Ih-3gp" id="1f9-ds-0Se"/>
                             </connections>
@@ -987,7 +988,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Informações" id="DCJ-Ah-fgh">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="nae-1R-tOB">
+                        <barButtonItem key="rightBarButtonItem" title="Concluir" id="nae-1R-tOB">
                             <connections>
                                 <action selector="saveItemButton:" destination="mUV-d7-g5Y" id="WEA-4p-svs"/>
                             </connections>
@@ -2204,11 +2205,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-di-edp">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-di-edp">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9c-Jn-YsI">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoV" translatesAutoresizingMaskIntoConstraints="NO" id="Rid-7h-QL3">
                                                 <rect key="frame" x="87" y="10" width="240" height="202"/>
@@ -2217,7 +2218,7 @@
                                                     <constraint firstAttribute="height" constant="202" id="pjs-La-2C4"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insira o código " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-Zl-pNb">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-Zl-pNb">
                                                 <rect key="frame" x="48" y="318" width="318" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -2250,7 +2251,7 @@
                                                 </variation>
                                             </button>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código não encontrado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC2-ck-lyW">
-                                                <rect key="frame" x="42" y="573" width="354" height="17"/>
+                                                <rect key="frame" x="42" y="473" width="354" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2284,7 +2285,7 @@
                                             <constraint firstItem="c04-qr-5u4" firstAttribute="leading" secondItem="Q9c-Jn-YsI" secondAttribute="leading" constant="18" id="jpT-iJ-HVt"/>
                                             <constraint firstItem="Rid-7h-QL3" firstAttribute="centerX" secondItem="Q9c-Jn-YsI" secondAttribute="centerX" id="pss-Px-8jQ"/>
                                             <constraint firstItem="pEW-ZX-CdB" firstAttribute="centerX" secondItem="UKL-Zl-pNb" secondAttribute="centerX" id="u1Z-rB-HG9"/>
-                                            <constraint firstAttribute="height" constant="600" id="ySH-PD-xjn"/>
+                                            <constraint firstAttribute="height" constant="500" id="ySH-PD-xjn"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -2307,7 +2308,7 @@
                                     <constraint firstItem="Q9c-Jn-YsI" firstAttribute="leading" secondItem="2Zy-di-edp" secondAttribute="leading" id="Wc7-Vq-cgm"/>
                                     <constraint firstItem="Q9c-Jn-YsI" firstAttribute="top" secondItem="2Zy-di-edp" secondAttribute="top" id="Ym5-1x-r7p"/>
                                     <constraint firstItem="Q9c-Jn-YsI" firstAttribute="leading" secondItem="2Zy-di-edp" secondAttribute="leading" constant="-20" id="sIx-xm-w5N"/>
-                                    <constraint firstAttribute="trailing" secondItem="Q9c-Jn-YsI" secondAttribute="trailing" constant="4" id="z3s-bo-cv6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q9c-Jn-YsI" secondAttribute="trailing" id="z3s-bo-cv6"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2327,6 +2328,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Nutricionista" id="bhF-Io-BcN"/>
+                    <connections>
+                        <outlet property="desconnectButton" destination="4l8-IA-5zt" id="dFv-2a-IuJ"/>
+                        <outlet property="nutritionisttext" destination="bhF-Io-BcN" id="K6O-FQ-EPe"/>
+                        <outlet property="soonButton" destination="pEW-ZX-CdB" id="Aza-pb-UVE"/>
+                        <outlet property="textLabel" destination="c04-qr-5u4" id="cSq-bH-2tA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyD-6a-fcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2347,7 +2354,7 @@
         <image name="nutOff" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVe-Qv-OL8"/>
+        <segue reference="y0R-Mn-KcX"/>
         <segue reference="0MD-79-vIg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.18039215689999999" green="0.63137254899999995" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>

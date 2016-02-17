@@ -13,6 +13,10 @@ class ConnectVC: UIViewController, UITextFieldDelegate {
     var kbHeight: CGFloat!
 
     @IBOutlet weak var connectTxt: UITextField!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var soonButton: UIButton!
+    @IBOutlet weak var desconnectButton: UIButton!
+    @IBOutlet weak var nutritionisttext: UINavigationItem!
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -24,6 +28,14 @@ class ConnectVC: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated:Bool) {
         super.viewWillAppear(animated)
+        
+        self.textLabel.text = NSLocalizedString("Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. ", comment: "")
+        
+        self.soonButton.setTitle( NSLocalizedString("Conectar", comment: ""), forState: .Normal)
+        self.desconnectButton.setTitle( NSLocalizedString("Desconectar", comment: ""), forState: .Normal)
+        
+        self.nutritionisttext.title = NSLocalizedString("Nutricionista", comment: "")
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)

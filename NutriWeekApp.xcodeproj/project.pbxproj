@@ -102,6 +102,9 @@
 		C246E41A1BD963B60068ED68 /* SelectedFoodsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsVC.swift; sourceTree = "<group>"; };
 		C246E41C1BD9D9240068ED68 /* SelectedFoodsSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsSave.swift; sourceTree = "<group>"; };
 		C246E41E1BD9DA800068ED68 /* SelectedFoodsAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedFoodsAdd.swift; sourceTree = "<group>"; };
+		C2568BEE1C74AC7300F6FE76 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page1-Tutorial.strings"; sourceTree = "<group>"; };
+		C2568BF01C74AF3000F6FE76 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page8-Tutorial.strings"; sourceTree = "<group>"; };
+		C2568BF21C74AFE000F6FE76 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/Page9-Tutorial.strings"; sourceTree = "<group>"; };
 		C25856361B53EFF100244735 /* Refeicao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Refeicao.swift; path = ../../../Refeicao.swift; sourceTree = "<group>"; };
 		C273B1FF1B610E2A0048936E /* AlimentosFr.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AlimentosFr.txt; sourceTree = "<group>"; };
 		C275F1EC1BF5054600FAA532 /* DailyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
@@ -648,6 +651,7 @@
 			children = (
 				DA539FB41C0F63B9007B4A4E /* Base */,
 				DA539FBA1C0F640F007B4A4E /* en */,
+				C2568BEE1C74AC7300F6FE76 /* es */,
 			);
 			name = "Page1-Tutorial.xib";
 			sourceTree = "<group>";
@@ -657,6 +661,7 @@
 			children = (
 				DA539FB61C0F6401007B4A4E /* Base */,
 				DA539FB91C0F6404007B4A4E /* en */,
+				C2568BF01C74AF3000F6FE76 /* es */,
 			);
 			name = "Page8-Tutorial.xib";
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 			children = (
 				DA539FBC1C0F66F0007B4A4E /* Base */,
 				DA539FBF1C0F66F2007B4A4E /* en */,
+				C2568BF21C74AFE000F6FE76 /* es */,
 			);
 			name = "Page9-Tutorial.xib";
 			sourceTree = "<group>";
