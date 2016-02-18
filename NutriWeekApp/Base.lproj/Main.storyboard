@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cf5-aG-LZM">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -584,12 +585,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="SQF-NA-jW0"/>
                                 <exclude reference="2cJ-Tq-zcV"/>
                                 <exclude reference="UJh-IY-FbK"/>
                                 <exclude reference="jLS-1r-WfE"/>
                                 <exclude reference="tXO-ZD-rXk"/>
                                 <exclude reference="upN-C4-u5Y"/>
-                                <exclude reference="SQF-NA-jW0"/>
                             </mask>
                         </variation>
                     </view>
@@ -2227,7 +2228,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEW-ZX-CdB">
                                                 <rect key="frame" x="18" y="356" width="378" height="30"/>
-                                                <state key="normal" title="Em breve"/>
+                                                <state key="normal" title="Receber Dieta"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c04-qr-5u4">
                                                 <rect key="frame" x="18" y="263" width="378" height="41"/>
@@ -2330,7 +2331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyD-6a-fcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1057" y="1040"/>
+            <point key="canvasLocation" x="-1057" y="1128"/>
         </scene>
     </scenes>
     <resources>
