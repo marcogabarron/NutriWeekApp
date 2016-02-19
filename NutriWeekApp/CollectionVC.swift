@@ -424,16 +424,16 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
     
    func deleteButton(sender:UIButton) {
+        var index: [NSIndexPath] = []
+        index.append(sender.layer.valueForKey("index")! as! NSIndexPath)
     
-        self.meal.removeFood((sender.layer.valueForKey("index")!.row) as Int)
-                
+        self.meal.removeFood((index.last!.row) as Int)
+            
         self.foods = self.meal.foods
         self.activeSaveButton()
-
-        var index: [NSIndexPath] = []
-        index.append(sender.layer.valueForKey("index") as! NSIndexPath)
         
-        self.collectionView.deleteItemsAtIndexPaths(index)
+        self.collectionView.reloadData()
+
     }
 
     
@@ -456,7 +456,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
 
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        if(self.delButtonAppears == false && self.bottomCV.constant == 0){
+        if(self.delButtonAppears == false ){
             return false
         }
         return true
