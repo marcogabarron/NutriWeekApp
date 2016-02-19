@@ -266,13 +266,13 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             }
             else {
                 proportion = 600 / originalSize.height
-                newSize = CGSize(width: 800, height: originalSize.width * proportion)
+                newSize = CGSize(width: originalSize.width * proportion, height: 600)
             }
             
-            let selectedImage = mealImage.image            
+            let selectedImage = mealImage.image!.resize(newSize)
 
             let pm = PhotoManager()
-            pm.savePhoto(selectedImage!) {
+            pm.savePhoto(selectedImage) {
                 imageIdentifier in
                 
                 daily.setImage(imageIdentifier)

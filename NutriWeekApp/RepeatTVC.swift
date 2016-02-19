@@ -14,7 +14,7 @@ class RepeatTVC: UITableViewController {
     @IBOutlet weak var navigationTitle: UINavigationItem!
     
     ///Set the possible repeat days
-    let daysInPt: [String] = ([ "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"])
+    let daysInPt: [String] = ([ "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"])
     
     ///Interact with Weeks model
     var weekDays: Weeks!
