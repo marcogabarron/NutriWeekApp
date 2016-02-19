@@ -295,6 +295,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 
             }else{
                 //Switch notification on and meal.id empty: genrate uuid
+                //want notification, but before did not have
                 if tempMeal.uuid == "" {
                 tempMeal.uuid = NSUUID().UUIDString
                 }
@@ -313,6 +314,7 @@ class CollectionVC: UIViewController, UICollectionViewDelegate, UICollectionView
                 if(self.mealWeekDays.isSelected(weekDay) == false){
                     tempWeekDays.removeAtIndex(index)
                     RefeicaoServices.deleteMeal(self.mealsWithSameName[index])
+                    index--
 
                 }
                 index++

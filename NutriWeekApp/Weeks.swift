@@ -64,12 +64,4 @@ class Weeks {
         return true
     }
     
-    func compareWeek(week:[String]) -> Bool{  //Não entendi porque pede week se não é usado
-        for day in self.daysArray {
-            if(self.isSelected(day) == false){
-                return false
-            }
-        }
-        return true
-    }
 }
