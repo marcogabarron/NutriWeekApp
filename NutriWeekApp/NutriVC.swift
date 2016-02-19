@@ -9,7 +9,7 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var tableView: UITableView!
     
     ///Days for String for sections and go next page
-    var daysInPt: [String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    var daysInPt: [String] = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"]
     
     //Relative to models and CoreData
     var contextMeal: [Refeicao]!

@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  NutriWeekApp
-
-  Created by Vítor Machado Rocha on 16/07/15.
-  Copyright (c) 2015 Gabarron. All rights reserved.
-*/
+/*
+ Localizable.strings
+ NutriWeekApp
+ 
+ Created by Vítor Machado Rocha on 16/07/15.
+ Copyright (c) 2015 Gabarron. All rights reserved.
+ */
 "Dias da Semana" = "Dias da Semana";
 "Domingo" = "Domingo";
 "Segunda" = "Segunda";
@@ -17,7 +17,9 @@
 "Salvar" = "Salvar";
 "Concluir" = "Concluir";
 "Editar" = "Editar";
+"Cancelar" = "Cancelar";
 "Todos os dias" = "Todos os dias";
+"Seleção de Alimentos" = "Seleção de Alimentos";
 "seg" = "seg";
 "ter" = "ter";
 "qua" = "qua";
@@ -27,7 +29,9 @@
 "dom" = "dom";
 "Refeição" = "Refeição";
 "Alimentos" = "Alimentos";
+"Notificação" = "Notificação:";
 "Nome da Refeição" = "Nome da Refeição";
+"Novo Alimento" = "Novo Alimento";
 "*Use outro nome" = "*Use outro nome";
 "Pães e Massas" = "Pães e Massas";
 "Frutas" = "Frutas";
@@ -52,3 +56,19 @@
 "Molho" = "Molho";
 "Nome do Item" = "Nome do Item";
 "Selecione uma categoria:" = "Selecione uma categoria:";
+"Dieta" = "Dieta";
+"Próximo" = "Próximo";
+"Diário" = "Diário";
+"Anotações do diário de refeições" = "Anotações do diário de refeições";
+"Seguiu a dieta" = "Seguiu a dieta";
+"Tirar foto" = "Tirar Foto";
+"Galeria" = "Galeria";
+"Câmera indisponível" = "Câmera indisponível";
+"Vá em ajustes e altere as configurações do aplicativo para usar a câmera" = "Vá em ajustes e altere as configurações do aplicativo para usar a câmera";
+"Galeria indisponível" = "Galeria indisponível";
+"Vá em ajustes e altere as configurações do aplicativo para usar a galeria" = "Vá em ajustes e altere as configurações do aplicativo para usar a galeria";
+"Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. " = "Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. ";
+"Conectar" = "Receba a dieta";
+"Desconectar" = "Desconectar";
+"Nutricionista" = "Nutricionista";
+
