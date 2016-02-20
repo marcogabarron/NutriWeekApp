@@ -62,6 +62,11 @@
 "Galeria indisponível" = "Galería indisponible";
 "Vá em ajustes e altere as configurações do aplicativo para usar a galeria" = "VVayas a Settings y cambies la configuración del aplicativo para utilizar la galería";
 "Informações" = "Informaciones";
+"Seu Nutricionista faz parte da rede NutriWeek? Caso seja insira o código enviado ao seu email. " = "Su Nutricionista hace parte de la red NutriWeek? En caso afirmativo, inserte el código enviado a su email. ";
+"Conectar" = "Recibir la dieta";
+"Desconectar" = "Desconectar";
+"Nutricionista" = "Nutricionista";
+
 
 "Pão de Queijo" = "Pan de Queso";
 "Morango" = "Fresa";
