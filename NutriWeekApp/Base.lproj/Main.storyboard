@@ -884,7 +884,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6h3-b7-k1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541.5" y="-1825.5"/>
+            <point key="canvasLocation" x="581.5" y="-1549.5"/>
         </scene>
         <!--Informações-->
         <scene sceneID="Hnc-jX-H1V">
@@ -1614,7 +1614,7 @@
         <!--Selected Foods-->
         <scene sceneID="12r-kh-Ew4">
             <objects>
-                <viewController id="XcR-md-lCD" customClass="SelectedFoodsSave" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XcR-md-lCD" customClass="SelectedFoodsSave" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9ug-lR-wa9"/>
                         <viewControllerLayoutGuide type="bottom" id="qdx-eR-nZb"/>
@@ -1623,21 +1623,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UiD-71-Wox">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.14117647059999999" green="0.52549019610000003" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.1803921568627451" green="0.63137254901960782" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="XcR-md-lCD" id="mZq-ro-L5c"/>
-                                </connections>
-                            </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C0B-kU-u2E">
-                                <rect key="frame" x="3" y="118" width="369" height="505"/>
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="C0B-kU-u2E">
+                                <rect key="frame" x="3" y="174" width="369" height="449"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cy0-OO-T9w">
                                     <size key="itemSize" width="120" height="140"/>
@@ -1724,6 +1711,63 @@
                                     <outlet property="delegate" destination="XcR-md-lCD" id="Fkc-Mj-cQP"/>
                                 </connections>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xMO-2E-PCT">
+                                <rect key="frame" x="3" y="67" width="369" height="50"/>
+                                <color key="backgroundColor" red="0.95950335259999997" green="0.95705932380000003" blue="0.97827452420000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Pdj-4X-5qu"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="bdc-HN-fXh">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SimpleCell" reuseIdentifier="SimpleCell" id="wWz-hu-NtZ" customClass="SimpleCell" customModule="NutriWeekApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-Eh-WeT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="PL2-Eh-WeT" secondAttribute="height" multiplier="1:1" id="fFw-01-FFv"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="PL2-Eh-WeT" firstAttribute="top" secondItem="wWz-hu-NtZ" secondAttribute="top" id="dOV-LM-sgu"/>
+                                            <constraint firstItem="PL2-Eh-WeT" firstAttribute="leading" secondItem="wWz-hu-NtZ" secondAttribute="leading" id="hw9-Xq-Qie"/>
+                                            <constraint firstAttribute="trailing" secondItem="PL2-Eh-WeT" secondAttribute="trailing" id="wDN-88-Uor"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="PL2-Eh-WeT" id="7kF-Ta-K3Z"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="XcR-md-lCD" id="Mwq-Dm-P6V"/>
+                                    <outlet property="delegate" destination="XcR-md-lCD" id="67K-P8-ad3"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UiD-71-Wox">
+                                <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.52549019610000003" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.1803921568627451" green="0.63137254901960782" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="XcR-md-lCD" id="mZq-ro-L5c"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1733,7 +1777,11 @@
                             <constraint firstItem="UiD-71-Wox" firstAttribute="trailing" secondItem="C0B-kU-u2E" secondAttribute="trailing" id="ERP-1s-C9o"/>
                             <constraint firstAttribute="trailing" secondItem="C0B-kU-u2E" secondAttribute="trailing" constant="3" id="Jwd-tg-bhn"/>
                             <constraint firstAttribute="trailing" secondItem="UiD-71-Wox" secondAttribute="trailing" id="SlA-h2-Qic"/>
+                            <constraint firstItem="xMO-2E-PCT" firstAttribute="top" secondItem="9ug-lR-wa9" secondAttribute="bottom" constant="3" id="VHr-1T-mPO"/>
                             <constraint firstItem="UiD-71-Wox" firstAttribute="leading" secondItem="C0B-kU-u2E" secondAttribute="leading" id="Vtk-q2-jcy"/>
+                            <constraint firstItem="xMO-2E-PCT" firstAttribute="leading" secondItem="Wey-mC-o3J" secondAttribute="leading" constant="3" id="ebl-5E-xPL"/>
+                            <constraint firstAttribute="trailing" secondItem="xMO-2E-PCT" secondAttribute="trailing" constant="3" id="gn8-l7-0Yy"/>
+                            <constraint firstItem="UiD-71-Wox" firstAttribute="top" secondItem="xMO-2E-PCT" secondAttribute="bottom" constant="3" id="mxP-WA-fuT"/>
                             <constraint firstItem="C0B-kU-u2E" firstAttribute="leading" secondItem="Wey-mC-o3J" secondAttribute="leading" constant="3" id="qZs-ne-bVK"/>
                             <constraint firstItem="UiD-71-Wox" firstAttribute="top" secondItem="9ug-lR-wa9" secondAttribute="bottom" id="rol-bF-FYu"/>
                             <constraint firstItem="C0B-kU-u2E" firstAttribute="top" secondItem="UiD-71-Wox" secondAttribute="bottom" constant="10" id="vwX-cU-8o9"/>
@@ -1742,6 +1790,7 @@
                             <mask key="constraints">
                                 <exclude reference="ERP-1s-C9o"/>
                                 <exclude reference="Vtk-q2-jcy"/>
+                                <exclude reference="rol-bF-FYu"/>
                                 <exclude reference="6DH-sW-5pp"/>
                             </mask>
                         </variation>
@@ -1756,6 +1805,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="C0B-kU-u2E" id="Fur-SQ-cVc"/>
+                        <outlet property="rememberCollectionView" destination="xMO-2E-PCT" id="n5g-aO-hif"/>
                         <outlet property="saveButton" destination="keq-Z1-ufH" id="luS-zc-vW6"/>
                         <outlet property="searchBar" destination="UiD-71-Wox" id="cWF-34-Fj8"/>
                         <segue destination="3oe-J8-4c6" kind="show" identifier="New" id="0MD-79-vIg"/>
