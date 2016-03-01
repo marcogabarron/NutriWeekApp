@@ -20,9 +20,6 @@ class SelectedFoodsAdd: SelectedFoodsVC {
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
-        
-        saveButton.title = NSLocalizedString ("", comment: "")
-        saveButton.enabled = false
 
         //Show all itens, ascending by name
         self.itens = ItemCardapioServices.allItemCardapios()
@@ -31,43 +28,19 @@ class SelectedFoodsAdd: SelectedFoodsVC {
         self.searchBar.text = ""
         
         self.selectedItens = self.meal.foods
-                
+        
         self.collectionView.allowsMultipleSelection = true
         self.collectionView.reloadData()
+        
+        
+        self.rememberCollectionView.reloadData()
+
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.meal.setItems(self.selectedItens)
         
-    }
-    
-    
-    //MARK: Actions
-    
-    /** Save action **/
-    @IBAction func saveItemButton(sender: AnyObject) {
-        if(self.selectedItens.count == 0){
-            //Animation to show there are no selected food
-            UIView.animateWithDuration(0.5, delay: 0.0, options: [], animations: {() -> Void in
-                
-                self.collectionView.backgroundColor = UIColor(red: 255/255, green: 200/255, blue: 255/255, alpha: 1)
-                
-                }, completion: {(result) -> Void in
-                    
-                    UIView.animateWithDuration(0.3, animations: {() -> Void in
-                        
-                        self.collectionView.backgroundColor = UIColor.whiteColor()
-                        
-                    })
-                    
-            })
-            
-            
-        }else{
-            self.meal.setItems(self.selectedItens)
-            self.navigationController?.popViewControllerAnimated(true)
-            
-        }
     }
 
 }

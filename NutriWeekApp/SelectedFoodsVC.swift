@@ -8,14 +8,16 @@
 
 import UIKit
 
-class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar creteitemVC delegate se for o caso
+class SelectedFoodsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate { //colocar creteitemVC delegate se for o caso
 
     //MARK: IBOutlets and other variables and constants
     @IBOutlet var collectionView: UICollectionView!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var rememberCollectionView: UICollectionView!
+
+    let collectionViewBIdentifier = "SimpleCell"
     
     ///Relative to models and CoreData
     var itens = [ItemCardapio]()
@@ -32,7 +34,6 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.title = NSLocalizedString ("Concluir", comment: "")
     }
     
     
@@ -60,8 +61,6 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(true)
-        
-        print("pass")
     }
     
     
@@ -115,88 +114,111 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(collectionView == self.rememberCollectionView){
+            return self.selectedItens.count
+        }
         return self.itens.count+1
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
         
-        if(Int(indexPath.row) == self.itens.count){
-            cell.textLabel.text = ""
-            cell.image.image = UIImage(named: "addButton")
-
-            cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/5
+        if(collectionView == self.collectionView){
+            let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SelectedCollectionViewCell", forIndexPath: indexPath) as! SelectedCollectionViewCell
             
-        } else {
-            cell.textLabel.text = itens[indexPath.row].name
-            cell.textLabel.autoresizesSubviews = true
             
-            cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
-            cell.image.layer.masksToBounds = true
-            cell.image.layer.cornerRadius = cell.frame.width/5
-            
-            //Change label color when it is already selected - It is within the selected array
-            if(self.find(self.itens[indexPath.row])){
-                cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-                cell.checkImage.hidden = false
-                cell.checkImage.layer.masksToBounds = true
+            if(Int(indexPath.row) == self.itens.count){
+                cell.textLabel.text = ""
+                cell.image.image = UIImage(named: "addButton")
+                
+                cell.image.layer.masksToBounds = true
+                cell.image.layer.cornerRadius = cell.frame.width/5
                 
             } else {
-                cell.textLabel.textColor = UIColor.blackColor()
-                cell.checkImage.hidden = true
-                cell.checkImage.layer.masksToBounds = true
+                cell.textLabel.text = itens[indexPath.row].name
+                cell.textLabel.autoresizesSubviews = true
+                
+                cell.image.image = UIImage(named: "\(itens[indexPath.row].image)")
+                cell.image.layer.masksToBounds = true
+                cell.image.layer.cornerRadius = cell.frame.width/5
+                
+                //Change label color when it is already selected - It is within the selected array
+                if(self.find(self.itens[indexPath.row])){
+                    cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+                    cell.checkImage.hidden = false
+                    cell.checkImage.layer.masksToBounds = true
+                    
+                } else {
+                    cell.textLabel.textColor = UIColor.blackColor()
+                    cell.checkImage.hidden = true
+                    cell.checkImage.layer.masksToBounds = true
+                }
             }
+            return cell
+            
+        }else{
+        let cell = self.rememberCollectionView.dequeueReusableCellWithReuseIdentifier(collectionViewBIdentifier, forIndexPath: indexPath) as! SimpleCell
+        
+        if(self.selectedItens.count > 0){
+            cell.image.image = UIImage(named: "\(selectedItens[indexPath.row].image)")
+            cell.image.layer.masksToBounds = true
+            cell.image.layer.cornerRadius = cell.frame.width/5
+            
+            
+        }
+        return cell
         }
         
-        return cell
-    }
+        
+  
     
+    }
     
     /** Select cell **/
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        if(indexPath.row == self.itens.count){
-            self.performSegueWithIdentifier("New", sender: self)
-            
-        } else {
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
-
-            //Verify the collor text label because it is the way for verify if the object already selected
-            if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
-                
-                //Go to deselected
-                self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
+        if(collectionView == self.collectionView){
+            if(indexPath.row == self.itens.count){
+                self.performSegueWithIdentifier("New", sender: self)
                 
             } else {
+                let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
                 
-                cell.checkImage.hidden = false
-                
-                //Animation to grow and back to normal size when selected or deselected
-                UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
+                //Verify the collor text label because it is the way for verify if the object already selected
+                if(cell.textLabel.textColor == UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)){
                     
-                    cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                    //Go to deselected
+                    self.collectionView(self.collectionView, didDeselectItemAtIndexPath: indexPath)
                     
-                    }, completion: {(result) -> Void in
+                } else {
+                    
+                    cell.checkImage.hidden = false
+                    
+                    //Animation to grow and back to normal size when selected or deselected
+                    UIView.animateWithDuration(0.3, delay: 0.0, options: [], animations: {() -> Void in
                         
-                        UIView.animateWithDuration(0.3, animations: {() -> Void in
+                        cell.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                        
+                        }, completion: {(result) -> Void in
                             
-                            cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                            
-                        })
-                })
-                
-                cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
-                
-                //Set it is selected
-                self.selectedItens.append(self.itens[indexPath.row])
+                            UIView.animateWithDuration(0.3, animations: {() -> Void in
+                                
+                                cell.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                                
+                            })
+                    })
+                    
+                    cell.textLabel.textColor = UIColor(red: 40/255, green: 180/255, blue: 50/255, alpha: 1)
+                    
+                    //Set it is selected
+                    self.selectedItens.append(self.itens[indexPath.row])
+                    self.rememberCollectionView.reloadData()
+                }
             }
         }
     }
     
     /** DeSelect cell **/
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath){
-            
+        if(collectionView == self.collectionView){
             let cell = collectionView.cellForItemAtIndexPath(indexPath) as! SelectedCollectionViewCell
             
             //Verify the collor text label because it is the way for verify if the object already deselected
@@ -233,9 +255,11 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource { //colocar 
                     }
                     index++
                 }
+                self.rememberCollectionView.reloadData()
             }
+        }
+        
     }
-    
   
     //MARK: Functions
     

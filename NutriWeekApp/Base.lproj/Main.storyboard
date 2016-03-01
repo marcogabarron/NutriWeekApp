@@ -1471,7 +1471,7 @@
         <!--Edit ItemVC-->
         <scene sceneID="vkn-ak-RLv">
             <objects>
-                <viewController id="jfp-Lu-MSy" userLabel="Edit ItemVC" customClass="SelectedFoodsAdd" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jfp-Lu-MSy" userLabel="Edit ItemVC" customClass="SelectedFoodsAdd" customModule="NutriWeekApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AqT-rK-bZL"/>
                         <viewControllerLayoutGuide type="bottom" id="70t-cW-uL3"/>
@@ -1480,16 +1480,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="13c-H5-4sE">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <color key="barTintColor" red="0.1803921568627451" green="0.63137254901960782" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="jfp-Lu-MSy" id="a6q-9c-0v2"/>
-                                </connections>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Exh-ue-vKx">
-                                <rect key="frame" x="3" y="118" width="369" height="505"/>
+                                <rect key="frame" x="3" y="174" width="369" height="449"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9bx-KR-qKI">
                                     <size key="itemSize" width="120" height="140"/>
@@ -1576,28 +1568,88 @@
                                     <outlet property="delegate" destination="jfp-Lu-MSy" id="EAh-Fi-7CG"/>
                                 </connections>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e3p-mQ-6H4">
+                                <rect key="frame" x="3" y="67" width="369" height="50"/>
+                                <color key="backgroundColor" red="0.95950335259999997" green="0.95705932380000003" blue="0.97827452420000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dJi-KK-hv8"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zdM-Go-WG3">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="SimpleCell" reuseIdentifier="SimpleCell" id="N5P-Ku-1I1" customClass="SimpleCell" customModule="NutriWeekApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SiU-ma-dhR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="SiU-ma-dhR" secondAttribute="height" multiplier="1:1" id="oUx-TI-S18"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="SiU-ma-dhR" firstAttribute="leading" secondItem="N5P-Ku-1I1" secondAttribute="leading" id="AND-n8-mY4"/>
+                                            <constraint firstItem="SiU-ma-dhR" firstAttribute="top" secondItem="N5P-Ku-1I1" secondAttribute="top" id="DUK-BQ-UeT"/>
+                                            <constraint firstAttribute="trailing" secondItem="SiU-ma-dhR" secondAttribute="trailing" id="fZe-JE-ZDv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="image" destination="SiU-ma-dhR" id="U2V-D1-2Sa"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="jfp-Lu-MSy" id="WDV-fB-EGS"/>
+                                    <outlet property="delegate" destination="jfp-Lu-MSy" id="EXV-6Y-SCS"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="13c-H5-4sE">
+                                <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                <color key="barTintColor" red="0.1803921568627451" green="0.63137254901960782" blue="0.29019607843137257" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jfp-Lu-MSy" id="a6q-9c-0v2"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="13c-H5-4sE" firstAttribute="trailing" secondItem="xGX-ay-EeZ" secondAttribute="trailing" id="5U0-ds-hX2"/>
+                            <constraint firstAttribute="trailing" secondItem="e3p-mQ-6H4" secondAttribute="trailing" constant="3" id="B8v-OB-qrl"/>
+                            <constraint firstItem="e3p-mQ-6H4" firstAttribute="top" secondItem="AqT-rK-bZL" secondAttribute="bottom" constant="3" id="RIf-fD-IVO"/>
                             <constraint firstItem="70t-cW-uL3" firstAttribute="top" secondItem="Exh-ue-vKx" secondAttribute="bottom" id="Y7Z-Ws-crO"/>
                             <constraint firstItem="13c-H5-4sE" firstAttribute="top" secondItem="AqT-rK-bZL" secondAttribute="bottom" id="bgr-h4-YDP"/>
+                            <constraint firstItem="e3p-mQ-6H4" firstAttribute="leading" secondItem="xGX-ay-EeZ" secondAttribute="leading" constant="3" id="oLI-aJ-3h7"/>
                             <constraint firstItem="Exh-ue-vKx" firstAttribute="top" secondItem="13c-H5-4sE" secondAttribute="bottom" constant="10" id="sDJ-N3-hHI"/>
                             <constraint firstAttribute="trailing" secondItem="Exh-ue-vKx" secondAttribute="trailing" constant="3" id="sgk-vF-eLG"/>
                             <constraint firstItem="13c-H5-4sE" firstAttribute="leading" secondItem="xGX-ay-EeZ" secondAttribute="leading" id="vHr-7U-2zP"/>
                             <constraint firstItem="Exh-ue-vKx" firstAttribute="leading" secondItem="xGX-ay-EeZ" secondAttribute="leading" constant="3" id="wVx-43-HFe"/>
+                            <constraint firstItem="13c-H5-4sE" firstAttribute="top" secondItem="e3p-mQ-6H4" secondAttribute="bottom" constant="3" id="yJu-oB-HDq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bgr-h4-YDP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="B8g-9M-KOX">
                         <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="JHI-lV-N3u"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="Exh-ue-vKx" id="eab-lp-jDo"/>
-                        <outlet property="saveButton" destination="JHI-lV-N3u" id="sdC-0l-wsP"/>
+                        <outlet property="rememberCollectionView" destination="e3p-mQ-6H4" id="Mvp-8t-0Ms"/>
                         <outlet property="searchBar" destination="13c-H5-4sE" id="Dha-51-F1S"/>
                         <segue destination="3oe-J8-4c6" kind="show" identifier="New" id="tEw-8l-R7X"/>
                     </connections>
@@ -2408,7 +2460,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="y0R-Mn-KcX"/>
-        <segue reference="0MD-79-vIg"/>
+        <segue reference="tEw-8l-R7X"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.18039215689999999" green="0.63137254899999995" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
 </document>
