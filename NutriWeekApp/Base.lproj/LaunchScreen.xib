@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -11,21 +13,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NutriWeekApp" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="107" y="412" width="200" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" red="0.22352941176470589" green="0.61960784313725492" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="highlightedColor" red="0.20217420877135059" green="0.74891493055555558" blue="0.36015772742486524" alpha="0.70999999999999996" colorSpace="calibratedRGB"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauhchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="teb-5F-jhS">
-                    <rect key="frame" x="86" y="184" width="240" height="208"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoV" translatesAutoresizingMaskIntoConstraints="NO" id="teb-5F-jhS">
+                    <rect key="frame" x="61.5" y="143.5" width="289.5" height="289.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="208" id="7Ii-ME-XYk"/>
                         <constraint firstAttribute="width" constant="240" id="7Yt-U8-bGN"/>
+                        <constraint firstAttribute="width" secondItem="teb-5F-jhS" secondAttribute="height" multiplier="1:1" id="C6e-em-8gD"/>
                         <constraint firstAttribute="height" constant="208" id="g0S-3V-P1D"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="7Ii-ME-XYk"/>
+                            <exclude reference="7Yt-U8-bGN"/>
                             <exclude reference="g0S-3V-P1D"/>
                         </mask>
                     </variation>
@@ -33,30 +32,16 @@
             </subviews>
             <color key="backgroundColor" red="0.94901960784313721" green="0.94509803921568625" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="teb-5F-jhS" firstAttribute="width" secondItem="kId-c2-rCX" secondAttribute="width" multiplier="1.2" id="0Rg-mC-rr3"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
+                <constraint firstItem="teb-5F-jhS" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.7" id="Fhy-vb-hC3"/>
                 <constraint firstAttribute="centerX" secondItem="teb-5F-jhS" secondAttribute="centerX" constant="0.5" id="GLB-17-gL4"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="centerY" secondItem="kId-c2-rCX" secondAttribute="centerY" constant="-102" id="XbB-Yx-7XU"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
                 <constraint firstAttribute="centerY" secondItem="teb-5F-jhS" secondAttribute="centerY" constant="80" id="nVl-xV-AaZ"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="teb-5F-jhS" secondAttribute="bottom" constant="20" id="okz-HB-PAD"/>
-                <constraint firstItem="teb-5F-jhS" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" constant="-1" id="zpM-56-C5P"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="5cJ-9S-tgC"/>
-                    <exclude reference="Koa-jz-hwk"/>
-                    <exclude reference="XbB-Yx-7XU"/>
-                    <exclude reference="fvb-Df-36g"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="547.5" y="454.5"/>
         </view>
     </objects>
     <resources>
-        <image name="LauhchScreen" width="299" height="299"/>
+        <image name="logoV" width="551" height="626"/>
     </resources>
 </document>
