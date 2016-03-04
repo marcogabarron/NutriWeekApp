@@ -323,12 +323,12 @@
 {
 "Nome" : "Yogurt",
 "Imagem": "yogurt.jpg",
-"Category": "Liquido"
+"Category": "Leite"
 },
 {
 "Nome" : "Yogurt de morango",
 "Imagem": "yogurtstrawberry.jpg",
-"Category": "Liquido"
+"Category": "Leite"
 },
 {
 "Nome": "Soja cozida",

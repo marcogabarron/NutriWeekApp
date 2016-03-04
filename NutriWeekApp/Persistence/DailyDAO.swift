@@ -124,9 +124,12 @@ class DailyDAO
         let dateEnd = calendar.dateFromComponents(endDateComps)!
         
         
-        
         // Assign predicate
         request.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", dateInit, dateEnd)
+        
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        let sortDescriptors = [sortDescriptor]
+        request.sortDescriptors = sortDescriptors
         
         // Perform search
         //var error: NSErrorPointer = nil
