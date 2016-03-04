@@ -165,7 +165,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="NavigationID" id="8Lj-4B-1Df" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="fill" id="DGO-oT-Vvt">
+                    <tabBar key="tabBar" contentMode="scaleToFill" itemPositioning="centered" itemSpacing="10" itemWidth="120" id="DGO-oT-Vvt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
