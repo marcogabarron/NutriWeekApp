@@ -40,6 +40,8 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
     ///Verify if the choiced image was taked by the user and allows it to be saved
     var newMedia: Bool?
     
+    var popover:UIPopoverController?=nil
+    
     ///tracker and builder - Google Analytics
     let tracker = GAI.sharedInstance().trackerWithTrackingId("UA-70701653-1")
     let builder = GAIDictionaryBuilder.createScreenView()
@@ -164,7 +166,18 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }
         alertCamera.addAction(cancelAction)
         
-        presentViewController(alertCamera, animated: true, completion: nil)
+        // Present the controller
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        {
+            self.presentViewController(alertCamera, animated: true, completion: nil)
+        }
+        else
+        {
+            popover=UIPopoverController(contentViewController: alertCamera)
+//            var frame = CGRectMake(0, sender.frame.origin.y + 10, height, width)
+            popover!.presentPopoverFromRect(sender.frame, inView: self.container, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+
         
     }
     
@@ -200,6 +213,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             self.newMedia = true
             
             
+            
         }
     }
     
@@ -231,6 +245,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         }))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: ""), style: UIAlertActionStyle.Cancel, handler: nil))
+        
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
