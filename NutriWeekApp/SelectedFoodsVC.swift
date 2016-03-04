@@ -167,10 +167,26 @@ class SelectedFoodsVC: UIViewController, UICollectionViewDataSource, UICollectio
         }
         return cell
         }
-        
-        
-  
     
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+            // Present the controller
+            if UIDevice.currentDevice().userInterfaceIdiom != .Phone
+            {
+                if(collectionView == self.collectionView){
+                    return CGSize(width: self.view.frame.width*0.23, height: self.view.frame.width*0.23 + 25)
+                }else{
+                    return CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
+                }
+            }
+            if(collectionView == self.collectionView){
+                return CGSize(width: self.view.frame.width*0.3, height: self.view.frame.width*0.3 + 25)
+            }else{
+                return CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
+            }
     }
     
     /** Select cell **/

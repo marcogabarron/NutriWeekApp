@@ -422,7 +422,7 @@ class AddDailyVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         if ( compResult == CFComparisonResult.CompareEqualTo ) {
             self.addSaveButton()
             
-            editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
+//            editedImage = info[UIImagePickerControllerEditedImage] as! UIImage?
             originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage?
             
             if ( editedImage != nil ) {

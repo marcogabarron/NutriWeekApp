@@ -114,17 +114,33 @@ class DiaryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         return self.allDaily.count
     }
     
+    // MARK: UICollectionViewDelegateFlowLayout
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+            var const: CGFloat = 15
+            if UIDevice.currentDevice().userInterfaceIdiom != .Phone
+            {
+                    const = 95
+            }
+            
             let daily = self.allDaily[indexPath.row]
             
             if(daily.hasImage == false){
-                return CGSizeMake(self.view.frame.width - 15, 100);
+                return CGSizeMake(self.view.frame.width - const, self.view.frame.height/4);
                 
             }
             
-            return CGSizeMake(self.view.frame.width - 15, 300);
+            return CGSizeMake(self.view.frame.width - const, self.view.frame.height*0.4);
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        if UIDevice.currentDevice().userInterfaceIdiom != .Phone
+        {
+            return UIEdgeInsetsMake(10, 90, 10, 90) // margin between cells
+        }
+        
+        return UIEdgeInsetsMake(10, 10, 10, 10) // margin between cells
     }
     
     

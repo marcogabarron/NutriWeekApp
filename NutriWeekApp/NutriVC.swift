@@ -68,6 +68,18 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if UIDevice.currentDevice().userInterfaceIdiom != .Phone
+        {
+            return 50
+        }
+        return 30
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if UIDevice.currentDevice().userInterfaceIdiom != .Phone
+        {
+            return 50
+        }
         return 30
     }
     
@@ -90,13 +102,22 @@ class NutriVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let headerView = UIView()
         headerView.backgroundColor = UIColor(red: 212/255, green: 247/255, blue: 195/255, alpha: 1)
         
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30))
+        var fontSize: CGFloat = 10
+        var heightLabel: CGFloat = 30
+        
+        if UIDevice.currentDevice().userInterfaceIdiom != .Phone
+        {
+            fontSize = 100
+            heightLabel = 50
+        }
+        
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: heightLabel))
         label.autoresizesSubviews = true
-        label.minimumScaleFactor = 0.5
         label.textColor = UIColor(red: 60/255, green: 118/255, blue: 61/255, alpha: 1)
         label.textAlignment = NSTextAlignment.Center
         label.text = NSLocalizedString(self.daysInPt[section], comment: "")
-        label.font = UIFont(name:"Helvetica-SemiBold", size: 10)
+
+        label.font = UIFont(name:"Helvetica-SemiBold", size: fontSize)
         headerView.addSubview(label)
         
         return headerView
